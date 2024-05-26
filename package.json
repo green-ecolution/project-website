@@ -1,13 +1,11 @@
 {
   "name": "project-website",
   "private": true,
-  "version": "v0.0.1",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:dev": "vite build --mode dev",
-    "build:stage": "vite build --mode stage",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
