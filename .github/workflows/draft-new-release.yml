@@ -62,3 +62,48 @@ jobs:
             I've updated the changelog and bumped the versions in the manifest files in this commit: ${{ steps.make-commit.outputs.commit }}.
 
             Merging this PR will create a GitHub release and upload any assets that are created as part of the release build.
+
+
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      actions: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract version
+        run: |
+          VERSION=${{ github.event.inputs.version }}
+
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set lower case owner name
+        run: |
+          echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
+        env:
+          REPO: "${{ github.repository }}"
+
+      - name: Build and push Version
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:lastest
