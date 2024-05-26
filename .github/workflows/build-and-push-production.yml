@@ -3,7 +3,7 @@ name: Build and Push Docker Image Production
 on:
   pull_request:
     branches:
-      - master
+      - main
     types:
       - closed
 
@@ -44,16 +44,16 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Merge master into dev branch
+      - name: Merge main into dev branch
         uses: thomaseizinger/create-pull-request@1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          head: master
+          head: main
           base: dev
-          title: Merge master into dev branch
+          title: Merge main into dev branch
           body: |
-            This PR merges the master branch back into dev.
+            This PR merges the main branch back into dev.
             This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
 
       - name: Checkout code
