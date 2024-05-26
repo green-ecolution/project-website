@@ -1,0 +1,8 @@
+deployment:
+  namespace: green-ecolution-project-website-stage
+  name: project-website-stage
+  replicaCount: 1
+  image:
+    repository: ghcr.io/smartcityflensburg/project-website-stage
+    pullPolicy: Always
+    tag: latest

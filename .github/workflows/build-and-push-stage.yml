@@ -6,7 +6,7 @@ name: Build and Push Docker Image Staging
       - hotfix/*
 
 jobs:
-  build_and_deploy:
+  build_and_deploy_stage:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -16,18 +16,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Extract version from branch name (for release branches)
-        if: startsWith(github.event.pull_request.head.ref, 'release/')
+        if: startsWith(steps.extract_branch.outputs.branch, 'release/')
         run: |
-          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          BRANCH_NAME="${{ steps.extract_branch.outputs.branch }}"
           VERSION=${BRANCH_NAME#release/}
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Extract version from branch name (for hotfix branches)
-        if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
+        if: startsWith(steps.extract_branch.outputs.branch, 'hotfix/')
         run: |
-          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          BRANCH_NAME="${{ steps.extract_branch.outputs.branch }}"
           VERSION=${BRANCH_NAME#hotfix/}
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
@@ -55,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./.docker/Dockerfile.stage
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:lastest

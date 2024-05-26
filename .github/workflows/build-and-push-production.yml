@@ -8,7 +8,7 @@ on:
       - closed
 
 jobs:
-  merge_and_publish:
+  merge_and_publish_prod:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true &&
       (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
@@ -45,17 +45,17 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Merge main into dev branch
+      - name: Merge main into develop branch
         uses: thomaseizinger/create-pull-request@1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           head: main
-          base: dev
-          title: Merge main into dev branch
+          base: develop
+          title: Merge main into develop branch
           body: |
-            This PR merges the main branch back into dev.
-            This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
+            This PR merges the main branch back into develop.
+            This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the develop branch.
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -83,7 +83,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./.docker/Dockerfile.prod
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}:${{ env.RELEASE_VERSION }}, ghcr.io/${{ env.REPO_LC }}:latest
