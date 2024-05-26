@@ -63,7 +63,6 @@ jobs:
 
             Merging this PR will create a GitHub release and upload any assets that are created as part of the release build.
 
-
   build_and_deploy_stage:
     runs-on: ubuntu-latest
     permissions:
