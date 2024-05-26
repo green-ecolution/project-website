@@ -13,9 +13,10 @@ jobs:
     if: github.event.pull_request.merged == true &&
       (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
     permissions:
-      contents: read
+      contents: write
       packages: write
       actions: write
+      pull-requests: write
     steps:
       - name: Extract version from branch name (for release branches)
         if: startsWith(github.event.pull_request.head.ref, 'release/')
