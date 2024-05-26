@@ -22,4 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/SmartCityFlensburg/project-website/compare/v0.0.1...HEAD
 
-[v0.0.1]: https://github.com/SmartCityFlensburg/project-website/compare/0.0.0...v0.0.1
+[v0.0.1]: https://github.com/SmartCityFlensburg/project-website/compare/472d9c0...v0.0.1
