@@ -1,8 +1,9 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image Staging
 "on":
   push:
     branches:
-      - develop
+      - release/*
+      - hotfix/*
 
 jobs:
   build_and_deploy:
@@ -14,6 +15,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Extract version from branch name (for release branches)
+        if: startsWith(github.event.pull_request.head.ref, 'release/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#release/}
+
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Extract version from branch name (for hotfix branches)
+        if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#hotfix/}
+
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -28,7 +45,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: set lower case owner name
+      - name: Set lower case owner name
         run: |
           echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
         env:
@@ -41,4 +58,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ env.REPO_LC }}:latest
+          tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview

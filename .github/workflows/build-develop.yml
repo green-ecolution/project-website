@@ -1,0 +1,25 @@
+name: Build and Test Development
+"on":
+  push:
+    branches:
+      - develop
+
+jobs:
+  build_dev:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      actions: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build dev
+        run: yarn build:dev
