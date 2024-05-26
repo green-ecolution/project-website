@@ -38,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./.docker/Dockerfile.dev
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}-dev:latest
