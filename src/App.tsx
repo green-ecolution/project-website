@@ -18,7 +18,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="w-full flex justify-center pb-36">
+      <div className="w-full flex justify-center mb-10">
         <FakeProgress />
       </div>
     </div>
