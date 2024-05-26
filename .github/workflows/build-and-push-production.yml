@@ -8,7 +8,7 @@ on:
       - closed
 
 jobs:
-  merge_and_publish:
+  merge_and_publish_prod:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true &&
       (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
