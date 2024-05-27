@@ -6,3 +6,15 @@ deployment:
     repository: ghcr.io/smartcityflensburg/project-website-stage
     pullPolicy: Always
     tag: latest
+
+ingress:
+  enabled: true
+  hosts:
+    - host: stage.green-ecolution.de
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          service:
+            name: project-website
+            port: 80
+  tls: []

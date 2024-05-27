@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Extract version from branch name (for release branches)
+      - name: Set commit sha
         run: |
           echo "COMMIT_SHA=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
 
@@ -58,14 +58,14 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'noreply@github.com'
 
-      - name: Bump version in develop/values.yaml
+      - name: Bump version in values/develop.yaml
         run: yq -i '.deployment.image.tag=strenv(COMMIT_SHA)' ./k8s/values/develop.yaml
 
       - name: Commit k8s values files
         id: make-commit
         run: |
           git add ./k8s/values/develop.yaml
-          git commit --message "Update dev image"
+          git commit --message "Update dev image to commit ${{ env.COMMIT_SHA }}"
 
           echo "::set-output name=commit::$(git rev-parse HEAD)"
 
