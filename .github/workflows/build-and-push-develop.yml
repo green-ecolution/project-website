@@ -47,20 +47,6 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}-dev:latest, ghcr.io/${{ env.REPO_LC }}-dev:${{ env.COMMIT_SHA }}
 
-  change_helm_version:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-      actions: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Extract version from branch name (for release branches)
-        run: |
-          echo "COMMIT_SHA=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
-
       - name: "Setup yq"
         uses: dcarbone/install-yq-action@v1.1.1
         with:
@@ -73,7 +59,7 @@ jobs:
           git config user.email github@choffmann.io
 
       - name: Bump version in develop/values.yaml
-        run: yq -i '.deployment.image.tag=strenv(env.COMMIT_SHA)' ./k8s/values/develop.yaml
+        run: yq -i '.deployment.image.tag=strenv(COMMIT_SHA)' ./k8s/values/develop.yaml
 
       - name: Commit k8s values files
         id: make-commit
