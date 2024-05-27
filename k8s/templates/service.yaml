@@ -11,4 +11,4 @@ spec:
       targetPort: {{ .Values.service.targetPort | default .Values.service.port }}
       protocol: {{ .Values.service.protocol | default "TCP"}}
   selector:
-    app: {{ .Values.service.name }}
+    app: {{ .Values.deployment.name }}
