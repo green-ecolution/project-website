@@ -9,7 +9,7 @@ deployment:
 ingress:
   enabled: true
   hosts:
-    - host: develop.green-ecolution.de
+    - host: dev.green-ecolution.de
       paths:
         - path: /
           pathType: ImplementationSpecific
