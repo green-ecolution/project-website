@@ -37,3 +37,29 @@ yarn build # for production environment
 ```
 
 The build will be output to the `dist` directory.
+
+## Deployment
+
+There are three environments for the project:
+
+- Development (Automatically deployed on push to `develop` branch)
+- Staging (Automatically deployed when a new release is drafted)
+- Production (Manually deployed when a new release is published to the `main` branch)
+
+The deployment is done using GitHub Actions and the deployment configuration is located in the `.github/workflows` directory.
+
+For each environment, the deployment workflow will run the following steps:
+
+1. Install the project dependencies
+2. Build the project
+3. Push package to GitHub Package Registry (see [GitHub Package Registry](https://github.com/orgs/SmartCityFlensburg/packages?repo_name=project-website))
+4. Dump version in helm chart values (version tag or commit hash)
+5. Deploy the project to the environment
+
+The deployment is done using Helm and the deployment configuration is located in the `k8s` directory. The deployment configuration is stored in the `k8s/values` directory. Inside the `values` directory, there are three files: `develop.yaml`, `stage.yaml` and `prod.yaml`. The deployment configuration for each environment is stored in the respective file.
+
+Each environment has its own url:
+
+- Development: [https://dev.green-ecolution.de](https://dev.green-ecolution.de)
+- Staging: [https://stage.green-ecolution.de](https://stage.green-ecolution.de)
+- Production: [https://green-ecolution.de](https://green-ecolution.de)
