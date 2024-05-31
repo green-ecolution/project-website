@@ -1,5 +1,14 @@
 # Projekt Website
 
+About the project / repository...
+
+## Tech Stack
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
 ## Set up the project
 
 ### Requirements
