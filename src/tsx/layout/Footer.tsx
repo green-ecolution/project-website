@@ -12,10 +12,10 @@ function Footer() {
                     Ut cillum minim eu duis cupidatat culpa proident voluptate sint aute mollit nulla velit voluptate.
                     Consequat occaecat adipisicing culpa.
                 </p>
-                <div className="flex flex-wrap gap-x-6 mt-8">
-                    <Button href="https://github.com/SmartCityFlensburg" ariaLabel="Besuche uns auf GitHub">
+                <div className="flex flex-wrap gap-6 mt-8">
+                    <Button href="mailto:" ariaLabel="Kontaktiere uns gern per Mail">
                         <img
-                            src="/assets/svg/socials/github.svg"
+                            src="/assets/svg/socials/mail.svg"
                             className="w-6 h-6" alt="" loading="lazy"/>
                         <span>Kontakt</span>
                     </Button>
