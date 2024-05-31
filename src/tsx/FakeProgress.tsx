@@ -225,7 +225,7 @@ const FakeProgress = ({ }: FakeProgressProps) => {
     <div className="flex flex-col items-center justify-center w-full sm:w-1/2 px-4">
       <div className="relative w-full sm:w-3/4 h-2 sm:h-2 bg-gray-300 rounded-full overflow-hidden">
         <div
-          className="absolute left-0 top-0 h-full bg-blue-500 transition-all duration-100 ease-linear"
+          className="absolute left-0 top-0 h-full bg-green-middle-900 transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
