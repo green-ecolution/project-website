@@ -5,7 +5,7 @@ deployment:
   image:
     repository: ghcr.io/smartcityflensburg/project-website-dev
     pullPolicy: Always
-    tag: "69581a8"
+    tag: "ef7a454"
 ingress:
   enabled: true
   hosts:
