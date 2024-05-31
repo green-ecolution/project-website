@@ -19,7 +19,7 @@ function Footer() {
                             className="w-6 h-6" alt="" loading="lazy"/>
                         <span>Kontakt</span>
                     </Button> */}
-                    <Button href="https://github.com/SmartCityFlensburg" ariaLabel="Besuche uns auf GitHub">
+                    <Button href="https://github.com/SmartCityFlensburg" ariaLabel="Besuche uns auf GitHub" isExternalLink>
                         <img
                             src="/assets/svg/socials/github.svg"
                             className="w-6 h-6" alt="" loading="lazy"/>
