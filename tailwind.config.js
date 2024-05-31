@@ -43,8 +43,8 @@ export default {
     },
     extend: {
         backgroundImage: {
-            'background-footer-mobile': "url('/public/assets/svg/background/footer-mobile.svg')",
-            'background-footer-desktop': "url('/public/assets/svg/background/footer-desktop.svg')",
+            'background-footer-mobile': "url('/assets/svg/background/footer-mobile.svg')",
+            'background-footer-desktop': "url('/assets/svg/background/footer-desktop.svg')",
         },
         screens: {
             '3xl': '1920px',
