@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './index.html', 
+    './index.html',
     './src/**/*.{js,ts,jsx,tsx,css}',
   ],
   theme: {
@@ -41,7 +41,15 @@ export default {
       '6xl': ['2.25rem', '1.33'], // 36px
       '7xl': ['3rem', '1.25'], // 48px
     },
-    extend: {},
+    extend: {
+        backgroundImage: {
+            'background-footer-mobile': "url('/public/assets/svg/background/footer-mobile.svg')",
+            'background-footer-desktop': "url('/public/assets/svg/background/footer-desktop.svg')",
+        },
+        screens: {
+            '3xl': '1920px',
+        }
+    },
   },
   plugins: [],
 };
