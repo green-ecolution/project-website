@@ -10,7 +10,7 @@ function App() {
                 alt="Green Ecolution Logo"
                 className="w-24 h-24 sm:w-32 sm:h-32"
             />
-            <h1 className="text-4xl sm:text-8xl font-bold text-center">
+            <h1 className="text-5xl sm:text-7xl font-bold text-center">
                 Green Ecolution
             </h1>
             <p className="text-lg sm:text-2xl font-semibold text-center">
