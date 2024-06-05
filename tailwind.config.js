@@ -52,6 +52,9 @@ export default {
         spacing: {
             '18': '4.5rem',
         },
+        boxShadow: {
+            'mainNav': '-4px 0px 20px 8px rgba(0,0,0,0.1)',
+        },
     },
   },
   plugins: [],
