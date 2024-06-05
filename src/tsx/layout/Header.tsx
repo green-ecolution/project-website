@@ -1,12 +1,11 @@
 import * as React from 'react';
 import MainNavigation from '../components/navigation/MainNavigation';
 
-
 function Header() {
     const [open, setOpen] = React.useState(false);
 
-    function toggleNavigation() {
-        setOpen(!open);
+    function toggleNavigation(state: boolean) {
+        setOpen(state);
     }
 
     React.useEffect(() => {
@@ -30,9 +29,9 @@ function Header() {
     }, [open]);
 
     return (
-        <header className={`fixed w-screen inset-x-0 top-0 z-50 bg-white/75 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none ${open ? 'before:visible before:opacity-20' : 'before:opacity-0 before:invisible'}`}>
+        <header className={`fixed w-screen inset-x-0 top-0 z-50 bg-white/75 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}`}>
             <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 2xl:max-w-screen-xl">
-                <a href="/" aria-label="Zur Startseite navigieren" className="flex items-center gap-x-4 xl:gap-x-5">
+                <a href="/" aria-label="Zur Startseite navigieren" className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}>
                     <img
                         src="/assets/svg/logo/logo-large-color.svg"
                         className="w-24 xl:w-28" alt="Green Ecolution Logo"/>
@@ -42,18 +41,19 @@ function Header() {
                 </a>
 
                 <button
+                    id="main-navigation-toggle"
                     aria-expanded={open}
                     aria-controls="main-navigation"
                     aria-haspopup="menu"
                     aria-label="Hauptnavigation öffnen"
                     className="relative w-10 h-10 p-2 z-50 group lg:hidden"
-                    onClick={toggleNavigation}
+                    onClick={() => toggleNavigation(!open)}
                 >
                     <span className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white rotate-45 absolute' : 'bg-grey-900 mb-1'}`}></span>
                     <span className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white -rotate-45 absolute' : 'bg-grey-900 mb-1'}`}></span>
                 </button>
 
-                <MainNavigation isOpen={open}/>
+                <MainNavigation isOpen={open} onClose={() => toggleNavigation(false)}/>
             </div>
         </header>
     );

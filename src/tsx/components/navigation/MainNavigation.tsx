@@ -1,14 +1,24 @@
 import * as React from 'react';
 import NavItem from './NavItem';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 interface MainNavigationProps {
     isOpen: boolean;
+    onClose: () => void;
 }
 
-const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen }) => {
+const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
+
+    const ref = useOutsideClick(() => {
+        if (event.target !== document.getElementById('main-navigation-toggle')) {
+            onClose();
+        }
+    });
+
     return (
         <nav
             id="main-navigation"
+            ref={ref}
             aria-label="Hauptnavigation"
             className={`fixed inset-y-2 px-4 w-[60vw] z-10 bg-grey-900 max-w-96 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
         >
