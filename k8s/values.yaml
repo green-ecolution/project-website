@@ -1,13 +1,13 @@
 deployment:
-  annotations: {}
-  labels: {}
-  namespace: green-ecolution-project-website
-  name: project-website
-  replicaCount: 1
-  image:
-    repository: ghcr.io/smartcityflensburg/project-website
-    pullPolicy: Always
-    tag: latest
+    annotations: {}
+    labels: {}
+    namespace: project-website
+    name: project-website
+    replicaCount: 1
+    image:
+        repository: ghcr.io/smartcityflensburg/project-website
+        pullPolicy: Always
+        tag: latest
 
 imagePullSecrets: []
 nameOverride: ""
@@ -21,41 +21,43 @@ podSecurityContext: {}
 securityContext: {}
 
 service:
-  name: project-website
-  type: ClusterIP
-  port: 80
-  protocol: TCP
+    name: project-website
+    type: ClusterIP
+    port: 80
+    protocol: TCP
 
 ingress:
-  name: project-website
-  enabled: true
-  className: "traefik"
-  annotations: 
-    - "kubernetes.io/ingress.class: traefik"
-  hosts:
-    - host: green-ecolution.de
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-          service:
-            name: project-website
-            port: 80
-  tls: []
+    enabled: false
+    name: project-website-ingress
+    className: "traefik"
+    annotations:
+        cert-manager.io/cluster-issuer: cert-manager
+        kubernetes.io/ingress.class: traefik
+    hosts:
+        - name: green-ecolution.de
+          paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                    serviceName: project-website
+                    servicePort: 80
+    tls:
+        enabled: true
+        secretName: green-ecolution-de-tls
 
 resources: {}
 
 livenessProbe:
-  httpGet:
-    path: /
-    port: http
+    httpGet:
+        path: /
+        port: http
 
 readinessProbe:
-  httpGet:
-    path: /
-    port: http
+    httpGet:
+        path: /
+        port: http
 
 volumes: []
 volumeMounts: []
 
 nodeSelector: {}
-
