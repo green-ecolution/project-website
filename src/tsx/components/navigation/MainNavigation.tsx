@@ -9,10 +9,12 @@ interface MainNavigationProps {
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
 
-    const ref = useOutsideClick(() => {
-        if (event.target !== document.getElementById('main-navigation-toggle')) {
-            onClose();
+    const ref = useOutsideClick((event: MouseEvent) => {
+        const toggleElement = document.getElementById('main-navigation-toggle');
+        if (toggleElement && (event.target === toggleElement || toggleElement.contains(event.target as Node))) {
+            return;
         }
+        onClose();
     });
 
     return (
