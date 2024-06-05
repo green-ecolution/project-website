@@ -17,7 +17,7 @@ export default {
           '900': '#659858',
         },
         'dark': {
-          '900': '#659858',
+          '900': '#4C7741',
         },
       },
       'grey': {
@@ -48,7 +48,10 @@ export default {
         },
         screens: {
             '3xl': '1920px',
-        }
+        },
+        spacing: {
+            '18': '4.5rem',
+        },
     },
   },
   plugins: [],
