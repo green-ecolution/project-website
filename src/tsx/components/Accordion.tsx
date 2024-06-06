@@ -23,13 +23,6 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
         }
     }, [open]);
 
-    React.useEffect(() => {
-        function handleResize() { setOpen(false) }
-        window.addEventListener('resize', handleResize);
-
-        return () => { window.removeEventListener('resize', handleResize) };
-    }, []);
-
     return (
         <li className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
             <summary
