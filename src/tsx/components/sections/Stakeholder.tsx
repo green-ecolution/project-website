@@ -1,9 +1,9 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import CompanyCard from '../CompanyCard';
+import StakeholderCard from '../StakeholderCard';
 
-function InvolvedParties() {
-    const parties = [
+function Stakeholder() {
+    const stakeholder = [
         {
             label: "Hochschule Flensburg",
             url: "https://hs-flensburg.de/",
@@ -14,7 +14,7 @@ function InvolvedParties() {
             label: "Smarte Grenzregion",
             url: "https://smarte-grenzregion.de/",
             image: "/assets/images/logo/smarte-grenzregion.png",
-            description: "Occaecat sit anim nulla enim mollit elit in aliquip. Eu incididunt laboris voluptate adipisicing eiusmod veniam officia eiusmod tempor ess."
+            description: "Occaecat sit anim nulla enim mollit elit in aliquip. Eu incididunt laboris voluptate adipisicing."
         },
         {
             label: "TBZ Flensburg",
@@ -39,13 +39,13 @@ function InvolvedParties() {
         </div>
 
         <Splide options={{ rewind: true, arrows: false, }} aria-label="React Splide Example">
-            {parties.map((party, index) => (
-                <SplideSlide key={index}>
-                    <CompanyCard label={party.label} url={party.url} image={party.image}>
-                    <p className="my-4 md:my-5">
-                        {party.description}
-                    </p>
-                    </CompanyCard>
+            {stakeholder.map((company, index) => (
+                <SplideSlide key={index} className="pb-10 px-4 md:px-6">
+                    <StakeholderCard label={company.label} url={company.url} image={company.image}>
+                        <p className="my-4 md:my-5">
+                            {company.description}
+                        </p>
+                    </StakeholderCard>
                 </SplideSlide>
             ))}
       </Splide>
@@ -53,4 +53,4 @@ function InvolvedParties() {
   );
 }
 
-export default InvolvedParties;
+export default Stakeholder;

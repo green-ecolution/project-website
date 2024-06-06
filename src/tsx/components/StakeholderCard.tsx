@@ -1,23 +1,25 @@
 import React, { ReactNode } from 'react';
 import Arrow from '../icons/Arrow';
 
-interface CompanyCardProps {
+interface StakeholderCardProps {
     label: string;
     url: string;
     image: string;
     children: ReactNode;
 }
 
-const CompanyCard: React.FC<CompanyCardProps> = ({ label, url, image, children }) => {
+const StakeholderCard: React.FC<StakeholderCardProps> = ({ label, url, image, children }) => {
     return (
-        <figure className="cursor-pointer mx-4 mb-10 bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:mx-6 md:p-8 md:grid md:grid-cols-[15rem,auto] md:gap-x-12 md:items-center">
+        <figure className="h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:p-8 md:grid md:grid-cols-[15rem,auto] md:gap-x-12 md:items-center">
             <img
                 src={image}
-                className="object-contain w-44 mx-auto" alt={`Logo ${label}`}/>
+                className="object-contain max-w-64 h-32 mx-auto" alt={`Logo ${label}`}/>
 
             <figcaption className="mt-10 md:mt-0">
                 <h3 className="font-lato font-semibold text-lg">{label}</h3>
+
                 {children}
+
                 <a
                     href={url}
                     target="_blank"
@@ -33,4 +35,4 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ label, url, image, children }
     );
 };
 
-export default CompanyCard;
+export default StakeholderCard;

@@ -1,10 +1,10 @@
 import Faq from "./components/sections/Faq";
-import InvolvedParties from "./components/sections/InvolvedParties";
+import Stakeholder from "./components/sections/Stakeholder";
 
 function App() {
   return (
     <div>
-        <InvolvedParties />
+        <Stakeholder />
         <Faq />
     </div>
   );
