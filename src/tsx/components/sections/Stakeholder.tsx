@@ -1,4 +1,5 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { i18nTranslated } from '../../helper/sliderTranslations';
 import '@splidejs/react-splide/css';
 import StakeholderCard from '../StakeholderCard';
 
@@ -23,20 +24,6 @@ function Stakeholder() {
             description: "Occaecat sit anim nulla enim mollit elit in aliquip. Eu incididunt laboris voluptate adipisicing eiusmod veniam officia eiusmod tempor ess."
         }
     ];
-
-    const i18nTranslated = {
-        prev: 'Vorheriges Element anzeigen',
-        next: 'Nächstes Element anzeigen',
-        first: 'Erstes Element anzeigen',
-        last: 'Letztes Element anzeigen',
-        slideX: 'Zu Seite %s springen',
-        pageX: 'Zu Seite %s springen',
-        carousel: 'Slider',
-        select: 'Paginierung der Elemente',
-        slide: 'Slider Element',
-        slideLabel: '%s von %s',
-    };
-
 
   return (
     <section className="max-w-208 mx-auto my-28 lg:my-36 xl:my-44">

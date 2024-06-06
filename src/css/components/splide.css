@@ -1,3 +1,4 @@
+/* Override default styles from splide slider package */
 .splide__pagination {
     @apply bottom-0 lg:-bottom-4 !important;
 }
@@ -8,4 +9,8 @@
 
 .splide__pagination .splide__pagination__page.is-active {
     @apply bg-green-dark-900 scale-100 !important;
+}
+
+.splide__pagination__page:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-green-light-900 !important;
 }
