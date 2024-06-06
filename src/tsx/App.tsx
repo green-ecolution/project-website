@@ -1,4 +1,5 @@
-import Faq from "./components/Faq";
+import Faq from "./components/sections/Faq";
+import InvolvedParties from "./components/sections/InvolvedParties";
 import FakeProgress from "./FakeProgress";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <FakeProgress />
         </div>
         </div>
+        <InvolvedParties />
         <Faq />
     </div>
   );
