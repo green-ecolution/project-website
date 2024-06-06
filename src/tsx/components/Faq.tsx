@@ -6,7 +6,7 @@ function Faq() {
         <h2 className="font-lato font-bold text-center text-2xl mb-6 lg:mb-10 lg:text-3xl">
             Oft gestellte Fragen zu Green Ecolution
         </h2>
-        <div className="flex flex-col gap-y-4 md:gap-y-6">
+        <ul className="flex flex-col gap-y-4 md:gap-y-6">
             <Accordion label="Wer steckt hinter dem Projekt Green Ecolution?">
                 <p className="mb-4">
                     Do do ex aliquip est voluptate Lorem est fugiat amet consectetur veniam irure enim id.
@@ -53,7 +53,7 @@ function Faq() {
                     Est minim fugiat amet non.
                 </p>
             </Accordion>
-        </div>
+        </ul>
     </section>
   );
 }
