@@ -33,11 +33,11 @@ Vite is used for the development server. To start the development server, run th
 yarn dev
 ```
 
-Vite will start a development server at `http://localhost:5173`. Add the `--host' tag to the command to allow access to the server from other devices on the same network.
+Vite will start a development server at `http://localhost:5173`. Add the `--host` tag to the command to allow access to the server from other devices on the same network.
 
 ### Building the project
 
-There are three build modes: `develop', `stage' and `production'. To build the project in one of the build modes, run the following command:
+There are three build modes: `develop`, `stage` and `production`. To build the project in one of the build modes, run the following command:
 
 ```bash
 yarn build:dev # for development environment
