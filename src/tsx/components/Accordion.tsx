@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useRef, useEffect } from 'react';
 
 interface AccordionProps {
     label: string;
@@ -6,15 +6,30 @@ interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [maxHeight, setMaxHeight] = useState('0px');
+    const contentRef = useRef<HTMLDivElement>(null);
 
-    function toggleAccordion() {
+    const toggleAccordion = () => {
         setOpen(!open);
-    }
+    };
+
+    useEffect(() => {
+        if (contentRef.current) {
+            if (open) {
+                // Set to the natural height
+                setMaxHeight(`${contentRef.current.scrollHeight + 40}px`);
+            } else {
+                // Set to a high value, then transition to 0px
+                setMaxHeight(`${contentRef.current.scrollHeight + 40}px`);
+                setTimeout(() => setMaxHeight('0px'), 0);
+            }
+        }
+    }, [open]);
 
     return (
-        <details className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
-            <summary
+        <div className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
+            <div
                 aria-expanded={open}
                 className={`px-4 py-3 rounded-t-2xl cursor-pointer flex items-center justify-between gap-x-4 font-semibold font-lato transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 ${open ? 'bg-green-light-900/10' : ''}`}
                 onClick={toggleAccordion}
@@ -27,12 +42,16 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
                 </figure>
-            </summary>
-            <div className={`px-4 py-3 border-t md:px-6 md:py-4 ${open ? 'border-t-green-light-900' : 'border-t-green-dark-900'}`}>
+            </div>
+            <div
+                ref={contentRef}
+                style={{ maxHeight }}
+                className={`overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
+            >
                 {children}
             </div>
-        </details>
+        </div>
     );
-}
+};
 
 export default Accordion;
