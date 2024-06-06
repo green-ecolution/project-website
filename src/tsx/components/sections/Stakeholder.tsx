@@ -24,6 +24,20 @@ function Stakeholder() {
         }
     ];
 
+    const i18nTranslated = {
+        prev: 'Vorheriges Element anzeigen',
+        next: 'Nächstes Element anzeigen',
+        first: 'Erstes Element anzeigen',
+        last: 'Letztes Element anzeigen',
+        slideX: 'Zu Seite %s springen',
+        pageX: 'Zu Seite %s springen',
+        carousel: 'Slider',
+        select: 'Paginierung der Elemente',
+        slide: 'Slider Element',
+        slideLabel: '%s von %s',
+    };
+
+
   return (
     <section className="max-w-208 mx-auto my-28 lg:my-36 xl:my-44">
         <div className="px-4 mb-8 md:px-6 lg:mb-14">
@@ -38,7 +52,7 @@ function Stakeholder() {
             </article>
         </div>
 
-        <Splide options={{ rewind: true, arrows: false, }} aria-label="React Splide Example">
+        <Splide options={{ rewind: true, arrows: false, i18n: i18nTranslated, }} aria-label="React Splide Example">
             {stakeholder.map((company, index) => (
                 <SplideSlide key={index} className="pb-10 px-4 md:px-6">
                     <StakeholderCard label={company.label} url={company.url} image={company.image}>
