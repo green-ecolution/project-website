@@ -62,7 +62,7 @@ function Stakeholder() {
                     </StakeholderCard>
                 </SplideSlide>
             ))}
-      </Splide>
+        </Splide>
     </section>
   );
 }
