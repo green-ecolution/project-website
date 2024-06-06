@@ -1,6 +1,6 @@
 # Projekt Website
 
-About the project / repository...
+This repository contains the source code for the Green Ecolution project website. The website is built using React and Tailwind CSS. The project is built using Vite and TypeScript. The website is deployed using GitHub Actions and Helm. The deployment is done on a Kubernetes cluster. The site is deployed to three environments: Development, Staging and Production.
 
 ## Tech Stack
 
