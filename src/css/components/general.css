@@ -1,0 +1,11 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+details > summary {
+    @apply list-none;
+}
+
+details > summary::-webkit-details-marker {
+    @apply hidden;
+}

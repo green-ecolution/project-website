@@ -37,9 +37,9 @@ export default {
       'xl': ['1.25rem', '1.55'], // 20px
       '2xl': ['1.5rem', '1.35'], // 24px
       '3xl': ['1.75rem', '1.43'], // 28px
-      '5xl': ['2rem', '1.33'], // 32px
-      '6xl': ['2.25rem', '1.33'], // 36px
-      '7xl': ['3rem', '1.25'], // 48px
+      '4xl': ['2rem', '1.33'], // 32px
+      '5xl': ['2.25rem', '1.33'], // 36px
+      '6xl': ['3rem', '1.25'], // 48px
     },
     extend: {
         backgroundImage: {
@@ -51,6 +51,7 @@ export default {
         },
         spacing: {
             '18': '4.5rem',
+            '208': '52rem',
         },
         boxShadow: {
             'mainNav': '-4px 0px 20px 8px rgba(0,0,0,0.1)',
