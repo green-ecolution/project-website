@@ -22,7 +22,15 @@ function Faq() {
                     In culpa commodo commodo aute cillum ex elit. Esse aliquip labore elit consequat.
                 </p>
             </Accordion>
-            <Accordion label="Wer steckt hinter dem Projekt Green Ecolution?">
+            <Accordion label="Welchen Mehrwert bietet das Projekt?">
+                <p>
+                    Do do ex aliquip est voluptate Lorem est fugiat amet consectetur veniam irure enim id.
+                    Officia deserunt dolor sint aliquip.
+                    Cupidatat consequat consequat aute sint. Cupidatat fugiat tempor cupidatat cillum in officia anim voluptate cillum mollit.
+                    Est minim fugiat amet non.
+                </p>
+            </Accordion>
+            <Accordion label="Was bedeutet das, dass das Projekt öffentlich zugänglich ist?">
                 <p className="mb-4">
                     Do do ex aliquip est voluptate Lorem est fugiat amet consectetur veniam irure enim id.
                     Officia deserunt dolor sint aliquip.
@@ -35,6 +43,14 @@ function Faq() {
                     Qui eu irure reprehenderit anim sint deserunt consequat elit in excepteur aliquip excepteur tempor.
                     Velit adipisicing Lorem nostrud consectetur proident ut. Tempor deserunt laboris tempor dolor dolore ad voluptate.
                     In culpa commodo commodo aute cillum ex elit. Esse aliquip labore elit consequat.
+                </p>
+            </Accordion>
+            <Accordion label="Welche Sensoren werden verwendet?">
+                <p>
+                    Do do ex aliquip est voluptate Lorem est fugiat amet consectetur veniam irure enim id.
+                    Officia deserunt dolor sint aliquip.
+                    Cupidatat consequat consequat aute sint. Cupidatat fugiat tempor cupidatat cillum in officia anim voluptate cillum mollit.
+                    Est minim fugiat amet non.
                 </p>
             </Accordion>
         </div>
