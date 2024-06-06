@@ -7,26 +7,24 @@ interface AccordionProps {
 
 const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
     const [open, setOpen] = useState(false);
-    const [maxHeight, setMaxHeight] = useState('0px');
-    const contentRef = useRef<HTMLDivElement>(null);
+    const [maxHeight, setMaxHeight] = useState('auto');
+    const accordionPanel = useRef<HTMLDivElement>(null);
 
     const toggleAccordion = () => {
         setOpen(!open);
     };
 
     useEffect(() => {
-        if (contentRef.current) {
-            if (open) {
-                setMaxHeight(`${contentRef.current.scrollHeight + 40}px`);
-            } else {
-                setMaxHeight(`${contentRef.current.scrollHeight + 40}px`);
-                setTimeout(() => setMaxHeight('0px'), 0);
-            }
+        if (! accordionPanel.current) return;
+        setMaxHeight(`${accordionPanel.current.scrollHeight + 40}px`);
+
+        if (! open) {
+            setTimeout(() => setMaxHeight('0px'), 0);
         }
     }, [open]);
 
     return (
-        <details className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
+        <li className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
             <summary
                 aria-expanded={open}
                 className={`px-4 py-3 rounded-t-2xl cursor-pointer flex items-center justify-between gap-x-4 font-semibold font-lato transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 ${open ? 'bg-green-light-900/10' : ''}`}
@@ -42,13 +40,13 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
                 </figure>
             </summary>
             <div
-                ref={contentRef}
+                ref={accordionPanel}
                 style={{maxHeight}}
-                className={`overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
+                className={`text-base leading-relaxed overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
             >
                 {children}
             </div>
-        </details>
+        </li>
     );
 };
 
