@@ -1,8 +1,10 @@
+import Faq from "./components/Faq";
 import FakeProgress from "./FakeProgress";
 
 function App() {
   return (
-    <div className="bg-gray-100 min-h-screen w-full flex flex-col justify-between">
+    <div>
+        <div className="bg-gray-100 min-h-screen w-full flex flex-col justify-between">
         <div className="flex flex-col justify-center items-center flex-grow">
             <div className="flex flex-col justify-center items-center gap-4 w-full px-4">
             <img
@@ -21,6 +23,8 @@ function App() {
         <div className="w-full flex justify-center mb-10">
             <FakeProgress />
         </div>
+        </div>
+        <Faq />
     </div>
   );
 }
