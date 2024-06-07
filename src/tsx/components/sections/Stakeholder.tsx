@@ -27,19 +27,22 @@ function Stakeholder() {
 
   return (
     <section className="max-w-208 mx-auto my-28 lg:my-36 xl:my-44">
-        <div className="px-4 mb-8 md:px-6 lg:mb-14">
+        <article className="px-4 mb-8 md:px-6 lg:mb-14">
             <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                 Wer sind die Beteiligten?
             </h2>
-            <article>
+            <p>
                 Id commodo eiusmod est culpa voluptate duis ipsum sint reprehenderit cupidatat elit qui enim.
                 Culpa exercitation sunt nisi magna tempor est ut duis consectetur consectetur pariatur irure ea aliqua.
                 Incididunt voluptate ad adipisicing excepteur laborum voluptate ut deserunt deserunt cillum mollit.
                 Ea sit nulla occaecat proident cupidatat laborum. Ipsum esse elit cillum tempor in consequat duis ullamco.
-            </article>
-        </div>
+            </p>
+        </article>
 
-        <Splide options={{ rewind: true, arrows: false, i18n: i18nTranslated, }} aria-label="React Splide Example">
+        <Splide
+            options={{ rewind: true, arrows: false, i18n: i18nTranslated, }}
+            aria-label="Beteiligten am Projekt"
+        >
             {stakeholder.map((company, index) => (
                 <SplideSlide key={index} className="pb-10 px-4 md:px-6">
                     <StakeholderCard label={company.label} url={company.url} image={company.image}>

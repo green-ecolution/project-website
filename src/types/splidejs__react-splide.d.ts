@@ -28,6 +28,8 @@ declare module '@splidejs/react-splide' {
         focus?: number | 'center';
         cloneStatus?: boolean;
         clones?: number;
+        mediaQuery?: string;
+        destroy?: boolean;
         breakpoints?: {
             [key: string]: SplideOptions;
         };
