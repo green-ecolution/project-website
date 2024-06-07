@@ -27,8 +27,10 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
         <li className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
             <summary
                 aria-expanded={open}
-                className={`px-4 py-3 rounded-t-2xl cursor-pointer flex items-center justify-between gap-x-4 font-semibold font-lato transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 ${open ? 'bg-green-light-900/10' : ''}`}
+                tabIndex={0}
+                className={`px-4 py-3 rounded-t-2xl cursor-pointer flex items-center justify-between gap-x-4 font-semibold font-lato transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 ${open ? 'bg-green-light-900/10' : 'rounded-b-2xl'}`}
                 onClick={toggleAccordion}
+                onKeyDown={(e) => { if (e.key === "Enter") toggleAccordion() }}
             >
                 <h3 className="w-[85%] lg:text-lg">{label}</h3>
                 <figure
@@ -42,7 +44,7 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
             <div
                 ref={accordionPanel}
                 style={{maxHeight}}
-                className={`text-base leading-relaxed overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
+                className={`max-h-0 text-base leading-relaxed overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
             >
                 {children}
             </div>
