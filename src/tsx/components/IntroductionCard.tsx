@@ -8,7 +8,7 @@ interface IntroductionCardProps {
 
 const IntroductionCard: React.FC<IntroductionCardProps> = ({ label, icon, description }) => {
     return (
-        <div className="h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100">
+        <div className="h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 xl:cursor-default">
             <figure className="bg-green-light-900/25 w-12 h-12 rounded-full flex items-center justify-center">
                 <img
                     src={icon}
