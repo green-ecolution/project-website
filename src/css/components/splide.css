@@ -1,4 +1,12 @@
 /* Override default styles from splide slider package */
+.splide.splide--grid > .splide__track {
+    @apply lg:pb-7 !important;
+}
+
+.splide.splide--grid > .splide__track > .splide__list {
+    @apply xl:grid xl:grid-cols-2 xl:gap-x-6 xl:gap-y-8 !important;
+}
+
 .splide__pagination {
     @apply bottom-0 lg:-bottom-4 !important;
 }
