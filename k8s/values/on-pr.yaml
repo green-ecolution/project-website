@@ -1,0 +1,25 @@
+deployment:
+  namespace: project-website-pr
+  name: project-website-pr
+  replicaCount: 1
+  image:
+    repository: ghcr.io/smartcityflensburg/project-website-dev
+    pullPolicy: Always
+    tag: "latest"
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    cert-manager.io/cluster-issuer: cert-manager
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - name: pr.website.dev.green-ecolution.de
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            serviceName: project-website
+            servicePort: 80
+  tls:
+    enabled: true
+    secretName: dev-green-ecolution-de-tls
