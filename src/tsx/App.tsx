@@ -5,6 +5,7 @@ import Stakeholder from "./components/sections/Stakeholder";
 function App() {
   return (
     <div>
+        <p>Dies ist ein Test</p>
         <Introduction />
         <Stakeholder />
         <Faq />
