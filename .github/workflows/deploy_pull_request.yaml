@@ -1,4 +1,4 @@
-name: 'Deploy Pull Request'
+name: "Deploy Pull Request"
 on:
   pull_request:
     types: [labeled]
@@ -53,11 +53,12 @@ jobs:
 
       - name: Change values in on-pr.yaml
         run: |
-          yq eval '.ingress.hosts[0].name = "pr-${{ github.event.number }}.website.dev.green-ecolution.de"' ./k8s/values/on-pr.yaml > ./k8s/values/on-pr.yaml.tmp
-          yq eval '.deployment.image.tag = "pr-${{ github.event.number }}"' ./k8s/values/on-pr.yaml.tmp > ./k8s/values/on-pr.yaml.tmp
-          yq eval '.deployment.name = project-website-pr-${{ github.event.number }}' ./k8s/values/on-pr.yaml.tmp > ./k8s/values/on-pr.yaml.tmp
-          yq eval '.deployment.namespace = project-website-pr-${{ github.event.number }}' ./k8s/values/on-pr.yaml.tmp > ./k8s/values/on-pr.yaml
-          mv ./k8s/values/on-pr.yaml.tmp ./k8s/values/on-pr.yaml
+          yq -i '
+          .ingress.hosts[0].name = "pr-${{ github.event.number }}.website.dev.green-ecolution.de" |
+          .deployment.image.tag = "pr-${{ github.event.number }}" |
+          .deployment.name = "project-website-pr-${{ github.event.number }}" |
+          .deployment.namespace = "project-website-pr-${{ github.event.number }}"
+          ' ./k8s/values/on-pr.yaml
 
       - name: Kubernetes login
         uses: actions-hub/kubectl@master
