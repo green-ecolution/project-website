@@ -14,10 +14,11 @@ interface ProcessCardProps {
 const ProcessCard: React.FC<ProcessCardProps> = ({ label, shortName, index, activeStep, maxIndex, description, isCurrent = false, isCompleted = false }) => {
     return (
         <div className="relative">
-            <article className={`h-full p-6 mb-6 cursor-pointer shadow-md rounded-2xl mx-4 border md:mx-6 xl:max-w-[28rem] xl:mx-auto xl:h-auto xl:cursor-default
+            <article className={`h-full p-6 mb-6 cursor-pointer shadow-md rounded-2xl mx-4 border md:mx-6 xl:max-w-[32rem] xl:h-auto xl:cursor-default
                 ${isCurrent && !isCompleted ? 'bg-green-light-900/10 border-green-light-900' : ''}
                 ${isCompleted && !isCurrent ? 'border-green-dark-900 bg-white' : ''}
                 ${!isCompleted && !isCurrent ? 'border-grey-100  bg-white' : ''}
+                ${index % 2 !== 0 ? 'xl:ml-auto' : ''}
                 ${index + 1 === maxIndex ? 'xl:mb-2' : 'xl:mb-0'}`}
             >
                 <span className="text-sm">
