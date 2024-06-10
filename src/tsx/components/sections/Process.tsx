@@ -62,7 +62,7 @@ function Process() {
 
             <Splide
                 options={{ rewind: true, arrows: false, pagination: false, i18n: i18nTranslated, mediaQuery: 'min', breakpoints: breakpoints, start: activeStep }}
-                aria-label="Fakten zum Grünflächenmanagement"
+                aria-label="Der aktuelle Projektfortschritt"
                 className="md:px-2 xl:mx-auto xl:max-w-screen-lg 2xl:max-w-screen-xl"
             >
                 {steps.map((step, index) => (
