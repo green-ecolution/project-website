@@ -58,11 +58,15 @@ jobs:
           .deployment.image.tag = "pr-${{ github.event.number }}" |
           .deployment.name = "project-website-pr-${{ github.event.number }}" |
           .deployment.namespace = "project-website-pr-${{ github.event.number }}"
-          ' ./k8s/values/on-pr.yaml
+          ' ./k8s/values/develop.yaml
+
+      - name: Kubernetes login
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Install Helm Chart
-        env:
-          KUBECONFIG: ${{ secrets.KUBE_CONFIG }} | base64 -d
         run: |
           helm upgrade project-website-pr-${{ github.event.number }} ./k8s \
           --install \
@@ -78,4 +82,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: |
-            "Deployment of PR #${{ github.event.number }} successful :rocket: \br\br  You can visit it at https://pr-${{ github.event.number }}.website.dev.green-ecolution.de"
+            Deployment of PR #${{ github.event.number }} successful :rocket:
+
+            You can access the deployment at [pr-${{ github.event.number }}.website.dev.green-ecolution.de](https://pr-${{ github.event.number }}.website.dev.green-ecolution.de) to review the changes :eyes:
+
+            :warning: **Please note that this deployment is temporary and will be deleted after the PR is closed.**
