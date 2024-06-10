@@ -1,0 +1,30 @@
+name: 'Cleanup Pull Request'
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup-pr:
+    name: "Cleanup Pull Request"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: read
+      packages: write
+      actions: write
+      pull-requests: write
+
+    steps:
+      - name: Kubernetes login
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Delete Helm Chart
+        run: |
+          helm delete project-website-pr-${{ github.event.number }} --namespace project-website-pr-${{ github.event.number }}
+
+      - name: Delete Namespace
+        if: always()
+        run: |
+          kubectl delete namespace project-website-pr-${{ github.event.number }}
