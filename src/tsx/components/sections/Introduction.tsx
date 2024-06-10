@@ -31,13 +31,13 @@ function Introduction() {
         640: {
             perPage: 2,
         },
-		1280: {
+		1024: {
 			destroy: true,
 		},
     }
 
     return (
-        <section className="max-w-208 mx-auto my-28 lg:my-36 xl:max-w-screen-lg xl:grid xl:grid-cols-[1fr,1.5fr] xl:gap-x-10 xl:items-center xl:my-44 2xl:grid-cols-2 2xl:max-w-screen-xl">
+        <section className="max-w-208 mx-auto my-28 lg:my-36 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:my-44 xl:grid-cols-2 xl:max-w-screen-xl">
             <article className="px-4 mb-8 md:px-6 lg:mb-14">
                 <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                     Was beinhaltet smartes Grünflächenmanagement alles?
@@ -56,7 +56,7 @@ function Introduction() {
                 className="splide--grid md:px-2"
             >
                 {facts.map((fact, index) => (
-                    <SplideSlide key={index} className="pb-10 px-4 lg:px-2 lg:pb-2 xl:first:mb-16 xl:[&:nth-child(2)]:mt-16 xl:[&:nth-child(3)]:-mt-16 xl:[&:nth-child(3)]:mb-16">
+                    <SplideSlide key={index} className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:[&:nth-child(2)]:mt-16 lg:[&:nth-child(3)]:-mt-16 lg:[&:nth-child(3)]:mb-16">
                         <IntroductionCard
                             label={fact.label}
                             icon={fact.icon}

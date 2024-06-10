@@ -39,9 +39,6 @@ function Process() {
             padding: '20%'
         },
         1024: {
-            padding: '24%'
-        },
-        1280: {
             destroy: true,
         },
     };
@@ -63,10 +60,10 @@ function Process() {
             <Splide
                 options={{ rewind: true, arrows: false, pagination: false, i18n: i18nTranslated, mediaQuery: 'min', breakpoints: breakpoints, start: activeStep }}
                 aria-label="Der aktuelle Projektfortschritt"
-                className="md:px-2 xl:mx-auto xl:max-w-screen-lg 2xl:max-w-screen-xl"
+                className="md:px-2 lg:mx-auto lg:max-w-screen-lg xl:max-w-screen-xl"
             >
                 {steps.map((step, index) => (
-                    <SplideSlide key={index} className="pb-10 xl:w-1/2 xl:even:ml-auto xl:even:mr-0 xl:even:pl-10 xl:pb-0 xl:odd:pr-10">
+                    <SplideSlide key={index} className="pb-10 lg:w-1/2 lg:even:ml-auto lg:even:mr-0 lg:even:pl-10 lg:pb-0 lg:odd:pr-10">
                         <ProcessCard
                             label={step.label}
                             shortName={step.shortName}

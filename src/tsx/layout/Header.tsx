@@ -30,7 +30,7 @@ function Header() {
 
     return (
         <header className={`fixed w-screen inset-x-0 top-0 z-50 bg-white/75 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}`}>
-            <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 2xl:max-w-screen-xl">
+            <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
                 <a href="/" aria-label="Zur Startseite navigieren" className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}>
                     <img
                         src="/assets/svg/logo/logo-large-color.svg"

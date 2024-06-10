@@ -4,7 +4,7 @@
 }
 
 .splide.splide--grid > .splide__track > .splide__list {
-    @apply xl:grid xl:grid-cols-2 xl:gap-x-6 xl:gap-y-8 !important;
+    @apply lg:grid lg:grid-cols-2 lg:gap-x-6 lg:gap-y-8 !important;
 }
 
 .splide__pagination {
