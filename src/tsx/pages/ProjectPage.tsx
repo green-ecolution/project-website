@@ -1,4 +1,5 @@
-import Hero from "../components/Hero";
+import DashboardPreview from "../components/sections/DashboardPreview";
+import Hero from "../components/sections/Hero";
 
 function ProjectPage() {
     const heroHeadline = "Alles wissenswerte über das Projekt";
@@ -7,6 +8,7 @@ function ProjectPage() {
     return (
         <main>
             <Hero headline={heroHeadline} description={heroDescription} type="project" />
+            <DashboardPreview />
         </main>
     );
 }
