@@ -3,11 +3,13 @@ import React from 'react';
 interface StepCircleProps {
   index: number;
   activeStep: number;
+  detailedShow?: boolean;
 }
 
-const StepCircle: React.FC<StepCircleProps> = ({ index, activeStep }) => {
+const StepCircle: React.FC<StepCircleProps> = ({ index, activeStep, detailedShow = false }) => {
     return (
-        <figure className={`mx-auto flex items-center justify-between rounded-full w-8 h-8 lg:absolute lg:top-1/2 lg:-translate-y-1/2
+        <figure className={`mx-auto flex items-center justify-between rounded-full w-8 h-8
+            ${detailedShow ? 'lg:absolute lg:top-1/2 lg:-translate-y-1/2' : ''}
             ${index === activeStep ? 'text-white bg-green-dark-900' : 'text-white bg-green-light-900'}
             ${index < activeStep ? 'border-2 border-green-dark-900 bg-white' : ''}
             ${index % 2 === 0 ? 'lg:-right-14' : 'lg:-left-14'}`}
