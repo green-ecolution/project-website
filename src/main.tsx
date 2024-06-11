@@ -8,9 +8,7 @@ import './css/site.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Header />
-        <main>
             <App />
-        </main>
         <Footer />
     </React.StrictMode>,
 )
