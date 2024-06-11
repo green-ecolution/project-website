@@ -74,7 +74,7 @@ jobs:
           --create-namespace \
           --wait \
           --values ./k8s/values.yaml \
-          --values ./k8s/values/develop.yaml \
+          --values ./k8s/values/develop.yaml
 
       - name: Post comment to Pull Request
         uses: thollander/actions-comment-pull-request@v2

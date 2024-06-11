@@ -14,6 +14,7 @@ declare module '@splidejs/react-splide' {
         interval?: number;
         pauseOnHover?: boolean;
         pauseOnFocus?: boolean;
+        padding?: string;
         resetProgress?: boolean;
         keyboard?: boolean | 'global';
         drag?: boolean;
