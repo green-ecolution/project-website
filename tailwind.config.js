@@ -46,6 +46,8 @@ export default {
         backgroundImage: {
             'background-footer-mobile': "url('/assets/svg/background/footer-mobile.svg')",
             'background-footer-desktop': "url('/assets/svg/background/footer-desktop.svg')",
+            'background-hero-mobile': "url('/assets/svg/background/hero-mobile.svg')",
+            'background-hero-desktop': "url('/assets/svg/background/hero-desktop.svg')",
         },
         screens: {
             '3xl': '1920px',
