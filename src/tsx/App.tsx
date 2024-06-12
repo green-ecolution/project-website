@@ -10,6 +10,7 @@ function App() {
         <Process />
         <Stakeholder />
         <Faq />
+        {/* <Contact /> */}
     </div>
   );
 }
