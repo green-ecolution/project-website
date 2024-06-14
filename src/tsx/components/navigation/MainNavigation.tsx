@@ -26,7 +26,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         >
             <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
             <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-10 lg:justify-end lg:items-center">
-                <NavItem label="Das Projekt" url="/das-projekt"/>
+                <NavItem label="Das Projekt" url="/projekt"/>
                 <NavItem label="Kontakt" url="/kontakt"/>
                 <NavItem label="GitHub" url="https://github.com/SmartCityFlensburg" isExternalLink/>
             </ul>
