@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ headline, description, type }) => {
     }
 
     return (
-        <section className={`relative overflow-x-hidden before:bg-cover before:w-4/5 before:h-full before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat before:bg-left-top sm:before:-right-10 xl:before:bg-contain xl:before:bg-center
+        <section className={`relative overflow-hidden before:bg-cover before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain
             ${type === 'project' ? 'before:bg-background-light-dot' : ''}`}
         >
             <div className="py-28 px-4 max-w-208 mx-auto md:px-6 lg:py-36 xl:py-44 xl:max-w-screen-lg">
