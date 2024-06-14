@@ -1,3 +1,4 @@
+import Contact from "./components/sections/Contact";
 import Faq from "./components/sections/Faq";
 import Introduction from "./components/sections/Introduction";
 import Process from "./components/sections/Process";
@@ -10,7 +11,7 @@ function App() {
         <Process />
         <Stakeholder />
         <Faq />
-        {/* <Contact /> */}
+        <Contact />
     </div>
   );
 }
