@@ -15,7 +15,7 @@ export const steps = [
         label: "Projektvorstellung 01",
         shortName: "Vorstellung 01",
         isCurrent: false,
-        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna."
+        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna. Noch mehr und noch mehr und noch mehr Deserunt eu enim laborum deserunt nisi consequat. Laboris aliqua commodo nisi tempor esse."
     },
     {
         label: "Projektvorstellung 02",
