@@ -5,7 +5,7 @@ deployment:
   image:
     repository: ghcr.io/smartcityflensburg/project-website-dev
     pullPolicy: Always
-    tag: "b3f7098"
+    tag: "11bd2b5"
 ingress:
   enabled: true
   className: "traefik"
