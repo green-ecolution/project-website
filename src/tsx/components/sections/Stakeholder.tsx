@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { i18nTranslated } from '../../helper/sliderTranslations';
 import '@splidejs/react-splide/css';
-import StakeholderCard from '../StakeholderCard';
+import StakeholderCard from '../cards/StakeholderCard';
 
 function Stakeholder() {
     const stakeholder = [
