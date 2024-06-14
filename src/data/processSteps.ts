@@ -3,7 +3,7 @@ export const steps = [
         label: "Konzepterstellung",
         shortName: "Konzept",
         isCurrent: false,
-        description: "Duis proident veniam minim et labore sit ex laboris consequat ea mollit et. Aute ut fugiat ex commodo voluptate nulla esse esse adipisicing fugiat aliqua aliquip nisi. Eu adipisicing nulla culpa velit fugiat ipsum nostrud elit et cupidatat voluptate pariatur in. Ut consequat magna quis culpa est magna. Mollit proident nostrud sint labore voluptate ullamco minim magna laborum commodo sint est. Dolor proident mollit nostrud aute elit quis incididunt reprehenderit mollit ea magna commodo reprehenderit exercitation. Elit ipsum voluptate ullamco exercitation ut reprehenderit labore voluptate sint reprehenderit qui. Cillum occaecat aliquip ea quis tempor incididunt ad non."
+        description: "Duis proident veniam minim et labore sit ex laboris consequat ea mollit et. Aute ut fugiat ex commodo voluptate nulla esse esse adipisicing fugiat aliqua aliquip nisi. Eu adipisicing nulla culpa velit fugiat ipsum nostrud elit et cupidatat voluptate pariatur in."
     },
     {
         label: "MVP (Minimum Valible Product)",
@@ -15,7 +15,7 @@ export const steps = [
         label: "Projektvorstellung 01",
         shortName: "Vorstellung 01",
         isCurrent: false,
-        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna."
+        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna. Noch mehr und noch mehr und noch mehr Deserunt eu enim laborum deserunt nisi consequat. Laboris aliqua commodo nisi tempor esse."
     },
     {
         label: "Projektvorstellung 02",
