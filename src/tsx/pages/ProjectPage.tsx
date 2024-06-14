@@ -1,4 +1,5 @@
-import Hero from "../components/Hero";
+import DashboardPreview from "../components/sections/DashboardPreview";
+import Hero from "../components/sections/Hero";
 import Contact from "../components/sections/Contact";
 
 function ProjectPage() {
@@ -8,6 +9,7 @@ function ProjectPage() {
     return (
         <main>
             <Hero headline={heroHeadline} description={heroDescription} type="project" />
+            <DashboardPreview />
             <Contact />
         </main>
     );

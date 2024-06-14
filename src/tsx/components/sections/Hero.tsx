@@ -1,7 +1,7 @@
 import React from 'react';
-import ProcessCard from './cards/ProcessCard';
-import { steps } from '../../data/processSteps';
-import StepCircle from './process/StepCircle';
+import ProcessCard from './../cards/ProcessCard';
+import { steps } from '../../../data/processSteps';
+import StepCircle from './../process/StepCircle';
 
 interface HeroProps {
     headline: string;
