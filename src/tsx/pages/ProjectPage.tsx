@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import Contact from "../components/sections/Contact";
 
 function ProjectPage() {
     const heroHeadline = "Alles wissenswerte über das Projekt";
@@ -7,6 +8,7 @@ function ProjectPage() {
     return (
         <main>
             <Hero headline={heroHeadline} description={heroDescription} type="project" />
+            <Contact />
         </main>
     );
 }
