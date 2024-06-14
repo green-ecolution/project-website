@@ -13,12 +13,12 @@ function Footer() {
                     Consequat occaecat adipisicing culpa.
                 </p>
                 <div className="flex flex-wrap gap-6 mt-8">
-                    {/* <Button href="mailto:" ariaLabel="Kontaktiere uns gern per Mail">
+                    <Button href="mailto:info@green-ecolution.de" ariaLabel="Kontaktiere uns gern per Mail">
                         <img
                             src="/assets/svg/socials/mail.svg"
                             className="w-6 h-6" alt="" loading="lazy"/>
                         <span>Kontakt</span>
-                    </Button> */}
+                    </Button>
                     <Button href="https://github.com/SmartCityFlensburg" ariaLabel="Besuche uns auf GitHub" isExternalLink>
                         <img
                             src="/assets/svg/socials/github.svg"
