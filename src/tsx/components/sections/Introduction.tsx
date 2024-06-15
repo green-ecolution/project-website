@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { i18nTranslated } from '../../helper/sliderTranslations';
 import '@splidejs/react-splide/css';
-import IntroductionCard from "../IntroductionCard";
+import IntroductionCard from "../cards/IntroductionCard";
 
 function Introduction() {
     const facts = [

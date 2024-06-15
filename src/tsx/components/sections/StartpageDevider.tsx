@@ -1,4 +1,4 @@
-function StartpageDevider() {
+function HomepageDevider() {
     return (
         <figure className="absolute -left-[20%] -bottom- 2xl:-left-[10%] 3xl:max-w-screen-3xl 3xl:mx-auto 3xl:bottom-0 3xl:inset-x-0">
             <svg className="w-[150%] sm:w-[120%] 2xl:w-[140%] 3xl:w-full" aria-hidden="true" width="1704" height="586" viewBox="0 0 1704 586" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -8,4 +8,4 @@ function StartpageDevider() {
     );
 }
 
-export default StartpageDevider;
+export default HomepageDevider;

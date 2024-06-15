@@ -1,20 +1,17 @@
-import Faq from "./components/sections/Faq";
-import HompageHero from "./components/sections/HomepageHero";
-import Introduction from "./components/sections/Introduction";
-import Process from "./components/sections/Process";
-import Stakeholder from "./components/sections/Stakeholder";
-import StartpageDevider from "./components/sections/StartpageDevider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProjectPage from "./pages/ProjectPage";
 
 function App() {
   return (
-    <div>
-        <HompageHero />
-        <StartpageDevider />
-        <Introduction />
-        <Process />
-        <Stakeholder />
-        <Faq />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<HomePage />} />
+          <Route path="projekt" element={<ProjectPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

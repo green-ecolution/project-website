@@ -11,6 +11,7 @@ export default {
       'white': '#FCFCFC',
       'green': {
         'light': {
+          '100': '#F4F5E9',
           '900': '#ACB63B',
         },
         'middle': {
@@ -48,6 +49,7 @@ export default {
             'background-footer-desktop': "url('/assets/svg/background/footer-desktop.svg')",
             'background-hero-mobile': "url('/assets/svg/background/hero-mobile.svg')",
             'background-hero-desktop': "url('/assets/svg/background/hero-desktop.svg')",
+            'background-light-dot': "url('/assets/svg/background/general-light-dot.svg')",
         },
         screens: {
             '3xl': '1920px',

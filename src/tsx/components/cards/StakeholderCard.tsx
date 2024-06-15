@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Arrow from '../icons/Arrow';
+import Arrow from '../../icons/Arrow';
 
 interface StakeholderCardProps {
     label: string;
