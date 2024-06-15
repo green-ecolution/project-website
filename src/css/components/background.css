@@ -1,9 +1,0 @@
-.background__ground {
-    @apply absolute inset-x-0 -bottom-[18%];
-}
-
-@media (min-width: 400px) {
-    .background__ground {
-        @apply -bottom-[20%];
-    }
-}
