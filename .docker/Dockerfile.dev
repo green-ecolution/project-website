@@ -9,6 +9,8 @@ RUN yarn build:dev
 
 
 FROM nginx:latest
+RUN rm /etc/nginx/conf.d/default.conf
+COPY .docker/nginx.conf /etc/nginx/conf.d/
 COPY --from=builder-web /app/build/dist /usr/share/nginx/html
 
 EXPOSE 80

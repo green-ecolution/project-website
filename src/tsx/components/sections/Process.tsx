@@ -37,8 +37,8 @@ function Process() {
                 className="md:px-2 lg:mx-auto lg:max-w-screen-lg xl:max-w-screen-xl"
             >
                 {steps.map((step, index) => (
-                    <SplideSlide key={index} className="pb-10 lg:w-1/2 lg:even:ml-auto lg:even:mr-0 lg:even:pl-10 lg:pb-0 lg:odd:pr-10">
-                        <div className="relative">
+                    <SplideSlide key={index} className="pb-14 lg:w-1/2 lg:even:ml-auto lg:even:mr-0 lg:even:pl-10 lg:pb-0 lg:odd:pr-10">
+                        <div className="relative h-[85%] lg:h-auto">
                             <ProcessCard
                                 label={step.label}
                                 description={step.description}
