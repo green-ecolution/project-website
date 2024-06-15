@@ -1,6 +1,6 @@
 import Contact from "../components/sections/Contact";
 import HompageHero from "../components/sections/HomepageHero";
-import HomepageDevider from "../components/sections/StartpageDevider";
+import HomepageDevider from "../components/sections/HomepageDevider";
 import Faq from "./../components/sections/Faq";
 import Introduction from "./../components/sections/Introduction";
 import Process from "./../components/sections/Process";

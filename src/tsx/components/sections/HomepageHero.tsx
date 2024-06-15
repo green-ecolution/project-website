@@ -5,7 +5,7 @@ function HompageHero() {
     <section className="overflow-hidden relative mx-auto w-screen h-screen before:hidden before:absolute before:w-full before:h-full before:-z-10 before:bg-background-hero-mobile before:bg-no-repeat before:bg-contain before:bg-[center_bottom_-10rem]">
         <article className="max-w-208 mx-auto px-4 pt-28 mb-8 md:px-6 lg:mb-14 lg:pt-36 lg:max-w-screen-lg xl:max-w-screen-xl xl:pt-44">
             <div className="max-w-[30rem]">
-                <h1 className="font-lato font-bold text-xl mb-6 lg:text-2xl">
+                <h1 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                     Wir machen smarte Bewässerung von Bäumen und Beeten möglich!
                 </h1>
                 <p>
