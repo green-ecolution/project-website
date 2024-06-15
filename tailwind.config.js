@@ -52,6 +52,7 @@ export default {
             'background-light-dot': "url('/assets/svg/background/general-light-dot.svg')",
         },
         screens: {
+            'xs': '400px',
             '3xl': '1920px',
         },
         spacing: {
