@@ -1,3 +1,4 @@
+import Advantages from "../components/sections/Advantages";
 import DashboardPreview from "../components/sections/DashboardPreview";
 import Hero from "../components/sections/Hero";
 import Contact from "../components/sections/Contact";
@@ -10,6 +11,7 @@ function ProjectPage() {
         <main>
             <Hero headline={heroHeadline} description={heroDescription} type="project" />
             <DashboardPreview />
+            <Advantages />
             <Contact />
         </main>
     );
