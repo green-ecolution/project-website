@@ -63,6 +63,15 @@ export default {
         boxShadow: {
             'mainNav': '-4px 0px 20px 8px rgba(0,0,0,0.1)',
         },
+        keyframes: {
+            move: {
+              '0%, 100%': { transform: 'translate(0,0)' },
+              '50%': { transform: 'translate(50%,0)' },
+            }
+        },
+        animation: {
+            'move': 'move 35s linear infinite',
+        },
     },
   },
   plugins: [],
