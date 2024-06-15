@@ -2,6 +2,7 @@ import Advantages from "../components/sections/Advantages";
 import DashboardPreview from "../components/sections/DashboardPreview";
 import Hero from "../components/sections/Hero";
 import Contact from "../components/sections/Contact";
+import ProjectHeroContent from "../components/hero/ProjectHeroContent";
 
 function ProjectPage() {
     const heroHeadline = "Alles wissenswerte über das Projekt";
@@ -9,7 +10,9 @@ function ProjectPage() {
 
     return (
         <main>
-            <Hero headline={heroHeadline} description={heroDescription} type="project" />
+            <Hero headline={heroHeadline} description={heroDescription}>
+                <ProjectHeroContent />
+            </Hero>
             <DashboardPreview />
             <Advantages />
             <Contact />
