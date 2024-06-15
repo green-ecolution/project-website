@@ -50,6 +50,7 @@ export default {
             'background-hero-mobile': "url('/assets/svg/background/hero-mobile.svg')",
             'background-hero-desktop': "url('/assets/svg/background/hero-desktop.svg')",
             'background-light-dot': "url('/assets/svg/background/general-light-dot.svg')",
+            'background-yellow-dot': "url('/assets/svg/background/general-yellow-dot.svg')",
         },
         screens: {
             'xs': '400px',

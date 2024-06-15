@@ -1,8 +1,6 @@
 function HompageHero() {
-    const classes = 'before:hidden before:absolute before:-bottom-40  before:-z-50 before:w-full before:h-full before:bg-background-hero-mobile before:bg-no-repeat before:bg-cover before:bg-[center_bottom_-5rem] sm:before:bg-[center_bottom_-10rem]';
-
     return (
-        <section className="overflow-hidden relative mx-auto w-screen h-screen max-w-screen-3xl before:hidden before:bg-background-light-dot before:bg-cover before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-50 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] 2xl:before:right-[10%] 2xl:before:bg-contain">
+        <section className="overflow-hidden relative mx-auto w-screen h-screen max-w-screen-3xl before:bg-background-yellow-dot before:bg-cover before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:bottom-0 before:-z-50 before:bg-no-repeat sm:before:-right-10 md:before:max-h-[70rem] 2xl:before:right-0 2xl:before:bg-contain">
             <article className="max-w-208 mx-auto px-4 pt-28 mb-8 md:px-6 lg:mb-14 lg:pt-36 lg:max-w-screen-lg xl:max-w-screen-xl xl:pt-44">
                 <div className="max-w-[30rem] 2xl:max-w-[40rem]">
                     <h1 className="font-lato font-bold text-2xl mb-6 lg:text-4xl xl:text-5xl">
