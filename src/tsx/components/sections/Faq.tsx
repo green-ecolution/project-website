@@ -2,7 +2,7 @@ import Accordion from "../Accordion";
 
 function Faq() {
   return (
-    <section className="px-4 max-w-208 mx-auto my-28 md:px-6 lg:my-36 xl:my-44">
+    <section className="px-4 max-w-208 mx-auto my-28 md:px-6 lg:my-36 xl:my-52">
         <h2 className="font-lato font-bold text-center text-2xl mb-6 lg:mb-10 lg:text-3xl">
             Oft gestellte Fragen zu Green Ecolution
         </h2>
