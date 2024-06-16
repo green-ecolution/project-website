@@ -2,7 +2,7 @@ import Button from "../Button";
 
 function Contact() {
   return (
-    <section className="px-4 max-w-screen-lg mx-auto my-28 md:grid md:grid-cols-2 md:gap-x-10 md:px-6 lg:my-36 xl:max-w-screen-xl xl:my-44">
+    <section className="px-4 max-w-screen-lg mx-auto my-28 md:grid md:grid-cols-2 md:gap-x-10 md:px-6 lg:my-36 xl:max-w-screen-xl xl:my-52">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:mb-10 lg:text-3xl">
             Hast du weitere Fragen, Feedback oder ein Anliegen?
         </h2>
