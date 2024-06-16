@@ -6,14 +6,18 @@ interface StakeholderCardProps {
     url: string;
     image: string;
     children: ReactNode;
+    hasDesktopList?: boolean;
 }
 
-const StakeholderCard: React.FC<StakeholderCardProps> = ({ label, url, image, children }) => {
+const StakeholderCard: React.FC<StakeholderCardProps> = ({ label, url, image, children, hasDesktopList = false }) => {
     return (
-        <figure className="h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:p-8 md:grid md:grid-cols-[15rem,auto] md:gap-x-12 md:items-center">
+        <figure className={`h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:p-8 md:grid md:grid-cols-[15rem,auto] md:gap-x-12 md:items-center
+            ${hasDesktopList ? 'lg:cursor-default' : ''}`}
+        >
             <img
                 src={image}
-                className="object-contain max-w-64 h-32 mx-auto md:max-w-52" alt={`Logo ${label}`}/>
+                className="object-contain max-w-64 h-32 mx-auto md:max-w-52"
+                alt={`Logo ${label}`} loading="lazy" />
 
             <figcaption className="mt-10 md:mt-0">
                 <h3 className="font-lato font-semibold text-lg">{label}</h3>

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="projekt" element={<ProjectPage />} />
+        <Route path="kontakt" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

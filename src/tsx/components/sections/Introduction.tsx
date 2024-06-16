@@ -37,7 +37,7 @@ function Introduction() {
     }
 
     return (
-        <section className="max-w-208 mx-auto my-28 lg:my-36 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:my-44 xl:grid-cols-2 xl:max-w-screen-xl">
+        <section className="max-w-208 mx-auto my-28 lg:my-36 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:my-52 xl:grid-cols-2 xl:max-w-screen-xl">
             <article className="px-4 mb-8 md:px-6 lg:mb-14">
                 <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                     Was beinhaltet smartes Grünflächenmanagement alles?
