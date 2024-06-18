@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProcessCard from './../cards/ProcessCard';
 import { steps } from '../../../data/processSteps';
 import StepCircle from './../process/StepCircle';
 
 function ProjectHeroContent() {
-    const activeStep = steps.findIndex(step => step.isCurrent);
+    const activeStep = useMemo(() => steps.findIndex(step => step.isCurrent), []);
 
     const [visibleStep, setVisibleStep] = useState(activeStep);
 
