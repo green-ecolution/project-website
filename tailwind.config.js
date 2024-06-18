@@ -49,9 +49,12 @@ export default {
             'background-footer-desktop': "url('/assets/svg/background/footer-desktop.svg')",
             'background-light-dot': "url('/assets/svg/background/general-light-dot.svg')",
             'background-dark-dot': "url('/assets/svg/background/general-dark-dot.svg')",
+            'background-yellow-dot': "url('/assets/svg/background/general-yellow-dot.svg')",
         },
         screens: {
+            'xs': '400px',
             '3xl': '1920px',
+            'landscape': {'raw': '(orientation: landscape)'},
         },
         spacing: {
             '18': '4.5rem',
@@ -59,6 +62,15 @@ export default {
         },
         boxShadow: {
             'mainNav': '-4px 0px 20px 8px rgba(0,0,0,0.1)',
+        },
+        keyframes: {
+            move: {
+              '0%, 100%': { transform: 'translate(0,0)' },
+              '50%': { transform: 'translate(50%,0)' },
+            }
+        },
+        animation: {
+            'move': 'move 35s linear infinite',
         },
     },
   },
