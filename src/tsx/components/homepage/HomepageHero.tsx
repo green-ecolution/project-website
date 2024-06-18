@@ -37,7 +37,7 @@ function HompageHero() {
                             Consequat occaecat adipisicing culpa.
                         </p>
                         <button
-                            className="hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900 lg:flex"
+                            className="hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900 xl:flex"
                             onClick={handleButtonClick}
                         >
                             Nach unten wischen

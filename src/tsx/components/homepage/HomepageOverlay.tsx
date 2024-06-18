@@ -43,16 +43,15 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
                         <span className="text-sm">Info {currentPopupIndex + 1} von {popups.length}: {currentPopup.shortName}</span>
                         <h2 className="font-lato font-semibold text-xl mb-4">{currentPopup.label}</h2>
                         <p className="text-base">{currentPopup.description}</p>
-                        <div className="mt-6">
-                            <button
-                                className="text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900"
-                                onClick={handleNextClick}
-                            >
-                                {currentPopupIndex < popups.length - 1 ? 'Weiter' : 'Schließen'}
-                                <Arrow classes={`w-6 transition-all ease-in-out duration-300 ${currentPopupIndex < popups.length - 1 ? "group-hover:translate-x-0.5" : ""}`}/>
-                            </button>
-                        </div>
+                        <button
+                            className="mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900"
+                            onClick={handleNextClick}
+                        >
+                            {currentPopupIndex < popups.length - 1 ? 'Weiter' : 'Schließen'}
+                            <Arrow classes={`w-6 transition-all ease-in-out duration-300 ${currentPopupIndex < popups.length - 1 ? "group-hover:translate-x-0.5" : ""}`}/>
+                        </button>
                     </div>
+
                     <button
                         aria-label="Popup schließen"
                         onClick={onClose}

@@ -3,13 +3,13 @@ interface HomepageIconsProps {
 }
 
 const HomepageIcons: React.FC<HomepageIconsProps> = ({ index }) => {
-    const generalClasses = "absolute rounded-full flex items-center justify-center before:bg-white/30 before:absolute before:-z-10 before:rounded-full";
+    const generalClasses = "absolute rounded-full flex items-center justify-center before:bg-white/30 before:absolute before:-z-10 before:rounded-full after:border-l-[6px] after:border-l-white after:border-dotted ";
 
     return (
         <div>
             <figure
                 aria-hidden="true"
-                className={`top-[20%] left-[10%] w-28 h-28  before:w-36 before:h-36
+                className={`top-[20%] left-[10%] w-28 h-28 before:w-36 before:h-36 after:absolute after:top-[130%] after:w-1 after:h-[calc(80vh-28rem)]
                     ${generalClasses}
                     ${index == 1 ? 'bg-white before:animate-pulse' : ''}`}
             >
@@ -20,7 +20,7 @@ const HomepageIcons: React.FC<HomepageIconsProps> = ({ index }) => {
 
             <figure
                 aria-hidden="true"
-                className={`top-[35%] left-[30%] w-28 h-28 before:w-36 before:h-36
+                className={`top-[calc(20%+10rem)] left-[calc(10%+20rem)] w-28 h-28 before:w-36 before:h-36 after:absolute after:w-1 after:h-44 after:-rotate-[60deg] after:-top-full after:-left-[90%]
                     ${generalClasses}
                     ${index == 1 || index == 2 ? 'bg-white before:animate-pulse' : ''}`}
             >
