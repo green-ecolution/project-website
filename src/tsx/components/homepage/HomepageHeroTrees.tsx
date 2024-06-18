@@ -3,7 +3,7 @@ import treeLightGreenAnimation from "../../../json/treeLightGreenAnimation.json"
 import treeMiddleGreenAnimation from "../../../json/treeMiddleGreenAnimation.json";
 import treeDarkGreenAnimation from "../../../json/treeDarkGreenAnimation.json";
 
-function HomepageTrees() {
+function HomepageHeroTrees() {
     return (
         <div>
             <figure aria-hidden="true" className="animate-move absolute bottom-96 md:bottom-1/2 right-2 -z-40 lg:right-1/3">
@@ -36,4 +36,4 @@ function HomepageTrees() {
     );
 }
 
-export default HomepageTrees;
+export default HomepageHeroTrees;

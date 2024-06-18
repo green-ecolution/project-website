@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Arrow from "../../icons/Arrow";
 import HomepageOverlay from "./HomepageOverlay";
-import HomepageTrees from "./HomepageTrees";
+import HomepageHeroTrees from "./HomepageHeroTrees";
 
 function HompageHero() {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
@@ -49,7 +49,7 @@ function HompageHero() {
                     </div>
                 </article>
 
-                <HomepageTrees />
+                <HomepageHeroTrees />
             </div>
             {isOverlayVisible && <HomepageOverlay onClose={handleCloseOverlay} />}
         </section>

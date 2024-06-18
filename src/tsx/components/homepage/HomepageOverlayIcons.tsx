@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-interface HomepageIconsProps {
+interface HomepageOverlayIconsProps {
     index: number;
+    delay: number;
 }
 
-const HomepageIcons: React.FC<HomepageIconsProps> = ({ index }) => {
+const HomepageOverlayIcons: React.FC<HomepageOverlayIconsProps> = ({ index, delay }) => {
+    const [initialDelayOver, setInitialDelayOver] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => { setInitialDelayOver(true) }, delay);
+        return () => clearTimeout(timer);
+    }, []);
+
     const icons = [
         {
             figureClasses: "top-[20%] left-[10%] w-28 h-28 before:w-36 before:h-36 after:absolute after:top-[130%] after:w-1 after:h-[calc(80vh-28rem)]",
@@ -53,15 +61,15 @@ const HomepageIcons: React.FC<HomepageIconsProps> = ({ index }) => {
                     className={`absolute rounded-full flex items-center justify-center bg-white bg-opacity-0 transition-opacity duration-300 ease-in-out before:bg-white/30 before:transition-transform before:duration-300 before:ease-in-out before:absolute before:-z-10 before:rounded-full after:absolute after:border-dotted after:transition-opacity after:duration-300 after:ease-in-out
                         ${key > 2 ? 'after:border-t-[6px] after:border-t-white' : 'after:border-l-[6px] after:border-l-white'}
                         ${icon.figureClasses}
-                        ${icon.activeOnIndex.includes(index) ? 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100' : 'before:scale-90 after:opacity-0'}`}
+                        ${initialDelayOver ? (icon.activeOnIndex.includes(index) ? 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100' : 'before:scale-90 after:opacity-0') : 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100'}`}
                 >
                     <img
                         src={icon.icon} alt=""
-                        className={`object-contain ${icon.imageClasses} transition-opacity duration-300 ease-in-out ${icon.activeOnIndex.includes(index) ? 'opacity-100' : 'opacity-0'}`} />
+                        className={`object-contain ${icon.imageClasses} transition-opacity duration-300 ease-in-out ${initialDelayOver ? (icon.activeOnIndex.includes(index) ? 'opacity-100' : 'opacity-0') : 'opacity-100'}`} />
                 </figure>
             ))}
         </div>
     );
 }
 
-export default HomepageIcons;
+export default HomepageOverlayIcons;

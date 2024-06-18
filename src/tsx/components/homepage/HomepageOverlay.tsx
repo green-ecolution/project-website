@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Arrow from "../../icons/Arrow";
-import HomepageIcons from "./HomepageIcons";
+import HomepageOverlayIcons from "./HomepageOverlayIcons";
 
 interface HomepageOverlayProps {
     onClose: () => void;
@@ -26,6 +26,13 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
     ];
 
     const [currentPopupIndex, setCurrentPopupIndex] = useState(0);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const delay = 1500;
+
+    useEffect(() => {
+        const timer = setTimeout(() => { setIsPopupVisible(true) }, delay);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleNextClick = () => {
         currentPopupIndex < popups.length - 1
@@ -38,7 +45,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
     return (
         <section className="fixed bg-grey-900/80 inset-0 z-50">
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
-                <article className="absolute top-1/2 -translate-y-2/3 right-[15%]">
+                <article className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500 ${isPopupVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">
                         <span className="text-sm">Info {currentPopupIndex + 1} von {popups.length}: {currentPopup.shortName}</span>
                         <h2 className="font-lato font-semibold text-xl mb-4">{currentPopup.label}</h2>
@@ -63,7 +70,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
                     </button>
                 </article>
 
-                <HomepageIcons index={currentPopupIndex} />
+                <HomepageOverlayIcons index={currentPopupIndex} delay={delay} />
             </div>
         </section>
     );
