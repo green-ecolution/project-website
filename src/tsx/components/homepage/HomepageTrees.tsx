@@ -26,7 +26,7 @@ function HomepageTrees() {
                     animationData={treeMiddleGreenAnimation} />
             </figure>
 
-            <figure aria-hidden="true" className="hidden absolute -right-20 -z-30 bottom-16 md:block lg:bottom-32 xl:bottom-48 2xl:right-28 2xl:bottom-28 3xl:right-[12%] landscape:bottom-4 lg:landscape:bottom-32">
+            <figure aria-hidden="true" className="hidden absolute -right-20 -z-30 bottom-16 md:block lg:bottom-32 xl:bottom-48 2xl:right-40 2xl:bottom-32 3xl:right-[12%] landscape:bottom-4 lg:landscape:bottom-32">
                 <Lottie
                     aria-hidden="true"
                     className="h-[55vh] md:h-[60vh] md:min-h-96"
