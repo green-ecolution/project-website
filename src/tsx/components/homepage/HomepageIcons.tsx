@@ -1,3 +1,5 @@
+import React from "react";
+
 interface HomepageIconsProps {
     index: number;
 }
@@ -48,14 +50,14 @@ const HomepageIcons: React.FC<HomepageIconsProps> = ({ index }) => {
                 <figure
                     key={key}
                     aria-hidden="true"
-                    className={`absolute rounded-full flex items-center justify-center before:bg-white/30 before:absolute before:-z-10 before:rounded-full after:absolute after:border-dotted
+                    className={`absolute rounded-full flex items-center justify-center bg-white bg-opacity-0 transition-opacity duration-300 ease-in-out before:bg-white/30 before:transition-transform before:duration-300 before:ease-in-out before:absolute before:-z-10 before:rounded-full after:absolute after:border-dotted after:transition-opacity after:duration-300 after:ease-in-out
                         ${key > 2 ? 'after:border-t-[6px] after:border-t-white' : 'after:border-l-[6px] after:border-l-white'}
                         ${icon.figureClasses}
-                        ${icon.activeOnIndex.includes(index) ? 'bg-white before:animate-pulse' : ''}`}
+                        ${icon.activeOnIndex.includes(index) ? 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100' : 'before:scale-90 after:opacity-0'}`}
                 >
                     <img
                         src={icon.icon} alt=""
-                        className={`object-contain h-10 w-10 ${icon.imageClasses}`} />
+                        className={`object-contain ${icon.imageClasses} transition-opacity duration-300 ease-in-out ${icon.activeOnIndex.includes(index) ? 'opacity-100' : 'opacity-0'}`} />
                 </figure>
             ))}
         </div>
