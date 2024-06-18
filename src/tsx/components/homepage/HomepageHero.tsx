@@ -15,9 +15,12 @@ function HompageHero() {
     };
 
     useEffect(() => {
-        isOverlayVisible
-        ? document.body.classList.add('overflow-hidden')
-        : document.body.classList.remove('overflow-hidden');
+        if (isOverlayVisible) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
 
         return () => { document.body.classList.remove('overflow-hidden') };
     }, [isOverlayVisible]);

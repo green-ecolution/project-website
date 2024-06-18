@@ -36,10 +36,10 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
     const currentPopup = popups[currentPopupIndex];
 
     return (
-        <section className="absolute bg-grey-900/80 inset-0 z-50">
+        <section className="fixed bg-grey-900/80 inset-0 z-50">
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
                 <article className="absolute top-1/2 -translate-y-2/3 right-[15%]">
-                    <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem]">
+                    <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">
                         <span className="text-sm">Info {currentPopupIndex + 1} von {popups.length}: {currentPopup.shortName}</span>
                         <h2 className="font-lato font-semibold text-xl mb-4">{currentPopup.label}</h2>
                         <p className="text-base">{currentPopup.description}</p>
