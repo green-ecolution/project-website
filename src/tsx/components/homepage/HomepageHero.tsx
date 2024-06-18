@@ -24,21 +24,21 @@ function HompageHero() {
                 </svg>
             </figure>
 
-            <figure aria-hidden="true" className="absolute bottom-10 right-[5%] -z-20 xs:bottom-16 md:right-96 lg:right-[28rem] xl:bottom-32 2xl:right-[40rem] 3xl:right-[40%]">
+            <figure aria-hidden="true" className="absolute bottom-10 right-[5%] -z-20 xs:bottom-16 md:right-96 lg:right-[28rem] xl:bottom-32 2xl:right-[40rem] 3xl:right-[40%] md:landscape:bottom-0 md:landscape:right-[25%] lg:landscape:bottom-16">
                 <Lottie
                     aria-hidden="true"
                     className="h-[65vh] max-h-[30rem] md:max-h-none md:min-h-96 md:h-[60vh]"
                     animationData={treeLightGreenAnimation} />
             </figure>
 
-            <figure aria-hidden="true" className="hidden absolute right-64 -z-10 bottom-28 lg:block xl:bottom-48 2xl:right-[28rem] 2xl:bottom-28 3xl:right-[30%]">
+            <figure aria-hidden="true" className="hidden absolute right-64 -z-10 bottom-28 lg:block xl:bottom-48 2xl:right-[28rem] 2xl:bottom-28 3xl:right-[30%] landscape:hidden">
                 <Lottie
                     aria-hidden="true"
                     className="h-[40vh] md:min-h-96"
                     animationData={treeMiddleGreenAnimation} />
             </figure>
 
-            <figure aria-hidden="true" className="hidden absolute -right-20 -z-30 bottom-16 md:block lg:bottom-32 xl:bottom-48 2xl:right-28 2xl:bottom-28 3xl:right-[12%]">
+            <figure aria-hidden="true" className="hidden absolute -right-20 -z-30 bottom-16 md:block lg:bottom-32 xl:bottom-48 2xl:right-28 2xl:bottom-28 3xl:right-[12%] landscape:bottom-4 lg:landscape:bottom-16 lg:landscape:32">
                 <Lottie
                     aria-hidden="true"
                     className="h-[55vh] md:min-h-96"

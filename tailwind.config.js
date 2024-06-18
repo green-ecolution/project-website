@@ -53,6 +53,7 @@ export default {
         screens: {
             'xs': '400px',
             '3xl': '1920px',
+            'landscape': {'raw': '(orientation: landscape)'},
         },
         spacing: {
             '18': '4.5rem',
