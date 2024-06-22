@@ -48,6 +48,7 @@ export default {
             'background-footer-mobile': "url('/assets/svg/background/footer-mobile.svg')",
             'background-footer-desktop': "url('/assets/svg/background/footer-desktop.svg')",
             'background-light-dot': "url('/assets/svg/background/general-light-dot.svg')",
+            'background-dark-dot': "url('/assets/svg/background/general-dark-dot.svg')",
             'background-yellow-dot': "url('/assets/svg/background/general-yellow-dot.svg')",
         },
         screens: {
