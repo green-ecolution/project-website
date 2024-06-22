@@ -21,7 +21,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({ isVisible, onClose, handleSta
     return (
         <article
             ref={ref}
-            className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-opacity duration-500
+            className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-opacity ease-in-out duration-500 delay-3000
                 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
             <div className="relativen text-center bg-white shadow-md rounded-2xl p-8 border border-grey-100 w-[44rem]">

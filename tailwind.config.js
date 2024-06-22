@@ -72,6 +72,9 @@ export default {
         animation: {
             'move': 'move 35s linear infinite',
         },
+        transitionDelay: {
+            '3000': '3000ms',
+        },
         transitionDuration: {
             '1500': '1500ms',
         }
