@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Arrow from "../../icons/Arrow";
 import HomepageOverlay from "./HomepageOverlay";
 import HomepageHeroTrees from "./HomepageHeroTrees";
+import { setCookie, hasCookie } from "../../helper/cookies";
 
 function HomepageHero() {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+    const effectRan = useRef(false);
+
 
     const handleButtonClick = () => {
         setIsOverlayVisible(true);
@@ -37,6 +40,16 @@ function HomepageHero() {
         }
 
         return () => { document.body.classList.remove('overflow-hidden') };
+    }, [isOverlayVisible]);
+
+    useEffect(() => {
+        if (effectRan.current === false) {
+            if (! hasCookie('green_ecolution_initial_load')) {
+                setCookie('green_ecolution_initial_load');
+            }
+
+            effectRan.current = true;
+        }
     }, [isOverlayVisible]);
 
     return (
