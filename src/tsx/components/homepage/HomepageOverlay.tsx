@@ -43,7 +43,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ onClose }) => {
     const currentPopup = popups[currentPopupIndex];
 
     return (
-        <section className="fixed bg-grey-900/80 inset-0 z-50">
+        <section className="fixed bg-grey-900/80 inset-0 z-50 hidden xl:block">
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
                 <article className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500 ${isPopupVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">

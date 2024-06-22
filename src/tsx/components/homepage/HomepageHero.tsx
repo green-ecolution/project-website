@@ -3,7 +3,7 @@ import Arrow from "../../icons/Arrow";
 import HomepageOverlay from "./HomepageOverlay";
 import HomepageHeroTrees from "./HomepageHeroTrees";
 
-function HompageHero() {
+function HomepageHero() {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
     const handleButtonClick = () => {
@@ -13,6 +13,20 @@ function HompageHero() {
     const handleCloseOverlay = () => {
         setIsOverlayVisible(false);
     };
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.matchMedia('(max-width: 1280px)').matches) {
+                setIsOverlayVisible(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         if (isOverlayVisible) {
@@ -51,9 +65,10 @@ function HompageHero() {
 
                 <HomepageHeroTrees />
             </div>
+
             {isOverlayVisible && <HomepageOverlay onClose={handleCloseOverlay} />}
         </section>
     );
 }
 
-export default HompageHero;
+export default HomepageHero;

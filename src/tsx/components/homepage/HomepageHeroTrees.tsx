@@ -19,7 +19,7 @@ function HomepageHeroTrees() {
                     animationData={treeLightGreenAnimation} />
             </figure>
 
-            <figure aria-hidden="true" className="hidden absolute right-64 -z-10 bottom-28 lg:block xl:bottom-48 2xl:right-[28rem] 2xl:bottom-28 3xl:right-[30%] landscape:hidden lg:landscape:block">
+            <figure aria-hidden="true" className="hidden absolute right-64 -z-10 bottom-28 lg:block xl:bottom-48 2xl:right-[30rem] 2xl:bottom-28 3xl:right-[30%] landscape:hidden lg:landscape:block">
                 <Lottie
                     aria-hidden="true"
                     className="h-[40vh] md:min-h-96"
