@@ -41,7 +41,10 @@ function HomepageHero() {
     }, [isOverlayVisible]);
 
     useEffect(() => {
-        if (! hasCookie('green_ecolution_initial_load') && ! isOverlayVisible) {
+        if (! hasCookie('green_ecolution_initial_load')
+                && ! isOverlayVisible
+                && window.matchMedia('(min-width: 1280px)').matches
+            ) {
             setIsInitialLoad(true);
             bodyLock();
 
