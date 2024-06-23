@@ -8,7 +8,14 @@ function HomepageHero() {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
     const [isInitialLoad, setIsInitialLoad] = useState(false);
     const handleOpenOverlay = () => { setIsOverlayVisible(true) };
-    const handleCloseOverlay = () => { setIsOverlayVisible(false) };
+
+    const handleCloseOverlay = () => {
+        setIsOverlayVisible(false);
+
+        if (isInitialLoad) {
+            setCookie('green_ecolution_initial_load');
+        }
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,26 +32,27 @@ function HomepageHero() {
     }, []);
 
     useEffect(() => {
-        if (isOverlayVisible) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.body.classList.add('overflow-hidden');
-        } else {
-            document.body.classList.remove('overflow-hidden');
-        }
+        isOverlayVisible
+        ? bodyLock()
+        : document.body.classList.remove('overflow-hidden');
 
         return () => { document.body.classList.remove('overflow-hidden') };
     }, [isOverlayVisible]);
 
     useEffect(() => {
-        if (! hasCookie('green_ecolution_initial_load')) {
-            //setCookie('green_ecolution_initial_load');
+        if (! hasCookie('green_ecolution_initial_load') && ! isOverlayVisible) {
             setIsInitialLoad(true);
+            bodyLock();
+
             const timer = setTimeout(() => { setIsOverlayVisible(true) }, 2000);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.body.classList.add('overflow-hidden');
             return () => clearTimeout(timer);
         }
-    }, [isOverlayVisible]);
+    }, []);
+
+    function bodyLock() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.classList.add('overflow-hidden');
+    }
 
     return (
         <section>
@@ -76,7 +84,7 @@ function HomepageHero() {
 
             <HomepageOverlay
                 initialLoad={isInitialLoad}
-                show={isOverlayVisible}
+                isOverlayVisible={isOverlayVisible}
                 onClose={handleCloseOverlay} />
         </section>
     );

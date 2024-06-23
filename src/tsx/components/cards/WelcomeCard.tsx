@@ -1,27 +1,40 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Arrow from '../../icons/Arrow';
 import Lottie from 'lottie-react';
 import logoAnimation from '../../../json/logoAnimation.json';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
+import { hasCookie } from '../../helper/cookies';
 
 interface WelcomeCardProps {
-    isVisible: boolean;
     onClose: () => void;
     handleStartAnmiation: () => void;
+    delay: number;
+    isOverlayVisible: boolean;
 }
 
-const WelcomeCard: React.FC<WelcomeCardProps> = ({ isVisible, onClose, handleStartAnmiation }) => {
-    const ref = useOutsideClick(() => onClose());
+const WelcomeCard: React.FC<WelcomeCardProps> = ({ onClose, handleStartAnmiation, delay, isOverlayVisible }) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const ref = useOutsideClick(() => {
+        if (isVisible) onClose();
+    });
 
     const handleHideWelcomeCard = () => {
-        isVisible = false;
+        setIsVisible(false);
         handleStartAnmiation();
     };
+
+    useEffect(() => {
+        if (! hasCookie('green_ecolution_initial_load') && isOverlayVisible) {
+            const timer = setTimeout(() => { setIsVisible(true) }, delay + 200);
+            return () => clearTimeout(timer);
+        }
+    }, [isOverlayVisible, delay]);
 
     return (
         <article
             ref={ref}
-            className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-opacity ease-in-out duration-500 delay-3000
+            className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-opacity ease-in-out duration-500
                 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
             <div className="relativen text-center bg-white shadow-md rounded-2xl p-8 border border-grey-100 w-[44rem]">

@@ -73,7 +73,7 @@ export default {
             'move': 'move 35s linear infinite',
         },
         transitionDelay: {
-            '3000': '3000ms',
+            '1500': '1500ms',
         },
         transitionDuration: {
             '1500': '1500ms',

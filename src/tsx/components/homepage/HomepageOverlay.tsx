@@ -5,11 +5,11 @@ import WelcomeCard from "../cards/WelcomeCard";
 
 interface HomepageOverlayProps {
     initialLoad: boolean;
-    show: boolean;
+    isOverlayVisible: boolean;
     onClose: () => void;
 }
 
-const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, show, onClose }) => {
+const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverlayVisible, onClose }) => {
     const popups = [
         {
             label: "Messung des Bewässerungsstand",
@@ -39,6 +39,11 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, show, on
         }
     }, [initialLoad]);
 
+    useEffect(() => {
+        if (isOverlayVisible) return;
+        setIsPopupVisible(false);
+    }, [isOverlayVisible]);
+
     const handleNextClick = () => {
         currentPopupIndex < popups.length - 1
         ? setCurrentPopupIndex(currentPopupIndex + 1)
@@ -46,22 +51,27 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, show, on
     };
 
     const handleStartAnimation = () => {
-        initialLoad = false;
-        setIsPopupVisible(true);
+        console.log('test');
+        if (!isOverlayVisible) return;
+        const timer = setTimeout(() => { setIsPopupVisible(true) }, delay);
+        return () => clearTimeout(timer);
     };
 
     const currentPopup = popups[currentPopupIndex];
 
     return (
-        <section className={`hidden fixed inset-0 z-50 transition-all ease-in-out duration-1500 xl:block ${show ? 'bg-grey-900 bg-opacity-80' : 'bg-opacity-0'}`}>
+        <section className={`hidden fixed inset-0 transition-all ease-in-out durat ion-1500 xl:block
+                    ${isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-50' : 'bg-opacity-0 -z-10'}`}>
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
 
                 <WelcomeCard
-                    isVisible={initialLoad}
+                    handleStartAnmiation={handleStartAnimation}
                     onClose={onClose}
-                    handleStartAnmiation={handleStartAnimation} />
+                    delay={delay}
+                    isOverlayVisible={isOverlayVisible} />
 
-                <article className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500 ${isPopupVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <article className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500
+                        ${isPopupVisible && isOverlayVisible ? 'opacity-100 delay-1500' : 'opacity-0'}`}>
                     <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">
                         <span className="text-sm">Info {currentPopupIndex + 1} von {popups.length}: {currentPopup.shortName}</span>
                         <h2 className="font-lato font-semibold text-xl mb-4">{currentPopup.label}</h2>
@@ -86,7 +96,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, show, on
                     </button>
                 </article>
 
-                {isPopupVisible && <HomepageOverlayIcons index={currentPopupIndex} delay={delay} />}
+                {isPopupVisible && isOverlayVisible && <HomepageOverlayIcons index={currentPopupIndex} delay={delay} />}
             </div>
         </section>
     );
