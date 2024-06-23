@@ -5,9 +5,11 @@ function Footer() {
     <footer className="py-10 bg-background-footer-mobile bg-no-repeat bg-cover text-white md:pt-16 lg:bg-background-footer-desktop lg:bg-[35%] xl:bg-[55%] 3xl:bg-contain 3xl:bg-center">
         <div className="px-4 max-w-screen-lg mx-auto md:px-6 md:flex md:items-end md:justify-between md:gap-x-6 xl:max-w-screen-xl">
             <div className="pb-10 border-b border-b-white md:border-none md:pb-0">
-                <img
-                    src="/assets/svg/logo/logo-icon-white.svg"
-                    className="w-12 h-12 mb-6" alt="Logo Green Ecolution" loading="lazy"/>
+                <a href="/" aria-label="Zur Startseite navigieren" className="group">
+                    <img
+                        src="/assets/svg/logo/logo-icon-white.svg"
+                        className="w-12 h-12 mb-6 transition-all ease-in-out duration-300 group-hover:opacity-70" alt="Logo Green Ecolution" loading="lazy"/>
+                </a>
                 <p className="max-w-sm">
                     Ut cillum minim eu duis cupidatat culpa proident voluptate sint aute mollit nulla velit voluptate.
                     Consequat occaecat adipisicing culpa.
