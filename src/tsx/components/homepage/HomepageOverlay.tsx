@@ -62,8 +62,8 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
 
     return (
         <section
-            className={`hidden fixed inset-0 transition-all ease-in-out duration-1500 xl:block ${
-                isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-50' : 'bg-opacity-0 -z-10'
+            className={`hidden fixed inset-0 transition-all ease-in-out duration-1500 xl:block
+                ${isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-[100]' : 'bg-opacity-0 -z-10'
             }`}
         >
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
@@ -110,7 +110,10 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
                     </button>
                 </article>
 
-                {isPopupVisible && isOverlayVisible && <HomepageOverlayIcons index={currentPopupIndex} delay={delay} />}
+                <HomepageOverlayIcons
+                    areIconsVisible={isPopupVisible && isOverlayVisible}
+                    index={currentPopupIndex}
+                    delay={delay} />
             </div>
         </section>
     );
