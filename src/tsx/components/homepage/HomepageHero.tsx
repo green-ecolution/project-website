@@ -13,6 +13,7 @@ function HomepageHero() {
         setIsOverlayVisible(false);
 
         if (isInitialLoad) {
+            setIsInitialLoad(false);
             setCookie('green_ecolution_initial_load');
         }
     };
