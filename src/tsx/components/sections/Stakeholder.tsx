@@ -36,7 +36,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => 
     }
 
     return (
-        <section className={`max-w-208 mx-auto my-28 lg:my-36 xl:my-52 ${hasDesktopList ? 'lg:max-w-screen-lg' : '' }`}>
+        <section className={`max-w-208 mx-auto pt-28 mb-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 ${hasDesktopList ? 'lg:max-w-screen-lg' : '' }`}>
             <article className={`px-4 mb-8 md:px-6 lg:mb-14 ${hasDesktopList ? 'lg:text-center' : '' }`}>
                 <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                     Wer sind die Beteiligten?

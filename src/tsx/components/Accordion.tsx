@@ -24,7 +24,7 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
     }, [open]);
 
     return (
-        <li className={`cursor-pointer border border-green-dark-900 rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
+        <li className={`cursor-pointer border border-green-dark-900 bg-white rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}>
             <summary
                 aria-expanded={open}
                 tabIndex={0}
