@@ -5,17 +5,18 @@ function Advantages() {
         {
             label: "Für neugierige Augen",
             icon: "/assets/svg/general/eye.svg",
-            description: "Öffentlicher Zugang zu den Daten und zum Projekt"
+            description: "Öffentlicher Zugang zu den Daten und zum Projekt.",
         },
         {
-            label: "Wissen, wo es lang geht",
+            label: "Optimierte Routen",
             icon: "/assets/svg/general/map.svg",
-            description: "Individuelle Routenplanung zur gezielten Bewässerung."
+            description:
+                "Individuelle Einsatzplanung zur effizienteren Bewässerung.",
         },
         {
             label: "Weniger ist mehr",
             icon: "/assets/svg/general/reduce.svg",
-            description: "Gezielte Bewässerung, weniger Wasserverbrauch."
+            description: "Gezielte Bewässerung, weniger Wasserverbrauch.",
         },
     ];
 
@@ -26,8 +27,9 @@ function Advantages() {
                     Alle weiteren Funktionen und Vorteile im Überblick.
                 </h2>
                 <p>
-                    Dolore elit mollit voluptate cillum occaecat elit esse cupidatat pariatur culpa cupidatat tempor esse proident elit.
-                    Exercitation eu labore excepteur amet nostrud ullamco nisi aute non eiusmod velit ut labore
+                    Das Projekt ist öffentlich einsehbar und hat als Ziel, den
+                    Wasserverbrauch für die Bewässerung zu veringern sowie eine
+                    variable Einsatzplanung zu ermöglichen.
                 </p>
             </article>
 
@@ -36,7 +38,8 @@ function Advantages() {
                     <AdvantageCard
                         label={advantage.label}
                         icon={advantage.icon}
-                        description={advantage.description} />
+                        description={advantage.description}
+                    />
                 </article>
             ))}
         </section>
