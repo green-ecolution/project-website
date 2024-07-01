@@ -16,7 +16,11 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({ onClose, handleStartAnmiation
     const [isVisible, setIsVisible] = useState(false);
 
     const ref = useOutsideClick(() => {
-        if (isVisible) onClose();
+        if (isVisible) {
+            onClose();
+            setIsVisible(false);
+        }
+
     });
 
     const handleHideWelcomeCard = () => {
