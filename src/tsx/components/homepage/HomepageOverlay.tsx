@@ -3,28 +3,47 @@ import Arrow from "../../icons/Arrow";
 import HomepageOverlayIcons from "./HomepageOverlayIcons";
 import WelcomeCard from "../cards/WelcomeCard";
 
+interface Popup {
+    label: string;
+    shortName: string;
+    description: JSX.Element;
+}
+
 interface HomepageOverlayProps {
     initialLoad: boolean;
     isOverlayVisible: boolean;
     onClose: () => void;
 }
 
-const popups = [
+const popups: Popup[] = [
     {
         label: "Messung des Bewässerungsstand",
         shortName: "Bewässerungsstand",
-        description: "Die Bodenfeuchte um den Wurzelballen herum wird in drei (30cm, 60cm und 90cm) unterschiedlichen Bodentiefen gemessen. Daraus lässt sich erschließen, wie feucht der Boden auch in tieferen Bodenschichten ist."
+        description: (
+            <>
+                Die Bodenfeuchte um den Wurzelballen herum wird in drei (30cm, 60cm und 90cm) unterschiedlichen Bodentiefen gemessen. Daraus lässt sich erschließen, wie feucht der Boden auch in tieferen Bodenschichten ist.
+            </>
+        ),
     },
     {
         label: "Übertragung der Daten",
         shortName: "Datenübertragung",
-        description: "Die Daten werden mithilfe von öffentlichen LoRaWAN (Long Range Wide Area Network) Zugängen übermittelt."
+        description: (
+            <>
+                Die Daten werden mithilfe von öffentlichen LoRaWAN (Long Range Wide Area Network) Zugängen übermittelt.
+            </>
+        ),
     },
     {
         label: "Handlungsempfehlungen",
         shortName: "Handlungsempfehlungen",
-        description: "Die gemessenen Sensordaten werden mittels wissenschaftlichen, mathematischen Daten interpretiert und in Empfehlungen umgewandelt. Dies wird alles auf ein Dashboard dargestellt."
-    }
+        description: (
+            <>
+                Die gemessenen Sensordaten werden mittels wissenschaftlichen, mathematischen Daten interpretiert und in Empfehlungen umgewandelt. Dies wird alles auf ein Dashboard dargestellt.
+                <a href="/projekt#vorteile" className="text-green-dark-900 underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"> Zu den Vorteilen</a>
+            </>
+        ),
+    },
 ];
 
 const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverlayVisible, onClose }) => {
