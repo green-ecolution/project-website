@@ -9,22 +9,22 @@ function Faq() {
             <ul className="flex flex-col gap-y-4 md:gap-y-6">
                 <Accordion label="Wer steckt hinter dem Projekt Green Ecolution?">
                     <p>
-                        Das Projekt "Green-Ecolution" wird von acht Studenten
+                        Das Projekt "Green-Ecolution" wird von neun Studierenden
                         des Masters "Angewandte Informatik" der{" "}
                         <a
                             href="https://hs-flensburg.de/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-1"
+                            className="text-green-dark-900 font-bold underline"
                         >
                             Hochschule-Flensburg
                         </a>{" "}
-                        durchgeführt. Sie arbeiten eng mit der{" "}
+                        durchgeführt. Die Weiterentwicklung des Projektes erfolgt in enger Zusammenarbeit mit der {" "}
                         <a
                             href="https://smarte-grenzregion.de/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-1"
+                            className="text-green-dark-900 font-bold underline"
                         >
                             Smarten-Grenzregion
                         </a>{" "}
@@ -33,11 +33,11 @@ function Faq() {
                             href="https://www.tbz-flensburg.de/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-1"
+                            className="text-green-dark-900 font-bold underline"
                         >
                             TBZ-Flensburg
                         </a>{" "}
-                        zusammen.
+                        .
                     </p>
                 </Accordion>
                 <Accordion label="Welchen Mehrwert bietet das Projekt?">
@@ -56,29 +56,26 @@ function Faq() {
                 </Accordion>
                 <Accordion label="Was bedeutet es, dass das Projekt öffentlich zugänglich ist?">
                     <p className="mb-4 text-blue-600">
-                        Der Code ist in einem öffentlich zugänglichen{" "}
+                        Der Quellcode ist in einem öffentlich zugänglichen{" "}
                         <a
                             href="https://github.com/SmartCityFlensburg"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-1"
+                            className="text-green-dark-900 font-bold underline"
                         >
                             GitHub-Repository
                         </a>{" "}
-                        sichtbar. So ist es möglich jederzeit den aktuellen
-                        Stand der Software zu betrachten. Darüberhinaus ist es
-                        Ihnen auch möglich bei der Entwicklung mit zu
-                        wirken, auch wenn Sie nicht direktes Mitglied des
-                        Projektes sind.
+                        sichtbar. So ist es jederzeit möglich, den aktuellen
+                        Stand der Software zu betrachten. Dies ermöglicht, nicht direkt am Projekt beteiligten Personen an der Mitentwicklung und Nutzung des Projektes teilzuhaben.
                     </p>
                     <p>
                         Zusätzlich dazu werden alle von den Sensoren gesammelten
-                        Daten in dem{" "}
+                        Daten in dem {" "}
                         <a
                             href="https://opendata.schleswig-holstein.de/dataset"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-1"
+                            className="text-green-dark-900 font-bold underline"
                         >
                             Open-Data-Portal
                         </a>{" "}
@@ -87,9 +84,25 @@ function Faq() {
                 </Accordion>
                 <Accordion label="Welche Sensoren werden eingesetzt?">
                     <ul className="list-disc pl-4">
-                        <li>Watermark-Sensoren</li>
-                        <li>SMT-100-Feuchtigkeits-Sensor</li>
-                        <li>Stammfeuchte-Sensor</li>
+                        <li>Bodenwasserspannungsensoren für Bäume: {" "}
+                        <a
+                            href="https://www.irrometer.com/pdf/403.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-dark-900 font-bold underline"
+                        >
+                            Watermark-Specsheet
+                        </a>{" "}</li>
+                        <li>Bodenfeuchtesensoren für Beete: {" "}
+                        <a
+                            href="https://www.truebner.de/de/smt100.php"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-dark-900 font-bold underline"
+                        >
+                            SMT100
+                        </a>{" "}</li>
+                        <li>Stammfeuchte-Sensor (in "Entwicklung")</li>
                     </ul>
                 </Accordion>
             </ul>

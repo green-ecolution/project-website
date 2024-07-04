@@ -3,30 +3,30 @@ export const steps = [
         label: "Konzepterstellung",
         shortName: "Konzept",
         isCurrent: false,
-        description: "Duis proident veniam minim et labore sit ex laboris consequat ea mollit et. Aute ut fugiat ex commodo voluptate nulla esse esse adipisicing fugiat aliqua aliquip nisi. Eu adipisicing nulla culpa velit fugiat ipsum nostrud elit et cupidatat voluptate pariatur in."
+        description: "Im ersten Schritt wird eine Anforderungsanalyse sowie eine Recherche zu verwandten Arbeiten durchgeführt. Zudem wird Software- und Hardware-Architektur bestimmt sowie eine Anbindung an das LoRaWAN-Netz erprobt. Eine Roadmap wird das weitere Vorgehen inkrementell festhalten."
     },
     {
-        label: "MVP (Minimum Valible Product)",
+        label: "MVP (Minimum Viable Product)",
         shortName: "MVP",
         isCurrent: true,
-        description: "Occaecat in dolor Test Test test eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna."
+        description: "Der MVP dient der Umsetzung der konzeptualen Bestimmungen und soll ein erstes, funktionales Produkt darstellen. Anhand des Feedbacks aus der MVP-Vorstellung wird das Vorgehen weiter präzisiert."
     },
     {
         label: "Projektvorstellung 01",
         shortName: "Vorstellung 01",
         isCurrent: false,
-        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna. Noch mehr und noch mehr und noch mehr Deserunt eu enim laborum deserunt nisi consequat. Laboris aliqua commodo nisi tempor esse."
+        description: "Aufbauend auf den Erkenntnissen des MVP soll eine Fort- und Weiterentwicklung stattfinden. Die Projektvorstellung 01 stellt den ersten, offiziellen Release dar."
     },
     {
         label: "Projektvorstellung 02",
         shortName: "Vorstellung 02",
         isCurrent: false,
-        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna."
+        description: "Nach dem ersten Release wird eine Qualitätssicherung stattfinden, um den einwandfreien Gebrauch zu gewährleisten und Fehler zu beheben sowie neue Features einzubauen."
     },
     {
         label: "Finale Vorstellung",
         shortName: "Finalisierung",
         isCurrent: false,
-        description: "Occaecat in dolor eiusmod fugiat. Excepteur proident nostrud aliquip esse ut nostrud in ut esse. Proident ut consequat consequat consectetur magna."
+        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Paper zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
     },
 ];
