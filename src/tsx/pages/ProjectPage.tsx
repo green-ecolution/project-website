@@ -11,6 +11,16 @@ function ProjectPage() {
             "Projekt | Green Ecolution | Smartes Grünflächenmanagement";
     }, []);
 
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const element = document.getElementById(hash.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, []);
+
     const heroHeadline = "Alles wissenswerte über das Projekt";
     const heroDescription =
         "Das Projekt Green-Ecolution beschäftigt sich mit der Frage, wie man die Bewässerung von Bäumen und Beeten effizienter umsetzen kann. \
