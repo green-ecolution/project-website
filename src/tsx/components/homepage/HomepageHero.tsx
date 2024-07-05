@@ -66,14 +66,16 @@ function HomepageHero() {
                 >
                     <div className="max-w-[30rem] 2xl:max-w-[40rem]">
                         <h1 className="font-lato font-bold text-2xl mb-6 lg:text-4xl xl:text-5xl">
-                            Wir machen smarte Bewässerung von Bäumen und Beeten möglich!
+                            Wir ermöglichen smarte Bewässerung von Bäumen und Beeten!
                         </h1>
                         <p className="mb-4 lg:mb-6">
-                            Ut cillum minim eu duis cupidatat culpa proident voluptate sint aute mollit nulla velit voluptate.
-                            Consequat occaecat adipisicing culpa.
+                            Mittels sensorgestützter Überwachung von Bäumen und
+                            Beeten werden Daten über das LoRaWan-Netz übermittelt
+                            und ausgewertet, sodass Handlungsempfehlungen für die
+                            Bewässerung abgegeben werden können.
                         </p>
                         <button
-                            className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900
+                            className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-light-900 transition-color ease-in-out duration-300 text-white hover:bg-green-middle-900 hover:border-green-middle-900
                                 ${hasCookie('green_ecolution_initial_load') ? 'xl:flex' : '' }`}
                             onClick={handleOpenOverlay}
                         >

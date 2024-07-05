@@ -30,7 +30,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({ label, url, image, ch
                     className="text-green-dark-900 font-bold flex itemx-center gap-x-4 group"
                 >
                     <p className="transition-all ease-in-out duration-300 group-hover:text-green-light-900">
-                        Zur Website
+                        Zur Webseite
                     </p>
                     <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2 group-hover:text-green-light-900"/>
                 </a>

@@ -13,7 +13,7 @@ function ProjectHeroContent() {
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-12">
             <p className="font-bold text-center">Akueller Projektstand:</p>
             <ul className="flex items-center justify-center gap-x-8 mb-10 mt-6 md:gap-x-12 lg:gap-x-16">
                 {steps.map((step, index) => (
