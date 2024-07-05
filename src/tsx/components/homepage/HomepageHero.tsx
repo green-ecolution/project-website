@@ -75,7 +75,7 @@ function HomepageHero() {
                             Bewässerung abgegeben werden können.
                         </p>
                         <button
-                            className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900
+                            className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-light-900 transition-color ease-in-out duration-300 text-white hover:bg-green-middle-900 hover:border-green-middle-900
                                 ${hasCookie('green_ecolution_initial_load') ? 'xl:flex' : '' }`}
                             onClick={handleOpenOverlay}
                         >
