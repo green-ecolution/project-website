@@ -40,7 +40,7 @@ const popups: Popup[] = [
         description: (
             <>
                 Die gemessenen Sensordaten werden mittels wissenschaftlichen, mathematischen Daten interpretiert und in Empfehlungen umgewandelt. Dies wird alles auf ein Dashboard dargestellt.
-                <a href="/projekt#vorteile" className="text-green-dark-900 underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"> Zu den Vorteilen</a>
+                <a href="/projekt#vorteile" className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"> Zu den Vorteilen</a>
             </>
         ),
     },
