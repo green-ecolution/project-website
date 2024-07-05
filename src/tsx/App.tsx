@@ -8,7 +8,7 @@ function App() {
     const ogImage = document.getElementById('og-image');
     if (ogImage) {
         const currentDomain = window.location.origin;
-        ogImage.setAttribute('content', currentDomain + '/public/assets/images/open-graph-image.png');
+        ogImage.setAttribute('content', currentDomain + '/assets/images/open-graph-image.png');
     }
 
     return (
