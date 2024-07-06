@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.0] - 2024-07-06
+
+### Added
+
+- feat: update readme (#25)
+- feat: add stakeholder section as slider (#26)
+- feat: add introduction section (#30)
+- feat: add favicons (#31)
+- feat: add current process section (#36)
+- feat: add project page (#41)
+- feat: add dashboard preview section (#43)
+- feat: add advantages section (#45)
+- feat: add contact section (#46)
+- feat: add homepage hero (#50)
+- feat: add contact page (#53)
+- feat: add not found page (#54)
+- feat: add hero homepage overlays (#56)
+- feat: add background to sections (#59)
+
 ### Changed
 
 -   Improve CI/CD pipeline for deployment, staging and production
@@ -19,6 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Initial release
 -   Create "Page under construction" Page
 
-[Unreleased]: https://github.com/SmartCityFlensburg/project-website/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/SmartCityFlensburg/project-website/compare/v1.0.0...HEAD
+
+[v1.0.0]: https://github.com/SmartCityFlensburg/project-website/compare/v0.0.1...v1.0.0
 
 [v0.0.1]: https://github.com/SmartCityFlensburg/project-website/releases/tag/v0.0.1
