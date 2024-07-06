@@ -1,0 +1,14 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+input[type="text"]:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="date"]:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-green-light-900;
+}

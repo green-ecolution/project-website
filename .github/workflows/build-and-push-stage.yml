@@ -1,5 +1,6 @@
 name: Build and Push Docker Image Staging
 "on":
+  workflow_dispatch:
   push:
     branches:
       - release/*
@@ -9,7 +10,7 @@ jobs:
   build_and_deploy_stage:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       actions: write
     steps:
@@ -37,6 +38,11 @@ jobs:
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Extract version from input (for manual workflow dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "RELEASE_VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -56,11 +62,75 @@ jobs:
         env:
           REPO: "${{ github.repository }}"
 
-      - name: Build and push
+      - name: Set commit sha
+        run: |
+          echo "COMMIT_SHA=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
+
+      - name: Build and push Version
+        if: github.event_name == 'push'
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./.docker/Dockerfile.stage
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:lastest
+          tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:latest, ghcr.io/${{ env.REPO_LC }}-stage:${{ env.COMMIT_SHA }}
+
+      - name: Build and push Version
+        if: github.event_name == 'workflow_dispatch'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./.docker/Dockerfile.stage
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ env.REPO_LC }}-stage:latest, ghcr.io/${{ env.REPO_LC }}-stage:${{ env.COMMIT_SHA }}
+
+      - name: "Setup yq"
+        uses: dcarbone/install-yq-action@v1.1.1
+        with:
+          version: "v4.42.1"
+          force: true
+
+      - name: Initialize mandatory git config
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'noreply@github.com'
+
+      - name: Bump version in values/stage.yaml
+        run: yq -i '.deployment.image.tag=strenv(COMMIT_SHA)' ./k8s/values/stage.yaml
+
+      - name: Commit k8s values files
+        id: make-commit
+        run: |
+          git add ./k8s/values/stage.yaml
+          git commit --message "Update stage image to commit ${{ env.COMMIT_SHA }}"
+
+          echo "::set-output name=commit::$(git rev-parse HEAD)"
+
+      - name: Push changes
+        uses: CasperWA/push-protected@v2
+        if: github.event_name == 'push'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: release/${{ env.RELEASE_VERSION }}
+
+      - name: Push changes
+        uses: CasperWA/push-protected@v2
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop
+
+      - name: Delete tag
+        uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          tag_name: stage-deployment
+          delete_release: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create tag
+        run: git tag -fa 'stage-deployment' -m "Update tag to commit ${{ env.COMMIT_SHA }}"
+
+      - name: Push tag
+        run: git push origin stage-deployment

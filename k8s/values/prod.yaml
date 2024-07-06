@@ -1,8 +1,11 @@
 deployment:
-  namespace: green-ecolution-project-website
-  name: project-website
-  replicaCount: 1
-  image:
-    repository: ghcr.io/smartcityflensburg/project-website
-    pullPolicy: Always
-    tag: latest
+    namespace: project-website
+    name: project-website
+    replicaCount: 1
+    image:
+        repository: ghcr.io/smartcityflensburg/project-website
+        pullPolicy: Always
+        tag: v1.0.0
+
+ingress:
+    enabled: true

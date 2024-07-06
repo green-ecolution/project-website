@@ -1,0 +1,72 @@
+name: 'Cleanup Pull Request'
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  check-resources:
+    name: "Check Resources"
+    runs-on: ubuntu-latest
+    outputs:
+      helm_exists: ${{ steps.check_helm.outputs.exists }}
+      namespace_exists: ${{ steps.check_namespace.outputs.exists }}
+
+    steps:
+      - name: Kubernetes login
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Check Helm Chart
+        id: check_helm
+        run: |
+          RELEASE_NAME=project-website-pr-${{ github.event.number }}
+          if helm list --all --namespace $RELEASE_NAME | grep $RELEASE_NAME; then
+            echo "::set-output name=exists::true"
+          else
+            echo Helm Chart $RELEASE_NAME does not exist
+            echo "::set-output name=exists::false"
+          fi
+
+      - name: Check Namespace
+        id: check_namespace
+        run: |
+          NAMESPACE=project-website-pr-${{ github.event.number }}
+          if kubectl get namespace $NAMESPACE; then
+            echo "::set-output name=exists::true"
+          else
+            echo Namespace $NAMESPACE does not exist
+            echo "::set-output name=exists::false"
+          fi
+
+  cleanup-pr:
+    name: "Cleanup Pull Request"
+    runs-on: ubuntu-latest
+    needs: check-resources
+    if: needs.check-resources.outputs.helm_exists == 'true' || needs.check-resources.outputs.namespace_exists == 'true'
+    continue-on-error: true
+    permissions:
+      contents: read
+      packages: write
+      actions: write
+      pull-requests: write
+
+    steps:
+      - name: Kubernetes login
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Delete Helm Chart
+        if: needs.check-resources.outputs.helm_exists == 'true'
+        run: |
+          RELEASE_NAME=project-website-pr-${{ github.event.number }}
+          helm delete $RELEASE_NAME --namespace $RELEASE_NAME
+
+      - name: Delete Namespace
+        if: needs.check-resources.outputs.namespace_exists == 'true'
+        run: |
+          NAMESPACE=project-website-pr-${{ github.event.number }}
+          kubectl delete namespace $NAMESPACE

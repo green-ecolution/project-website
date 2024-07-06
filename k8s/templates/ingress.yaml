@@ -3,20 +3,32 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   namespace: {{ .Values.deployment.namespace }}
+  annotations:
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host }}
+    - host: {{ .name }}
       http:
         paths:
           {{- range .paths }}
           - path: {{ .path }}
-            pathType: {{ .pathType }}
+            pathType: {{ .pathType | default "Prefix" }}
             backend:
               service:
-                name: {{ .service.name }}
+                name: {{ .backend.serviceName }}
                 port:
-                  number: {{ .service.port }}
+                  number: {{ .backend.servicePort }}
           {{- end }}
     {{- end }}
+  {{- if .Values.ingress.tls.enabled }}
+  tls:
+    - hosts:
+      {{- range .Values.ingress.hosts }}
+        - {{ .name }}
+      {{- end }}
+      secretName: {{ .Values.ingress.tls.secretName }}
+  {{- end }}

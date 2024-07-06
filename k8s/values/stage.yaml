@@ -1,8 +1,25 @@
 deployment:
-  namespace: green-ecolution-project-website-stage
+  namespace: project-website-stage
   name: project-website-stage
   replicaCount: 1
   image:
     repository: ghcr.io/smartcityflensburg/project-website-stage
     pullPolicy: Always
-    tag: latest
+    tag: 92fdc8d
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    cert-manager.io/cluster-issuer: cert-manager
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - name: stage.green-ecolution.de
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            serviceName: project-website
+            servicePort: 80
+  tls:
+    enabled: true
+    secretName: stage-green-ecolution-de-tls
