@@ -50,8 +50,8 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({ onClose, handleStartAnmiation
                     <span className="text-green-dark-900"> Green Ecolution</span>
                 </h2>
                 <p className="text-base">
-                    Bei diesem Projekt handelt es sich um ein Forschungsprojekt der Hochschule Flensburg. Master-Studierende untersuchen dabei, wie
-                    smartes Grünflächenmanagement in der Stadt Flensburg aussehen kann. Start Sie die Animation, um mehr über das Vorgehen herauszufinden.
+                    Hierbei handelt es sich um ein Forschungsprojekt der Hochschule Flensburg, wobei Master-Studierende untersuchen, wie
+                    smartes Grünflächenmanagement in der Stadt Flensburg umgesetzt werden kann. Start Sie die Animation, um mehr über das Vorgehen herauszufinden.
                 </p>
                 <button
                     className="mx-auto mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900"

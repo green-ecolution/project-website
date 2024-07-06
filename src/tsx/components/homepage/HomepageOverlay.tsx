@@ -17,11 +17,11 @@ interface HomepageOverlayProps {
 
 const popups: Popup[] = [
     {
-        label: "Messung des Bewässerungsstand",
-        shortName: "Bewässerungsstand",
+        label: "Messung des Bewässerungszustandes",
+        shortName: "Bewässerungszustand",
         description: (
             <>
-                Die Bodenfeuchte um den Wurzelballen herum wird in drei (30cm, 60cm und 90cm) unterschiedlichen Bodentiefen gemessen. Daraus lässt sich erschließen, wie feucht der Boden auch in tieferen Bodenschichten ist.
+                Die Bodenfeuchte wird in Abhängigkeit der Vegetationsform in unterschiedlichen Bodentiefen gemessen, um Daten über verschiedene Bodenschichten zu erhalten.
             </>
         ),
     },
@@ -30,7 +30,8 @@ const popups: Popup[] = [
         shortName: "Datenübertragung",
         description: (
             <>
-                Die Daten werden mithilfe von öffentlichen LoRaWAN (Long Range Wide Area Network) Zugängen übermittelt.
+                Die Sensordaten werden mittels öffentlichen LoRaWAN-Netzwerk an ein Backend zur weiteren Verarbeitung übermittelt.
+                LoRaWAN benötigt wenig Energie und besitzt eine hohe Reichweite, was zu einer großen Flächenabdeckung und einem geringen Wartungsaufwand führt.
             </>
         ),
     },
@@ -39,8 +40,9 @@ const popups: Popup[] = [
         shortName: "Handlungsempfehlungen",
         description: (
             <>
-                Die gemessenen Sensordaten werden mittels wissenschaftlichen, mathematischen Daten interpretiert und in Empfehlungen umgewandelt. Dies wird alles auf ein Dashboard dargestellt.
-                <a href="/projekt#vorteile" className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"> Zu den Vorteilen</a>
+                Die übermittelten Sensordaten werden anhand wissenschaftlicher/mathematischer Methodiken ausgewertet.
+                Auf einen Dashboard wird graphisch dargestellt, ob eine Bewässerung in nächster Zeit notwendig ist.&nbsp;
+                <a href="/projekt#vorteile" className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900">Zu den Vorteilen</a>
             </>
         ),
     },
