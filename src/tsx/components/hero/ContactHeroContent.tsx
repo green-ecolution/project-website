@@ -9,7 +9,7 @@ function ContactHeroContent() {
                     className="w-6 h-6" alt="" loading="lazy"/>
                 <span>Kontakt</span>
             </Button>
-            <Button href="https://github.com/SmartCityFlensburg" ariaLabel="Besuchen Sie uns auf GitHub" isExternalLink isDark>
+            <Button href="https://github.com/green-ecolution" ariaLabel="Besuchen Sie uns auf GitHub" isExternalLink isDark>
                 <img
                     src="/assets/svg/socials/github.svg"
                     className="w-6 h-6" alt="" loading="lazy"/>

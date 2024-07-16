@@ -37,7 +37,7 @@ function Footer() {
                             <span>Kontakt</span>
                         </Button>
                         <Button
-                            href="https://github.com/SmartCityFlensburg"
+                            href="https://github.com/green-ecolution"
                             ariaLabel="Besuche uns auf GitHub"
                             isExternalLink
                         >
