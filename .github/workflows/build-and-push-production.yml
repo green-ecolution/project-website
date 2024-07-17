@@ -87,3 +87,31 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}:${{ env.RELEASE_VERSION }}, ghcr.io/${{ env.REPO_LC }}:latest
+
+      - name: "Setup yq"
+        uses: dcarbone/install-yq-action@v1.1.1
+        with:
+          version: "v4.42.1"
+          force: true
+
+      - name: Initialize mandatory git config
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'noreply@github.com'
+
+      - name: Bump version in values/develop.yaml
+        run: yq -i '.deployment.image.tag=strenv(RELEASE_VERSION)' ./k8s/values/prod.yaml
+
+      - name: Commit k8s values files
+        id: make-commit
+        run: |
+          git add ./k8s/values/prod.yaml
+          git commit --message "chore: update prod image to version ${{ env.RELEASE_VERSION }}"
+
+          echo "::set-output name=commit::$(git rev-parse HEAD)"
+
+      - name: Push changes
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop

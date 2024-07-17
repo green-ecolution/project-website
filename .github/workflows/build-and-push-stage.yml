@@ -104,7 +104,7 @@ jobs:
         id: make-commit
         run: |
           git add ./k8s/values/stage.yaml
-          git commit --message "Update stage image to commit ${{ env.COMMIT_SHA }}"
+          git commit --message "chore: update stage image to commit ${{ env.COMMIT_SHA }}"
 
           echo "::set-output name=commit::$(git rev-parse HEAD)"
 
