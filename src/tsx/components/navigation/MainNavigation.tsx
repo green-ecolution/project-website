@@ -28,7 +28,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
             <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-10 lg:justify-end lg:items-center">
                 <NavItem label="Das Projekt" url="/projekt"/>
                 <NavItem label="Kontakt" url="/kontakt"/>
-                <NavItem label="GitHub" url="https://github.com/SmartCityFlensburg" isExternalLink/>
+                <NavItem label="GitHub" url="https://github.com/green-ecolution" isExternalLink/>
             </ul>
 
             <ul className="absolute bottom-6 text-white lg:text-grey-900 flex felx-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">

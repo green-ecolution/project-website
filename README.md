@@ -61,7 +61,7 @@ For each environment, the deployment workflow will run the following steps:
 
 1. Install the project dependencies
 2. Build the project
-3. Push package to GitHub Package Registry (see [GitHub Package Registry](https://github.com/orgs/SmartCityFlensburg/packages?repo_name=project-website))
+3. Push package to GitHub Package Registry (see [GitHub Package Registry](https://github.com/orgs/green-ecolution/packages?repo_name=project-website))
 4. Dump version in helm chart values (version tag or commit hash)
 5. Deploy the project to the environment
 

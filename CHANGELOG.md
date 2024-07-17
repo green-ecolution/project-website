@@ -38,8 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Initial release
 -   Create "Page under construction" Page
 
-[Unreleased]: https://github.com/SmartCityFlensburg/project-website/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/green-ecolution/project-website/compare/v1.0.0...HEAD
 
-[v1.0.0]: https://github.com/SmartCityFlensburg/project-website/compare/v0.0.1...v1.0.0
+[v1.0.0]: https://github.com/green-ecolution/project-website/compare/v0.0.1...v1.0.0
 
-[v0.0.1]: https://github.com/SmartCityFlensburg/project-website/releases/tag/v0.0.1
+[v0.0.1]: https://github.com/green-ecolution/project-website/releases/tag/v0.0.1
