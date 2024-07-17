@@ -58,7 +58,7 @@ function Faq() {
                     <p className="mb-4 text-blue-600">
                         Der Quellcode ist in einem öffentlich zugänglichen&nbsp;
                         <a
-                            href="https://github.com/SmartCityFlensburg"
+                            href="https://github.com/green-ecolution"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"

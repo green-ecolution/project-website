@@ -3,9 +3,9 @@ deployment:
   name: project-website-dev
   replicaCount: 1
   image:
-    repository: ghcr.io/smartcityflensburg/project-website-dev
+    repository: ghcr.io/green-ecolution/project-website-dev
     pullPolicy: Always
-    tag: "2bffc5e"
+    tag: "1ffbc46"
 ingress:
   enabled: true
   className: "traefik"
