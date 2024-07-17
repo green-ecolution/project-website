@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.1] - 2024-07-17
 
+### Changed
+
+-   chore: update organization name in code, docs and ci/cd
+
 ## [v1.0.0] - 2024-07-06
 
 ### Added
