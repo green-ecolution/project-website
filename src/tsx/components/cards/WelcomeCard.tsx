@@ -3,7 +3,7 @@ import Arrow from '../../icons/Arrow';
 import Lottie from 'lottie-react';
 import logoAnimation from '../../../json/logoAnimation.json';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
-import { hasCookie } from '../../helper/cookies';
+import { isInitialLoad } from '../../helper/storage';
 
 interface WelcomeCardProps {
     onClose: () => void;
@@ -29,7 +29,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({ onClose, handleStartAnmiation
     };
 
     useEffect(() => {
-        if (! hasCookie('green_ecolution_initial_load') && isOverlayVisible) {
+        if (isInitialLoad() && isOverlayVisible) {
             const timer = setTimeout(() => { setIsVisible(true) }, delay + 200);
             return () => clearTimeout(timer);
         }
