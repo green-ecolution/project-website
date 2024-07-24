@@ -1,0 +1,13 @@
+.docker/
+!.docker/nginx.conf
+.git/
+.github/
+dist/
+k8s/
+node_modules/
+.dockerignore
+.editorconfig
+.gitignore
+.node-version
+CHANGELOG.md
+README.md
