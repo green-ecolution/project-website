@@ -2,6 +2,16 @@ name: Build and Push Docker Image Production
 
 on:
   pull_request:
+    paths:
+      - "**/**"
+      - "!.github/**"
+      - "!k8s/**"
+      - "!.dockerignore"
+      - "!.editorconfig"
+      - "!.gitignore"
+      - "!.node-version"
+      - "!CHANGELOG.md"
+      - "!README.md"
     branches:
       - main
     types:
