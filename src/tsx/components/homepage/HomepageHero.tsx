@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Arrow from "../../icons/Arrow";
 import HomepageOverlay from "./HomepageOverlay";
 import HomepageHeroTrees from "./HomepageHeroTrees";
-import { setCookie, hasCookie } from "../../helper/cookies";
+import { setInitialLoad as setInitialLoadHelper, isInitialLoad as isInitialLoadHelper } from "../../helper/storage";
 
 function HomepageHero() {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
@@ -14,7 +14,7 @@ function HomepageHero() {
 
         if (isInitialLoad) {
             setIsInitialLoad(false);
-            setCookie('green_ecolution_initial_load');
+            setInitialLoadHelper();
         }
     };
 
@@ -41,8 +41,8 @@ function HomepageHero() {
     }, [isOverlayVisible]);
 
     useEffect(() => {
-        if (! hasCookie('green_ecolution_initial_load')
-                && ! isOverlayVisible
+        if (isInitialLoadHelper()
+                && !isOverlayVisible
                 && window.matchMedia('(min-width: 1280px)').matches
             ) {
             setIsInitialLoad(true);
@@ -76,7 +76,7 @@ function HomepageHero() {
                         </p>
                         <button
                             className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-light-900 transition-color ease-in-out duration-300 text-white hover:bg-green-middle-900 hover:border-green-middle-900
-                                ${hasCookie('green_ecolution_initial_load') ? 'xl:flex' : '' }`}
+                                ${!isInitialLoadHelper() ? 'xl:flex' : '' }`}
                             onClick={handleOpenOverlay}
                         >
                             Animation abspielen
