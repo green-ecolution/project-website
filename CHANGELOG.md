@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.2] - 2024-08-01
 
+### Changed
+
+-   refactor: change cookies to local storage (#77)
+-   ci: run only github actions when needed (#76)
+
 ## [v1.0.1] - 2024-07-17
 
 ### Changed
