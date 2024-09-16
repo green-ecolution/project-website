@@ -9,7 +9,7 @@ function Faq() {
             <ul className="flex flex-col gap-y-4 md:gap-y-6">
                 <Accordion label="Wer steckt hinter dem Projekt Green Ecolution?">
                     <p>
-                        Das Projekt "Green-Ecolution" wird von neun Studierenden
+                        Das Projekt "Green Ecolution" wird von neun Studierenden
                         des Masters "Angewandte Informatik" der&nbsp;
                         <a
                             href="https://hs-flensburg.de/"
