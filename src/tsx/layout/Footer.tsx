@@ -18,7 +18,7 @@ function Footer() {
                         />
                     </a>
                     <p className="max-w-sm">
-                        Das Forschungsprojekt Green-Ecolution ist aus einem
+                        Das Forschungsprojekt Green Ecolution ist aus einem
                         Master-Forschungsprojekt der Hochschule-Flensburg
                         hervorgegangen und beschäftigt sich mit der smarten
                         Bewässerung von Bäumen und Beeten.
