@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- add background to header while scrolling down (#82)
+- add GPL-3.0 license (#19)
+
+### Changed
+
+- unify naming of the project to 'Green Ecolution' (#83)
+- update current process step to release 1 (#81)
+
 ## [v1.0.2] - 2024-08-01
 
 ### Changed
