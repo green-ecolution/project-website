@@ -8,13 +8,13 @@ export const steps = [
     {
         label: "MVP (Minimum Viable Product)",
         shortName: "MVP",
-        isCurrent: true,
+        isCurrent: false,
         description: "Der MVP dient der Umsetzung der konzeptualen Bestimmungen und soll ein erstes, funktionales Produkt darstellen. Anhand des Feedbacks aus der MVP-Vorstellung wird das Vorgehen weiter präzisiert."
     },
     {
         label: "Projektvorstellung 01",
         shortName: "Vorstellung 01",
-        isCurrent: false,
+        isCurrent: true,
         description: "Aufbauend auf den Erkenntnissen des MVP soll eine Fort- und Weiterentwicklung stattfinden. Die Projektvorstellung 01 stellt den ersten, offiziellen Release dar."
     },
     {
