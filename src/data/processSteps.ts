@@ -14,13 +14,13 @@ export const steps = [
     {
         label: "Projektvorstellung 01",
         shortName: "Vorstellung 01",
-        isCurrent: true,
+        isCurrent: false,
         description: "Aufbauend auf den Erkenntnissen des MVP soll eine Fort- und Weiterentwicklung stattfinden. Die Projektvorstellung 01 stellt den ersten, offiziellen Release dar."
     },
     {
         label: "Projektvorstellung 02",
         shortName: "Vorstellung 02",
-        isCurrent: false,
+        isCurrent: true,
         description: "Nach dem ersten Release wird eine Qualitätssicherung stattfinden, um den einwandfreien Gebrauch zu gewährleisten und Fehler zu beheben sowie neue Features einzubauen."
     },
     {
