@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.4] - 2025-01-12
+
+### Changed
+
+-   update current process step to release 2 (#86)
+
 ## [v1.0.3] - 2024-09-17
 
 ### Added
@@ -63,7 +69,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Initial release
 -   Create "Page under construction" Page
 
-[Unreleased]: https://github.com/green-ecolution/project-website/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/green-ecolution/project-website/compare/v1.0.4...HEAD
+
+[v1.0.4]: https://github.com/green-ecolution/project-website/compare/v1.0.3...v1.0.4
 
 [v1.0.3]: https://github.com/green-ecolution/project-website/compare/v1.0.2...v1.0.3
 
