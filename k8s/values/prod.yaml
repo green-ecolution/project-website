@@ -5,6 +5,6 @@ deployment:
   image:
     repository: ghcr.io/green-ecolution/project-website
     pullPolicy: Always
-    tag: v1.0.4
+    tag: v1.0.5
 ingress:
   enabled: true
