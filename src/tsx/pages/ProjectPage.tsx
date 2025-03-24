@@ -23,7 +23,7 @@ function ProjectPage() {
 
     const heroHeadline = "Alles wissenswerte über das Projekt";
     const heroDescription =
-        "Das Projekt Green Ecolution beschäftigt sich mit der Frage, wie man die Bewässerung von Bäumen und Beeten effizienter umsetzen kann. \
+        "Das Projekt Green Ecolution beschäftigt sich mit der Frage, wie man die Bewässerung von Bäumen effizienter umsetzen kann. \
         In Zusammenarbeit mit dem TBZ-Flensburg werden mehrere Bäume an verschiedenen Standorten mit Sensorik ausgestattet, \
         um den Wasserbedarf von Bäumen zu ermitteln und entsprechend anhand der Daten Handlungsempfehlungen auszusprechen, um diese \
         in der Einsatzplanung mit zu berücksichtigen. Dabei beschränkt sich das Projekt nicht nur auf die Stadt, sondern auch auf die Bürger:innen. \
