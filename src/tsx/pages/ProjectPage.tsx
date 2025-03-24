@@ -4,6 +4,7 @@ import DashboardPreview from "../components/sections/DashboardPreview";
 import Hero from "../components/sections/Hero";
 import Contact from "../components/sections/Contact";
 import ProjectHeroContent from "../components/hero/ProjectHeroContent";
+import FurtherLinks from "../components/sections/FurhterLinks";
 
 function ProjectPage() {
     useEffect(() => {
@@ -36,6 +37,7 @@ function ProjectPage() {
             </Hero>
             <DashboardPreview />
             <Advantages />
+            <FurtherLinks />
             <Contact />
         </main>
     );
