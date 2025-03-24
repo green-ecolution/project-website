@@ -3,9 +3,9 @@ import AdvantageCard from "../cards/AdvantageCard";
 function Advantages() {
     const advantages = [
         {
-            label: "Für neugierige Augen",
-            icon: "/assets/svg/general/eye.svg",
-            description: "Öffentlicher Zugang zu den Daten und zum Projekt.",
+            label: "Offene Lösung für alle",
+            icon: "/assets/svg/general/people.svg",
+            description: "Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz.",
         },
         {
             label: "Optimierte Routen",
