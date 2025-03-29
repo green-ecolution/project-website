@@ -59,8 +59,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({
                 <p>
                     In Zusammenarbeit zwischen der Hochschule-Flensburg, der
                     Smarten-Grenzregion und dem TBZ-Flensburg soll in der Stadt
-                    Flensburg eine smarte Bewässerung für Bäume und Beete
-                    aufgebaut werden. 
+                    Flensburg eine smarte Bewässerung für Bäume aufgebaut werden.
                 </p>
             </article>
 

@@ -15,13 +15,13 @@ function Introduction() {
             label: "Auswertung der Messdaten",
             icon: "/assets/svg/general/statistics.svg",
             description:
-                "Auswertung der durch Sensoren übermittelten Daten für eine bedarfsgerechte Bewässerung von Bäumen und Beeten.",
+                "Auswertung der durch Sensoren übermittelten Daten für eine bedarfsgerechte Bewässerung von Jungbäumen.",
         },
         {
-            label: "Augenmerk auf Jungbäume und Beete",
+            label: "Augenmerk auf Jungbäume",
             icon: "/assets/svg/general/tree.svg",
             description:
-                "Jungbäume und Blumenbeete sind besonders hitzeanfällig und daher äußerst schutzbedürftig.",
+                "Jungbäume sind besonders hitzeanfällig und daher äußerst schutzbedürftig. Aus diesem Grund werden Bäume in deren ersten drei Standjahren überwacht.",
         },
         {
             label: "Monitoring mehrerer Standorte",
