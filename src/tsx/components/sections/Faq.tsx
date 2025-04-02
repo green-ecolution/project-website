@@ -85,26 +85,26 @@ function Faq() {
                 <Accordion label="Welche Sensoren werden eingesetzt?">
                     <ul className="list-disc pl-4">
                         <li>Zur Messung der Bodenwasserspannung:&nbsp;
-                        <a
-                            href="https://www.irrometer.com/pdf/403.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
-                        >
-                            Watermark-Specsheet
-                        </a></li>
+                            <a
+                                href="https://www.irrometer.com/pdf/403.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                            >
+                                Watermark-Specsheet
+                            </a></li>
                         <li>Zur Messung der Bodenfeuchte und -temperatur:&nbsp;
-                        <a
-                            href="https://www.truebner.de/de/smt100.php"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
-                        >
-                            SMT100
-                        </a></li>
+                            <a
+                                href="https://www.truebner.de/de/smt100.php"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                            >
+                                SMT100
+                            </a></li>
                     </ul>
                 </Accordion>
-                <Accordion label="Wie ist der aktuelle Fortschritt des Projekts??">
+                <Accordion label="Wie ist der aktuelle Fortschritt des Projekts?">
                     <p>
                         Da es sich bei diesem Projekt um ein Forschungsprojekt an der Hochschule Flensburg handelt,
                         wurde der Projektzeitraum auf ein Jahr festgelegt. Der Start erfolgte im April 2024,

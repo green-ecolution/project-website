@@ -27,6 +27,6 @@ export const steps = [
         label: "Finale Vorstellung",
         shortName: "Finalisierung",
         isCurrent: true,
-        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Paper zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
+        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Plakat zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
     },
 ];
