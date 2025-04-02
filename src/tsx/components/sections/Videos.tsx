@@ -7,47 +7,69 @@ const VIDEO_SHORT_THMBNL2 = "https://s3.green-ecolution.de/public-videos/project
 const Videos = () => {
 
     return (
-        <section>
-            <article className="px-4 mb-8 max-w-208 mx-auto md:px-6 lg:mb-14 lg:text-center xl:max-w-screen-lg">
+        <section className="relative px-4 mx-auto md:px-6 py-28 lg:py-36 xl:py-52 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
+            <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-screen-lg">
                 <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
-                    Projektvideos
+                    Lerne das Projekt per Video kennen
                 </h2>
+                <p>
+                    Im Rahmen des Forschungsprojekts wurden nicht nur eine Sensorlösung und eine Software entwickelt,
+                    sondern auch Videos produziert. Diese Videos veranschaulichen anschaulich die Inhalte des Projekts,
+                    einschließlich der Zielsetzung, der Problemstellung und der von uns entwickelten Lösung.
+                </p>
             </article>
-            <section className="max-w-208 mx-auto mt-48 md:mt-52 lg:mt-16 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-screen-xl">
-                <ReactPlayer
-                    controls
-                    url={VIDEO_SHORT}
-                    light={VIDEO_SHORT_THMBNL2}
-                    config={{
-                        file: {
-                            forceHLS: true
-                        }
-                    }}
-                />
-                <article className="px-4 mb-8 md:px-6 lg:mb-14">
-                    <p className="mb-6">
-                        In diesem kurzen Video geben wir dir einen ersten Einblick in unser Projekt. Erfahre in wenigen Minuten, worum es geht und was du von den kommenden Inhalten erwarten kannst. Schau dir das Video an, um einen schnellen Überblick zu bekommen!
+
+            <section className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 xl:max-w-screen-xl">
+                <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
+                    <ReactPlayer
+                        className="aspect-video"
+                        controls
+                        url={VIDEO_SHORT}
+                        width="100%"
+                        height="auto"
+                        light={VIDEO_SHORT_THMBNL}
+                        config={{
+                            file: {
+                                forceHLS: true
+                            }
+                        }}
+                    />
+                    <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">
+                        <strong>Kurzvideo</strong>&nbsp;|&nbsp;
+                        <span className="text-base lg:text-lg text-grey-900/60">ca. 30 Sekunden</span>
+                    </h3>
+                    <p>
+                        In diesem kurzen Video geben wir dir einen ersten Einblick in unser Projekt.
+                        Erfahre in wenigen Minuten, worum es geht und was du von den kommenden Inhalten erwarten kannst.
+                        Schau dir das Video an, um einen schnellen Überblick zu bekommen!
                     </p>
                 </article>
 
-            </section>
-
-            <section className="max-w-208 mx-auto mt-48 md:mt-52 lg:mt-16 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-screen-xl">
-                <article className="px-4 mb-8 md:px-6 lg:mb-14">
-                    <p className="mb-6">
-                        In diesem ausführlichen Video tauchen wir tiefer in unser Projekt ein. Hier erläutern wir die wichtigsten Details, Hintergründe und die nächsten Schritte. Dieses Video bietet dir umfassende Informationen und hilft dir, das Projekt besser zu verstehen. Viel Spaß beim Anschauen und Entdecken!
+                <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
+                    <ReactPlayer
+                        className="aspect-video"
+                        controls
+                        url={VIDEO_SHORT}
+                        width="100%"
+                        height="auto"
+                        light={VIDEO_SHORT_THMBNL2}
+                        config={{
+                            file: {
+                                forceHLS: true
+                            }
+                        }}
+                    />
+                    <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">
+                        <strong>Langvideo</strong>&nbsp;|&nbsp;
+                        <span className="text-base lg:text-lg text-grey-900/60">ca. 4 Minuten</span>
+                    </h3>
+                    <p>
+                        In diesem ausführlichen Video tauchen wir tiefer in unser Projekt ein.
+                        Hier erläutern wir die wichtigsten Details, Hintergründe und die nächsten Schritte.
+                        Dieses Video bietet dir umfassende Informationen und hilft dir, das Projekt besser zu verstehen.
+                        Viel Spaß beim Anschauen und Entdecken!
                     </p>
                 </article>
-                <ReactPlayer
-                    controls
-                    url={VIDEO_SHORT}
-                    light={VIDEO_SHORT_THMBNL}
-                    config={{
-                        file: {
-                            forceHLS: true
-                        }
-                    }}
-                />
             </section>
         </section>
     )
