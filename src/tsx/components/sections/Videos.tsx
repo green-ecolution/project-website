@@ -1,8 +1,9 @@
 import ReactPlayer from "react-player"
 
 const VIDEO_SHORT = "https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-short.m3u8"
-const VIDEO_SHORT_THMBNL = "https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-short-thumbnail.png"
-const VIDEO_SHORT_THMBNL2 = "https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-thumbnail-dummy.png"
+const VIDEO_SHORT_THMBNL = "https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-thumbnail.png"
+const VIDEO_LONG = "https://s3.green-ecolution.de/public-videos/project-video/long/green-ecolution-long.m3u8"
+const VIDEO_LONG_THMBNL = "https://s3.green-ecolution.de/public-videos/project-video/long/green-ecolution-thumbnail.png"
 
 const Videos = () => {
 
@@ -49,10 +50,10 @@ const Videos = () => {
                     <ReactPlayer
                         className="aspect-video"
                         controls
-                        url={VIDEO_SHORT}
+                        url={VIDEO_LONG}
                         width="100%"
                         height="auto"
-                        light={VIDEO_SHORT_THMBNL2}
+                        light={VIDEO_LONG_THMBNL}
                         config={{
                             file: {
                                 forceHLS: true
