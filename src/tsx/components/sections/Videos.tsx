@@ -24,16 +24,12 @@ const Videos = () => {
                 <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
                     <ReactPlayer
                         className="aspect-video"
+                        playing
                         controls
                         url={VIDEO_SHORT}
                         width="100%"
                         height="auto"
                         light={VIDEO_SHORT_THMBNL}
-                        config={{
-                            file: {
-                                forceHLS: true
-                            }
-                        }}
                     />
                     <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">
                         <strong>Kurzvideo</strong>&nbsp;|&nbsp;
@@ -49,16 +45,12 @@ const Videos = () => {
                 <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
                     <ReactPlayer
                         className="aspect-video"
+                        playing
                         controls
                         url={VIDEO_LONG}
                         width="100%"
                         height="auto"
                         light={VIDEO_LONG_THMBNL}
-                        config={{
-                            file: {
-                                forceHLS: true
-                            }
-                        }}
                     />
                     <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">
                         <strong>Langvideo</strong>&nbsp;|&nbsp;
