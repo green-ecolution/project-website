@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- video section (#94)
+
+### Changed
+
+- change content (#90)
+
 ## [v1.0.5] - 2025-03-20
 
 ### Changed
