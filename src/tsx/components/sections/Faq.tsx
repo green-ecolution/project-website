@@ -44,7 +44,7 @@ function Faq() {
                     <p className="mb-4">
                         Das grundlegende Ziel des Projekts liegt darin zu
                         erarbeiten, welche Maßnahmen zu einer effizienteren
-                        Bewässerung von Bäumen und Beeten beitragen können.
+                        Bewässerung von Bäumen beitragen können.
                         Hierzu werden verschiedene Technologien eingesetzt.
                     </p>
                     <p>
@@ -84,26 +84,33 @@ function Faq() {
                 </Accordion>
                 <Accordion label="Welche Sensoren werden eingesetzt?">
                     <ul className="list-disc pl-4">
-                        <li>Bodenwasserspannungsensoren für Bäume:&nbsp;
-                        <a
-                            href="https://www.irrometer.com/pdf/403.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
-                        >
-                            Watermark-Specsheet
-                        </a></li>
-                        <li>Bodenfeuchtesensoren für Beete:&nbsp;
-                        <a
-                            href="https://www.truebner.de/de/smt100.php"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
-                        >
-                            SMT100
-                        </a></li>
-                        <li>Stammfeuchte-Sensor (in "Entwicklung")</li>
+                        <li>Zur Messung der Bodenwasserspannung:&nbsp;
+                            <a
+                                href="https://www.irrometer.com/pdf/403.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                            >
+                                Watermark-Specsheet
+                            </a></li>
+                        <li>Zur Messung der Bodenfeuchte und -temperatur:&nbsp;
+                            <a
+                                href="https://www.truebner.de/de/smt100.php"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                            >
+                                SMT100
+                            </a></li>
                     </ul>
+                </Accordion>
+                <Accordion label="Wie ist der aktuelle Fortschritt des Projekts?">
+                    <p>
+                        Da es sich bei diesem Projekt um ein Forschungsprojekt an der Hochschule Flensburg handelt,
+                        wurde der Projektzeitraum auf ein Jahr festgelegt. Der Start erfolgte im April 2024,
+                        und das Projekt endet voraussichtlich im April 2025. Nach Abschluss wird das Projekt
+                        jedoch in einem anderen Kontext fortgeführt.
+                    </p>
                 </Accordion>
             </ul>
         </section>

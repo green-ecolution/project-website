@@ -66,11 +66,11 @@ function HomepageHero() {
                 >
                     <div className="max-w-[30rem] 2xl:max-w-[40rem]">
                         <h1 className="font-lato font-bold text-2xl mb-6 lg:text-4xl xl:text-5xl">
-                            Wir ermöglichen smarte Bewässerung von Bäumen und Beeten!
+                            Wir ermöglichen smarte Bewässerung von Jungbäumen!
                         </h1>
                         <p className="mb-4 lg:mb-6">
-                            Mittels sensorgestützter Überwachung von Bäumen und
-                            Beeten werden Daten über das LoRaWan-Netz übermittelt
+                            Mittels sensorgestützter Überwachung von Jungbäumen
+                            werden Daten über das LoRaWan-Netz übermittelt
                             und ausgewertet, sodass Handlungsempfehlungen für die
                             Bewässerung abgegeben werden können.
                         </p>

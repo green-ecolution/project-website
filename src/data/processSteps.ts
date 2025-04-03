@@ -20,13 +20,13 @@ export const steps = [
     {
         label: "Projektvorstellung 02",
         shortName: "Vorstellung 02",
-        isCurrent: true,
+        isCurrent: false,
         description: "Nach dem ersten Release wird eine Qualitätssicherung stattfinden, um den einwandfreien Gebrauch zu gewährleisten und Fehler zu beheben sowie neue Features einzubauen."
     },
     {
         label: "Finale Vorstellung",
         shortName: "Finalisierung",
-        isCurrent: false,
-        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Paper zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
+        isCurrent: true,
+        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Plakat zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
     },
 ];
