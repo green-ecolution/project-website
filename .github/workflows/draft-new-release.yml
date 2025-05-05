@@ -23,9 +23,9 @@ jobs:
         run: git checkout -b release/${{ github.event.inputs.version }}
 
       - name: Update changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@1.1.0
+        uses: thomaseizinger/keep-a-changelog-new-release@3.1.0
         with:
-          version: ${{ github.event.inputs.version }}
+          tag: ${{ github.event.inputs.version }}
 
       - name: Initialize mandatory git config
         run: |
