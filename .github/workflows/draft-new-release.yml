@@ -36,9 +36,9 @@ jobs:
         run: yarn version --new-version ${{ github.event.inputs.version }} --no-git-tag-version
 
       - name: "Setup yq"
-        uses: dcarbone/install-yq-action@v1.1.1
+        uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.42.1"
+          version: "v4.44.3"
           force: true
 
       - name : Bump version in values/prod.yaml
@@ -123,9 +123,9 @@ jobs:
           tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:latest, ghcr.io/${{ env.REPO_LC }}-stage:${{ env.COMMIT_SHA }}
 
       - name: "Setup yq"
-        uses: dcarbone/install-yq-action@v1.1.1
+        uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.42.1"
+          version: "v4.44.3"
           force: true
 
       - name: Initialize mandatory git config
