@@ -99,9 +99,9 @@ jobs:
           tags: ghcr.io/${{ env.REPO_LC }}:${{ env.RELEASE_VERSION }}, ghcr.io/${{ env.REPO_LC }}:latest
 
       - name: "Setup yq"
-        uses: dcarbone/install-yq-action@v1.1.1
+        uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.42.1"
+          version: "v4.44.3"
           force: true
 
       - name: Initialize mandatory git config
