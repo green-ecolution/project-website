@@ -46,7 +46,7 @@
         # devShells."x86_64-linux".default = import ./shell.nix { inherit pkgs; };
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            nodejs_23
+            nodejs_24
             yarn
             eslint
             prettierd
