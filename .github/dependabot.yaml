@@ -8,8 +8,6 @@ updates:
     labels:
       - "dependencies"
       - "javascript"
-    reviewers:
-      - "green-ecolution/frontend-maintainers"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -19,8 +17,6 @@ updates:
     labels:
       - "ci"
       - "github-actions"
-    reviewers:
-      - "green-ecolution/devops"
 
   - package-ecosystem: "docker"
     directory: ".docker"
@@ -30,6 +26,4 @@ updates:
     labels:
       - "dependencies"
       - "docker"
-    reviewers:
-      - "green-ecolution/devops"
 
