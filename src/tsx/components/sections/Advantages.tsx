@@ -33,8 +33,8 @@ function Advantages() {
                 </p>
             </article>
 
-            {advantages.map((advantage, index) => (
-                <article key={index} className="group mb-4 last:mb-0 md:mb-0">
+            {advantages.map((advantage) => (
+                <article key={advantage.label} className="group mb-4 last:mb-0 md:mb-0">
                     <AdvantageCard
                         label={advantage.label}
                         icon={advantage.icon}

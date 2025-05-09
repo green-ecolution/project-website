@@ -24,17 +24,14 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        open
-        ? document.body.classList.add('overflow-hidden')
-        : document.body.classList.remove('overflow-hidden');
-
-        return () => { document.body.classList.remove('overflow-hidden') };
+        if (open) { document.body.classList.add('overflow-hidden') } else { document.body.classList.remove('overflow-hidden') }
+        return () => document.body.classList.remove('overflow-hidden');
     }, [open]);
 
     useEffect(() => {
         const handleScroll = () => {
-          const scrollTop = window.scrollY;
-          scrollTop > 50 ? setIsScrolled(true) : setIsScrolled(false);
+            const scrollTop = window.scrollY;
+            if (scrollTop > 50) { setIsScrolled(true) } else { setIsScrolled(false) }
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -58,6 +55,7 @@ function Header() {
                 </a>
 
                 <button
+                    type='button'
                     id="main-navigation-toggle"
                     aria-expanded={open}
                     aria-controls="main-navigation"
@@ -70,7 +68,7 @@ function Header() {
                     <span className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white -rotate-45 absolute' : 'bg-grey-900 mb-1'}`}></span>
                 </button>
 
-                <MainNavigation isOpen={open} onClose={() => toggleNavigation(false)}/>
+                <MainNavigation isOpen={open} onClose={() => toggleNavigation(false)} />
             </div>
         </header>
     );

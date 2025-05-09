@@ -67,9 +67,9 @@ function Introduction() {
                 aria-label="Fakten zum Grünflächenmanagement"
                 className="splide--grid md:px-2"
             >
-                {facts.map((fact, index) => (
+                {facts.map((fact) => (
                     <SplideSlide
-                        key={index}
+                        key={fact.label}
                         className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:[&:nth-child(2)]:mt-16 lg:[&:nth-child(3)]:-mt-16 lg:[&:nth-child(3)]:mb-16"
                     >
                         <IntroductionCard
