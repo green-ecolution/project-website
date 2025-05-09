@@ -44,14 +44,12 @@ const Stakeholder: React.FC<StakeholderProps> = ({
 
     return (
         <section
-            className={`max-w-208 mx-auto pt-28 mb-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 ${
-                hasDesktopList ? "lg:max-w-screen-lg" : ""
-            }`}
+            className={`max-w-208 mx-auto pt-28 mb-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 ${hasDesktopList ? "lg:max-w-screen-lg" : ""
+                }`}
         >
             <article
-                className={`px-4 mb-8 md:px-6 lg:mb-14 ${
-                    hasDesktopList ? "lg:text-center" : ""
-                }`}
+                className={`px-4 mb-8 md:px-6 lg:mb-14 ${hasDesktopList ? "lg:text-center" : ""
+                    }`}
             >
                 <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
                     Wer sind die Beteiligten?
@@ -73,8 +71,8 @@ const Stakeholder: React.FC<StakeholderProps> = ({
                 }}
                 aria-label="Beteiligten am Projekt"
             >
-                {stakeholder.map((company, index) => (
-                    <SplideSlide key={index} className="pb-10 px-4 md:px-6">
+                {stakeholder.map((company) => (
+                    <SplideSlide key={company.label} className="pb-10 px-4 md:px-6">
                         <StakeholderCard
                             label={company.label}
                             url={company.url}

@@ -47,7 +47,7 @@ function Process() {
             >
                 {steps.map((step, index) => (
                     <SplideSlide
-                        key={index}
+                        key={step.label}
                         className="pb-14 lg:w-1/2 lg:even:ml-auto lg:even:mr-0 lg:even:pl-10 lg:pb-0 lg:odd:pr-10"
                     >
                         <div className="relative h-[85%] lg:h-auto">
@@ -64,36 +64,30 @@ function Process() {
 
                             <div
                                 className={`relative mt-6 lg:static lg:mt-0 lg:before:w-0.5 lg:before:h-1/2 lg:after:w-0.5 lg:after:h-1/2
-                                ${
-                                    index !== 0
+                                ${index !== 0
                                         ? "before:w-1/2 before:h-0.5 before:absolute before:left-0 before:top-1/2 before:-z-10"
                                         : ""
-                                }
-                                ${
-                                    index + 1 < steps.length
+                                    }
+                                ${index + 1 < steps.length
                                         ? "after:w-1/2 after:h-0.5 after:absolute after:right-0 after:top-1/2 after:-z-10 "
                                         : ""
-                                }
-                                ${
-                                    index === activeStep
+                                    }
+                                ${index === activeStep
                                         ? "before:bg-green-dark-900 after:bg-grey-100"
                                         : ""
-                                }
-                                ${
-                                    index < activeStep
+                                    }
+                                ${index < activeStep
                                         ? "before:bg-green-dark-900 after:bg-green-dark-900"
                                         : ""
-                                }
-                                ${
-                                    index > activeStep
+                                    }
+                                ${index > activeStep
                                         ? "before:bg-grey-100 after:bg-grey-100"
                                         : ""
-                                }
-                                ${
-                                    index % 2 === 0
+                                    }
+                                ${index % 2 === 0
                                         ? "lg:before:-right-10 lg:before:left-auto lg:before:top-0 lg:after:-right-10"
                                         : "lg:before:-left-[2.6rem] lg:before:right-auto lg:before:top-0 lg:after:-left-[2.6rem]"
-                                }`}
+                                    }`}
                             >
                                 <StepCircle
                                     index={index}

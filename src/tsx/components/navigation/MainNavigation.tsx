@@ -10,7 +10,6 @@ interface MainNavigationProps {
 }
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
-
     const ref = useOutsideClick((event: MouseEvent) => {
         const toggleElement = document.getElementById('main-navigation-toggle');
         if (toggleElement && (event.target === toggleElement || toggleElement.contains(event.target as Node))) {
@@ -39,12 +38,12 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
 
             <ul className="absolute bottom-6 text-white lg:text-grey-900 flex felx-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
                 <li>
-                    <a href="https://hs-flensburg.de/impressum" target="_blank" className="transition-color ease-in-out duration-300 hover:opacity-75">
+                    <a href="https://hs-flensburg.de/impressum" target="_blank" rel="noreferrer noopener" className="transition-color ease-in-out duration-300 hover:opacity-75">
                         Impressum
                     </a>
                 </li>
                 <li>
-                    <a href="https://hs-flensburg.de/datenschutzerklaerung" target="_blank" className="transition-color ease-in-out duration-300 hover:opacity-75">
+                    <a href="https://hs-flensburg.de/datenschutzerklaerung" target="_blank" rel="noreferrer noopener" className="transition-color ease-in-out duration-300 hover:opacity-75">
                         Datenschutz
                     </a>
                 </li>

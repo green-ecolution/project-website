@@ -58,6 +58,7 @@ function Footer() {
                             <li>
                                 <a
                                     href="https://hs-flensburg.de/impressum"
+                                    rel="noreferrer noopener"
                                     target="_blank"
                                     className="font-bold transition-color ease-in-out duration-300 hover:opacity-75"
                                 >
@@ -67,6 +68,7 @@ function Footer() {
                             <li>
                                 <a
                                     href="https://hs-flensburg.de/datenschutzerklaerung"
+                                    rel="noreferrer noopener"
                                     target="_blank"
                                     className="font-bold transition-color ease-in-out duration-300 hover:opacity-75"
                                 >

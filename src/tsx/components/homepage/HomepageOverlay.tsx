@@ -70,9 +70,11 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
     }, [isOverlayVisible]);
 
     const handleNextClick = () => {
-        currentPopupIndex < popups.length - 1
-        ? setCurrentPopupIndex(currentPopupIndex + 1)
-        : onClose();
+        if (currentPopupIndex < popups.length - 1) {
+            setCurrentPopupIndex(currentPopupIndex + 1)
+        } else {
+            onClose()
+        }
     };
 
     const handleStartAnimation = () => {
@@ -85,7 +87,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
         <section
             className={`hidden fixed inset-0 transition-all ease-in-out duration-1500 xl:block
                 ${isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-[100]' : 'bg-opacity-0 -z-10'
-            }`}
+                }`}
         >
             <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
 
@@ -97,9 +99,8 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
                 />
 
                 <article
-                    className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500 ${
-                        isPopupVisible && isOverlayVisible ? 'opacity-100 delay-1500' : 'opacity-0'
-                    }`}
+                    className={`absolute top-1/2 -translate-y-2/3 right-[15%] transition-opacity duration-500 ${isPopupVisible && isOverlayVisible ? 'opacity-100 delay-1500' : 'opacity-0'
+                        }`}
                 >
                     <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">
                         <span className="text-sm">
@@ -108,19 +109,20 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({ initialLoad, isOverla
                         <h2 className="font-lato font-semibold text-xl mb-4">{currentPopup.label}</h2>
                         <p className="text-base">{currentPopup.description}</p>
                         <button
+                            type="button"
                             className="mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900"
                             onClick={handleNextClick}
                         >
                             {currentPopupIndex < popups.length - 1 ? 'Weiter' : 'Schließen'}
                             <Arrow
-                                classes={`w-6 transition-all ease-in-out duration-300 ${
-                                    currentPopupIndex < popups.length - 1 ? "group-hover:translate-x-0.5" : ""
-                                }`}
+                                classes={`w-6 transition-all ease-in-out duration-300 ${currentPopupIndex < popups.length - 1 ? "group-hover:translate-x-0.5" : ""
+                                    }`}
                             />
                         </button>
                     </div>
 
                     <button
+                        type="button"
                         aria-label="Popup schließen"
                         onClick={onClose}
                         className="absolute -right-8 -top-8 bg-white w-8 h-8 rounded-full flex items-center justify-center text-green-dark-900 transition-all ease-in-out duration-300 hover:bg-green-light-900 hover:text-white"
