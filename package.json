@@ -8,10 +8,13 @@
     "build": "tsc -b && vite build",
     "build:stage": "tsc -b && vite build --mode staging",
     "build:dev": "vite build --mode develop",
-    "lint": "prettier --check . && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "yarn fmt && eslint . --fix",
+    "lint": "yarn fmt:check && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "lint:ci": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "test": "echo 'test...'"
   },
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",
