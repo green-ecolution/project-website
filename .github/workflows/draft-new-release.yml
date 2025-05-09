@@ -48,12 +48,14 @@ jobs:
       - name: Commit changelog and manifest files
         id: make-commit
         run: |
-          git add CHANGELOG.md package.json
-          git commit --message "Prepare release ${{ github.event.inputs.version }}"
-
-          echo "::set-output name=commit::$(git rev-parse HEAD)"
+          git add CHANGELOG.md package.json \
+            && git commit --message "chore: prepare release ${{ github.event.inputs.version }}" \
+            || echo "No changes to commit"
+          echo "commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Push new branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GREEN_ECOLUTION_PAT }}
         run: git push origin release/${{ github.event.inputs.version }}
 
       - name: Create pull request
@@ -72,92 +74,3 @@ jobs:
             I've updated the changelog and bumped the versions in the manifest files in this commit: ${{ steps.make-commit.outputs.commit }}.
 
             Merging this PR will create a GitHub release and upload any assets that are created as part of the release build.
-
-  build_and_deploy_stage:
-    runs-on: ubuntu-latest
-    needs: draft_new_release
-    permissions:
-      contents: write
-      packages: write
-      actions: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Extract version
-        run: |
-          VERSION=${{ github.event.inputs.version }}
-
-          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set lower case owner name
-        run: |
-          echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
-        env:
-          REPO: "${{ github.repository }}"
-
-      - name: Set commit sha
-        run: |
-          echo "COMMIT_SHA=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
-
-      - name: Build and push Version
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./.docker/Dockerfile.stage
-          platforms: linux/amd64
-          push: true
-          tags: ghcr.io/${{ env.REPO_LC }}-stage:${{ env.RELEASE_VERSION }}-preview, ghcr.io/${{ env.REPO_LC }}-stage:latest, ghcr.io/${{ env.REPO_LC }}-stage:${{ env.COMMIT_SHA }}
-
-      - name: "Setup yq"
-        uses: dcarbone/install-yq-action@v1.3.1
-        with:
-          version: "v4.44.3"
-          force: true
-
-      - name: Initialize mandatory git config
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'noreply@github.com'
-
-      - name: Bump version in values/stage.yaml
-        run: yq -i '.deployment.image.tag=strenv(COMMIT_SHA)' ./k8s/values/stage.yaml
-
-      - name: Commit k8s values files
-        id: make-commit
-        run: |
-          git add ./k8s/values/stage.yaml
-          git commit --message "Update stage image to commit ${{ env.COMMIT_SHA }}"
-
-          echo "::set-output name=commit::$(git rev-parse HEAD)"
-
-      - name: Push changes
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: release/${{ github.event.inputs.version }}
-
-      - name: Delete tag
-        uses: dev-drprasad/delete-tag-and-release@v1.1
-        with:
-          tag_name: stage-deployment
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create tag
-        run: git tag -fa 'stage-deployment' -m "Update tag to commit ${{ env.COMMIT_SHA }}"
-
-      - name: Push tag
-        run: git push origin tag stage-deployment
