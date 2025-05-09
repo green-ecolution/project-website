@@ -1,29 +1,28 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
       interval: daily
     open-pull-requests-limit: 5
     labels:
-      - "dependencies"
-      - "javascript"
+      - 'dependencies'
+      - 'javascript'
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
       interval: daily
     open-pull-requests-limit: 5
     labels:
-      - "ci"
-      - "github-actions"
+      - 'ci'
+      - 'github-actions'
 
-  - package-ecosystem: "docker"
-    directory: ".docker"
+  - package-ecosystem: 'docker'
+    directory: '.docker'
     schedule:
       interval: daily
     open-pull-requests-limit: 5
     labels:
-      - "dependencies"
-      - "docker"
-
+      - 'dependencies'
+      - 'docker'

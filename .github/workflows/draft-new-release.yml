@@ -1,10 +1,10 @@
-name: "Draft New Release"
+name: 'Draft New Release'
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The release version"
+        description: 'The release version'
         required: true
 
 jobs:
@@ -35,13 +35,13 @@ jobs:
       - name: Bump version in package.json
         run: yarn version --new-version ${{ github.event.inputs.version }} --no-git-tag-version
 
-      - name: "Setup yq"
+      - name: 'Setup yq'
         uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.44.3"
+          version: 'v4.44.3'
           force: true
 
-      - name : Bump version in values/prod.yaml
+      - name: Bump version in values/prod.yaml
         run: |
           yq -i '.deployment.image.tag="${{ github.event.inputs.version }}"' ./k8s/values/prod.yaml
 
