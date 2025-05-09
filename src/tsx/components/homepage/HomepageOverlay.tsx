@@ -6,7 +6,7 @@ import WelcomeCard from "../cards/WelcomeCard";
 interface Popup {
     label: string;
     shortName: string;
-    description: JSX.Element;
+    description: React.ReactNode;
 }
 
 interface HomepageOverlayProps {
