@@ -33,25 +33,22 @@ function HomepageHero() {
     }, []);
 
     useEffect(() => {
-        isOverlayVisible
-        ? bodyLock()
-        : document.body.classList.remove('overflow-hidden');
-
+        if (isOverlayVisible) { bodyLock() } else { document.body.classList.remove('overflow-hidden') }
         return () => { document.body.classList.remove('overflow-hidden') };
     }, [isOverlayVisible]);
 
     useEffect(() => {
         if (isInitialLoadHelper()
-                && !isOverlayVisible
-                && window.matchMedia('(min-width: 1280px)').matches
-            ) {
+            && !isOverlayVisible
+            && window.matchMedia('(min-width: 1280px)').matches
+        ) {
             setIsInitialLoad(true);
             bodyLock();
 
             const timer = setTimeout(() => { setIsOverlayVisible(true) }, 2000);
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [isOverlayVisible]);
 
     function bodyLock() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -75,12 +72,13 @@ function HomepageHero() {
                             Bewässerung abgegeben werden können.
                         </p>
                         <button
+                            type="button"
                             className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-light-900 transition-color ease-in-out duration-300 text-white hover:bg-green-middle-900 hover:border-green-middle-900
-                                ${!isInitialLoadHelper() ? 'xl:flex' : '' }`}
+                                ${!isInitialLoadHelper() ? 'xl:flex' : ''}`}
                             onClick={handleOpenOverlay}
                         >
                             Animation abspielen
-                            <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2"/>
+                            <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
                         </button>
                     </div>
                 </article>

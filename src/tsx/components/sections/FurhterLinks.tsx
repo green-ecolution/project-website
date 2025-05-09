@@ -30,8 +30,8 @@ function FurtherLinks() {
                 </h2>
             </article>
             <ul className="grid grid-cols-1 gap-y-4">
-                {links.map((link, key) => (
-                    <li key={key} className="cursor-pointer border border-green-dark-900 bg-white rounded-2xl shadow-md">
+                {links.map((link) => (
+                    <li key={link.label} className="cursor-pointer border border-green-dark-900 bg-white rounded-2xl shadow-md">
                         <a href={link.url} target="_blank" className="px-4 py-3 group rounded-2xl cursor-pointer flex items-center justify-between gap-x-8 transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10">
                             <div>
                                 <h3 className="font-lato font-semibold text-lg mb-2">{link.label}</h3>
@@ -40,7 +40,7 @@ function FurtherLinks() {
                             <figure className="shrink-0 transition-all ease-in-out duration-300 group-hover:translate-x-1">
                                 <img
                                     src="/assets/svg/general/arrow.svg"
-                                    className="object-contain w-6 h-6 " alt=""/>
+                                    className="object-contain w-6 h-6 " alt="" />
                             </figure>
                         </a>
                     </li>
