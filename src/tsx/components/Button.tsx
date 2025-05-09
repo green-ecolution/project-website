@@ -1,14 +1,20 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
 interface ButtonProps {
-  href: string;
-  children: ReactNode;
-  ariaLabel: string;
-  isExternalLink?: boolean;
-  isDark?: boolean;
+  href: string
+  children: ReactNode
+  ariaLabel: string
+  isExternalLink?: boolean
+  isDark?: boolean
 }
 
-const Button: React.FC<ButtonProps> = ({ href, children, ariaLabel, isExternalLink = false, isDark = false, }) => {
+const Button: React.FC<ButtonProps> = ({
+  href,
+  children,
+  ariaLabel,
+  isExternalLink = false,
+  isDark = false,
+}) => {
   return (
     <a
       href={href}
@@ -19,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({ href, children, ariaLabel, isExternalLi
     >
       {children}
     </a>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
