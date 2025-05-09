@@ -3,15 +3,15 @@ name: Build and Push Docker Image Production
 on:
   pull_request:
     paths:
-      - "**/**"
-      - "!.github/**"
-      - "!k8s/**"
-      - "!.dockerignore"
-      - "!.editorconfig"
-      - "!.gitignore"
-      - "!.node-version"
-      - "!CHANGELOG.md"
-      - "!README.md"
+      - '**/**'
+      - '!.github/**'
+      - '!k8s/**'
+      - '!.dockerignore'
+      - '!.editorconfig'
+      - '!.gitignore'
+      - '!.node-version'
+      - '!CHANGELOG.md'
+      - '!README.md'
     branches:
       - main
     types:
@@ -87,7 +87,7 @@ jobs:
         run: |
           echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
         env:
-          REPO: "${{ github.repository }}"
+          REPO: '${{ github.repository }}'
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -98,10 +98,10 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}:${{ env.RELEASE_VERSION }}, ghcr.io/${{ env.REPO_LC }}:latest
 
-      - name: "Setup yq"
+      - name: 'Setup yq'
         uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.44.3"
+          version: 'v4.44.3'
           force: true
 
       - name: Initialize mandatory git config
