@@ -23,7 +23,7 @@ const ProcessCard: React.FC<ProcessCardProps> = ({
 }) => {
   return (
     <article
-      className={`h-full p-6 shadow-md rounded-2xl mx-4 border md:mx-6 lg:max-w-[32rem] lg:h-auto
+      className={`h-full p-6 shadow-md rounded-2xl mx-4 border md:mx-6 lg:max-w-lg lg:h-auto
             ${isCurrent && !isCompleted ? 'bg-green-light-100 border-green-light-900' : ''}
             ${isCompleted && !isCurrent ? 'border-green-dark-900 bg-white' : ''}
             ${!isCompleted && !isCurrent ? 'border-grey-100  bg-white' : ''}

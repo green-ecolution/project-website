@@ -23,7 +23,7 @@ function Advantages() {
   return (
     <section
       id="vorteile"
-      className="px-4 max-w-208 mx-auto my-28 md:px-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-6 lg:gap-10 lg:my-36 lg:max-w-screen-lg xl:my-52 xl:max-w-screen-xl"
+      className="px-4 max-w-208 mx-auto my-28 md:px-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-6 lg:gap-10 lg:my-36 lg:max-w-(--breakpoint-lg) xl:my-52 xl:max-w-(--breakpoint-xl)"
     >
       <article className="mb-8 lg:mb-14">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">

@@ -71,12 +71,12 @@ function HomepageHero() {
 
   return (
     <section>
-      <div className="overflow-hidden relative mx-auto w-screen h-screen max-w-screen-3xl before:bg-background-yellow-dot before:bg-cover before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:bottom-0 before:-z-50 before:bg-no-repeat sm:before:-right-10 md:before:max-h-[70rem] 2xl:before:right-0 2xl:before:bg-contain">
+      <div className="overflow-hidden relative mx-auto w-screen h-screen max-w-(--breakpoint-3xl) before:bg-background-yellow-dot before:bg-cover before:w-4/5 before:h-screen before:max-h-180 before:absolute before:-right-4 before:bottom-0 before:-z-50 before:bg-no-repeat sm:before:-right-10 md:before:max-h-280 2xl:before:right-0 2xl:before:bg-contain">
         <article
-          className={`max-w-208 mx-auto px-4 pt-28 mb-8 transition-all ease-in-out duration-500 md:px-6 lg:mb-14 lg:pt-36 lg:max-w-screen-lg xl:max-w-screen-xl xl:pt-44
+          className={`max-w-208 mx-auto px-4 pt-28 mb-8 transition-all ease-in-out duration-500 md:px-6 lg:mb-14 lg:pt-36 lg:max-w-(--breakpoint-lg) xl:max-w-(--breakpoint-xl) xl:pt-44
                     ${isOverlayVisible ? 'xl:opacity-0' : 'opacity-100'}`}
         >
-          <div className="max-w-[30rem] 2xl:max-w-[40rem]">
+          <div className="max-w-120 2xl:max-w-160">
             <h1 className="font-lato font-bold text-2xl mb-6 lg:text-4xl xl:text-5xl">
               Wir ermöglichen smarte Bewässerung von Jungbäumen!
             </h1>

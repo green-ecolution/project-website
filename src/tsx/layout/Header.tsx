@@ -55,7 +55,7 @@ function Header() {
             ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}
             ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
     >
-      <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
+      <div className="relative px-4 py-5 max-w-(--breakpoint-lg) mx-auto flex justify-between items-center md:px-6 xl:max-w-(--breakpoint-xl)">
         <a
           href="/"
           aria-label="Zur Startseite navigieren"

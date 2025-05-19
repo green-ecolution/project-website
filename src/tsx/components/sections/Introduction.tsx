@@ -41,7 +41,7 @@ function Introduction() {
   }
 
   return (
-    <section className="max-w-208 mx-auto mt-48 md:mt-52 lg:mt-16 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-screen-xl">
+    <section className="max-w-208 mx-auto mt-48 md:mt-52 lg:mt-16 lg:max-w-(--breakpoint-lg) lg:grid lg:grid-cols-[1fr_1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-(--breakpoint-xl)">
       <article className="px-4 mb-8 md:px-6 lg:mb-14">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
           Was beinhaltet smartes Grünflächenmanagement?
@@ -68,7 +68,7 @@ function Introduction() {
         {facts.map((fact) => (
           <SplideSlide
             key={fact.label}
-            className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:[&:nth-child(2)]:mt-16 lg:[&:nth-child(3)]:-mt-16 lg:[&:nth-child(3)]:mb-16"
+            className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:nth-2:mt-16 lg:nth-3:-mt-16 lg:nth-3:mb-16"
           >
             <IntroductionCard label={fact.label} icon={fact.icon} description={fact.description} />
           </SplideSlide>

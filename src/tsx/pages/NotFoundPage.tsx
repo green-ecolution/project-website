@@ -5,12 +5,12 @@ import Arrow from '../icons/Arrow'
 
 function NotFoundPage() {
   return (
-    <main className="relative h-screen overflow-hidden before:bg-cover before:bg-background-dark-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain">
+    <main className="relative h-screen overflow-hidden before:bg-cover before:bg-background-dark-dot before:w-4/5 before:h-screen before:max-h-180 before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-220 xl:before:w-280 xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain">
       <figure aria-hidden="true" className="absolute top-0 inset-x-0">
         <Lottie className="h-[50vh]" animationData={cableAnimation} />
       </figure>
 
-      <div className="mt-[55vh] mx-auto max-w-208 xl:max-w-screen-lg">
+      <div className="mt-[55vh] mx-auto max-w-208 xl:max-w-(--breakpoint-lg)">
         <section className="my-28 px-4 md:px-6 lg:my-36 xl:my-52">
           <h1 className="font-lato font-bold text-4xl mb-4 lg:mb-6 lg:text-5xl lg:text-center xl:text-6xl">
             Die Seite konnte nicht gefunden werden.

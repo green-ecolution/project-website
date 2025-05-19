@@ -18,8 +18,8 @@ function Process() {
   }
 
   return (
-    <section className="relative overflow-hidden pt-28 my-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 before:bg-cover before:bg-background-dark-dot before:-scale-x-100 before:w-[90%] before:h-[80%] before:absolute before:-left-4 before:top-8 before:-z-10 before:bg-no-repeat sm:before:-left-[10%] xl:before:w-[80rem] 2xl:before:left-[10%] 2xl:before:bg-contain 3xl:before:left-[20%]">
-      <article className="px-4 mb-8 max-w-208 mx-auto md:px-6 lg:mb-14 lg:text-center xl:max-w-screen-lg">
+    <section className="relative overflow-hidden pt-28 my-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 before:bg-cover before:bg-background-dark-dot before:-scale-x-100 before:w-[90%] before:h-[80%] before:absolute before:-left-4 before:top-8 before:-z-10 before:bg-no-repeat sm:before:-left-[10%] xl:before:w-7xl 2xl:before:left-[10%] 2xl:before:bg-contain 3xl:before:left-[20%]">
+      <article className="px-4 mb-8 max-w-208 mx-auto md:px-6 lg:mb-14 lg:text-center xl:max-w-(--breakpoint-lg)">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
           Der aktuelle Projektfortschritt
         </h2>
@@ -42,7 +42,7 @@ function Process() {
           start: activeStep,
         }}
         aria-label="Der aktuelle Projektfortschritt"
-        className="md:px-2 lg:mx-auto lg:max-w-screen-lg xl:max-w-screen-xl"
+        className="md:px-2 lg:mx-auto lg:max-w-(--breakpoint-lg) xl:max-w-(--breakpoint-xl)"
       >
         {steps.map((step, index) => (
           <SplideSlide

@@ -12,7 +12,7 @@ const VIDEO_LONG_THMBNL =
 const Videos = () => {
   return (
     <section className="relative px-4 mx-auto md:px-6 py-28 lg:py-36 xl:py-52 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
-      <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-screen-lg">
+      <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-(--breakpoint-lg)">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
           Lerne das Projekt per Video kennen
         </h2>
@@ -24,7 +24,7 @@ const Videos = () => {
         </p>
       </article>
 
-      <section className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 xl:max-w-screen-xl">
+      <section className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 xl:max-w-(--breakpoint-xl)">
         <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
           <ReactPlayer
             className="aspect-video"

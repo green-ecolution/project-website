@@ -98,9 +98,9 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
   return (
     <section
       className={`hidden fixed inset-0 transition-all ease-in-out duration-1500 xl:block
-                ${isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-[100]' : 'bg-opacity-0 -z-10'}`}
+                ${isOverlayVisible ? 'bg-grey-900 bg-opacity-80 z-100' : 'bg-opacity-0 -z-10'}`}
     >
-      <div className="relative mx-auto h-screen w-screen max-w-screen-3xl">
+      <div className="relative mx-auto h-screen w-screen max-w-(--breakpoint-3xl)">
         <WelcomeCard
           handleStartAnmiation={handleStartAnimation}
           onClose={onClose}
@@ -113,7 +113,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
             isPopupVisible && isOverlayVisible ? 'opacity-100 delay-1500' : 'opacity-0'
           }`}
         >
-          <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-[22.5rem] 2xl:p-8 2xl:w-[32rem]">
+          <div className="relative bg-white shadow-md rounded-2xl p-6 border border-grey-100 w-90 2xl:p-8 2xl:w-lg">
             <span className="text-sm">
               Info {currentPopupIndex + 1} von {popups.length}: {currentPopup.shortName}
             </span>

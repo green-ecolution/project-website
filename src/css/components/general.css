@@ -10,5 +10,5 @@ input[type='checkbox']:focus-visible,
 input[type='date']:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  @apply outline outline-2 outline-offset-4 outline-green-light-900;
+  @apply outline-solid outline-2 outline-offset-4 outline-green-light-900;
 }

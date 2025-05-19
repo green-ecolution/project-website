@@ -3,7 +3,7 @@ import dashboardAnimation from '../../../json/dashboardAnimation.json'
 
 function DashboardPreview() {
   return (
-    <section className="my-28 px-4 max-w-208 mx-auto md:px-6 lg:my-36 xl:max-w-screen-lg xl:my-52">
+    <section className="my-28 px-4 max-w-208 mx-auto md:px-6 lg:my-36 xl:max-w-(--breakpoint-lg) xl:my-52">
       <article className="mb-8 g:mb-14 md:text-center">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
           Fundierte Handlungsempfehlungen

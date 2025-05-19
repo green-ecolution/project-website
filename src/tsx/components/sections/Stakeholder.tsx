@@ -43,7 +43,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => 
   return (
     <section
       className={`max-w-208 mx-auto pt-28 mb-28 lg:pt-36 lg:mb-36 xl:pt-52 xl:mb-52 ${
-        hasDesktopList ? 'lg:max-w-screen-lg' : ''
+        hasDesktopList ? 'lg:max-w-(--breakpoint-lg)' : ''
       }`}
     >
       <article className={`px-4 mb-8 md:px-6 lg:mb-14 ${hasDesktopList ? 'lg:text-center' : ''}`}>

@@ -18,7 +18,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
 }) => {
   return (
     <figure
-      className={`h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:p-8 md:grid md:grid-cols-[15rem,auto] md:gap-x-12 md:items-center
+      className={`h-full cursor-pointer bg-white shadow-md rounded-2xl p-6 border border-grey-100 md:p-8 md:grid md:grid-cols-[15rem_auto] md:gap-x-12 md:items-center
             ${hasDesktopList ? 'lg:cursor-default' : ''}`}
     >
       <img
