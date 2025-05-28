@@ -7,48 +7,73 @@ on:
     types:
       - closed
 
+
+
 jobs:
-  merge_and_publish_prod:
+  metadata:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true &&
       (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
-    permissions:
-      contents: write
-      packages: write
-      actions: write
-      pull-requests: write
+    outputs:
+      version: ${{ env.RELEASE_VERSION }}
+      branch: ${{ env.BRANCH }}
+      app_token: ${{ steps.app-token.outputs.token }}
+      app_username: '${{ steps.app-token.outputs.app-slug }}[bot]'
+      app_email: '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
     steps:
+      - name: Get Green Ecolution App Token
+        uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-request: write
+
+      - name: Get Green Ecolution App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+
       - name: Extract version from branch name (for release branches)
         if: startsWith(github.event.pull_request.head.ref, 'release/')
         run: |
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
           VERSION=${BRANCH_NAME#release/}
-
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Extract version from branch name (for hotfix branches)
         if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
         run: |
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
           VERSION=${BRANCH_NAME#hotfix/}
-
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
 
+  release:
+    runs-on: ubuntu-latest
+    needs: metadata
+    env:
+      version: ${{ needs.metadata.outputs.version }}
+      app_token: ${{ needs.metadata.outputs.app_token }}
+    steps:
       - name: Create Release
         uses: thomaseizinger/create-release@2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GREEN_ECOLUTION_PAT }}
         with:
           target_commitish: ${{ github.event.pull_request.merge_commit_sha }}
-          tag_name: ${{ env.RELEASE_VERSION }}
-          name: ${{ env.RELEASE_VERSION }}
+          tag_name: ${{ env.version }}
+          name: ${{ env.version }}
           draft: false
           prerelease: false
 
       - name: Merge main into develop branch
         uses: thomaseizinger/create-pull-request@1.4.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.app_token }}
         with:
           head: main
           base: develop
@@ -57,6 +82,14 @@ jobs:
             This PR merges the main branch back into develop.
             This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the develop branch.
 
+  build_and_push_docker:
+    runs-on: ubuntu-latest
+    needs: metadata
+    permissions:
+      packages: write
+    env:
+      version: ${{ needs.metadata.outputs.version }}
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -70,12 +103,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: set lower case owner name
-        run: |
-          echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
-        env:
-          REPO: '${{ github.repository }}'
-
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -83,7 +110,24 @@ jobs:
           file: ./.docker/Dockerfile.prod
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/${{ env.REPO_LC }}:${{ env.RELEASE_VERSION }}, ghcr.io/${{ env.REPO_LC }}:latest
+          tags: ghcr.io/${{ github.repository }}:${{ env.version }}, ghcr.io/${{ github.repository }}:latest
+
+  update_deployment:
+    runs-on: ubuntu-latest
+    needs: [build_and_push_docker, metadata]
+    permissions:
+      contents: write
+    env:
+      version: ${{ needs.metadata.outputs.version }}
+      branch: ${{ needs.metadata.outputs.branch }}
+      app_token: ${{ needs.metadata.outputs.app_token }}
+      app_username: ${{ needs.metadata.outputs.app_username }}
+      app_email: ${{ needs.metadata.outputs.app_email }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ env.app_token }}
 
       - name: 'Setup yq'
         uses: dcarbone/install-yq-action@v1.3.1
@@ -93,31 +137,15 @@ jobs:
 
       - name: Initialize mandatory git config
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'noreply@github.com'
+          git config --global user.name ${{ env.app_username }}
+          git config --global user.email ${{ env.app_email }}
 
-      - name: Bump version in values/develop.yaml
-        run: yq -i '.deployment.image.tag=strenv(RELEASE_VERSION)' ./k8s/values/prod.yaml
-
-      - name: Commit k8s values files
-        id: make-commit
+      - name: Bump version in values/stage.yaml
         run: |
-          git add ./k8s/values/prod.yaml
-          git commit --message "chore: update prod image to version ${{ env.RELEASE_VERSION }}"
-
-          echo "::set-output name=commit::$(git rev-parse HEAD)"
-
-      - name: Commit k8s values files
-        id: make-commit
-        run: |
-          git add ./k8s/values/prod.yaml
-          git commit --message "chore: update prod image to version ${{ env.RELEASE_VERSION }}"
-
-      - name: Commit k8s values and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GREEN_ECOLUTION_PAT }}
-        run: |
+          yq -i '.deployment.image.tag=strenv(version)' ./k8s/values/stage.yaml
           git add ./k8s/values/stage.yaml
-          git commit --message "chore: update stage image to version ${{ env.RELEASE_VERSION }}" \
-            && git push origin ${{ steps.extract_branch.outputs.branch }} \
-            || echo "No changes to commit"
+          git commit --message "chore: update stage image to version ${{ env.version }} [skip ci]"
+
+      - name: Push k8s changes
+        run: |
+            git push origin ${{ env.branch }} || echo "No changes to commit"
