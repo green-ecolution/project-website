@@ -7,8 +7,6 @@ on:
     types:
       - closed
 
-
-
 jobs:
   metadata:
     runs-on: ubuntu-latest
@@ -148,4 +146,4 @@ jobs:
 
       - name: Push k8s changes
         run: |
-            git push origin ${{ env.branch }} || echo "No changes to commit"
+          git push origin ${{ env.branch }} || echo "No changes to commit"
