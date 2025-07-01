@@ -5,7 +5,7 @@ deployment:
   image:
     repository: ghcr.io/green-ecolution/project-website
     pullPolicy: Always
-    tag: v1.0.6-50-g2c11f47
+    tag: v1.0.6-52-g9386cad
 ingress:
   enabled: true
   className: "traefik"
