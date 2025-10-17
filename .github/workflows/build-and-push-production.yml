@@ -89,7 +89,7 @@ jobs:
       version: ${{ needs.metadata.outputs.version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -123,7 +123,7 @@ jobs:
       app_email: ${{ needs.metadata.outputs.app_email }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ env.app_token }}
 
