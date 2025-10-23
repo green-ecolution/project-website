@@ -24,6 +24,18 @@ function FurtherLinks() {
         'Nicht nur auf der Website, sondern auch auf Instagram wurde Green Ecolution erwähnt.',
       url: 'https://www.instagram.com/hochschuleflensburg/p/DA3aCgaPqoq/',
     },
+    {
+      label: 'Teil des DigitalHub.SH 2025',
+      subLabel:
+        'Green Ecolution wurde als eines der Open-Source-Projekte im Rahmen des DigitalHub.SH 2025 vorgestellt und finanziert.',
+      url: 'https://www.schleswig-holstein.de/DE/landesregierung/ministerien-behoerden/I/Presse/PI/2025/cds/251014_cds_open-source-projekte?nn=a3865cbf-b1fb-4b2f-bc47-f7ac05f3f7b5',
+    },
+    {
+      label: 'Pressemitteilung der Stadt Flensburg',
+      subLabel:
+        'Auch die Stadt Flensburg berichtete über Green Ecolution und die Bedeutung des Projekts für ein nachhaltiges Stadtmanagement.',
+      url: 'https://www.presse-service.de/data.aspx/static/1200128.html',
+    },
   ]
 
   return (
