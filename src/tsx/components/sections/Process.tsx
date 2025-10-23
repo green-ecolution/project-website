@@ -24,10 +24,10 @@ function Process() {
           Der aktuelle Projektfortschritt
         </h2>
         <p>
-          Das Projekt gliedert sich in verschiedene Meilensteine auf und wird von den Studierenden
-          der Hochschule-Flensburg bis April 2025 betreut und weiterentwickelt. Die einzelnen
-          Meilensteine, sowie den aktuelle Projektfortschritt können Sie der untenstehenden
-          chronologischen Übersicht entnehmen.
+          Das Forschungsprojekt an der Hochschule Flensburg wurde erfolgreich abgeschlossen.
+          Aufbauend auf den erzielten Ergebnissen entwickeln wir das System nun eigenständig weiter,
+          um es zu optimieren, zu erweitern und produktreif zu machen. Die folgenden Schritte zeigen
+          den bisherigen Verlauf und die nächsten Phasen auf dem Weg in den produktiven Einsatz.
         </p>
       </article>
 
