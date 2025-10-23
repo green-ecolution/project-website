@@ -2,3 +2,4 @@
 **/node_modules
 src/json/*Animation.json
 k8s/**
+pnpm-lock.yaml
