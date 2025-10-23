@@ -4,11 +4,12 @@
   "version": "v1.0.6",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:stage": "tsc -b && vite build --mode staging",
     "build:dev": "vite build --mode develop",
-    "lint": "yarn fmt:check && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint": "pnpm fmt:check && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "lint:ci": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
