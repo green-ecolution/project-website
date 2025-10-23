@@ -105,7 +105,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./.docker/Dockerfile.prod
           platforms: linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ env.version }}, ghcr.io/${{ github.repository }}:latest

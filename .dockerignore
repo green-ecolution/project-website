@@ -1,5 +1,3 @@
-.docker/
-!.docker/nginx.conf
 .git/
 .github/
 dist/
