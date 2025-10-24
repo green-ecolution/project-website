@@ -1,11 +1,9 @@
 fullnameOverride: "landing-prod"
 nameOverride: "landing-prod"
-
 image:
   repository: ghcr.io/green-ecolution/project-website
   tag: v1.1.0
   pullPolicy: Always
-
 ingress:
   hosts:
     - green-ecolution.de
