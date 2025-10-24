@@ -53,6 +53,10 @@ jobs:
         run: |
           echo "RELEASE_VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
 
+      - name: Set Build Version
+        run: |
+          echo "BUILD_VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -71,6 +75,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          build-args: |
+            VITE_APP_VERSION="${{env.RELEASE_VERSION}}"
+            VITE_BUILD_VERSION="${{env.BUILD_VERSION}}"
           platforms: linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ env.RELEASE_VERSION }},ghcr.io/${{ github.repository }}:${{ env.COMMIT_SHA }}
