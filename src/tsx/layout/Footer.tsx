@@ -60,7 +60,7 @@ function Footer() {
             </ul>
           </nav>
           <p className="text-sm text-center mt-3 sm:text-left md:text-right">
-            Made with ✨ in Flensburg by PROGEEK GmbH & HS Flensburg <br />
+            Made with ✨ by PROGEEK GmbH & Hochschule Flensburg <br />
             {import.meta.env.VITE_APP_VERSION} • Build {import.meta.env.VITE_BUILD_VERSION}
           </p>
         </div>
