@@ -1,34 +1,59 @@
+{{- if .Values.ingress.enabled }}
+{{- $svcName := (.Values.service.name | default (include "landing-page.fullname" .)) -}}
+{{- $ports := (.Values.service.ports | default (list (dict "name" "http" "port" 80 "targetPort" 80))) -}}
+{{- $first := index $ports 0 -}}
+{{- $svcPort := index $first "port" -}}
+{{- $hosts := required "ingress.hosts must be set (list)" .Values.ingress.hosts -}}
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.ingress.name }}
-  namespace: {{ .Values.deployment.namespace }}
+  name: {{ include "landing-page.fullname" . }}
+  labels:
+    {{- include "landing-page.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
   annotations:
-    {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
-    {{- end }}
+  {{- end }}
 spec:
-  ingressClassName: {{ .Values.ingress.className }}
+  {{- with .Values.ingress.className }}
+  ingressClassName: {{ . }}
+  {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .name }}
+    {{- range $h := $hosts }}
+    - host: {{ $h | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            pathType: {{ .pathType | default "Prefix" }}
+          - path: {{ $.Values.ingress.path | default "/" }}
+            pathType: {{ $.Values.ingress.pathType | default "Prefix" }}
             backend:
               service:
-                name: {{ .backend.serviceName }}
+                name: {{ $svcName }}
                 port:
-                  number: {{ .backend.servicePort }}
-          {{- end }}
+                  number: {{ $svcPort }}
+    {{- if $.Values.ingress.addWww }}
+    - host: {{ printf "www.%s" $h | quote }}
+      http:
+        paths:
+          - path: {{ $.Values.ingress.path | default "/" }}
+            pathType: {{ $.Values.ingress.pathType | default "Prefix" }}
+            backend:
+              service:
+                name: {{ $svcName }}
+                port:
+                  number: {{ $svcPort }}
+    {{- end }}
     {{- end }}
   {{- if .Values.ingress.tls.enabled }}
   tls:
-    - hosts:
-      {{- range .Values.ingress.hosts }}
-        - {{ .name }}
-      {{- end }}
-      secretName: {{ .Values.ingress.tls.secretName }}
+    - secretName: {{ .Values.ingress.tls.secretName }}
+      hosts:
+        {{- range $h := $hosts }}
+        - {{ $h | quote }}
+        {{- if $.Values.ingress.addWww }}
+        - {{ printf "www.%s" $h | quote }}
+        {{- end }}
+        {{- end }}
   {{- end }}
+{{- end }}
+

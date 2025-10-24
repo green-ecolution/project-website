@@ -1,14 +1,22 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.service.name }}
+  name: {{ include "landing-page.fullname" . }}
   labels:
-    app: {{ .Values.service.name }}
+    {{- include "landing-page.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort | default .Values.service.port }}
-      protocol: {{ .Values.service.protocol | default "TCP"}}
+    {{- range .Values.service.ports }}
+    - name: {{ .name }}
+      port: {{ .port }}
+      targetPort: {{ .targetPort | default .port }}
+      protocol: {{ .protocol | default "TCP" }}
+    {{- end }}
   selector:
-    app: {{ .Values.deployment.name }}
+    {{- include "landing-page.selectorLabels" . | nindent 4 }}
+

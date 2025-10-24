@@ -1,63 +1,103 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/green-ecolution/project-website
+  tag: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+
+serviceAccount:
+  create: false
+  name: ""
+
 deployment:
-    annotations: {}
-    labels: {}
-    namespace: project-website
-    name: project-website
-    replicaCount: 1
-    image:
-        repository: ghcr.io/green-ecolution/project-website
-        pullPolicy: Always
-        tag: latest
+  annotations: {}
+  autoscaling:
+    enabled: false
+  replicaCount: 1
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 25%
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-podAnnotations: {}
 podLabels: {}
+podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
 
-securityContext: {}
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
 
-service:
-    name: project-website
-    type: ClusterIP
-    port: 80
+containerPorts:
+  - name: http
+    containerPort: 80
     protocol: TCP
 
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  annotations: {}
+
 ingress:
-    enabled: false
-    name: project-website-ingress
-    className: "traefik"
-    annotations:
-        cert-manager.io/cluster-issuer: cert-manager
-        kubernetes.io/ingress.class: traefik
-    hosts:
-        - name: green-ecolution.de
-          paths:
-              - path: /
-                pathType: Prefix
-                backend:
-                    serviceName: project-website
-                    servicePort: 80
-    tls:
-        enabled: true
-        secretName: green-ecolution-de-tls
+  enabled: true
+  className: "traefik"
+  hosts: []
+  addWww: false
+  path: /
+  pathType: Prefix
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: cert-manager
+  tls:
+    enabled: true
+    secretName: landing-page-tls
 
-resources: {}
-
-livenessProbe:
-    httpGet:
-        path: /
-        port: http
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 readinessProbe:
+  enabled: true
+  config:
     httpGet:
-        path: /
-        port: http
+      path: /
+      port: http
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+livenessProbe:
+  enabled: true
+  config:
+    httpGet:
+      path: /
+      port: http
+    initialDelaySeconds: 15
+    periodSeconds: 20
+
+startupProbe:
+  enabled: false
+  config: {}
 
 volumes: []
 volumeMounts: []
 
 nodeSelector: {}
+tolerations: []
+affinity: {}
+topologySpreadConstraints: []

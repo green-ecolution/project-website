@@ -113,7 +113,7 @@ jobs:
           force: true
 
       - name: Bump version in values/stage.yaml
-        run: yq -i '.deployment.image.tag=strenv(version)' ./k8s/values/stage.yaml
+        run: yq -i '.image.tag=strenv(version)' ./k8s/values/stage.yaml
 
       - name: Get Green Ecolution App User ID
         id: get-user-id

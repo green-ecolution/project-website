@@ -148,7 +148,7 @@ jobs:
 
       - name: Bump version in values/stage.yaml
         run: |
-          yq -i '.deployment.image.tag=strenv(version)' ./k8s/values/stage.yaml
+          yq -i '.image.tag=strenv(version)' ./k8s/values/stage.yaml
           git add ./k8s/values/stage.yaml
           git commit --message "chore: update stage image to version ${{ env.version }} [skip ci]"
 
