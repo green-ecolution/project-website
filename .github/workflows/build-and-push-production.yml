@@ -14,6 +14,7 @@ jobs:
       (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
     outputs:
       version: ${{ env.RELEASE_VERSION }}
+      build_version: ${{ env.BUILD_VERSION }}
       branch: ${{ env.BRANCH }}
       app_token: ${{ steps.app-token.outputs.token }}
       app_username: '${{ steps.app-token.outputs.app-slug }}[bot]'
@@ -49,6 +50,10 @@ jobs:
           VERSION=${BRANCH_NAME#hotfix/}
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
           echo "BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Set Build Version
+        run: |
+          echo "BUILD_VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
   release:
     runs-on: ubuntu-latest
@@ -87,6 +92,7 @@ jobs:
       packages: write
     env:
       version: ${{ needs.metadata.outputs.version }}
+      build_version: ${{ needs.metadata.outputs.build_version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -105,6 +111,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          build-args: |
+            VERSION=${{env.version}}
+            BUILD_VERSION=${{env.build_version}}
           platforms: linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ env.version }}, ghcr.io/${{ github.repository }}:latest
