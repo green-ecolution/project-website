@@ -1,11 +1,11 @@
-name: "Deploy Pull Request"
+name: 'Deploy Pull Request'
 on:
   pull_request:
     types: [labeled]
 
 jobs:
   deploy_pr:
-    name: "Deploy Pull Request"
+    name: 'Deploy Pull Request'
     runs-on: ubuntu-latest
     if: ${{ github.event.label.name == 'deploy' }}
     permissions:
@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -34,10 +34,10 @@ jobs:
         run: |
           echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
         env:
-          REPO: "${{ github.repository }}"
+          REPO: '${{ github.repository }}'
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./.docker/Dockerfile.dev
@@ -45,10 +45,10 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}-dev:pr-${{ github.event.number }}
 
-      - name: "Setup yq"
-        uses: dcarbone/install-yq-action@v1.1.1
+      - name: 'Setup yq'
+        uses: dcarbone/install-yq-action@v1.3.1
         with:
-          version: "v4.42.1"
+          version: 'v4.44.3'
           force: true
 
       - name: Change values in on-pr.yaml
@@ -77,7 +77,7 @@ jobs:
           --values ./k8s/values/develop.yaml
 
       - name: Post comment to Pull Request
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

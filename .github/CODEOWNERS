@@ -1,0 +1,7 @@
+* @choffmann
+
+.docker/** @green-ecolution/devops
+.github/** @green-ecolution/devops
+.k8s/** @green-ecolution/devops
+.dockerignore @green-ecolution/devops
+flake.* @green-ecolution/devops

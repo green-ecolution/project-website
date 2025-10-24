@@ -1,74 +1,91 @@
-# Projekt Website
+# 🌱 Green Ecolution – Landing Page
 
-This repository contains the source code for the Green Ecolution project website. The website is built using React, Tailwind CSS, Vite and TypeScript and is deployed using GitHub Actions and Helm. The deployment is done on a Kubernetes cluster. The site is deployed to three environments: Development, Staging and Production.
+The Green Ecolution landing page provides an overview of the research and development project “Green Ecolution”, which focuses on making the irrigation of urban trees more efficient and sustainable through data-driven technology.
 
-## Tech Stack
+This website presents the project background, milestones, and ongoing development toward a production-ready system.
 
-- [Vite](https://vitejs.dev/)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+👉 Visit the live site: <https://green-ecolution.de>
 
-## Set up the project
+## 🧭 About the Project
 
-### Requirements
+Green Ecolution started as a research project at the University of Applied Sciences Flensburg (HS Flensburg) in cooperation with the Technisches Betriebszentrum Flensburg (TBZ).
+The goal: optimize tree irrigation using smart sensor technology, data analysis, and digital route planning to save water and resources.
+
+Building on the research results, the system is now being developed further to reach product maturity and real-world deployment in urban environments.
+
+## 🖥️ About This Repository
+
+This repository contains the source code for the official Green Ecolution landing page. It serves as the central information hub for the project — showcasing the concept, progress, and references to related software and publications.
+
+The site is built with a modern web stack and continuously deployed to a Kubernetes environment.
+
+## ⚙️ Tech Stack
+
+- ⚡ [Vite](https://vitejs.dev/) - lightning-fast build tool
+- ⚛️ [React](https://react.dev/) - component-based UI library
+- 💎 [TypeScript](https://www.typescriptlang.org/) - type-safe JavaScript
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) - utility-first styling framework
+- 🚀 Deployment: GitHub Actions + Helm + Kubernetes
+
+## 🧩 Local Development
+
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en)
-- [Yarn](https://yarnpkg.com/)
-- [fnm](https://github.com/Schniz/fnm) (optional)
+- [pnpm](https://pnpm.io/)
+- (optional) [fnm](https://github.com/Schniz/fnm) - Node.js version manager
 
-fnm is optional, but it is recommended to use it to manage Node.js versions.
+### Getting Started
 
-### Local development
-
-First, clone the repository and run the following command to install the project dependencies:
+Clone the repository and install dependencies:
 
 ```bash
-yarn install
+pnpm install
 ```
 
-Vite is used for the development server. To start the development server, run the following command:
+Run the local development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
-Vite will start a development server at `http://localhost:5173`. Add the `--host` tag to the command to allow access to the server from other devices on the same network.
-
-### Building the project
-
-There are three build modes: `develop`, `stage` and `production`. To build the project in one of the build modes, run the following command:
+By default, the site will be available at <http://localhost:5173>. To make it accessible from other devices on your network, start the server with:
 
 ```bash
-yarn build:dev # for development environment
-yarn build:stage # for staging environment
-yarn build # for production environment
+pnpm dev --host
 ```
 
-The build will be output to the `dist` directory.
+### Build for Production
 
-## Deployment
+```bash
+pnpm build
+```
 
-There are three environments for the project:
+The compiled files are output to the `dist/` directory.
 
-- Development (Automatically deployed on push to `develop` branch)
-- Staging (Automatically deployed when a new release is drafted)
-- Production (Manually deployed when a new release is published to the `main` branch)
+## 🚀 Deployment
 
-The deployment is done using GitHub Actions and the deployment configuration is located in the `.github/workflows` directory.
+Deployments are handled via GitHub Actions and Helm, targeting a Kubernetes cluster.
+Each deployment workflow:
 
-For each environment, the deployment workflow will run the following steps:
+1. Installs dependencies
+1. Builds the project
+1. Publishes a package to the [GitHub Package Registry](https://github.com/orgs/green-ecolution/packages)
+1. Updates Helm chart values with version or commit hash
+1. Deploys to production
 
-1. Install the project dependencies
-2. Build the project
-3. Push package to GitHub Package Registry (see [GitHub Package Registry](https://github.com/orgs/green-ecolution/packages?repo_name=project-website))
-4. Dump version in helm chart values (version tag or commit hash)
-5. Deploy the project to the environment
+Configuration files are stored in:
 
-The deployment is done using Helm and the deployment configuration is located in the `k8s` directory. The deployment configuration is stored in the `k8s/values` directory. Inside the `values` directory, there are three files: `develop.yaml`, `stage.yaml` and `prod.yaml`. The deployment configuration for each environment is stored in the respective file.
+```bash
+k8s/
+└── values/
+    └── prod.yaml
+```
 
-Each environment has its own url:
+## 🤝 Contributing
 
-- Development: [https://dev.green-ecolution.de](https://dev.green-ecolution.de)
-- Staging: [https://stage.green-ecolution.de](https://stage.green-ecolution.de)
-- Production: [https://green-ecolution.de](https://green-ecolution.de)
+Contributions, feedback, and ideas are welcome! If you’d like to improve the landing page or report an issue, please open a pull request or use the GitHub issue tracker.
+
+## 💬 Contact
+
+For questions or collaboration inquiries, feel free to reach out via 📧 [info@green-ecolution.de](mailto:info@green-ecolution.de) or visit our [GitHub Organization](https://github.com/green-ecolution)

@@ -1,32 +1,38 @@
 export const steps = [
-    {
-        label: "Konzepterstellung",
-        shortName: "Konzept",
-        isCurrent: false,
-        description: "Im ersten Schritt wird eine Anforderungsanalyse sowie eine Recherche zu verwandten Arbeiten durchgeführt. Zudem wird Software- und Hardware-Architektur bestimmt sowie eine Anbindung an das LoRaWAN-Netz erprobt. Eine Roadmap wird das weitere Vorgehen inkrementell festhalten."
-    },
-    {
-        label: "MVP (Minimum Viable Product)",
-        shortName: "MVP",
-        isCurrent: false,
-        description: "Der MVP dient der Umsetzung der konzeptualen Bestimmungen und soll ein erstes, funktionales Produkt darstellen. Anhand des Feedbacks aus der MVP-Vorstellung wird das Vorgehen weiter präzisiert."
-    },
-    {
-        label: "Projektvorstellung 01",
-        shortName: "Vorstellung 01",
-        isCurrent: false,
-        description: "Aufbauend auf den Erkenntnissen des MVP soll eine Fort- und Weiterentwicklung stattfinden. Die Projektvorstellung 01 stellt den ersten, offiziellen Release dar."
-    },
-    {
-        label: "Projektvorstellung 02",
-        shortName: "Vorstellung 02",
-        isCurrent: false,
-        description: "Nach dem ersten Release wird eine Qualitätssicherung stattfinden, um den einwandfreien Gebrauch zu gewährleisten und Fehler zu beheben sowie neue Features einzubauen."
-    },
-    {
-        label: "Finale Vorstellung",
-        shortName: "Finalisierung",
-        isCurrent: true,
-        description: "Bei der finalen Vorstellung ist die Roadmap bzgl. des Studienprojektes abgeschlossen. Die Behebung letzter Probleme soll ein funktionsfähiges Produkt bereitstellen. Dokumenation, Quellcode, ein Plakat zur Arbeit und Videos sollen weiter auf das Projekt machen aufmerksam und zu einer Fortführung anregen."
-    },
-];
+  {
+    label: 'Forschungsprojekt Hochschule Flensburg',
+    shortName: 'Forschungsprojekt',
+    isCurrent: false,
+    description:
+      'Das Projekt wurde als Forschungsarbeit an der Hochschule Flensburg durchgeführt. Ziel war die Entwicklung eines funktionsfähigen Konzepts und der Nachweis der technischen Machbarkeit. Die Ergebnisse bilden die Grundlage für die nun folgende Weiterentwicklung zur Produktreife.',
+  },
+
+  {
+    label: 'Softwareentwicklung der Anwendung',
+    shortName: 'Softwareentwicklung',
+    isCurrent: true,
+    description:
+      'Umfasst die Entwicklung der gesamten Softwarearchitektur – von der Sensorik und dem Backend bis hin zur Benutzeroberfläche und mobilen Anwendung. Ziel ist eine flexible, erweiterbare und zukunftssichere Systembasis.',
+  },
+  {
+    label: 'Sensorik-Entwicklung & Integration',
+    shortName: 'Sensorik',
+    isCurrent: false,
+    description:
+      'Entwicklung und Integration neuer Sensorkomponenten zur Erweiterung der Funktionalität des Systems. Die Sensorik wird an das bestehende Backend angebunden, kalibriert und in die Datenverarbeitung eingebunden, um präzisere und zuverlässigere Messwerte zu erzielen.',
+  },
+  {
+    label: 'Integration, Tests & Dokumentation',
+    shortName: 'Tests & Doku',
+    isCurrent: false,
+    description:
+      'Nach der Implementierung wird das System umfassend geprüft, optimiert und final dokumentiert, um eine stabile und nutzerfreundliche Anwendung sicherzustellen.',
+  },
+  {
+    label: 'Produktlaunch',
+    shortName: 'Launch',
+    isCurrent: false,
+    description:
+      'Abschluss der Entwicklungsphase und Übergang in den produktiven Einsatz. Der Fokus liegt auf Einführung, Nutzung und kontinuierlicher Weiterentwicklung des Systems.',
+  },
+]

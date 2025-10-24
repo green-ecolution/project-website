@@ -3,9 +3,9 @@ deployment:
   name: project-website-stage
   replicaCount: 1
   image:
-    repository: ghcr.io/green-ecolution/project-website-stage
+    repository: ghcr.io/green-ecolution/project-website
     pullPolicy: Always
-    tag: v1.0.6-preview
+    tag: v1.1.0
 ingress:
   enabled: true
   className: "traefik"
