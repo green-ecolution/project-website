@@ -2,7 +2,7 @@ fullnameOverride: "landing-stage"
 nameOverride: "landing-stage"
 image:
   repository: ghcr.io/green-ecolution/project-website
-  tag: v1.1.0-2-gcc12486
+  tag: v1.1.0-4-g6a23400
   pullPolicy: Always
 ingress:
   hosts:
