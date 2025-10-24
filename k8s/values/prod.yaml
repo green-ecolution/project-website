@@ -10,4 +10,5 @@ ingress:
     - green-ecolution.io
     - green-ecolution.dev
     - green-ecolution.com
+    - green-ecolution.net
   addWww: true
