@@ -32,6 +32,9 @@ podSecurityContext:
     type: RuntimeDefault
 
 containerSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 101
+  runAsGroup: 101
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
   capabilities:
@@ -39,7 +42,7 @@ containerSecurityContext:
 
 containerPorts:
   - name: http
-    containerPort: 80
+    containerPort: 8080
     protocol: TCP
 
 service:
@@ -47,7 +50,7 @@ service:
   ports:
     - name: http
       port: 80
-      targetPort: 80
+      targetPort: 8080
   annotations: {}
 
 ingress:
@@ -94,8 +97,25 @@ startupProbe:
   enabled: false
   config: {}
 
-volumes: []
-volumeMounts: []
+volumes:
+  - name: nginx-cache
+    emptyDir: {}
+  - name: nginx-run
+    emptyDir: {}
+  - name: nginx-log
+    emptyDir: {}
+  - name: nginx-tmp
+    emptyDir: {}
+
+volumeMounts:
+  - name: nginx-cache
+    mountPath: /var/cache/nginx
+  - name: nginx-run
+    mountPath: /var/run
+  - name: nginx-log
+    mountPath: /var/log/nginx
+  - name: nginx-tmp
+    mountPath: /tmp
 
 nodeSelector: {}
 tolerations: []
