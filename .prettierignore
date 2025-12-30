@@ -1,5 +1,7 @@
 **/dist
 **/node_modules
+**/.github
 src/json/*Animation.json
 k8s/**
 pnpm-lock.yaml
+CHANGELOG.md
