@@ -4,8 +4,7 @@
 FROM node:25-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-ENV PNPM_VERSION="10.19.0"
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
+RUN corepack enable && corepack prepare --activate
 COPY . /app
 WORKDIR /app
 
