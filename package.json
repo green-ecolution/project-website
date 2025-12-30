@@ -1,14 +1,12 @@
 {
   "name": "project-website",
   "private": true,
-  "version": "v1.1.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:stage": "tsc -b && vite build --mode staging",
-    "build:dev": "vite build --mode develop",
     "lint": "pnpm fmt:check && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "lint:ci": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0",

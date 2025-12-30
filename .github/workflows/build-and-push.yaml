@@ -4,12 +4,9 @@ on:
   push:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]'
-    branches:
-      - develop
 
 jobs:
   metadata:
-    if: github.ref_type == 'tag' || !contains(github.event.head_commit.message, '[skip gha]')
     runs-on: ubuntu-latest
     outputs:
       version: ${{ env.RELEASE_VERSION }}
@@ -24,15 +21,10 @@ jobs:
 
       - name: Determine version and branch info
         run: |
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            VERSION="${{ github.ref_name }}"
-            BRANCH="$(git for-each-ref --format='%(refname:short)' --contains=HEAD refs/remotes | sed -E 's#^origin/##' | head -n1)"
-            BRANCH="$(echo "$BRANCH" | xargs)"
-            BRANCH="${BRANCH:-develop}"
-          else
-            VERSION="$(git describe --tags --always --dirty)"
-            BRANCH="${{ github.ref_name }}"
-          fi
+          VERSION="${{ github.ref_name }}"
+          BRANCH="$(git for-each-ref --format='%(refname:short)' --contains=HEAD refs/remotes | sed -E 's#^origin/##' | head -n1)"
+          BRANCH="$(echo "$BRANCH" | xargs)"
+          BRANCH="${BRANCH:-develop}"
 
           echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
@@ -41,7 +33,6 @@ jobs:
           echo "Detected version=$VERSION, branch=$BRANCH"
 
   build_and_push_docker:
-    if: github.ref_type == 'tag' || !contains(github.event.head_commit.message, '[skip gha]')
     runs-on: ubuntu-latest
     needs: metadata
     permissions:
@@ -67,11 +58,7 @@ jobs:
       - name: Compute image tags
         run: |
           IMG="ghcr.io/${{ github.repository }}"
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            echo "IMAGE_TAGS=$IMG:${{ env.version }},$IMG:latest" >> "$GITHUB_ENV"
-          else
-            echo "IMAGE_TAGS=$IMG:${{ env.version }}" >> "$GITHUB_ENV"
-          fi
+          echo "IMAGE_TAGS=$IMG:${{ env.version }},$IMG:latest" >> "$GITHUB_ENV"
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -84,8 +71,7 @@ jobs:
           push: true
           tags: ${{ env.IMAGE_TAGS }}
 
-  update_deployment:
-    if: github.ref_type == 'tag' || !contains(github.event.head_commit.message, '[skip gha]')
+  update_prod_deployment:
     runs-on: ubuntu-latest
     needs: [metadata, build_and_push_docker]
     permissions:
@@ -115,71 +101,29 @@ jobs:
           version: 'v4.45.4'
           force: true
 
-      - name: Update values (prod on tag, stage otherwise) + bump Chart.appVersion & package.json on tag; commit & push
+      - name: Update prod image tag and commit
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         run: |
           set -euo pipefail
 
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            FILE="k8s/values/prod.yaml"
-          else
-            FILE="k8s/values/stage.yaml"
-          fi
-          echo "Target values file: $FILE"
-
+          FILE="k8s/values/prod.yaml"
           yq -i '.image.tag = strenv(version)' "$FILE"
-
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            echo "Bumping Chart.yaml appVersion -> $version"
-            yq -i '.appVersion = strenv(version)' "k8s/Chart.yaml"
-
-            if [ -f package.json ]; then
-              echo "Bumping package.json version -> $version"
-              yq -i -o=json '.version = strenv(version)' package.json
-            else
-              echo "package.json not found (skip)"
-            fi
-          fi
 
           USER_ID="$(gh api "/users/${APP_SLUG}[bot]" --jq .id)"
           git config --global user.name  "${APP_SLUG}[bot]"
           git config --global user.email "${USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
 
-          git add "$FILE" "k8s/Chart.yaml" package.json 2>/dev/null || true
+          git add "$FILE"
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            MSG="chore: bump prod image/chart/app version to ${version} [skip gha]"
-          else
-            MSG="chore: update stage image to ${version} [skip gha]"
-          fi
-          git commit -m "$MSG"
+          git commit -m "chore: update prod image to ${version} [skip gha]"
 
           TARGET_BRANCH="${branch:-develop}"
+          git fetch origin "$TARGET_BRANCH" && git rebase "origin/$TARGET_BRANCH"
+          git push origin "HEAD:$TARGET_BRANCH"
 
-          if git fetch origin "$TARGET_BRANCH" && git rebase "origin/$TARGET_BRANCH"; then
-            if git push origin "HEAD:$TARGET_BRANCH"; then
-              echo "Pushed to $TARGET_BRANCH"
-              exit 0
-            fi
-          fi
-
-          echo "Fast-forward Push/Rebase failed -> creating PR instead"
-          echo "PR_BRANCH=ci/bump-${TARGET_BRANCH}-$(date +%s)" >> $GITHUB_ENV
-
-      - name: Create PR with changes (fallback)
-        if: env.PR_BRANCH != ''
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          branch: ${{ env.PR_BRANCH }}
-          base: ${{ env.TARGET_BRANCH || needs.metadata.outputs.branch }}
-          title: 'chore: bump image/version → ${{ env.version }}'
-          body: 'automatic update. please merge'
-          commit-message: 'chore: bump image/version to ${{ env.version }} [skip gha]'
-          labels: ci
