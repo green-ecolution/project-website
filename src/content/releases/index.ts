@@ -71,10 +71,23 @@ export function getAllReleases(): Release[] {
     .sort((a, b) =>
       b.frontmatter.version.localeCompare(a.frontmatter.version, undefined, {
         numeric: true,
-      })
+      }),
     )
 }
 
 export function getReleaseBySlug(slug: string): Release | undefined {
   return getAllReleases().find((release) => release.slug === slug)
+}
+
+export function getAdjacentReleases(slug: string): {
+  prev: Release | undefined
+  next: Release | undefined
+} {
+  const releases = getAllReleases()
+  const currentIndex = releases.findIndex((r) => r.slug === slug)
+
+  return {
+    prev: currentIndex > 0 ? releases[currentIndex - 1] : undefined,
+    next: currentIndex < releases.length - 1 ? releases[currentIndex + 1] : undefined,
+  }
 }

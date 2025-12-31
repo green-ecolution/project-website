@@ -25,9 +25,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
 
       <h2 className="font-lato font-bold text-xl mb-3 lg:text-2xl">{frontmatter.title}</h2>
 
-      {frontmatter.summary && (
-        <p className="text-grey-900/80 mb-4">{frontmatter.summary}</p>
-      )}
+      {frontmatter.summary && <p className="text-grey-900/80 mb-4">{frontmatter.summary}</p>}
 
       {frontmatter.highlights && frontmatter.highlights.length > 0 && (
         <div className="mb-6">
