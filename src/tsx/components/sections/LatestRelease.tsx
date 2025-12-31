@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '@tanstack/react-router'
 import { getAllReleases } from '../../../content/releases'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
@@ -31,7 +31,8 @@ function LatestRelease() {
         </div>
 
         <Link
-          to={`/releases/${latestRelease.slug}`}
+          to="/releases/$slug"
+          params={{ slug: latestRelease.slug }}
           className="group block bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
         >
           <div className="flex items-center gap-3 mb-3">

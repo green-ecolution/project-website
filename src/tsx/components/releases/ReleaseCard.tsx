@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '@tanstack/react-router'
 import type { Release } from '../../types/release'
 
 interface ReleaseCardProps {
@@ -44,7 +44,8 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
       )}
 
       <Link
-        to={`/releases/${slug}`}
+        to="/releases/$slug"
+        params={{ slug }}
         className="inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:underline"
       >
         Mehr lesen

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@tanstack/react-router'
 import { getAllReleases } from '../../content/releases'
 import ReleaseTimeline from '../components/releases/ReleaseTimeline'
 
@@ -37,7 +37,8 @@ function ReleasesPage() {
               Aktuelles Release
             </span>
             <Link
-              to={`/releases/${latestRelease.slug}`}
+              to="/releases/$slug"
+              params={{ slug: latestRelease.slug }}
               className="group block bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all"
             >
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
