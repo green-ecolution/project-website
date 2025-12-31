@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/green-ecolution/project-website/compare/v1.1.1...v1.2.0) (2025-12-31)
+
+
+### Features
+
+* add release notes page with changelog and homepage section ([#217](https://github.com/green-ecolution/project-website/issues/217)) ([a166878](https://github.com/green-ecolution/project-website/commit/a1668781a78fc6ab740e8ccf1205753694c7ab1c))
+
+
+### Bug Fixes
+
+* check initial scroll position on header mount ([#218](https://github.com/green-ecolution/project-website/issues/218)) ([95f9a00](https://github.com/green-ecolution/project-website/commit/95f9a006096ea7bb7e45f167c6ebebbfec16847c))
+
 ## 1.1.1 (2025-12-30)
 
 - Added release-please for automated release management
