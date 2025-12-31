@@ -36,8 +36,8 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
           </h3>
           <ul className="space-y-1">
             {frontmatter.highlights.map((highlight) => (
-              <li key={highlight} className="flex items-start gap-2 text-grey-900/80">
-                <span className="text-green-dark-900 mt-1">•</span>
+              <li key={highlight} className="flex items-center gap-2 text-grey-900/80">
+                <span className="text-green-dark-900">•</span>
                 <span>{highlight}</span>
               </li>
             ))}
