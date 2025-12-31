@@ -3,26 +3,23 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: daily
+      interval: weekly
     open-pull-requests-limit: 5
     labels:
-      - 'dependencies'
-      - 'javascript'
+      - 'dependencies: npm'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: daily
+      interval: weekly
     open-pull-requests-limit: 5
     labels:
-      - 'ci'
-      - 'github-actions'
+      - 'dependencies: github-actions'
 
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
-      interval: daily
+      interval: weekly
     open-pull-requests-limit: 5
     labels:
-      - 'dependencies'
-      - 'docker'
+      - 'dependencies: docker'
