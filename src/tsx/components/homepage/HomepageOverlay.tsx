@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from '@tanstack/react-router'
 import Arrow from '../../icons/Arrow'
 import HomepageOverlayIcons from './HomepageOverlayIcons'
 import WelcomeCard from '../cards/WelcomeCard'
@@ -45,12 +46,13 @@ const popups: Popup[] = [
         Die übermittelten Sensordaten werden anhand wissenschaftlicher/mathematischer Methodiken
         ausgewertet. Auf einen Dashboard wird graphisch dargestellt, ob eine Bewässerung in nächster
         Zeit notwendig ist.&nbsp;
-        <a
-          href="/projekt#vorteile"
+        <Link
+          to="/projekt"
+          hash="vorteile"
           className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
         >
           Zu den Vorteilen
-        </a>
+        </Link>
       </>
     ),
   },
