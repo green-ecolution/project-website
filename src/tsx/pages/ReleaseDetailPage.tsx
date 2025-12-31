@@ -64,6 +64,18 @@ function ReleaseDetailPage() {
     if (lowerText.includes('sicher') || lowerText.includes('security')) {
       return '🔒'
     }
+    if (lowerText.includes('technisch') || lowerText.includes('technical') || lowerText.includes('basis')) {
+      return '⚙️'
+    }
+    if (lowerText.includes('ausblick') || lowerText.includes('outlook') || lowerText.includes('zukunft')) {
+      return '🔮'
+    }
+    if (lowerText.includes('was ist') || lowerText.includes('about') || lowerText.includes('über')) {
+      return '💡'
+    }
+    if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
+      return '🎯'
+    }
     return '📋'
   }
 
@@ -88,6 +100,18 @@ function ReleaseDetailPage() {
     }
     if (lowerText.includes('breaking') || lowerText.includes('wichtig')) {
       return 'bg-grey-900/10 text-grey-900 border-grey-900/20'
+    }
+    if (lowerText.includes('technisch') || lowerText.includes('technical') || lowerText.includes('basis')) {
+      return 'bg-blue-400/10 text-blue-400 border-blue-400/20'
+    }
+    if (lowerText.includes('ausblick') || lowerText.includes('outlook') || lowerText.includes('zukunft')) {
+      return 'bg-purple-400/10 text-purple-400 border-purple-400/20'
+    }
+    if (lowerText.includes('was ist') || lowerText.includes('about') || lowerText.includes('über')) {
+      return 'bg-yellow-400/10 text-yellow-500 border-yellow-400/20'
+    }
+    if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
+      return 'bg-orange-400/10 text-orange-400 border-orange-400/20'
     }
     return 'bg-grey-100 text-grey-900 border-grey-100'
   }
@@ -196,10 +220,37 @@ function ReleaseDetailPage() {
               ),
               ul: ({ children }) => <ul className="my-3 space-y-2 text-grey-900/80">{children}</ul>,
               li: ({ children }) => (
-                <li className="flex items-center gap-3 text-grey-900/80">
-                  <span className="text-green-dark-900 flex-shrink-0">→</span>
+                <li className="flex items-start gap-3 text-grey-900/80">
+                  <span className="text-green-dark-900 flex-shrink-0 mt-1">→</span>
                   <span>{children}</span>
                 </li>
+              ),
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-dark-900 font-medium hover:underline"
+                >
+                  {children}
+                </a>
+              ),
+              img: ({ src, alt }) => (
+                <figure className="my-6">
+                  <img
+                    src={src}
+                    alt={alt ?? ''}
+                    className="w-full rounded-xl shadow-lg border border-grey-100"
+                  />
+                  {alt && (
+                    <figcaption className="text-center text-sm text-grey-900/60 mt-2">
+                      {alt}
+                    </figcaption>
+                  )}
+                </figure>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold text-grey-900">{children}</strong>
               ),
             }}
           >
