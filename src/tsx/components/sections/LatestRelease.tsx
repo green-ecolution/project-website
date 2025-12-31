@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { getAllReleases } from '../../../content/releases'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
+import { formatReleaseDate } from '../../helper/formatDate'
 
 function LatestRelease() {
   const releases = getAllReleases()
@@ -9,11 +10,7 @@ function LatestRelease() {
 
   if (!latestRelease) return null
 
-  const formattedDate = new Date(latestRelease.frontmatter.date).toLocaleDateString('de-DE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+  const formattedDate = formatReleaseDate(latestRelease.frontmatter.date)
 
   return (
     <section className="px-4 max-w-screen-lg mx-auto mt-28 lg:mt-36 xl:mt-52 md:px-6 xl:max-w-screen-xl">
@@ -43,7 +40,12 @@ function LatestRelease() {
               Aktuell
             </span>
           </div>
-          <time className="text-white/60 text-sm block mb-2">{formattedDate}</time>
+          <time
+            dateTime={latestRelease.frontmatter.date}
+            className="text-white/60 text-sm block mb-2"
+          >
+            {formattedDate}
+          </time>
           <h3 className="font-lato font-bold text-xl text-white mb-2 group-hover:underline">
             {latestRelease.frontmatter.title}
           </h3>

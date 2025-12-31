@@ -3,6 +3,9 @@ import { Link, redirect } from '@tanstack/react-router'
 import Markdown from 'react-markdown'
 import { getReleaseBySlug, getAdjacentReleases, getAllReleases } from '../../content/releases'
 import { Route } from '../../routes/releases_.$slug'
+import { formatReleaseDate } from '../helper/formatDate'
+
+const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 
 function getTextContent(node: ReactNode): string {
   if (typeof node === 'string') return node
@@ -33,11 +36,7 @@ function ReleaseDetailPage() {
   const allReleases = getAllReleases()
   const isLatest = allReleases[0]?.slug === slug
 
-  const formattedDate = new Date(frontmatter.date).toLocaleDateString('de-DE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+  const formattedDate = formatReleaseDate(frontmatter.date)
 
   const getSectionIcon = (text: string): string => {
     const lowerText = text.toLowerCase()
@@ -145,6 +144,7 @@ function ReleaseDetailPage() {
       <article className="px-4 max-w-208 mx-auto mt-20 pb-16 md:px-6 lg:mt-24 lg:pb-24 lg:max-w-screen-lg xl:mt-32 xl:max-w-screen-xl">
         <Link
           to="/releases"
+          aria-label="Zurück zu allen Releases"
           className="inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:underline mb-8"
         >
           <span aria-hidden="true">←</span>
@@ -162,12 +162,14 @@ function ReleaseDetailPage() {
                   Aktuell
                 </span>
               )}
-              <time className="text-grey-900/60 text-sm">{formattedDate}</time>
+              <time dateTime={frontmatter.date} className="text-grey-900/60 text-sm">
+                {formattedDate}
+              </time>
             </div>
             <span className="text-grey-900/30 hidden sm:inline">|</span>
             <div className="flex items-center gap-3">
               <a
-                href={`${frontmatter.repository ?? 'https://github.com/green-ecolution/green-ecolution'}/releases/tag/v${frontmatter.version}`}
+                href={`${frontmatter.repository ?? DEFAULT_REPOSITORY}/releases/tag/v${frontmatter.version}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm text-grey-900/60 hover:text-green-dark-900 transition-colors"
@@ -178,7 +180,7 @@ function ReleaseDetailPage() {
                 Release
               </a>
               <a
-                href={`${frontmatter.repository ?? 'https://github.com/green-ecolution/green-ecolution'}/tree/v${frontmatter.version}`}
+                href={`${frontmatter.repository ?? DEFAULT_REPOSITORY}/tree/v${frontmatter.version}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm text-grey-900/60 hover:text-green-dark-900 transition-colors"
@@ -323,8 +325,7 @@ function ReleaseDetailPage() {
                   }
 
                   const typeColor = typeColors[entry.type] ?? 'text-grey-100/60'
-                  const repoBase =
-                    frontmatter.repository ?? 'https://github.com/green-ecolution/green-ecolution'
+                  const repoBase = frontmatter.repository ?? DEFAULT_REPOSITORY
 
                   return (
                     <div
@@ -379,7 +380,7 @@ function ReleaseDetailPage() {
         )}
 
         {/* Prev/Next Navigation */}
-        <nav className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <nav aria-label="Release Navigation" className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prev ? (
             <Link
               to="/releases/$slug"
@@ -430,7 +431,7 @@ function ReleaseDetailPage() {
           <p className="text-grey-900/60 text-sm">
             Fehler gefunden oder Feedback zu diesem Release?{' '}
             <a
-              href={`${frontmatter.repository ?? 'https://github.com/green-ecolution/green-ecolution'}/issues/new`}
+              href={`${frontmatter.repository ?? DEFAULT_REPOSITORY}/issues/new`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-dark-900 hover:underline font-medium block mt-1 sm:inline sm:mt-0"

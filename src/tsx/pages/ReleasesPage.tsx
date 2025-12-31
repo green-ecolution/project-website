@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
 import { getAllReleases } from '../../content/releases'
 import ReleaseTimeline from '../components/releases/ReleaseTimeline'
+import { formatReleaseDate } from '../helper/formatDate'
 
 function ReleasesPage() {
   const releases = getAllReleases()
@@ -12,13 +13,7 @@ function ReleasesPage() {
     document.title = 'Releases | Green Ecolution | Smartes Grünflächenmanagement'
   }, [])
 
-  const formattedDate = latestRelease
-    ? new Date(latestRelease.frontmatter.date).toLocaleDateString('de-DE', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    : ''
+  const formattedDate = latestRelease ? formatReleaseDate(latestRelease.frontmatter.date) : ''
 
   return (
     <main className="relative overflow-hidden flex-grow before:bg-cover before:bg-background-yellow-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain">
@@ -47,7 +42,12 @@ function ReleasesPage() {
                     <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-bold">
                       v{latestRelease.frontmatter.version}
                     </span>
-                    <time className="text-white/70 text-sm">{formattedDate}</time>
+                    <time
+                      dateTime={latestRelease.frontmatter.date}
+                      className="text-white/70 text-sm"
+                    >
+                      {formattedDate}
+                    </time>
                   </div>
                   <h2 className="font-lato font-bold text-2xl text-white mb-2 group-hover:underline lg:text-3xl">
                     {latestRelease.frontmatter.title}

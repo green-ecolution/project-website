@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import type { Release } from '../../types/release'
+import { formatReleaseDate } from '../../helper/formatDate'
 
 interface ReleaseCardProps {
   release: Release
@@ -8,11 +9,7 @@ interface ReleaseCardProps {
 const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
   const { frontmatter, slug } = release
 
-  const formattedDate = new Date(frontmatter.date).toLocaleDateString('de-DE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+  const formattedDate = formatReleaseDate(frontmatter.date)
 
   return (
     <article className="rounded-2xl shadow-md border border-grey-100 p-6 bg-green-light-100 lg:p-8">
@@ -20,7 +17,9 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
         <span className="bg-green-dark-900 text-white px-3 py-1 rounded-full text-sm font-lato font-bold">
           v{frontmatter.version}
         </span>
-        <time className="text-grey-900/60 text-sm">{formattedDate}</time>
+        <time dateTime={frontmatter.date} className="text-grey-900/60 text-sm">
+          {formattedDate}
+        </time>
       </div>
 
       <h2 className="font-lato font-bold text-xl mb-3 lg:text-2xl">{frontmatter.title}</h2>
