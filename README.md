@@ -1,91 +1,34 @@
-# 🌱 Green Ecolution – Landing Page
+# Green Ecolution – Landing Page
 
-The Green Ecolution landing page provides an overview of the research and development project “Green Ecolution”, which focuses on making the irrigation of urban trees more efficient and sustainable through data-driven technology.
+This is the landing page for [Green Ecolution](https://green-ecolution.de), a research project focused on data-driven irrigation of urban trees.
 
-This website presents the project background, milestones, and ongoing development toward a production-ready system.
+## About the Project
 
-👉 Visit the live site: <https://green-ecolution.de>
+Green Ecolution is a collaboration between the University of Applied Sciences Flensburg and the Technisches Betriebszentrum Flensburg (TBZ). The project uses sensor technology, data analysis, and digital route planning to optimize tree irrigation – saving water and resources in urban environments.
 
-## 🧭 About the Project
+The system is currently being developed towards production readiness for real-world deployment.
 
-Green Ecolution started as a research project at the University of Applied Sciences Flensburg (HS Flensburg) in cooperation with the Technisches Betriebszentrum Flensburg (TBZ).
-The goal: optimize tree irrigation using smart sensor technology, data analysis, and digital route planning to save water and resources.
+## Tech Stack
 
-Building on the research results, the system is now being developed further to reach product maturity and real-world deployment in urban environments.
+- [Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- Deployed via GitHub Actions + Helm to Kubernetes
 
-## 🖥️ About This Repository
-
-This repository contains the source code for the official Green Ecolution landing page. It serves as the central information hub for the project — showcasing the concept, progress, and references to related software and publications.
-
-The site is built with a modern web stack and continuously deployed to a Kubernetes environment.
-
-## ⚙️ Tech Stack
-
-- ⚡ [Vite](https://vitejs.dev/) - lightning-fast build tool
-- ⚛️ [React](https://react.dev/) - component-based UI library
-- 💎 [TypeScript](https://www.typescriptlang.org/) - type-safe JavaScript
-- 🎨 [Tailwind CSS](https://tailwindcss.com/) - utility-first styling framework
-- 🚀 Deployment: GitHub Actions + Helm + Kubernetes
-
-## 🧩 Local Development
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en)
-- [pnpm](https://pnpm.io/)
-- (optional) [fnm](https://github.com/Schniz/fnm) - Node.js version manager
-
-### Getting Started
-
-Clone the repository and install dependencies:
+## Development
 
 ```bash
 pnpm install
-```
-
-Run the local development server:
-
-```bash
 pnpm dev
 ```
 
-By default, the site will be available at <http://localhost:5173>. To make it accessible from other devices on your network, start the server with:
+The site runs on http://localhost:5173
 
-```bash
-pnpm dev --host
-```
-
-### Build for Production
+## Build
 
 ```bash
 pnpm build
 ```
 
-The compiled files are output to the `dist/` directory.
+## Contact
 
-## 🚀 Deployment
-
-Deployments are handled via GitHub Actions and Helm, targeting a Kubernetes cluster.
-Each deployment workflow:
-
-1. Installs dependencies
-1. Builds the project
-1. Publishes a package to the [GitHub Package Registry](https://github.com/orgs/green-ecolution/packages)
-1. Updates Helm chart values with version or commit hash
-1. Deploys to production
-
-Configuration files are stored in:
-
-```bash
-k8s/
-└── values/
-    └── prod.yaml
-```
-
-## 🤝 Contributing
-
-Contributions, feedback, and ideas are welcome! If you’d like to improve the landing page or report an issue, please open a pull request or use the GitHub issue tracker.
-
-## 💬 Contact
-
-For questions or collaboration inquiries, feel free to reach out via 📧 [info@green-ecolution.de](mailto:info@green-ecolution.de) or visit our [GitHub Organization](https://github.com/green-ecolution)
+[info@green-ecolution.de](mailto:info@green-ecolution.de) · [GitHub Organization](https://github.com/green-ecolution)
