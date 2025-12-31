@@ -87,6 +87,20 @@ function ReleaseDetailPage() {
     if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
       return '🎯'
     }
+    if (
+      lowerText.includes('demo') ||
+      lowerText.includes('preview') ||
+      lowerText.includes('ausprobieren')
+    ) {
+      return '🎮'
+    }
+    if (
+      lowerText.includes('einschränkung') ||
+      lowerText.includes('limitation') ||
+      lowerText.includes('known issue')
+    ) {
+      return '🚧'
+    }
     return '📋'
   }
 
@@ -135,6 +149,20 @@ function ReleaseDetailPage() {
     }
     if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
       return 'bg-orange-400/10 text-orange-400 border-orange-400/20'
+    }
+    if (
+      lowerText.includes('demo') ||
+      lowerText.includes('preview') ||
+      lowerText.includes('ausprobieren')
+    ) {
+      return 'bg-cyan-400/10 text-cyan-500 border-cyan-400/20'
+    }
+    if (
+      lowerText.includes('einschränkung') ||
+      lowerText.includes('limitation') ||
+      lowerText.includes('known issue')
+    ) {
+      return 'bg-amber-400/10 text-amber-500 border-amber-400/20'
     }
     return 'bg-grey-100 text-grey-900 border-grey-100'
   }
