@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode } from 'react'
 import { Link, redirect } from '@tanstack/react-router'
 import Markdown from 'react-markdown'
-import { getReleaseBySlug, getAdjacentReleases } from '../../content/releases'
+import { getReleaseBySlug, getAdjacentReleases, getAllReleases } from '../../content/releases'
 import { Route } from '../../routes/releases_.$slug'
 
 function getTextContent(node: ReactNode): string {
@@ -30,6 +30,8 @@ function ReleaseDetailPage() {
   }
 
   const { frontmatter, content } = release
+  const allReleases = getAllReleases()
+  const isLatest = allReleases[0]?.slug === slug
 
   const formattedDate = new Date(frontmatter.date).toLocaleDateString('de-DE', {
     day: 'numeric',
@@ -107,6 +109,11 @@ function ReleaseDetailPage() {
               <span className="bg-green-dark-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
                 v{frontmatter.version}
               </span>
+              {isLatest && (
+                <span className="bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
+                  Aktuell
+                </span>
+              )}
               <time className="text-grey-900/60 text-sm">{formattedDate}</time>
             </div>
             <span className="text-grey-900/30 hidden sm:inline">|</span>
@@ -151,6 +158,12 @@ function ReleaseDetailPage() {
                 </span>
               ))}
             </div>
+          )}
+
+          {frontmatter.summary && (
+            <p className="mt-4 text-lg text-grey-900/80 leading-relaxed lg:text-xl">
+              {frontmatter.summary}
+            </p>
           )}
         </header>
 
@@ -332,6 +345,20 @@ function ReleaseDetailPage() {
             <div />
           )}
         </nav>
+
+        <div className="mt-8 pt-6 border-t border-grey-100 text-center">
+          <p className="text-grey-900/60 text-sm">
+            Fehler gefunden oder Feedback zu diesem Release?{' '}
+            <a
+              href={`${frontmatter.repository ?? 'https://github.com/green-ecolution/green-ecolution'}/issues/new`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-dark-900 hover:underline font-medium block mt-1 sm:inline sm:mt-0"
+            >
+              Issue erstellen
+            </a>
+          </p>
+        </div>
       </article>
     </main>
   )
