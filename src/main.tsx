@@ -1,14 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './tsx/App.tsx'
-import Footer from './tsx/layout/Footer.tsx'
-import Header from './tsx/layout/Header.tsx'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { routeTree } from './routeTree.gen'
 import './css/site.css'
+
+const router = createRouter({ routeTree })
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
+const ogImage = document.getElementById('og-image')
+if (ogImage) {
+  const currentDomain = window.location.origin
+  ogImage.setAttribute('content', currentDomain + '/assets/images/open-graph-image.png')
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Header />
-    <App />
-    <Footer />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
