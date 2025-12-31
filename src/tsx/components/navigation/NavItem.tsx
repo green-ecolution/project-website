@@ -5,9 +5,10 @@ interface NavItemProps {
   label: string
   url: string
   isExternalLink?: boolean
+  onClick?: () => void
 }
 
-const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false }) => {
+const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false, onClick }) => {
   const className =
     'text-lg md:text-2xl font-bold flex justify-between items-center group lg:text-lg lg:leading-none lg:my-1'
 
@@ -27,7 +28,7 @@ const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false })
           {content}
         </a>
       ) : (
-        <Link to={url} className={className}>
+        <Link to={url} className={className} onClick={onClick}>
           {content}
         </Link>
       )}
