@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import Button from '../components/Button'
 
 function Footer() {
@@ -5,14 +6,14 @@ function Footer() {
     <footer className="py-10 bg-background-footer-mobile bg-no-repeat bg-cover text-white md:pt-16 lg:bg-background-footer-desktop lg:bg-[35%] xl:bg-[55%] 3xl:bg-contain 3xl:bg-center hyphens-auto">
       <div className="px-4 max-w-screen-lg mx-auto md:px-6 md:flex md:items-end md:justify-between md:gap-x-6 xl:max-w-screen-xl">
         <div className="pb-10 border-b border-b-white md:border-none md:pb-0">
-          <a href="/" aria-label="Zur Startseite navigieren" className="group">
+          <Link to="/" aria-label="Zur Startseite navigieren" className="group">
             <img
               src="/assets/svg/logo/logo-icon-white.svg"
               className="w-12 h-12 mb-6 transition-all ease-in-out duration-300 group-hover:opacity-70"
               alt="Logo Green Ecolution"
               loading="lazy"
             />
-          </a>
+          </Link>
           <p className="max-w-sm">
             Green Ecolution ist ein digitales System zur bedarfsgerechten und ressourcenschonenden
             Bewässerung von Stadtbäumen und leistet damit einen Beitrag zu einer nachhaltigen und

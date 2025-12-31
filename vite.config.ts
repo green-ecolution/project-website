@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
 import pkg from './package.json' with { type: 'json' }
 import { execSync } from 'node:child_process'
@@ -23,6 +24,6 @@ export default defineConfig(() => {
     process.env.VITE_BUILD_VERSION ?? new Date().toISOString().slice(0, 10).replace(/-/g, '')
 
   return {
-    plugins: [react()],
+    plugins: [TanStackRouterVite({ routesDirectory: './src/routes' }), react()],
   }
 })
