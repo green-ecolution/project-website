@@ -64,13 +64,25 @@ function ReleaseDetailPage() {
     if (lowerText.includes('sicher') || lowerText.includes('security')) {
       return '🔒'
     }
-    if (lowerText.includes('technisch') || lowerText.includes('technical') || lowerText.includes('basis')) {
+    if (
+      lowerText.includes('technisch') ||
+      lowerText.includes('technical') ||
+      lowerText.includes('basis')
+    ) {
       return '⚙️'
     }
-    if (lowerText.includes('ausblick') || lowerText.includes('outlook') || lowerText.includes('zukunft')) {
+    if (
+      lowerText.includes('ausblick') ||
+      lowerText.includes('outlook') ||
+      lowerText.includes('zukunft')
+    ) {
       return '🔮'
     }
-    if (lowerText.includes('was ist') || lowerText.includes('about') || lowerText.includes('über')) {
+    if (
+      lowerText.includes('was ist') ||
+      lowerText.includes('about') ||
+      lowerText.includes('über')
+    ) {
       return '💡'
     }
     if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
@@ -101,13 +113,25 @@ function ReleaseDetailPage() {
     if (lowerText.includes('breaking') || lowerText.includes('wichtig')) {
       return 'bg-grey-900/10 text-grey-900 border-grey-900/20'
     }
-    if (lowerText.includes('technisch') || lowerText.includes('technical') || lowerText.includes('basis')) {
+    if (
+      lowerText.includes('technisch') ||
+      lowerText.includes('technical') ||
+      lowerText.includes('basis')
+    ) {
       return 'bg-blue-400/10 text-blue-400 border-blue-400/20'
     }
-    if (lowerText.includes('ausblick') || lowerText.includes('outlook') || lowerText.includes('zukunft')) {
+    if (
+      lowerText.includes('ausblick') ||
+      lowerText.includes('outlook') ||
+      lowerText.includes('zukunft')
+    ) {
       return 'bg-purple-400/10 text-purple-400 border-purple-400/20'
     }
-    if (lowerText.includes('was ist') || lowerText.includes('about') || lowerText.includes('über')) {
+    if (
+      lowerText.includes('was ist') ||
+      lowerText.includes('about') ||
+      lowerText.includes('über')
+    ) {
       return 'bg-yellow-400/10 text-yellow-500 border-yellow-400/20'
     }
     if (lowerText.includes('kern') || lowerText.includes('core') || lowerText.includes('haupt')) {
@@ -160,7 +184,12 @@ function ReleaseDetailPage() {
                 className="inline-flex items-center gap-1.5 text-sm text-grey-900/60 hover:text-green-dark-900 transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
                 </svg>
                 Source
               </a>
