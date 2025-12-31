@@ -47,7 +47,7 @@ const popups: Popup[] = [
         ausgewertet. Auf einen Dashboard wird graphisch dargestellt, ob eine Bewässerung in nächster
         Zeit notwendig ist.&nbsp;
         <Link
-          to="/projekt"
+          to="/project"
           hash="vorteile"
           className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
         >
