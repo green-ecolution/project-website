@@ -5,3 +5,4 @@ src/json/*Animation.json
 k8s/**
 pnpm-lock.yaml
 CHANGELOG.md
+src/routeTree.gen.ts
