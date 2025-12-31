@@ -17,11 +17,20 @@ export default {
         dark: {
           900: '#4C7741',
         },
+        500: '#22C55E',
       },
       grey: {
         100: '#E5E5E5',
         900: '#171717',
       },
+      // Terminal colors
+      red: { 500: '#EF4444' },
+      yellow: { 400: '#FACC15', 500: '#EAB308' },
+      blue: { 400: '#60A5FA' },
+      purple: { 400: '#C084FC' },
+      pink: { 400: '#F472B6' },
+      orange: { 400: '#FB923C' },
+      cyan: { 400: '#22D3EE' },
     },
     fontFamily: {
       lato: ['Lato', 'sans-serif'],
