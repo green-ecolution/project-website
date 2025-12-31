@@ -279,8 +279,10 @@ function ReleaseDetailPage() {
               ),
               ul: ({ children }) => <ul className="my-3 space-y-2 text-grey-900/80">{children}</ul>,
               li: ({ children }) => (
-                <li className="flex items-start gap-3 text-grey-900/80">
-                  <span className="text-green-dark-900 flex-shrink-0 mt-1">→</span>
+                <li className="flex items-start gap-3 text-grey-900/80 leading-relaxed">
+                  <span className="text-green-dark-900 flex-shrink-0 h-[1.625em] flex items-center">
+                    →
+                  </span>
                   <span>{children}</span>
                 </li>
               ),
