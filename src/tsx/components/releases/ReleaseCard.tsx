@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import Markdown from 'react-markdown'
+import { Link } from 'react-router-dom'
 import type { Release } from '../../types/release'
 
 interface ReleaseCardProps {
   release: Release
-  defaultExpanded?: boolean
 }
 
-const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, defaultExpanded = false }) => {
-  const [expanded, setExpanded] = useState(defaultExpanded)
-  const { frontmatter, content } = release
+const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
+  const { frontmatter, slug } = release
 
   const formattedDate = new Date(frontmatter.date).toLocaleDateString('de-DE', {
     day: 'numeric',
@@ -18,7 +15,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, defaultExpanded = fa
   })
 
   return (
-    <article className="rounded-2xl shadow-md p-6 bg-green-light-100 lg:p-8">
+    <article className="rounded-2xl shadow-md border border-grey-100 p-6 bg-green-light-100 lg:p-8">
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <span className="bg-green-dark-900 text-white px-3 py-1 rounded-full text-sm font-lato font-bold">
           v{frontmatter.version}
@@ -26,62 +23,35 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, defaultExpanded = fa
         <time className="text-grey-900/60 text-sm">{formattedDate}</time>
       </div>
 
-      <h2 className="font-lato font-bold text-xl mb-3 lg:text-2xl">
-        {frontmatter.title}
-      </h2>
+      <h2 className="font-lato font-bold text-xl mb-3 lg:text-2xl">{frontmatter.title}</h2>
 
-      {frontmatter.highlights && frontmatter.highlights.length > 0 && (
-        <ul className="flex flex-wrap gap-2 mb-4">
-          {frontmatter.highlights.map((highlight) => (
-            <li
-              key={highlight}
-              className="bg-green-dark-900/10 text-green-dark-900 px-3 py-1 rounded-full text-sm"
-            >
-              {highlight}
-            </li>
-          ))}
-        </ul>
+      {frontmatter.summary && (
+        <p className="text-grey-900/80 mb-4">{frontmatter.summary}</p>
       )}
 
-      {expanded && (
-        <div className="mt-6 pt-6 border-t border-green-dark-900/20">
-          <Markdown
-            components={{
-              h2: ({ children }) => (
-                <h2 className="text-xl font-lato font-bold mt-6 mb-3 text-grey-900">
-                  {children}
-                </h2>
-              ),
-              h3: ({ children }) => (
-                <h3 className="text-lg font-lato font-semibold mt-4 mb-2 text-grey-900">
-                  {children}
-                </h3>
-              ),
-              p: ({ children }) => (
-                <p className="my-2 text-grey-900/80">{children}</p>
-              ),
-              ul: ({ children }) => (
-                <ul className="list-disc list-inside my-3 space-y-1 text-grey-900/80">
-                  {children}
-                </ul>
-              ),
-              li: ({ children }) => (
-                <li className="text-grey-900/80">{children}</li>
-              ),
-            }}
-          >
-            {content}
-          </Markdown>
+      {frontmatter.highlights && frontmatter.highlights.length > 0 && (
+        <div className="mb-6">
+          <h3 className="font-lato font-semibold text-sm text-grey-900/60 uppercase tracking-wide mb-2">
+            TL;DR
+          </h3>
+          <ul className="space-y-1">
+            {frontmatter.highlights.map((highlight) => (
+              <li key={highlight} className="flex items-start gap-2 text-grey-900/80">
+                <span className="text-green-dark-900 mt-1">•</span>
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={() => setExpanded(!expanded)}
-        className="text-green-dark-900 font-semibold mt-4 hover:underline flex items-center gap-2"
+      <Link
+        to={`/releases/${slug}`}
+        className="inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:underline"
       >
-        {expanded ? '↑ Weniger anzeigen' : '↓ Details anzeigen'}
-      </button>
+        Mehr lesen
+        <span aria-hidden="true">→</span>
+      </Link>
     </article>
   )
 }

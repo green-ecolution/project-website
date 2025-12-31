@@ -16,8 +16,8 @@ const ReleaseTimeline: React.FC<ReleaseTimelineProps> = ({ releases }) => {
 
   return (
     <div className="space-y-6">
-      {releases.map((release, index) => (
-        <ReleaseCard key={release.slug} release={release} defaultExpanded={index === 0} />
+      {releases.map((release) => (
+        <ReleaseCard key={release.slug} release={release} />
       ))}
     </div>
   )

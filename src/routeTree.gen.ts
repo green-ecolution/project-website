@@ -14,6 +14,7 @@ import { Route as ProjectRouteImport } from './routes/project'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReleasesSlugRouteImport } from './routes/releases_.$slug'
 
 const ReleasesRoute = ReleasesRouteImport.update({
   id: '/releases',
@@ -40,6 +41,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReleasesSlugRoute = ReleasesSlugRouteImport.update({
+  id: '/releases_/$slug',
+  path: '/releases/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
+  '/releases/$slug': typeof ReleasesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
+  '/releases/$slug': typeof ReleasesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,27 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
+  '/releases_/$slug': typeof ReleasesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/contact' | '/project' | '/releases'
+  fullPaths:
+    | '/'
+    | '/$'
+    | '/contact'
+    | '/project'
+    | '/releases'
+    | '/releases/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/contact' | '/project' | '/releases'
-  id: '__root__' | '/' | '/$' | '/contact' | '/project' | '/releases'
+  to: '/' | '/$' | '/contact' | '/project' | '/releases' | '/releases/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/contact'
+    | '/project'
+    | '/releases'
+    | '/releases_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +99,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectRoute: typeof ProjectRoute
   ReleasesRoute: typeof ReleasesRoute
+  ReleasesSlugRoute: typeof ReleasesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +139,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/releases_/$slug': {
+      id: '/releases_/$slug'
+      path: '/releases/$slug'
+      fullPath: '/releases/$slug'
+      preLoaderRoute: typeof ReleasesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +155,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectRoute: ProjectRoute,
   ReleasesRoute: ReleasesRoute,
+  ReleasesSlugRoute: ReleasesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

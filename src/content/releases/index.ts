@@ -74,3 +74,7 @@ export function getAllReleases(): Release[] {
       })
     )
 }
+
+export function getReleaseBySlug(slug: string): Release | undefined {
+  return getAllReleases().find((release) => release.slug === slug)
+}
