@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from '@tanstack/react-router'
 import Lottie from 'lottie-react'
 import MainNavigation from '../components/navigation/MainNavigation'
 import logoAnimation from '../../json/logoAnimation.json'
@@ -57,8 +58,8 @@ function Header() {
             ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
     >
       <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
-        <a
-          href="/"
+        <Link
+          to="/"
           aria-label="Zur Startseite navigieren"
           className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}
         >
@@ -68,7 +69,7 @@ function Header() {
           <p className="hidden text-green-dark-900 font-lato font-semibold text-xl md:block xl:text-2xl">
             Green Ecolution
           </p>
-        </a>
+        </Link>
 
         <button
           type="button"

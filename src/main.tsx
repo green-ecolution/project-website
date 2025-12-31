@@ -4,7 +4,14 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import './css/site.css'
 
-const router = createRouter({ routeTree })
+const router = createRouter({
+  routeTree,
+  scrollRestoration: true,
+})
+
+router.subscribe('onResolved', () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+})
 
 declare module '@tanstack/react-router' {
   interface Register {
