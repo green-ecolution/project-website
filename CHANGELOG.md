@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## 1.1.1 (2025-12-30)
+
+- Added release-please for automated release management
+- Minor dependency updates
 
 ## [v1.1.0] - 2025-10-24
 
@@ -134,7 +137,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 - Create "Page under construction" Page
 
-[Unreleased]: https://github.com/green-ecolution/project-website/compare/v1.1.0...HEAD
 [v1.1.0]: https://github.com/green-ecolution/project-website/compare/v1.0.6...v1.1.0
 [v1.0.6]: https://github.com/green-ecolution/project-website/compare/v1.0.5...v1.0.6
 [v1.0.5]: https://github.com/green-ecolution/project-website/compare/v1.0.4...v1.0.5
