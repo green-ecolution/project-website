@@ -31,6 +31,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
       <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
       <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-10 lg:justify-center lg:items-center">
         <NavItem label="Das Projekt" url="/project" onClick={onClose} />
+        <NavItem label="Releases" url="/releases" onClick={onClose} />
         <NavItem label="Kontakt" url="/contact" onClick={onClose} />
         <NavItem label="GitHub" url="https://github.com/green-ecolution" isExternalLink />
         <Button ariaLabel="demo" href="https://demo.green-ecolution.de" isExternalLink isDark>
