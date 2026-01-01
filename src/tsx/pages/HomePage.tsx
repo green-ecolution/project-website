@@ -8,6 +8,7 @@ import Process from './../components/sections/Process'
 import Stakeholder from './../components/sections/Stakeholder'
 import Videos from '../components/sections/Videos'
 import LatestRelease from '../components/sections/LatestRelease'
+import BreadcrumbSchema from '../components/BreadcrumbSchema'
 
 function HomePage() {
   useEffect(() => {
@@ -16,6 +17,7 @@ function HomePage() {
 
   return (
     <main id="main-content">
+      <BreadcrumbSchema items={[{ name: 'Startseite', path: '/' }]} />
       <HompageHero />
       <HomepageDevider />
       <Introduction />
