@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player'
+import VideoPreview from '../VideoPreview'
 
 const VIDEO_SHORT =
   'https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-short.m3u8'
@@ -25,7 +26,7 @@ const VideoCard = (props: {
         width="100%"
         height="auto"
         style={{ width: '100%', height: 'auto', aspectRatio: '16/9' }}
-        light={props.thumbnail}
+        light={<VideoPreview thumbnail={props.thumbnail} />}
       />
     </div>
     <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">

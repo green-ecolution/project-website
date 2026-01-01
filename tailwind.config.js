@@ -74,9 +74,14 @@ export default {
           '0%, 100%': { transform: 'translate(0,0)' },
           '50%': { transform: 'translate(50%,0)' },
         },
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
       },
       animation: {
         move: 'move 35s linear infinite',
+        shimmer: 'shimmer 1.5s ease-in-out infinite',
       },
       transitionDelay: {
         1500: '1500ms',
