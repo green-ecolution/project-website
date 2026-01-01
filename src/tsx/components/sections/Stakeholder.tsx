@@ -67,6 +67,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => 
           i18n: i18nTranslated,
           mediaQuery: 'min',
           ...(hasDesktopList && { breakpoints: breakpoints }),
+          reducedMotion: { speed: 0, rewindSpeed: 0 },
         }}
         aria-label="Beteiligten am Projekt"
       >

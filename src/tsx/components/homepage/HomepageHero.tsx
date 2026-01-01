@@ -6,10 +6,13 @@ import {
   setInitialLoad as setInitialLoadHelper,
   isInitialLoad as isInitialLoadHelper,
 } from '../../helper/storage'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 function HomepageHero() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false)
   const [isInitialLoad, setIsInitialLoad] = useState(false)
+  const reducedMotion = useReducedMotion()
+
   const handleOpenOverlay = () => {
     setIsOverlayVisible(true)
   }
@@ -54,6 +57,12 @@ function HomepageHero() {
       !isOverlayVisible &&
       window.matchMedia('(min-width: 1280px)').matches
     ) {
+      // Skip animation entirely when reduced motion is preferred
+      if (reducedMotion) {
+        setInitialLoadHelper()
+        return
+      }
+
       setIsInitialLoad(true)
       bodyLock()
 
@@ -62,7 +71,7 @@ function HomepageHero() {
       }, 2000)
       return () => clearTimeout(timer)
     }
-  }, [isOverlayVisible])
+  }, [isOverlayVisible, reducedMotion])
 
   function bodyLock() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -88,7 +97,7 @@ function HomepageHero() {
             <button
               type="button"
               className={`hidden items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-light-900 transition-color ease-in-out duration-300 text-white hover:bg-green-middle-900 hover:border-green-middle-900
-                                ${!isInitialLoadHelper() ? 'xl:flex' : ''}`}
+                                ${!isInitialLoadHelper() && !reducedMotion ? 'xl:flex' : ''}`}
               onClick={handleOpenOverlay}
             >
               Animation abspielen

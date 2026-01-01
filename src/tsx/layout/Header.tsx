@@ -3,10 +3,12 @@ import { Link } from '@tanstack/react-router'
 import Lottie from 'lottie-react'
 import MainNavigation from '../components/navigation/MainNavigation'
 import logoAnimation from '../../json/logoAnimation.json'
+import { useReducedMotion } from '../hooks/useReducedMotion'
 
 function Header() {
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const reducedMotion = useReducedMotion()
 
   function toggleNavigation(state: boolean) {
     setOpen(state)
@@ -71,7 +73,7 @@ function Header() {
             className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}
           >
             <figure className="w-24 xl:w-28">
-              <Lottie animationData={logoAnimation} />
+              <Lottie animationData={logoAnimation} autoplay={!reducedMotion} />
             </figure>
             <p className="hidden text-green-dark-900 font-lato font-semibold text-xl md:block xl:text-2xl">
               Green Ecolution
