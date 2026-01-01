@@ -40,6 +40,7 @@ function Process() {
           mediaQuery: 'min',
           breakpoints: breakpoints,
           start: activeStep,
+          reducedMotion: { speed: 0, rewindSpeed: 0 },
         }}
         aria-label="Der aktuelle Projektfortschritt"
         className="md:px-2 lg:mx-auto lg:max-w-screen-lg xl:max-w-screen-xl"

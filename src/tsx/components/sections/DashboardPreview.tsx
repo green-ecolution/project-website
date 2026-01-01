@@ -1,7 +1,10 @@
 import Lottie from 'lottie-react'
 import dashboardAnimation from '../../../json/dashboardAnimation.json'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 function DashboardPreview() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <section className="my-28 px-4 max-w-208 mx-auto md:px-6 lg:my-36 xl:max-w-screen-lg xl:my-52">
       <article className="mb-8 g:mb-14 md:text-center">
@@ -19,7 +22,7 @@ function DashboardPreview() {
       </article>
 
       <figure className="translate-x-4 xl:translate-x-16">
-        <Lottie animationData={dashboardAnimation} />
+        <Lottie animationData={dashboardAnimation} autoplay={!reducedMotion} />
       </figure>
     </section>
   )

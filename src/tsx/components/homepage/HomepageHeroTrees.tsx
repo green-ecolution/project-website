@@ -2,8 +2,11 @@ import Lottie from 'lottie-react'
 import treeLightGreenAnimation from '../../../json/treeLightGreenAnimation.json'
 import treeMiddleGreenAnimation from '../../../json/treeMiddleGreenAnimation.json'
 import treeDarkGreenAnimation from '../../../json/treeDarkGreenAnimation.json'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 function HomepageHeroTrees() {
+  const reducedMotion = useReducedMotion()
+
   return (
     <div>
       <figure
@@ -34,6 +37,7 @@ function HomepageHeroTrees() {
           aria-hidden="true"
           className="h-[65vh] max-h-[30rem] md:max-h-none md:min-h-96 md:h-[60vh]"
           animationData={treeLightGreenAnimation}
+          autoplay={!reducedMotion}
         />
       </figure>
 
@@ -45,6 +49,7 @@ function HomepageHeroTrees() {
           aria-hidden="true"
           className="h-[40vh] md:min-h-96"
           animationData={treeMiddleGreenAnimation}
+          autoplay={!reducedMotion}
         />
       </figure>
 
@@ -56,6 +61,7 @@ function HomepageHeroTrees() {
           aria-hidden="true"
           className="h-[55vh] md:h-[60vh] md:min-h-96"
           animationData={treeDarkGreenAnimation}
+          autoplay={!reducedMotion}
         />
       </figure>
     </div>

@@ -61,6 +61,7 @@ function Introduction() {
           i18n: i18nTranslated,
           mediaQuery: 'min',
           breakpoints: breakpoints,
+          reducedMotion: { speed: 0, rewindSpeed: 0 },
         }}
         aria-label="Fakten zum Grünflächenmanagement"
         className="splide--grid md:px-2"

@@ -4,6 +4,7 @@ import Lottie from 'lottie-react'
 import logoAnimation from '../../../json/logoAnimation.json'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { isInitialLoad } from '../../helper/storage'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 interface WelcomeCardProps {
   onClose: () => void
@@ -19,6 +20,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
   isOverlayVisible,
 }) => {
   const [isVisible, setIsVisible] = useState(false)
+  const reducedMotion = useReducedMotion()
 
   const ref = useOutsideClick(() => {
     if (isVisible) {
@@ -49,7 +51,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
     >
       <div className="relativen text-center bg-white shadow-md rounded-2xl p-8 border border-grey-100 w-[44rem]">
         <figure className="w-28 mx-auto mb-6">
-          <Lottie animationData={logoAnimation} />
+          <Lottie animationData={logoAnimation} autoplay={!reducedMotion} />
         </figure>
         <h2 className="font-lato font-semibold text-2xl mb-4">
           Willkommen auf der Projektseite von
