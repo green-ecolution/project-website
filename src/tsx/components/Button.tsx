@@ -20,7 +20,13 @@ const Button: React.FC<ButtonProps> = ({
 
   if (isExternalLink) {
     return (
-      <a href={href} aria-label={ariaLabel} target="_blank" className={className}>
+      <a
+        href={href}
+        aria-label={ariaLabel}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
         {children}
       </a>
     )

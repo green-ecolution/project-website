@@ -36,6 +36,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
         <a
           href={url}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-green-dark-900 font-bold flex itemx-center gap-x-4 group"
         >
           <p className="transition-all ease-in-out duration-300 group-hover:text-green-light-900">
