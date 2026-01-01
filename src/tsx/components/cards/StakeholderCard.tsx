@@ -39,10 +39,10 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
           rel="noopener noreferrer"
           className="text-green-dark-900 font-bold flex itemx-center gap-x-4 group"
         >
-          <p className="transition-all ease-in-out duration-300 group-hover:text-green-light-900">
+          <p className="transition-all ease-in-out duration-300 group-hover:text-green-light-900 group-active:text-green-light-900">
             Zur Webseite
           </p>
-          <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2 group-hover:text-green-light-900" />
+          <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2 group-hover:text-green-light-900 group-active:translate-x-2 group-active:text-green-light-900" />
         </a>
       </figcaption>
     </figure>

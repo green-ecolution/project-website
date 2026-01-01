@@ -54,13 +54,13 @@ function FurtherLinks() {
             <a
               href={link.url}
               target="_blank"
-              className="px-4 py-3 group rounded-2xl cursor-pointer flex items-center justify-between gap-x-8 transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10"
+              className="px-4 py-3 group rounded-2xl cursor-pointer flex items-center justify-between gap-x-8 transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 active:bg-green-dark-900/20"
             >
               <div>
                 <h3 className="font-lato font-semibold text-lg mb-2">{link.label}</h3>
                 <p className="text-base">{link.subLabel}</p>
               </div>
-              <figure className="shrink-0 transition-all ease-in-out duration-300 group-hover:translate-x-1">
+              <figure className="shrink-0 transition-all ease-in-out duration-300 group-hover:translate-x-1 group-active:translate-x-1">
                 <img
                   src="/assets/svg/general/arrow.svg"
                   className="object-contain w-6 h-6 "
