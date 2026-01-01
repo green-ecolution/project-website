@@ -1,8 +1,54 @@
 import Accordion from '../Accordion'
 
+const faqData = [
+  {
+    question: 'Wer steckt hinter dem Projekt Green Ecolution?',
+    answer:
+      'Das Projekt "Green Ecolution" wurde im Rahmen eines Forschungsprojekts im Masterstudiengang "Angewandte Informatik" an der Hochschule Flensburg ins Leben gerufen. Nach dem erfolgreichen Abschluss des Forschungsprojekts wird die Weiterentwicklung des Systems nun von PROGEEK übernommen, in enger Zusammenarbeit mit der Smarten Grenzregion und der Stadt Flensburg.',
+  },
+  {
+    question: 'Welchen Mehrwert bietet das Projekt?',
+    answer:
+      'Das Forschungsprojekt "Green Ecolution" hat gezeigt, wie digitale Technologien gezielt eingesetzt werden können, um die Bewässerung von Stadtbäumen effizienter, nachhaltiger und ressourcenschonender zu gestalten. Durch den Einsatz moderner Sensorik und intelligenter Datenauswertung wurde eine Grundlage geschaffen, um Wasserverbrauch und Pflegeaufwand deutlich zu reduzieren.',
+  },
+  {
+    question: 'Was bedeutet es, dass das Projekt öffentlich zugänglich ist?',
+    answer:
+      'Der Quellcode des Projekts ist in einem öffentlich zugänglichen GitHub-Repository verfügbar. Dadurch kann der aktuelle Entwicklungsstand jederzeit eingesehen werden, was Transparenz schafft und interessierten Personen ermöglicht, die Weiterentwicklung nachzuvollziehen oder sich aktiv einzubringen.',
+  },
+  {
+    question: 'Welche Sensoren werden eingesetzt?',
+    answer:
+      'Im Rahmen des Forschungsprojekts wurden Watermark-Sensoren zur Messung der Bodenwasserspannung und SMT100-Sensoren zur Messung der Bodenfeuchte und -temperatur eingesetzt. Diese Sensoren bildeten die Grundlage für die Entwicklung und Erprobung des Systems.',
+  },
+  {
+    question: 'Wie ist der aktuelle Fortschritt des Projekts?',
+    answer:
+      'Das Forschungsprojekt „Green Ecolution" wurde im Rahmen des Masterstudiengangs „Angewandte Informatik" an der Hochschule Flensburg erfolgreich abgeschlossen. Im Oktober 2025 erhielt das Projekt im Rahmen des DigitalHub Call for Concepts eine Förderung. Aktuell arbeiten PROGEEK, die Stadt Flensburg und die Smarte Grenzregion gemeinsam an der Weiterentwicklung.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
+
 function Faq() {
   return (
     <section className="px-4 max-w-208 mx-auto my-28 md:px-6 lg:my-36 xl:my-52">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <h2 className="font-lato font-bold text-center text-2xl mb-6 lg:mb-10 lg:text-3xl">
         Oft gestellte Fragen zu Green Ecolution
       </h2>
