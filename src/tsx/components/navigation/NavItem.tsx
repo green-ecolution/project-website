@@ -24,7 +24,7 @@ const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false, o
   return (
     <li className="mb-4 lg:mb-0">
       {isExternalLink ? (
-        <a href={url} target="_blank" className={className}>
+        <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
           {content}
         </a>
       ) : (
