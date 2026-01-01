@@ -63,6 +63,7 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
         id={panelId}
         ref={accordionPanel}
         role="region"
+        inert={!open ? true : undefined}
         style={{ maxHeight }}
         className={`max-h-0 text-base leading-relaxed overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
       >
