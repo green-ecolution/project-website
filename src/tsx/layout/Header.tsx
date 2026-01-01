@@ -55,7 +55,7 @@ function Header() {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow-lg focus:text-green-dark-900 focus:font-semibold"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:px-6 focus:py-3 focus:rounded-lg focus:shadow-lg focus:text-green-dark-900 focus:font-semibold focus:border-2 focus:border-green-middle-600 focus:outline-none focus:ring-2 focus:ring-green-middle-600 focus:ring-offset-2 transition-all"
       >
         Zum Hauptinhalt springen
       </a>
