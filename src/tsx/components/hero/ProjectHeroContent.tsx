@@ -27,7 +27,7 @@ function ProjectHeroContent() {
               type="button"
               className="transition-all ease-in-out duration-300 hover:opacity-75"
               aria-label={`Anzeige von Prozess-Schritt ${index}: ${step.shortName}`}
-              aria-current={index === visibleStep}
+              aria-current={index === visibleStep ? 'step' : undefined}
               onClick={() => toggleVisibleStep(index)}
             >
               <StepCircle index={index} activeStep={activeStep} />
