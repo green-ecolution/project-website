@@ -19,12 +19,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const ogImage = document.getElementById('og-image')
-if (ogImage) {
-  const currentDomain = window.location.origin
-  ogImage.setAttribute('content', currentDomain + '/assets/images/open-graph-image.png')
-}
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
