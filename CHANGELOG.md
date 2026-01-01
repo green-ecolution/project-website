@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0](https://github.com/green-ecolution/project-website/compare/v1.2.0...v1.3.0) (2026-01-01)
+
+
+### Features
+
+* **a11y:** add prefers-reduced-motion support ([#245](https://github.com/green-ecolution/project-website/issues/245)) ([753d32b](https://github.com/green-ecolution/project-website/commit/753d32be6caa1b095327aee7cb4e0caf1541c104))
+* **a11y:** add skip-to-main-content link ([#241](https://github.com/green-ecolution/project-website/issues/241)) ([79b1cdd](https://github.com/green-ecolution/project-website/commit/79b1cddf564383901a27270a054757566a8690ea))
+* **seo:** add Schema.org JSON-LD structured data ([#251](https://github.com/green-ecolution/project-website/issues/251)) ([e4bceea](https://github.com/green-ecolution/project-website/commit/e4bceeabef3e6c769c18a1baddbc0ed598a8bfce)), closes [#238](https://github.com/green-ecolution/project-website/issues/238)
+* **ux:** add loading state for video thumbnails ([#248](https://github.com/green-ecolution/project-website/issues/248)) ([ccf5099](https://github.com/green-ecolution/project-website/commit/ccf509930380e14e1a0de5ad1f4f99430638d5ce)), closes [#234](https://github.com/green-ecolution/project-website/issues/234)
+* **ux:** add React Error Boundary for graceful error handling ([#247](https://github.com/green-ecolution/project-website/issues/247)) ([aabec39](https://github.com/green-ecolution/project-website/commit/aabec39920b4bd2f422041405ca43e15418ed718))
+
+
+### Bug Fixes
+
+* **a11y:** improve accordion keyboard navigation and semantics ([#243](https://github.com/green-ecolution/project-website/issues/243)) ([ddd6c29](https://github.com/green-ecolution/project-website/commit/ddd6c29ff48267d9423cfb7bc0a60353b164406b))
+* **a11y:** use correct aria-current string value instead of boolean ([#246](https://github.com/green-ecolution/project-website/issues/246)) ([1dfd44f](https://github.com/green-ecolution/project-website/commit/1dfd44f492a09ffb689e958d5365f068d88bcfd2)), closes [#232](https://github.com/green-ecolution/project-website/issues/232)
+* **security:** add rel noopener noreferrer to external links ([#244](https://github.com/green-ecolution/project-website/issues/244)) ([a291f39](https://github.com/green-ecolution/project-website/commit/a291f393e511d4494bb1646015cff4d68de46ec7)), closes [#230](https://github.com/green-ecolution/project-website/issues/230)
+* **seo:** add static og:image for social crawlers ([#250](https://github.com/green-ecolution/project-website/issues/250)) ([93c9b9b](https://github.com/green-ecolution/project-website/commit/93c9b9b6b82078ad97ed71bc1d443e6157ea72f7)), closes [#237](https://github.com/green-ecolution/project-website/issues/237)
+* **ux:** add active states for touch device feedback ([#249](https://github.com/green-ecolution/project-website/issues/249)) ([689fc23](https://github.com/green-ecolution/project-website/commit/689fc2390045a792553617e9bc1d41bc0a277ef0)), closes [#235](https://github.com/green-ecolution/project-website/issues/235)
+
+
+### Performance Improvements
+
+* add vendor splitting for better caching ([#252](https://github.com/green-ecolution/project-website/issues/252)) ([b10c1ad](https://github.com/green-ecolution/project-website/commit/b10c1ad0d81f835411c3d854fbcbb247fccba622)), closes [#239](https://github.com/green-ecolution/project-website/issues/239)
+
 ## [1.2.0](https://github.com/green-ecolution/project-website/compare/v1.1.1...v1.2.0) (2025-12-31)
 
 
