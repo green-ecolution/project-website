@@ -15,7 +15,7 @@ function HomePage() {
   }, [])
 
   return (
-    <main>
+    <main id="main-content">
       <HompageHero />
       <HomepageDevider />
       <Introduction />

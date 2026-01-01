@@ -52,46 +52,54 @@ function Header() {
   }, [])
 
   return (
-    <header
-      className={`fixed w-screen inset-x-0 top-0 z-50 transition-all ease-in-out duration-300 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow-lg focus:text-green-dark-900 focus:font-semibold"
+      >
+        Zum Hauptinhalt springen
+      </a>
+      <header
+        className={`fixed w-screen inset-x-0 top-0 z-50 transition-all ease-in-out duration-300 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none
             ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}
             ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
-    >
-      <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
-        <Link
-          to="/"
-          aria-label="Zur Startseite navigieren"
-          className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}
-        >
-          <figure className="w-24 xl:w-28">
-            <Lottie animationData={logoAnimation} />
-          </figure>
-          <p className="hidden text-green-dark-900 font-lato font-semibold text-xl md:block xl:text-2xl">
-            Green Ecolution
-          </p>
-        </Link>
+      >
+        <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
+          <Link
+            to="/"
+            aria-label="Zur Startseite navigieren"
+            className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}
+          >
+            <figure className="w-24 xl:w-28">
+              <Lottie animationData={logoAnimation} />
+            </figure>
+            <p className="hidden text-green-dark-900 font-lato font-semibold text-xl md:block xl:text-2xl">
+              Green Ecolution
+            </p>
+          </Link>
 
-        <button
-          type="button"
-          id="main-navigation-toggle"
-          aria-expanded={open}
-          aria-controls="main-navigation"
-          aria-haspopup="menu"
-          aria-label="Hauptnavigation öffnen"
-          className="relative w-10 h-10 p-2 z-50 group lg:hidden"
-          onClick={() => toggleNavigation(!open)}
-        >
-          <span
-            className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white rotate-45 absolute' : 'bg-grey-900 mb-1'}`}
-          ></span>
-          <span
-            className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white -rotate-45 absolute' : 'bg-grey-900 mb-1'}`}
-          ></span>
-        </button>
+          <button
+            type="button"
+            id="main-navigation-toggle"
+            aria-expanded={open}
+            aria-controls="main-navigation"
+            aria-haspopup="menu"
+            aria-label="Hauptnavigation öffnen"
+            className="relative w-10 h-10 p-2 z-50 group lg:hidden"
+            onClick={() => toggleNavigation(!open)}
+          >
+            <span
+              className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white rotate-45 absolute' : 'bg-grey-900 mb-1'}`}
+            ></span>
+            <span
+              className={`block w-6 h-0.5 transition-all ease-in-out duration-300 ${open ? 'bg-white -rotate-45 absolute' : 'bg-grey-900 mb-1'}`}
+            ></span>
+          </button>
 
-        <MainNavigation isOpen={open} onClose={() => toggleNavigation(false)} />
-      </div>
-    </header>
+          <MainNavigation isOpen={open} onClose={() => toggleNavigation(false)} />
+        </div>
+      </header>
+    </>
   )
 }
 
