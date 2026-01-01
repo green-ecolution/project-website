@@ -25,5 +25,17 @@ export default defineConfig(() => {
 
   return {
     plugins: [TanStackRouterVite({ routesDirectory: './src/routes' }), react()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            router: ['@tanstack/react-router'],
+            lottie: ['lottie-react'],
+            video: ['react-player'],
+          },
+        },
+      },
+    },
   }
 })
