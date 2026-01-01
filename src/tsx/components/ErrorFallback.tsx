@@ -1,6 +1,7 @@
 import Lottie from 'lottie-react'
 import cableAnimation from '../../json/cableAnimation.json'
 import Arrow from '../icons/Arrow'
+import Retry from '../icons/Retry'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 interface ErrorFallbackProps {
@@ -32,7 +33,7 @@ function ErrorFallback({ onReset }: ErrorFallbackProps) {
               className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-colors text-white hover:bg-green-light-900"
             >
               <span>Erneut versuchen</span>
-              <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
+              <Retry classes="w-5" />
             </button>
             <a
               href="/"
