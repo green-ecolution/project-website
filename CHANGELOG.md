@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1](https://github.com/green-ecolution/project-website/compare/v1.3.0...v1.3.1) (2026-01-05)
+
+
+### Bug Fixes
+
+* resolve horizontal overflow on mobile devices ([#257](https://github.com/green-ecolution/project-website/issues/257)) ([40693b7](https://github.com/green-ecolution/project-website/commit/40693b7a135fe8332ec6a89b4c31061851a2e99f)), closes [#253](https://github.com/green-ecolution/project-website/issues/253)
+
 ## [1.3.0](https://github.com/green-ecolution/project-website/compare/v1.2.0...v1.3.0) (2026-01-01)
 
 
