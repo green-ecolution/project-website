@@ -39,7 +39,7 @@ const VideoCard = (props: {
 
 const Videos = () => {
   return (
-    <section className="relative px-4 mx-auto md:px-6 py-28 lg:py-36 xl:py-52 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
+    <section className="relative overflow-hidden px-4 mx-auto md:px-6 py-28 lg:py-36 xl:py-52 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
       <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-screen-lg">
         <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
           Lerne das Projekt per Video kennen
