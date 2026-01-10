@@ -4,6 +4,7 @@ import HompageHero from '../components/homepage/HomepageHero'
 import HomepageDevider from '../components/homepage/HomepageDevider'
 import Faq from './../components/sections/Faq'
 import Introduction from './../components/sections/Introduction'
+import Features from './../components/sections/Features'
 import Process from './../components/sections/Process'
 import Stakeholder from './../components/sections/Stakeholder'
 import Videos from '../components/sections/Videos'
@@ -21,6 +22,7 @@ function HomePage() {
       <HompageHero />
       <HomepageDevider />
       <Introduction />
+      <Features />
       <Videos />
       <Process />
       <LatestRelease />
