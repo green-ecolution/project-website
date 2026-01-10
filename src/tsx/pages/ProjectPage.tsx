@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Advantages from '../components/sections/Advantages'
+import Architecture from '../components/sections/Architecture'
 import DashboardPreview from '../components/sections/DashboardPreview'
 import Hero from '../components/sections/Hero'
 import Contact from '../components/sections/Contact'
@@ -44,6 +45,7 @@ function ProjectPage() {
       <Hero headline={heroHeadline} description={heroDescription} />
       <DashboardPreview />
       <Process />
+      <Architecture />
       <Advantages />
       <FurtherLinks />
       <Contact />
