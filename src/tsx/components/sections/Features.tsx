@@ -44,9 +44,7 @@ function FeatureCard({ feature }: { feature: Feature }) {
         </span>
       </figure>
       <h3 className="font-lato font-bold text-base md:text-xl mb-1 md:mb-2">{feature.label}</h3>
-      <p className="text-grey-600 text-sm md:text-base">
-        {feature.description}
-      </p>
+      <p className="text-grey-600 text-sm md:text-base">{feature.description}</p>
     </div>
   )
 }

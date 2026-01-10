@@ -1,38 +1,53 @@
-export const steps = [
-  {
-    label: 'Forschungsprojekt Hochschule Flensburg',
-    shortName: 'Forschungsprojekt',
-    isCurrent: false,
-    description:
-      'Das Projekt wurde als Forschungsarbeit an der Hochschule Flensburg durchgeführt. Ziel war die Entwicklung eines funktionsfähigen Konzepts und der Nachweis der technischen Machbarkeit. Die Ergebnisse bilden die Grundlage für die nun folgende Weiterentwicklung zur Produktreife.',
-  },
+import { Radio, Activity, LayoutDashboard, Route, Droplets } from 'lucide-react'
+import { ComponentType } from 'react'
 
+interface ProcessStep {
+  label: string
+  shortName: string
+  description: string
+  icon: ComponentType<{ className?: string }>
+  color: 'green-light' | 'green-middle' | 'green-dark'
+}
+
+export const steps: ProcessStep[] = [
   {
-    label: 'Softwareentwicklung der Anwendung',
-    shortName: 'Softwareentwicklung',
-    isCurrent: true,
+    label: 'Sensoren installieren',
+    shortName: 'Installation',
     description:
-      'Umfasst die Entwicklung der gesamten Softwarearchitektur – von der Sensorik und dem Backend bis hin zur Benutzeroberfläche und mobilen Anwendung. Ziel ist eine flexible, erweiterbare und zukunftssichere Systembasis.',
+      'Bodenfeuchtesensoren werden an ausgewählten Bäumen angebracht – schnell, unkompliziert und wartungsarm.',
+    icon: Radio,
+    color: 'green-dark',
   },
   {
-    label: 'Sensorik-Entwicklung & Integration',
-    shortName: 'Sensorik',
-    isCurrent: false,
+    label: 'Echtzeitdaten erfassen',
+    shortName: 'Daten',
     description:
-      'Entwicklung und Integration neuer Sensorkomponenten zur Erweiterung der Funktionalität des Systems. Die Sensorik wird an das bestehende Backend angebunden, kalibriert und in die Datenverarbeitung eingebunden, um präzisere und zuverlässigere Messwerte zu erzielen.',
+      'Die Sensoren messen kontinuierlich die Bodenfeuchtigkeit und übertragen die Werte automatisch ins System.',
+    icon: Activity,
+    color: 'green-light',
   },
   {
-    label: 'Integration, Tests & Dokumentation',
-    shortName: 'Tests & Doku',
-    isCurrent: false,
+    label: 'Bewässerungsbedarf erkennen',
+    shortName: 'Analyse',
     description:
-      'Nach der Implementierung wird das System umfassend geprüft, optimiert und final dokumentiert, um eine stabile und nutzerfreundliche Anwendung sicherzustellen.',
+      'Das Dashboard zeigt dir auf einen Blick, welche Bäume Wasser brauchen – priorisiert nach Dringlichkeit.',
+    icon: LayoutDashboard,
+    color: 'green-middle',
   },
   {
-    label: 'Produktlaunch',
-    shortName: 'Launch',
-    isCurrent: false,
+    label: 'Optimierte Routen planen',
+    shortName: 'Planung',
     description:
-      'Abschluss der Entwicklungsphase und Übergang in den produktiven Einsatz. Der Fokus liegt auf Einführung, Nutzung und kontinuierlicher Weiterentwicklung des Systems.',
+      'Green Ecolution berechnet die effizienteste Tour für dein Team – weniger Fahrzeit, mehr Bewässerung.',
+    icon: Route,
+    color: 'green-light',
+  },
+  {
+    label: 'Bewässern und auswerten',
+    shortName: 'Umsetzung',
+    description:
+      'Dein Team fährt die optimierte Route. Danach siehst du genau, wie viel Wasser wo eingesetzt wurde.',
+    icon: Droplets,
+    color: 'green-dark',
   },
 ]

@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 interface HeroProps {
   headline: string
   description: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 const Hero: React.FC<HeroProps> = ({ headline, description, children }) => {
