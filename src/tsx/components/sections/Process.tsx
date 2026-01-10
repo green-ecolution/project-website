@@ -294,7 +294,7 @@ function Process() {
   const reducedMotion = useReducedMotion()
 
   return (
-    <section className="relative overflow-hidden py-28 lg:py-36 xl:py-52">
+    <section id="process" className="relative overflow-hidden py-28 lg:py-36 xl:py-52">
       {/* Header */}
       <article className="px-4 mb-12 max-w-208 mx-auto md:px-6 lg:mb-20 lg:text-center xl:max-w-screen-lg">
         <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">

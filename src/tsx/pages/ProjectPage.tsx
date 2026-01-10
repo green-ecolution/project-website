@@ -4,6 +4,7 @@ import DashboardPreview from '../components/sections/DashboardPreview'
 import Hero from '../components/sections/Hero'
 import Contact from '../components/sections/Contact'
 import FurtherLinks from '../components/sections/FurhterLinks'
+import Process from '../components/sections/Process'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 
 function ProjectPage() {
@@ -42,6 +43,7 @@ function ProjectPage() {
       />
       <Hero headline={heroHeadline} description={heroDescription} />
       <DashboardPreview />
+      <Process />
       <Advantages />
       <FurtherLinks />
       <Contact />
