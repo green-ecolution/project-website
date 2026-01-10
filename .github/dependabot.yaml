@@ -2,24 +2,61 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
+    target-branch: 'main'
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     labels:
-      - 'dependencies: npm'
+      - 'dependencies'
+    groups:
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+      tanstack:
+        patterns:
+          - '@tanstack/*'
+      types:
+        patterns:
+          - '@types/*'
+      eslint:
+        patterns:
+          - 'eslint'
+          - 'eslint-*'
+          - '@eslint/*'
+      typescript:
+        patterns:
+          - 'typescript'
+          - 'typescript-eslint'
+          - '@typescript-eslint/*'
+      vite:
+        patterns:
+          - 'vite'
+          - '@vitejs/*'
+      styling:
+        patterns:
+          - 'tailwindcss'
+          - 'postcss'
+          - 'autoprefixer'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
+    target-branch: 'main'
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
     labels:
-      - 'dependencies: github-actions'
+      - 'dependencies'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
 
   - package-ecosystem: 'docker'
     directory: '/'
+    target-branch: 'main'
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
     labels:
-      - 'dependencies: docker'
+      - 'dependencies'
