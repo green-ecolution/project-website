@@ -24,7 +24,7 @@ jobs:
           VERSION="${{ github.ref_name }}"
           BRANCH="$(git for-each-ref --format='%(refname:short)' --contains=HEAD refs/remotes | sed -E 's#^origin/##' | head -n1)"
           BRANCH="$(echo "$BRANCH" | xargs)"
-          BRANCH="${BRANCH:-develop}"
+          BRANCH="${BRANCH:-main}"
 
           echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
@@ -123,7 +123,7 @@ jobs:
 
           git commit -m "chore: update prod image to ${version} [skip gha]"
 
-          TARGET_BRANCH="${branch:-develop}"
+          TARGET_BRANCH="${branch:-main}"
           git fetch origin "$TARGET_BRANCH" && git rebase "origin/$TARGET_BRANCH"
           git push origin "HEAD:$TARGET_BRANCH"
 

@@ -3,7 +3,7 @@ name: 'Build test and lint project on PR'
 on:
   pull_request:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
