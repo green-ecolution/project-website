@@ -9,7 +9,7 @@ function FurtherLinks() {
     {
       label: 'Organisation auf GitHub',
       subLabel:
-        'Dort finden Sie alle Code-Repositories, die mit dem Projekt in Verbindung stehen, wie z.B. Backend und Frontend der Software',
+        'Dort finden Sie alle Code-Repositories, die mit dem Projekt in Verbindung stehen, wie z. B. Backend und Frontend der Software',
       url: 'https://github.com/green-ecolution',
     },
     {

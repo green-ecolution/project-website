@@ -6,17 +6,17 @@ function Advantages() {
       label: 'Offene Lösung für alle',
       icon: '/assets/svg/general/people.svg',
       description:
-        'Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz.',
+        'Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz',
     },
     {
       label: 'Optimierte Routen',
       icon: '/assets/svg/general/map.svg',
-      description: 'Individuelle Einsatzplanung zur effizienteren Bewässerung.',
+      description: 'Individuelle Einsatzplanung zur effizienteren Bewässerung',
     },
     {
       label: 'Weniger ist mehr',
       icon: '/assets/svg/general/reduce.svg',
-      description: 'Gezielte Bewässerung, weniger Wasserverbrauch.',
+      description: 'Gezielte Bewässerung, weniger Wasserverbrauch',
     },
   ]
 

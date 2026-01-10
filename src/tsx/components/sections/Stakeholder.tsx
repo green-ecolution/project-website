@@ -35,7 +35,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => 
       url: 'https://www.tbz-flensburg.de/',
       image: '/assets/images/logo/tbz.png',
       description:
-        'Das Technische Betriebszentrum (TBZ) ist der zentrale Dienstleister für die Stadt Flensburg und u.a. für die Pflege öffnetlicher Grünflächen, Straßenreinigung sowie Abfallwirtschaft zuständig.',
+        'Das Technische Betriebszentrum (TBZ) ist der zentrale Dienstleister für die Stadt Flensburg und u.a. für die Pflege öffentlicher Grünflächen, Straßenreinigung sowie Abfallwirtschaft zuständig.',
     },
   ]
 

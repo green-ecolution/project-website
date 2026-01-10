@@ -17,7 +17,7 @@ function Footer() {
           <p className="max-w-sm">
             Green Ecolution ist ein digitales System zur bedarfsgerechten und ressourcenschonenden
             Bewässerung von Stadtbäumen und leistet damit einen Beitrag zu einer nachhaltigen und
-            klimaresilienten Stadtentwicklung
+            klimaresilienten Stadtentwicklung.
           </p>
           <div className="flex flex-wrap gap-6 mt-8">
             <Button href="mailto:info@green-ecolution.de" ariaLabel="Kontaktiere uns gern per Mail">

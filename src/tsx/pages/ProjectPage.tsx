@@ -22,7 +22,7 @@ function ProjectPage() {
     }
   }, [])
 
-  const heroHeadline = 'Alles wissenswerte über das Projekt'
+  const heroHeadline = 'Alles Wissenswerte über das Projekt'
   const heroDescription =
     'Green Ecolution befasst sich mit der Frage, wie die Bewässerung von Bäumen effizienter und nachhaltiger gestaltet werden kann. \
   In Zusammenarbeit mit dem TBZ Flensburg wurden im Rahmen eines Forschungsprojekts verschiedene Standorte mit Sensorik ausgestattet, \
