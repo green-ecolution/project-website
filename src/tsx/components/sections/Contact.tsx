@@ -32,8 +32,8 @@ function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
       {/* Ground with grass texture */}
       <div className="absolute bottom-4 left-0 right-0 h-1.5 bg-white/25 rounded-full" />
       <div className="absolute bottom-5 left-0 right-0 flex justify-around opacity-20">
-        {[...Array(12)].map((_, i) => (
-          <div key={i} className="w-0.5 h-2 bg-white/40 rounded-full" />
+        {Array.from({ length: 12 }, (_, i) => `grass-${i}`).map((id) => (
+          <div key={id} className="w-0.5 h-2 bg-white/40 rounded-full" />
         ))}
       </div>
 
@@ -81,14 +81,20 @@ function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
           <circle cx="104" cy="38" r="3" fill="#FFD700" />
 
           {/* Wheels with spinning animation */}
-          <g className={reducedMotion ? '' : 'animate-[spin_0.5s_linear_infinite]'} style={{ transformOrigin: '30px 52px' }}>
+          <g
+            className={reducedMotion ? '' : 'animate-[spin_0.5s_linear_infinite]'}
+            style={{ transformOrigin: '30px 52px' }}
+          >
             <circle cx="30" cy="52" r="9" fill="#333" />
             <circle cx="30" cy="52" r="5" fill="#555" />
             <circle cx="30" cy="52" r="2" fill="#777" />
             <line x1="30" y1="45" x2="30" y2="59" stroke="#444" strokeWidth="2" />
             <line x1="23" y1="52" x2="37" y2="52" stroke="#444" strokeWidth="2" />
           </g>
-          <g className={reducedMotion ? '' : 'animate-[spin_0.5s_linear_infinite]'} style={{ transformOrigin: '88px 52px' }}>
+          <g
+            className={reducedMotion ? '' : 'animate-[spin_0.5s_linear_infinite]'}
+            style={{ transformOrigin: '88px 52px' }}
+          >
             <circle cx="88" cy="52" r="9" fill="#333" />
             <circle cx="88" cy="52" r="5" fill="#555" />
             <circle cx="88" cy="52" r="2" fill="#777" />
@@ -100,7 +106,11 @@ function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
           <rect x="2" y="34" width="10" height="5" rx="2" fill="#666" />
 
           {/* Water drops - animated */}
-          <g className={reducedMotion ? 'opacity-100' : 'animate-[waterSpray_10s_ease-in-out_infinite]'}>
+          <g
+            className={
+              reducedMotion ? 'opacity-100' : 'animate-[waterSpray_10s_ease-in-out_infinite]'
+            }
+          >
             <ellipse cx="0" cy="42" rx="2.5" ry="4" fill="#5B9BD5" />
             <ellipse cx="-5" cy="46" rx="2" ry="3" fill="#7BB3E0" />
             <ellipse cx="3" cy="48" rx="2" ry="3" fill="#5B9BD5" />

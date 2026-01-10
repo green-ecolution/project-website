@@ -3,7 +3,6 @@ import Advantages from '../components/sections/Advantages'
 import DashboardPreview from '../components/sections/DashboardPreview'
 import Hero from '../components/sections/Hero'
 import Contact from '../components/sections/Contact'
-import ProjectHeroContent from '../components/hero/ProjectHeroContent'
 import FurtherLinks from '../components/sections/FurhterLinks'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 
@@ -41,9 +40,7 @@ function ProjectPage() {
           { name: 'Projekt', path: '/project' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription}>
-        <ProjectHeroContent />
-      </Hero>
+      <Hero headline={heroHeadline} description={heroDescription} />
       <DashboardPreview />
       <Advantages />
       <FurtherLinks />
