@@ -50,22 +50,22 @@ function ProcessCompact() {
 
       {/* Mobile Timeline (vertical) */}
       <div className="md:hidden">
-        <div className="relative pl-8">
+        <div className="relative pl-12">
           {/* Vertical line */}
-          <div className="absolute left-[11px] top-0 bottom-0 w-0.5 bg-green-dark-900/30" />
+          <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-green-dark-900/30" />
 
           {/* Steps */}
-          <div className="space-y-6">
+          <div className="space-y-10">
             {steps.map((step) => {
               const Icon = step.icon
               return (
                 <div key={step.label} className="relative flex items-center gap-4">
                   <div
-                    className={`absolute -left-8 w-6 h-6 rounded-full flex items-center justify-center z-10 ${iconBgClasses[step.color]}`}
+                    className={`absolute -left-12 w-10 h-10 rounded-full flex items-center justify-center z-10 ${iconBgClasses[step.color]}`}
                   >
-                    <Icon className="w-3 h-3" />
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-lato font-semibold text-sm">{step.label}</h3>
+                  <h3 className="font-lato font-semibold text-base">{step.label}</h3>
                 </div>
               )
             })}
