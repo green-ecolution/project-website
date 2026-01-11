@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0](https://github.com/green-ecolution/project-website/compare/v1.3.1...v1.4.0) (2026-01-11)
+
+
+### Features
+
+* add Features section to landing page ([341d804](https://github.com/green-ecolution/project-website/commit/341d8045fea31b5a67e024d8e9d882cc6281b0bb))
+* add Impressum and Datenschutz pages ([4534768](https://github.com/green-ecolution/project-website/commit/4534768e43f84d718279fc82ae29462cd17baae1))
+* redesign landing page with new section layouts and animations ([#272](https://github.com/green-ecolution/project-website/issues/272)) ([5de4f5c](https://github.com/green-ecolution/project-website/commit/5de4f5cefc9d48fc585d64132368083257506caf))
+
+
+### Bug Fixes
+
+* fix small typos ([e45ca39](https://github.com/green-ecolution/project-website/commit/e45ca39065bd589e8cba11af3d0267d6df3964b0))
+
 ## [1.3.1](https://github.com/green-ecolution/project-website/compare/v1.3.0...v1.3.1) (2026-01-05)
 
 
