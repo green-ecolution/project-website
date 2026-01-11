@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as ProjectRouteImport } from './routes/project'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +26,16 @@ const ReleasesRoute = ReleasesRouteImport.update({
 const ProjectRoute = ProjectRouteImport.update({
   id: '/project',
   path: '/project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -51,6 +63,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
   '/releases/$slug': typeof ReleasesSlugRoute
@@ -59,6 +73,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
   '/releases/$slug': typeof ReleasesSlugRoute
@@ -68,6 +84,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/contact': typeof ContactRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
   '/project': typeof ProjectRoute
   '/releases': typeof ReleasesRoute
   '/releases_/$slug': typeof ReleasesSlugRoute
@@ -78,16 +96,28 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/contact'
+    | '/datenschutz'
+    | '/impressum'
     | '/project'
     | '/releases'
     | '/releases/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/contact' | '/project' | '/releases' | '/releases/$slug'
+  to:
+    | '/'
+    | '/$'
+    | '/contact'
+    | '/datenschutz'
+    | '/impressum'
+    | '/project'
+    | '/releases'
+    | '/releases/$slug'
   id:
     | '__root__'
     | '/'
     | '/$'
     | '/contact'
+    | '/datenschutz'
+    | '/impressum'
     | '/project'
     | '/releases'
     | '/releases_/$slug'
@@ -97,6 +127,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
   ContactRoute: typeof ContactRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  ImpressumRoute: typeof ImpressumRoute
   ProjectRoute: typeof ProjectRoute
   ReleasesRoute: typeof ReleasesRoute
   ReleasesSlugRoute: typeof ReleasesSlugRoute
@@ -116,6 +148,20 @@ declare module '@tanstack/react-router' {
       path: '/project'
       fullPath: '/project'
       preLoaderRoute: typeof ProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -153,6 +199,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
   ContactRoute: ContactRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  ImpressumRoute: ImpressumRoute,
   ProjectRoute: ProjectRoute,
   ReleasesRoute: ReleasesRoute,
   ReleasesSlugRoute: ReleasesSlugRoute,

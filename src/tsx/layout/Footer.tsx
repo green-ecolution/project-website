@@ -39,24 +39,20 @@ function Footer() {
           <nav aria-label="Meta-Navigation">
             <ul className="flex items-center justify-center gap-x-6 sm:justify-start md:justify-end">
               <li>
-                <a
-                  href="https://hs-flensburg.de/impressum"
-                  rel="noreferrer noopener"
-                  target="_blank"
+                <Link
+                  to="/impressum"
                   className="font-bold transition-color ease-in-out duration-300 hover:opacity-75"
                 >
                   Impressum
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://hs-flensburg.de/datenschutzerklaerung"
-                  rel="noreferrer noopener"
-                  target="_blank"
+                <Link
+                  to="/datenschutz"
                   className="font-bold transition-color ease-in-out duration-300 hover:opacity-75"
                 >
                   Datenschutz
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
