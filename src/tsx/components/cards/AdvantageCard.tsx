@@ -1,20 +1,39 @@
-import React from 'react'
-
 interface AdvantageCardProps {
   label: string
   description: string
   icon: string
+  accentColor: 'dark' | 'middle'
 }
 
-const AdvantageCard: React.FC<AdvantageCardProps> = ({ label, description, icon }) => {
+const accentStyles = {
+  dark: 'bg-green-dark-900',
+  middle: 'bg-green-middle-900',
+}
+
+function AdvantageCard({ label, description, icon, accentColor }: AdvantageCardProps) {
   return (
-    <div className="h-full shadow-md rounded-2xl p-6 bg-green-light-900/15 group-odd:bg-green-dark-900/15 md:group-odd:bg-green-light-900/15 md:group-[:nth-child(4)]:bg-green-dark-900/15 md:flex md:justify-center md:items-center lg:p-8 lg:min-h-64 lg:items-center lg:justify-center">
-      <div className="text-lg text-center max-w-96 mx-auto lg:text-xl">
-        <figure className="w-16 mx-auto mb-3">
-          <img src={icon} className="object-contain w-10 md:w-10 lg:w-14" alt="" />
-        </figure>
-        <h3 className="mb-1 font-lato font-semibold">{label}</h3>
-        <p>{description}</p>
+    <div
+      className="group h-full bg-green-light-100 rounded-2xl p-6 lg:p-8
+        shadow-sm hover:shadow-md border border-green-dark-900/20
+        transition-all duration-300 hover:-translate-y-1"
+    >
+      <div className="flex flex-col items-center text-center">
+        {/* Icon container with colored background */}
+        <div
+          className={`w-14 h-14 lg:w-16 lg:h-16 rounded-xl ${accentStyles[accentColor]}
+            flex items-center justify-center mb-4
+            group-hover:scale-105 transition-transform duration-300`}
+        >
+          <img
+            src={icon}
+            className="w-7 h-7 lg:w-8 lg:h-8 object-contain brightness-0 invert"
+            alt=""
+          />
+        </div>
+
+        {/* Content */}
+        <h3 className="font-lato font-bold text-lg lg:text-xl text-grey-900 mb-2">{label}</h3>
+        <p className="text-grey-600 text-sm lg:text-base leading-relaxed">{description}</p>
       </div>
     </div>
   )

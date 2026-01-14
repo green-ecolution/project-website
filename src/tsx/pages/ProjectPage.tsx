@@ -7,6 +7,8 @@ import Contact from '../components/sections/Contact'
 import FurtherLinks from '../components/sections/FurhterLinks'
 import Process from '../components/sections/Process'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import ScrollProgress from '../components/ScrollProgress'
+import BackToTop from '../components/BackToTop'
 
 function ProjectPage() {
   useEffect(() => {
@@ -23,33 +25,35 @@ function ProjectPage() {
     }
   }, [])
 
-  const heroHeadline = 'Alles Wissenswerte über das Projekt'
+  const heroHeadline = 'Smartes Grünflächenmanagement für Kommunen'
   const heroDescription =
-    'Green Ecolution befasst sich mit der Frage, wie die Bewässerung von Bäumen effizienter und nachhaltiger gestaltet werden kann. \
-  In Zusammenarbeit mit dem TBZ Flensburg wurden im Rahmen eines Forschungsprojekts verschiedene Standorte mit Sensorik ausgestattet, \
-  um den Wasserbedarf von Bäumen präzise zu erfassen. Aufbauend auf diesen Erkenntnissen entwickeln wir das System nun weiter, \
-  um datenbasierte Handlungsempfehlungen und eine digitalisierte Einsatzplanung mit dynamischer Routenoptimierung zu ermöglichen – \
-  für eine gezielte und ressourcenschonende Bewässerung im urbanen Raum.'
+    'Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume. \
+  Unsere Software kombiniert Sensordaten mit intelligenter Routenoptimierung und ermöglicht so eine gezielte, \
+  ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg – bald auch verfügbar für Ihre Kommune.'
 
   return (
-    <main
-      id="main-content"
-      className="relative overflow-hidden before:bg-cover before:bg-background-light-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
-    >
-      <BreadcrumbSchema
-        items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Projekt', path: '/project' },
-        ]}
-      />
-      <Hero headline={heroHeadline} description={heroDescription} />
-      <DashboardPreview />
-      <Process />
-      <Architecture />
-      <Advantages />
-      <FurtherLinks />
-      <Contact />
-    </main>
+    <>
+      <ScrollProgress />
+      <BackToTop />
+      <main
+        id="main-content"
+        className="relative overflow-hidden before:bg-cover before:bg-background-light-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
+      >
+        <BreadcrumbSchema
+          items={[
+            { name: 'Startseite', path: '/' },
+            { name: 'Projekt', path: '/project' },
+          ]}
+        />
+        <Hero headline={heroHeadline} description={heroDescription} />
+        <DashboardPreview />
+        <Process />
+        <Architecture />
+        <Advantages />
+        <FurtherLinks />
+        <Contact />
+      </main>
+    </>
   )
 }
 
