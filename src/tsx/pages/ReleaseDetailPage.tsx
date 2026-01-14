@@ -1,9 +1,10 @@
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, redirect } from '@tanstack/react-router'
 import Markdown from 'react-markdown'
 import { getReleaseBySlug, getAdjacentReleases, getAllReleases } from '../../content/releases'
 import { Route } from '../../routes/releases_.$slug'
 import { formatReleaseDate } from '../helper/formatDate'
+import { useReducedMotion } from '../hooks/useReducedMotion'
 
 const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 
@@ -17,10 +18,39 @@ function getTextContent(node: ReactNode): string {
   return ''
 }
 
+function useIntersectionObserver(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold, rootMargin: '0px 0px -50px 0px' },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
+}
+
 function ReleaseDetailPage() {
   const { slug } = Route.useParams()
   const release = getReleaseBySlug(slug)
   const { prev, next } = getAdjacentReleases(slug)
+  const reducedMotion = useReducedMotion()
+  const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver()
+  const { ref: contentRef, isVisible: contentVisible } = useIntersectionObserver()
+  const { ref: changelogRef, isVisible: changelogVisible } = useIntersectionObserver()
+  const { ref: navRef, isVisible: navVisible } = useIntersectionObserver()
 
   useEffect(() => {
     if (release) {
@@ -173,23 +203,50 @@ function ReleaseDetailPage() {
       className="relative overflow-hidden flex-grow before:bg-cover before:bg-background-yellow-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
     >
       <article className="px-4 max-w-208 mx-auto mt-20 pb-16 md:px-6 lg:mt-24 lg:pb-24 lg:max-w-screen-lg xl:mt-32 xl:max-w-screen-xl">
+        {/* Back Link */}
         <Link
           to="/releases"
           aria-label="Zurück zu allen Releases"
-          className="inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:underline mb-8"
+          className="group inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:gap-3 transition-all mb-8"
         >
-          <span aria-hidden="true">←</span>
-          Alle Releases
+          <span
+            aria-hidden="true"
+            className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-dark-900/10 group-hover:bg-green-dark-900 group-hover:text-white transition-all"
+          >
+            ←
+          </span>
+          <span className="group-hover:underline">Alle Releases</span>
         </Link>
 
-        <header className="mb-8">
-          <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+        {/* Header */}
+        <header
+          ref={headerRef}
+          className={`mb-10 transition-all ${reducedMotion ? '' : 'duration-700'} ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {/* Section Label */}
+          <div className="inline-block mb-4">
+            <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+              Release Notes
+            </span>
+            <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
+          </div>
+
+          {/* Meta Row */}
+          <div
+            className={`flex flex-col gap-3 mb-4 sm:flex-row sm:flex-wrap sm:items-center transition-all ${reducedMotion ? '' : 'duration-700'} ${
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '100ms' }}
+          >
             <div className="flex items-center gap-3">
               <span className="bg-green-dark-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
                 v{frontmatter.version}
               </span>
               {isLatest && (
-                <span className="bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
+                <span className="inline-flex items-center gap-1.5 bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                   Aktuell
                 </span>
               )}
@@ -229,12 +286,24 @@ function ReleaseDetailPage() {
             </div>
           </div>
 
-          <h1 className="font-lato font-bold text-4xl mb-4 lg:mb-6 lg:text-5xl xl:text-6xl">
+          {/* Title */}
+          <h1
+            className={`font-lato font-bold text-3xl mb-4 text-grey-900 lg:text-5xl xl:text-6xl transition-all ${reducedMotion ? '' : 'duration-700'} ${
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '200ms' }}
+          >
             {frontmatter.title}
           </h1>
 
+          {/* Highlights */}
           {frontmatter.highlights && frontmatter.highlights.length > 0 && (
-            <div className="flex flex-wrap gap-2">
+            <div
+              className={`flex flex-wrap gap-2 transition-all ${reducedMotion ? '' : 'duration-700'} ${
+                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: reducedMotion ? '0ms' : '300ms' }}
+            >
               {frontmatter.highlights.map((highlight) => (
                 <span
                   key={highlight}
@@ -246,86 +315,110 @@ function ReleaseDetailPage() {
             </div>
           )}
 
+          {/* Summary */}
           {frontmatter.summary && (
-            <p className="mt-4 text-lg text-grey-900/80 leading-relaxed lg:text-xl">
+            <p
+              className={`mt-4 text-lg text-grey-900/80 leading-relaxed lg:text-xl transition-all ${reducedMotion ? '' : 'duration-700'} ${
+                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: reducedMotion ? '0ms' : '400ms' }}
+            >
               {frontmatter.summary}
             </p>
           )}
         </header>
 
-        <div className="bg-green-light-100 rounded-2xl shadow-md border border-grey-100 p-6 lg:p-8">
-          <Markdown
-            components={{
-              h2: ({ children }) => {
-                const text = getTextContent(children)
-                const icon = getSectionIcon(text)
-                const colorClasses = getSectionColor(text)
-                return (
-                  <div className="mt-10 mb-4 first:mt-0">
-                    <div
-                      className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg border ${colorClasses}`}
-                    >
-                      <span className="text-lg">{icon}</span>
-                      <h2 className="text-lg font-lato font-bold">{children}</h2>
+        {/* Markdown Content */}
+        <div
+          ref={contentRef}
+          className={`transition-all ${reducedMotion ? '' : 'duration-1000'} ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="relative bg-green-light-100 rounded-2xl lg:rounded-3xl shadow-md border border-grey-100 p-6 lg:p-8 overflow-hidden">
+            {/* Decorative corner */}
+            <div className="absolute -top-16 -right-16 w-32 h-32 bg-green-light-900/10 rounded-full blur-3xl" />
+
+            <Markdown
+              components={{
+                h2: ({ children }) => {
+                  const text = getTextContent(children)
+                  const icon = getSectionIcon(text)
+                  const colorClasses = getSectionColor(text)
+                  return (
+                    <div className="mt-10 mb-4 first:mt-0">
+                      <div
+                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg border ${colorClasses}`}
+                      >
+                        <span className="text-lg">{icon}</span>
+                        <h2 className="text-lg font-lato font-bold">{children}</h2>
+                      </div>
                     </div>
-                  </div>
-                )
-              },
-              h3: ({ children }) => (
-                <h3 className="text-base font-lato font-semibold mt-5 mb-2 text-grey-900 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-dark-900 flex-shrink-0" />
-                  {children}
-                </h3>
-              ),
-              p: ({ children }) => (
-                <p className="my-2 text-grey-900/80 leading-relaxed">{children}</p>
-              ),
-              ul: ({ children }) => <ul className="my-3 space-y-2 text-grey-900/80">{children}</ul>,
-              li: ({ children }) => (
-                <li className="flex items-start gap-3 text-grey-900/80 leading-relaxed">
-                  <span className="text-green-dark-900 flex-shrink-0 h-[1.625em] flex items-center">
-                    →
-                  </span>
-                  <span>{children}</span>
-                </li>
-              ),
-              a: ({ href, children }) => (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-dark-900 font-medium hover:underline"
-                >
-                  {children}
-                </a>
-              ),
-              img: ({ src, alt }) => (
-                <figure className="my-6">
-                  <img
-                    src={src}
-                    alt={alt ?? ''}
-                    className="w-full rounded-xl shadow-lg border border-grey-100"
-                  />
-                  {alt && (
-                    <figcaption className="text-center text-sm text-grey-900/60 mt-2">
-                      {alt}
-                    </figcaption>
-                  )}
-                </figure>
-              ),
-              strong: ({ children }) => (
-                <strong className="font-semibold text-grey-900">{children}</strong>
-              ),
-            }}
-          >
-            {content}
-          </Markdown>
+                  )
+                },
+                h3: ({ children }) => (
+                  <h3 className="text-base font-lato font-semibold mt-5 mb-2 text-grey-900 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-dark-900 flex-shrink-0" />
+                    {children}
+                  </h3>
+                ),
+                p: ({ children }) => (
+                  <p className="my-2 text-grey-900/80 leading-relaxed">{children}</p>
+                ),
+                ul: ({ children }) => (
+                  <ul className="my-3 space-y-2 text-grey-900/80">{children}</ul>
+                ),
+                li: ({ children }) => (
+                  <li className="flex items-start gap-3 text-grey-900/80 leading-relaxed">
+                    <span className="text-green-dark-900 flex-shrink-0 h-[1.625em] flex items-center">
+                      →
+                    </span>
+                    <span>{children}</span>
+                  </li>
+                ),
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-dark-900 font-medium hover:underline"
+                  >
+                    {children}
+                  </a>
+                ),
+                img: ({ src, alt }) => (
+                  <figure className="my-6">
+                    <img
+                      src={src}
+                      alt={alt ?? ''}
+                      className="w-full rounded-xl shadow-lg border border-grey-100"
+                    />
+                    {alt && (
+                      <figcaption className="text-center text-sm text-grey-900/60 mt-2">
+                        {alt}
+                      </figcaption>
+                    )}
+                  </figure>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-semibold text-grey-900">{children}</strong>
+                ),
+              }}
+            >
+              {content}
+            </Markdown>
+          </div>
         </div>
 
         {/* Changelog Section */}
         {frontmatter.changelog && frontmatter.changelog.length > 0 && (
-          <div className="mt-8">
-            <div className="bg-grey-900 rounded-2xl overflow-hidden shadow-lg">
+          <div
+            ref={changelogRef}
+            className={`mt-8 transition-all ${reducedMotion ? '' : 'duration-1000'} ${
+              changelogVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="bg-grey-900 rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl">
               {/* Terminal Header */}
               <div className="bg-grey-900 px-4 py-3 flex items-center gap-2 border-b border-grey-100/10">
                 <div className="flex gap-1.5">
@@ -413,23 +506,34 @@ function ReleaseDetailPage() {
         )}
 
         {/* Prev/Next Navigation */}
-        <nav aria-label="Release Navigation" className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <nav
+          ref={navRef}
+          aria-label="Release Navigation"
+          className={`mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all ${reducedMotion ? '' : 'duration-700'} ${
+            navVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {prev ? (
             <Link
               to="/releases/$slug"
               params={{ slug: prev.slug }}
-              className="group p-4 rounded-xl border border-grey-200 bg-white hover:border-green-dark-900 hover:shadow-md transition-all"
+              className="group relative p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all overflow-hidden"
             >
-              <span className="text-xs text-grey-500 uppercase tracking-wide">Neuere Version</span>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-grey-400 group-hover:text-green-dark-900 transition-colors">
-                  ←
+              <div className="absolute inset-0 bg-gradient-to-br from-green-light-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">
+                  Neuere Version
                 </span>
-                <div>
-                  <span className="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors">
-                    v{prev.frontmatter.version}
+                <div className="flex items-center gap-3 mt-2">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-100 text-grey-400 group-hover:bg-green-dark-900 group-hover:text-white transition-all">
+                    ←
                   </span>
-                  <p className="text-sm text-grey-600 line-clamp-1">{prev.frontmatter.title}</p>
+                  <div>
+                    <span className="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors">
+                      v{prev.frontmatter.version}
+                    </span>
+                    <p className="text-sm text-grey-600 line-clamp-1">{prev.frontmatter.title}</p>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -440,19 +544,24 @@ function ReleaseDetailPage() {
             <Link
               to="/releases/$slug"
               params={{ slug: next.slug }}
-              className="group p-4 rounded-xl border border-grey-200 bg-white hover:border-green-dark-900 hover:shadow-md transition-all sm:text-right"
+              className="group relative p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all sm:text-right overflow-hidden"
             >
-              <span className="text-xs text-grey-500 uppercase tracking-wide">Ältere Version</span>
-              <div className="flex items-center gap-2 mt-1 sm:justify-end">
-                <div>
-                  <span className="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors">
-                    v{next.frontmatter.version}
-                  </span>
-                  <p className="text-sm text-grey-600 line-clamp-1">{next.frontmatter.title}</p>
-                </div>
-                <span className="text-grey-400 group-hover:text-green-dark-900 transition-colors">
-                  →
+              <div className="absolute inset-0 bg-gradient-to-bl from-green-light-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">
+                  Ältere Version
                 </span>
+                <div className="flex items-center gap-3 mt-2 sm:justify-end">
+                  <div>
+                    <span className="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors">
+                      v{next.frontmatter.version}
+                    </span>
+                    <p className="text-sm text-grey-600 line-clamp-1">{next.frontmatter.title}</p>
+                  </div>
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-100 text-grey-400 group-hover:bg-green-dark-900 group-hover:text-white transition-all">
+                    →
+                  </span>
+                </div>
               </div>
             </Link>
           ) : (
@@ -460,16 +569,17 @@ function ReleaseDetailPage() {
           )}
         </nav>
 
-        <div className="mt-8 pt-6 border-t border-grey-100 text-center">
+        {/* Footer */}
+        <div className="mt-10 pt-6 border-t border-grey-100 text-center">
           <p className="text-grey-900/60 text-sm">
             Fehler gefunden oder Feedback zu diesem Release?{' '}
             <a
               href={`${frontmatter.repository ?? DEFAULT_REPOSITORY}/issues/new`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-dark-900 hover:underline font-medium block mt-1 sm:inline sm:mt-0"
+              className="text-green-dark-900 hover:underline font-medium"
             >
-              Issue erstellen
+              Issue erstellen →
             </a>
           </p>
         </div>
