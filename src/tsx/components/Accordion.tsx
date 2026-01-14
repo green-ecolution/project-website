@@ -27,13 +27,22 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
 
   return (
     <li
-      className={`cursor-pointer border border-green-dark-900 bg-white rounded-2xl shadow-md ${open ? 'border-green-light-900' : 'border-green-dark-900'}`}
+      className={`
+        cursor-pointer border bg-white rounded-2xl
+        transition-all duration-300
+        ${open ? 'border-green-light-900 shadow-lg shadow-green-light-900/20' : 'border-green-dark-900/30 shadow-md hover:shadow-lg hover:border-green-dark-900/50'}
+      `}
     >
       <button
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
-        className={`w-full px-4 py-3 rounded-t-2xl cursor-pointer flex items-center justify-between gap-x-4 font-semibold font-lato transition-color ease-in-out duration-300 md:px-6 md:py-4 hover:bg-green-dark-900/10 ${open ? 'bg-green-light-900/10' : 'rounded-b-2xl'}`}
+        className={`
+          w-full px-4 py-4 cursor-pointer flex items-center justify-between gap-x-4
+          font-semibold font-lato text-grey-900 transition-all ease-in-out duration-300
+          md:px-6 md:py-5
+          ${open ? 'bg-green-light-900/10 rounded-t-2xl' : 'rounded-2xl hover:bg-green-dark-900/5'}
+        `}
         onClick={toggleAccordion}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -45,7 +54,11 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
         <span className="w-[85%] text-left lg:text-lg">{label}</span>
         <span
           aria-hidden="true"
-          className={`w-7 h-7 rounded-full text-white flex items-center justify-center transition-all ease-in-out duration-300 ${open ? 'bg-green-light-900 rotate-180' : 'bg-green-dark-900'}`}
+          className={`
+            w-8 h-8 rounded-full text-white flex items-center justify-center
+            transition-all ease-in-out duration-300
+            ${open ? 'bg-green-light-900 rotate-180 shadow-md shadow-green-light-900/30' : 'bg-green-dark-900'}
+          `}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +78,11 @@ const Accordion: React.FC<AccordionProps> = ({ label, children }) => {
         role="region"
         inert={!open ? true : undefined}
         style={{ maxHeight }}
-        className={`max-h-0 text-base leading-relaxed overflow-hidden px-4 transition-all ease-in-out duration-300 border-t md:px-6 ${open ? 'border-t-green-light-900 pt-3 py-4 md:pb-6' : 'border-t-transparent'}`}
+        className={`
+          max-h-0 text-base text-grey-900/80 leading-relaxed overflow-hidden px-4
+          transition-all ease-in-out duration-300 border-t md:px-6
+          ${open ? 'border-t-green-light-900/30 pt-3 py-4 md:pb-6' : 'border-t-transparent'}
+        `}
       >
         {children}
       </div>
