@@ -75,7 +75,7 @@ function Header() {
             <figure className="w-24 xl:w-28">
               <Lottie animationData={logoAnimation} autoplay={!reducedMotion} />
             </figure>
-            <p className="hidden text-green-dark-900 font-lato font-semibold text-xl md:block xl:text-2xl">
+            <p className="hidden whitespace-nowrap text-green-dark-900 font-lato font-semibold text-xl xl:block xl:text-2xl">
               Green Ecolution
             </p>
           </Link>
