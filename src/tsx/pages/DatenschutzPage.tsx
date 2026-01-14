@@ -1,14 +1,45 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Hero from '../components/sections/Hero'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { useReducedMotion } from '../hooks/useReducedMotion'
+
+function useIntersectionObserver(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold, rootMargin: '0px 0px -50px 0px' },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
+}
 
 function DatenschutzPage() {
+  const reducedMotion = useReducedMotion()
+  const { ref, isVisible } = useIntersectionObserver()
+
   useEffect(() => {
     document.title = 'Datenschutz | Green Ecolution | Smartes Grünflächenmanagement'
   }, [])
 
   const heroHeadline = 'Datenschutz'
   const heroDescription = 'Informationen zum Umgang mit Ihren personenbezogenen Daten'
+
+  const linkClasses =
+    'text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900'
 
   return (
     <main
@@ -23,14 +54,25 @@ function DatenschutzPage() {
       />
       <Hero headline={heroHeadline} description={heroDescription} />
 
-      <section className="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52">
+      <section
+        ref={ref}
+        className="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52"
+      >
         <div className="space-y-12">
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">
+          {/* Section 1: Datenschutz auf einen Blick */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
               1. Datenschutz auf einen Blick
             </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Allgemeine Hinweise</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              Allgemeine Hinweise
+            </h3>
             <p className="mb-4">
               Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
               personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene
@@ -39,11 +81,11 @@ function DatenschutzPage() {
               Text aufgeführten Datenschutzerklärung.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Datenerfassung auf dieser Website
             </h3>
 
-            <h4 className="font-bold mb-2">
+            <h4 className="font-bold mb-2 text-grey-900">
               Wer ist verantwortlich für die Datenerfassung auf dieser Website?
             </h4>
             <p className="mb-4">
@@ -52,7 +94,7 @@ function DatenschutzPage() {
               Datenschutzerklärung entnehmen.
             </p>
 
-            <h4 className="font-bold mb-2">Wie erfassen wir Ihre Daten?</h4>
+            <h4 className="font-bold mb-2 text-grey-900">Wie erfassen wir Ihre Daten?</h4>
             <p className="mb-4">
               Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei
               kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere
@@ -62,14 +104,16 @@ function DatenschutzPage() {
               automatisch, sobald Sie diese Website betreten.
             </p>
 
-            <h4 className="font-bold mb-2">Wofür nutzen wir Ihre Daten?</h4>
+            <h4 className="font-bold mb-2 text-grey-900">Wofür nutzen wir Ihre Daten?</h4>
             <p className="mb-4">
               Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu
               gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet
               werden.
             </p>
 
-            <h4 className="font-bold mb-2">Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
+            <h4 className="font-bold mb-2 text-grey-900">
+              Welche Rechte haben Sie bezüglich Ihrer Daten?
+            </h4>
             <p>
               Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und
               Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein
@@ -82,10 +126,21 @@ function DatenschutzPage() {
             </p>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">2. Hosting</h2>
+          {/* Section 2: Hosting */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '100ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              2. Hosting
+            </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Externes Hosting</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              Externes Hosting
+            </h3>
             <p className="mb-4">
               Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die
               personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern
@@ -110,7 +165,7 @@ function DatenschutzPage() {
               befolgen.
             </p>
             <p className="font-bold">Wir nutzen folgenden Hoster:</p>
-            <address className="not-italic mt-2">
+            <address className="not-italic mt-2 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
               <p>Digitalocean LLC</p>
               <p>101 Avenue of the Americas</p>
               <p>10th Floor New York, NY 10013</p>
@@ -118,12 +173,19 @@ function DatenschutzPage() {
             </address>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">
+          {/* Section 3: Allgemeine Hinweise und Pflichtinformationen */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '200ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
               3. Allgemeine Hinweise und Pflichtinformationen
             </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Datenschutz</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Datenschutz</h3>
             <p className="mb-4">
               Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir
               behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen
@@ -141,19 +203,19 @@ function DatenschutzPage() {
               Daten vor dem Zugriff durch Dritte ist nicht möglich.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Hinweis zur verantwortlichen Stelle
             </h3>
             <p className="mb-4">
               Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
             </p>
-            <address className="not-italic mb-4">
+            <address className="not-italic mb-4 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
               <p className="font-bold">PROGEEK GmbH</p>
               <p>Lise-Meitner-Str. 2</p>
               <p>24941 Flensburg</p>
               <p className="mt-2">
                 E-Mail:{' '}
-                <a href="mailto:info@progeek.de" className="text-green-dark-900 hover:underline">
+                <a href="mailto:info@progeek.de" className={linkClasses}>
                   info@progeek.de
                 </a>
               </p>
@@ -164,7 +226,7 @@ function DatenschutzPage() {
               personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o.Ä.) entscheidet.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Speicherdauer</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Speicherdauer</h3>
             <p>
               Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt
               wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die
@@ -176,7 +238,7 @@ function DatenschutzPage() {
               dieser Gründe.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website
             </h3>
             <p>
@@ -191,7 +253,7 @@ function DatenschutzPage() {
               Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Widerruf Ihrer Einwilligung zur Datenverarbeitung
             </h3>
             <p>
@@ -201,7 +263,7 @@ function DatenschutzPage() {
               unberührt.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen
               Direktwerbung (Art. 21 DSGVO)
             </h3>
@@ -225,7 +287,7 @@ function DatenschutzPage() {
               der Direktwerbung verwendet (Widerspruch nach Art. 21 Abs. 2 DSGVO).
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Beschwerderecht bei der zuständigen Aufsichtsbehörde
             </h3>
             <p>
@@ -236,7 +298,7 @@ function DatenschutzPage() {
               gerichtlicher Rechtsbehelfe.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Recht auf Datenübertragbarkeit
             </h3>
             <p>
@@ -247,7 +309,9 @@ function DatenschutzPage() {
               soweit es technisch machbar ist.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">SSL- bzw. TLS-Verschlüsselung</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              SSL- bzw. TLS-Verschlüsselung
+            </h3>
             <p>
               Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
               Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als
@@ -258,7 +322,7 @@ function DatenschutzPage() {
               nicht von Dritten mitgelesen werden.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Auskunft, Löschung und Berichtigung
             </h3>
             <p>
@@ -269,7 +333,7 @@ function DatenschutzPage() {
               personenbezogene Daten können Sie sich jederzeit an uns wenden.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Recht auf Einschränkung der Verarbeitung
             </h3>
             <p className="mb-4">
@@ -311,12 +375,19 @@ function DatenschutzPage() {
             </p>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">
+          {/* Section 4: Datenerfassung auf dieser Website */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '300ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
               4. Datenerfassung auf dieser Website
             </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Cookies</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Cookies</h3>
             <p className="mb-4">
               Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Textdateien
               und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend
@@ -353,7 +424,9 @@ function DatenschutzPage() {
               Funktionalität dieser Website eingeschränkt sein.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Server-Log-Dateien</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              Server-Log-Dateien
+            </h3>
             <p className="mb-4">
               Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
@@ -374,7 +447,7 @@ function DatenschutzPage() {
               erfasst werden.
             </p>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6">Kontaktformular</h3>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Kontaktformular</h3>
             <p className="mb-4">
               Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
               Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks
@@ -404,7 +477,7 @@ function DatenschutzPage() {
               href="https://www.e-recht24.de/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-green-dark-900 hover:underline"
+              className={linkClasses}
             >
               eRecht24
             </a>
