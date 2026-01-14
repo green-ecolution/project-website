@@ -3,7 +3,7 @@ import Hero from '../components/sections/Hero'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
-function useIntersectionObserver(threshold = 0.1) {
+function useIntersectionObserver(threshold = 0) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLElement>(null)
 
@@ -14,7 +14,7 @@ function useIntersectionObserver(threshold = 0.1) {
           setIsVisible(true)
         }
       },
-      { threshold, rootMargin: '0px 0px -50px 0px' },
+      { threshold, rootMargin: '100px 0px 0px 0px' },
     )
 
     if (ref.current) {

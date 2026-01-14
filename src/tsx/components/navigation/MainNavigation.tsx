@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from '@tanstack/react-router'
 import NavItem from './NavItem'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import Button from '../Button'
@@ -40,26 +41,24 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         </Button>
       </ul>
 
-      <ul className="absolute bottom-6 text-white lg:text-grey-900 flex felx-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
+      <ul className="absolute bottom-6 text-white lg:text-grey-900 flex flex-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
         <li>
-          <a
-            href="https://hs-flensburg.de/impressum"
-            target="_blank"
-            rel="noreferrer noopener"
+          <Link
+            to="/impressum"
+            onClick={onClose}
             className="transition-color ease-in-out duration-300 hover:opacity-75"
           >
             Impressum
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="https://hs-flensburg.de/datenschutzerklaerung"
-            target="_blank"
-            rel="noreferrer noopener"
+          <Link
+            to="/datenschutz"
+            onClick={onClose}
             className="transition-color ease-in-out duration-300 hover:opacity-75"
           >
             Datenschutz
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
