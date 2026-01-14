@@ -23,13 +23,11 @@ function ProjectPage() {
     }
   }, [])
 
-  const heroHeadline = 'Alles Wissenswerte über das Projekt'
+  const heroHeadline = 'Smartes Grünflächenmanagement für Kommunen'
   const heroDescription =
-    'Green Ecolution befasst sich mit der Frage, wie die Bewässerung von Bäumen effizienter und nachhaltiger gestaltet werden kann. \
-  In Zusammenarbeit mit dem TBZ Flensburg wurden im Rahmen eines Forschungsprojekts verschiedene Standorte mit Sensorik ausgestattet, \
-  um den Wasserbedarf von Bäumen präzise zu erfassen. Aufbauend auf diesen Erkenntnissen entwickeln wir das System nun weiter, \
-  um datenbasierte Handlungsempfehlungen und eine digitalisierte Einsatzplanung mit dynamischer Routenoptimierung zu ermöglichen – \
-  für eine gezielte und ressourcenschonende Bewässerung im urbanen Raum.'
+    'Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume. \
+  Unsere Software kombiniert Sensordaten mit intelligenter Routenoptimierung und ermöglicht so eine gezielte, \
+  ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg – bald auch verfügbar für Ihre Kommune.'
 
   return (
     <main
