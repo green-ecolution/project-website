@@ -95,7 +95,9 @@ function DashboardPreview() {
             </div>
             <div className="flex-1 mx-2 sm:mx-4">
               <div className="h-5 sm:h-6 bg-grey-900/10 rounded-md max-w-md mx-auto flex items-center justify-center">
-                <span className="text-[10px] sm:text-xs text-grey-600/60">app.green-ecolution.de</span>
+                <span className="text-[10px] sm:text-xs text-grey-600/60">
+                  app.green-ecolution.de
+                </span>
               </div>
             </div>
           </div>

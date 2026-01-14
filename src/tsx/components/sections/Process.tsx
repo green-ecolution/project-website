@@ -17,19 +17,17 @@ function useIntersectionObserver(threshold = 0.2) {
     (element: HTMLElement | null, index: number) => {
       if (!element) return
 
-      if (!observerRef.current) {
-        observerRef.current = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const idx = Number(entry.target.getAttribute('data-index'))
-              if (entry.isIntersecting) {
-                setVisibleItems((prev) => new Set([...prev, idx]))
-              }
-            })
-          },
-          { threshold, rootMargin: '0px 0px -50px 0px' },
-        )
-      }
+      observerRef.current ??= new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const idx = Number(entry.target.getAttribute('data-index'))
+            if (entry.isIntersecting) {
+              setVisibleItems((prev) => new Set([...prev, idx]))
+            }
+          })
+        },
+        { threshold, rootMargin: '0px 0px -50px 0px' },
+      )
 
       element.setAttribute('data-index', String(index))
       observerRef.current.observe(element)

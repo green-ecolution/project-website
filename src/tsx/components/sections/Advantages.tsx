@@ -35,7 +35,7 @@ function useIntersectionObserver(threshold = 0.1) {
           setIsVisible(true)
         }
       },
-      { threshold, rootMargin: '0px 0px -50px 0px' }
+      { threshold, rootMargin: '0px 0px -50px 0px' },
     )
 
     if (ref.current) {

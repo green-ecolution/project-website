@@ -13,7 +13,7 @@ function useIntersectionObserver(threshold = 0.2) {
           setIsVisible(true)
         }
       },
-      { threshold, rootMargin: '0px 0px -100px 0px' }
+      { threshold, rootMargin: '0px 0px -100px 0px' },
     )
 
     if (ref.current) {
@@ -157,7 +157,13 @@ function ConnectionLine({
   )
 }
 
-function MobileConnectionLine({ isVisible }: { isVisible: boolean; reducedMotion: boolean; index: number }) {
+function MobileConnectionLine({
+  isVisible,
+}: {
+  isVisible: boolean
+  reducedMotion: boolean
+  index: number
+}) {
   return (
     <div
       className={`flex lg:hidden justify-center py-3 transition-opacity duration-500 ${
@@ -243,7 +249,10 @@ function ArchitectureCard({
 
 function Architecture() {
   const reducedMotion = useReducedMotion()
-  const { ref, visibleItems, isVisible } = useStaggeredVisibility(architectureSteps.length, reducedMotion ? 0 : 200)
+  const { ref, visibleItems, isVisible } = useStaggeredVisibility(
+    architectureSteps.length,
+    reducedMotion ? 0 : 200,
+  )
 
   return (
     <section
@@ -267,8 +276,8 @@ function Architecture() {
           Der Datenfluss im Überblick
         </h2>
         <p className="text-grey-600 max-w-2xl mx-auto text-base lg:text-lg">
-          Von der Messung am Baum bis zur optimierten Bewässerungsroute – so fließen die Daten durch das Green
-          Ecolution System.
+          Von der Messung am Baum bis zur optimierten Bewässerungsroute – so fließen die Daten durch
+          das Green Ecolution System.
         </p>
       </article>
 
@@ -315,7 +324,6 @@ function Architecture() {
           </div>
         ))}
       </div>
-
     </section>
   )
 }

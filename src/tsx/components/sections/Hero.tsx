@@ -37,8 +37,8 @@ const Hero: React.FC<HeroProps> = ({ headline, description, label = 'Projekt', c
           className={`font-lato font-bold text-3xl mb-6 text-grey-900 leading-tight
             md:text-4xl lg:text-5xl xl:text-6xl
             transition-all ${reducedMotion ? '' : 'duration-700'} ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
           style={{ transitionDelay: reducedMotion ? '0ms' : '150ms' }}
         >
           {headline}
@@ -48,8 +48,8 @@ const Hero: React.FC<HeroProps> = ({ headline, description, label = 'Projekt', c
         <p
           className={`text-grey-600 leading-relaxed max-w-3xl lg:mx-auto lg:text-lg
             transition-all ${reducedMotion ? '' : 'duration-700'} ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
           style={{ transitionDelay: reducedMotion ? '0ms' : '300ms' }}
         >
           {description}
