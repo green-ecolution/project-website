@@ -1,5 +1,31 @@
+import { useEffect, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 import VideoPreview from '../VideoPreview'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
+
+function useIntersectionObserver(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold, rootMargin: '0px 0px -50px 0px' },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
+}
 
 const VIDEO_SHORT =
   'https://s3.green-ecolution.de/public-videos/project-video/short/green-ecolution-short.m3u8'
@@ -17,8 +43,16 @@ const VideoCard = (props: {
   describtion: string
   duration: string
 }) => (
-  <article className="video__player h-full bg-white shadow-md rounded-2xl p-6 border border-grey-100">
-    <div className="aspect-video w-full h-auto">
+  <article
+    className="
+      group video__player h-full bg-white
+      shadow-md hover:shadow-lg
+      rounded-2xl p-6
+      border border-grey-100 hover:border-green-light-900/30
+      transition-all duration-300
+    "
+  >
+    <div className="aspect-video w-full h-auto overflow-hidden rounded-xl">
       <ReactPlayer
         playing
         controls
@@ -29,22 +63,58 @@ const VideoCard = (props: {
         light={<VideoPreview thumbnail={props.thumbnail} />}
       />
     </div>
-    <h3 className="mt-8 mb-4 font-lato text-xl lg:text-2xl">
+    <h3 className="mt-8 mb-4 font-lato text-xl text-grey-900 lg:text-2xl">
       <strong>{props.title}</strong>&nbsp;|&nbsp;
       <span className="text-base lg:text-lg text-grey-900/60">{props.duration}</span>
     </h3>
-    <p>{props.describtion}</p>
+    <p className="text-grey-900/80 leading-relaxed">{props.describtion}</p>
   </article>
 )
 
 const Videos = () => {
+  const reducedMotion = useReducedMotion()
+  const { ref, isVisible } = useIntersectionObserver()
+
   return (
-    <section className="relative overflow-hidden px-4 mx-auto md:px-6 py-28 lg:py-36 xl:py-52 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
+    <section
+      ref={ref}
+      className="relative overflow-hidden px-4 mx-auto md:px-6 py-20 lg:py-28 xl:py-36 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]"
+    >
       <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-screen-lg">
-        <h2 className="font-lato font-bold text-2xl mb-6 lg:text-3xl">
+        {/* Section Label */}
+        <div
+          className={`
+            mb-6 lg:mb-8 lg:flex lg:justify-center
+            ${reducedMotion ? '' : 'transition-all duration-700'}
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+        >
+          <div className="inline-block">
+            <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+              Videos
+            </span>
+            <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1 lg:mx-auto" />
+          </div>
+        </div>
+
+        <h2
+          className={`
+            font-lato font-bold text-2xl mb-6 text-grey-900 lg:text-3xl
+            ${reducedMotion ? '' : 'transition-all duration-700'}
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+          style={{ transitionDelay: reducedMotion ? '0ms' : '100ms' }}
+        >
           Lerne das Projekt per Video kennen
         </h2>
-        <p>
+        <p
+          className={`
+            text-grey-900/80 leading-relaxed
+            ${reducedMotion ? '' : 'transition-all duration-700'}
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+          style={{ transitionDelay: reducedMotion ? '0ms' : '200ms' }}
+        >
           Im Rahmen des Forschungsprojekts wurden nicht nur eine Sensorlösung und eine Software
           entwickelt, sondern auch Videos produziert. Diese Videos veranschaulichen anschaulich die
           Inhalte des Projekts, einschließlich der Zielsetzung, der Problemstellung und der von uns
@@ -53,20 +123,36 @@ const Videos = () => {
       </article>
 
       <section className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 xl:max-w-screen-xl">
-        <VideoCard
-          src={VIDEO_SHORT}
-          thumbnail={VIDEO_SHORT_THMBNL}
-          title="Kurzvideo"
-          describtion="In diesem kurzen Video geben wir dir einen ersten Einblick in unser Projekt. Erfahre in wenigen Minuten, worum es geht und was du von den kommenden Inhalten erwarten kannst. Schau dir das Video an, um einen schnellen Überblick zu bekommen!"
-          duration="ca. 30 Sekunden"
-        />
-        <VideoCard
-          src={VIDEO_LONG}
-          thumbnail={VIDEO_LONG_THMBNL}
-          title="Langvideo"
-          describtion="In diesem ausführlichen Video tauchen wir tiefer in unser Projekt ein. Hier erläutern wir die wichtigsten Details, Hintergründe und die nächsten Schritte. Dieses Video bietet dir umfassende Informationen und hilft dir, das Projekt besser zu verstehen. Viel Spaß beim Anschauen und Entdecken!"
-          duration="ca. 4 Minuten"
-        />
+        <div
+          className={`
+            ${reducedMotion ? '' : 'transition-all duration-700'}
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+          style={{ transitionDelay: reducedMotion ? '0ms' : '300ms' }}
+        >
+          <VideoCard
+            src={VIDEO_SHORT}
+            thumbnail={VIDEO_SHORT_THMBNL}
+            title="Kurzvideo"
+            describtion="In diesem kurzen Video geben wir dir einen ersten Einblick in unser Projekt. Erfahre in wenigen Minuten, worum es geht und was du von den kommenden Inhalten erwarten kannst. Schau dir das Video an, um einen schnellen Überblick zu bekommen!"
+            duration="ca. 30 Sekunden"
+          />
+        </div>
+        <div
+          className={`
+            ${reducedMotion ? '' : 'transition-all duration-700'}
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+          style={{ transitionDelay: reducedMotion ? '0ms' : '400ms' }}
+        >
+          <VideoCard
+            src={VIDEO_LONG}
+            thumbnail={VIDEO_LONG_THMBNL}
+            title="Langvideo"
+            describtion="In diesem ausführlichen Video tauchen wir tiefer in unser Projekt ein. Hier erläutern wir die wichtigsten Details, Hintergründe und die nächsten Schritte. Dieses Video bietet dir umfassende Informationen und hilft dir, das Projekt besser zu verstehen. Viel Spaß beim Anschauen und Entdecken!"
+            duration="ca. 4 Minuten"
+          />
+        </div>
       </section>
     </section>
   )
