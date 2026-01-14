@@ -150,13 +150,13 @@ function DataFlowIllustration({ reducedMotion, isVisible }: IllustrationProps) {
 
         {reducedMotion ? (
           <>
-            <circle cx="150" cy="100" r="7" fill="white" filter="url(#glow)" />
+            <circle cx="150" cy="100" r="7" fill="white" />
             <circle cx="210" cy="115" r="5" fill="rgba(255,255,255,0.8)" />
             <circle cx="90" cy="90" r="6" fill="rgba(255,255,255,0.9)" />
           </>
         ) : (
           <>
-            <circle r="7" fill="white" filter="url(#glow)">
+            <circle r="7" fill="white">
               <animateMotion dur="4s" repeatCount="indefinite" path="M-20 100 Q60 40 150 100 T320 100" />
             </circle>
             <circle r="5" fill="rgba(255,255,255,0.8)">
@@ -170,7 +170,7 @@ function DataFlowIllustration({ reducedMotion, isVisible }: IllustrationProps) {
       </svg>
 
       <div className={`absolute transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center">
           <svg className="w-8 h-8 lg:w-10 lg:h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect x="3" y="3" width="18" height="18" rx="3" />
             <path d="M3 9h18M9 21V9" />
@@ -310,11 +310,11 @@ const illustrations: React.FC<IllustrationProps>[] = [
 ]
 
 const cardConfigs = [
-  { bg: 'from-green-dark-900 via-green-dark-900 to-green-middle-900', numberBg: 'bg-green-light-900', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
+  { bg: 'from-green-dark-900 via-green-dark-900 to-green-middle-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
   { bg: 'from-green-light-900 via-green-middle-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/70' },
-  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-green-light-900', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
+  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
   { bg: 'from-green-dark-900 via-green-middle-900 to-green-light-900/80', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/70' },
-  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-green-light-900', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
+  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
 ]
 
 function Process() {
