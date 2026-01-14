@@ -249,7 +249,7 @@ function Architecture() {
     <section
       id="architecture"
       ref={ref}
-      className="max-w-208 mx-auto my-28 px-4 md:px-6 lg:my-36 lg:max-w-screen-lg xl:my-52 xl:max-w-screen-xl"
+      className="max-w-208 mx-auto my-20 px-4 md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl"
     >
       {/* Header */}
       <article

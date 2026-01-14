@@ -56,7 +56,7 @@ function Advantages() {
     <section
       id="vorteile"
       ref={ref}
-      className="px-4 max-w-208 mx-auto my-28 md:px-6 lg:my-36 lg:max-w-screen-lg xl:my-52 xl:max-w-screen-xl"
+      className="px-4 max-w-208 mx-auto my-20 md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl"
     >
       <div className="md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
         {/* Header */}

@@ -176,8 +176,8 @@ const Contact: React.FC<ContactProps> = ({ spacingTop = true }) => {
   return (
     <section
       ref={ref}
-      className={`px-4 max-w-screen-lg mx-auto mb-28 md:px-6 lg:mb-36 xl:max-w-screen-xl xl:mb-52
-            ${spacingTop ? 'mt-28 lg:mt-36 xl:mt-52' : ''}`}
+      className={`px-4 max-w-screen-lg mx-auto mb-20 md:px-6 lg:mb-28 xl:max-w-screen-xl xl:mb-36
+            ${spacingTop ? 'mt-20 lg:mt-28 xl:mt-36' : ''}`}
     >
       {/* Section Label */}
       <div

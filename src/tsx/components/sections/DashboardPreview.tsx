@@ -34,7 +34,7 @@ function DashboardPreview() {
   return (
     <section
       ref={ref}
-      className="my-28 px-4 max-w-208 mx-auto md:px-6 lg:my-36 lg:max-w-screen-lg xl:my-52 xl:max-w-screen-xl"
+      className="my-20 px-4 max-w-208 mx-auto md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl"
     >
       {/* Header */}
       <article className="mb-10 lg:mb-14 lg:text-center">
