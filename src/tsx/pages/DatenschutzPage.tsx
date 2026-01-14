@@ -52,7 +52,7 @@ function DatenschutzPage() {
           { name: 'Datenschutz', path: '/datenschutz' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} />
+      <Hero headline={heroHeadline} description={heroDescription} label="Rechtliches" />
 
       <section
         ref={ref}

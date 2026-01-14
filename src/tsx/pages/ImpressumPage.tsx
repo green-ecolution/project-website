@@ -49,7 +49,7 @@ function ImpressumPage() {
           { name: 'Impressum', path: '/impressum' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} />
+      <Hero headline={heroHeadline} description={heroDescription} label="Rechtliches" />
 
       <section
         ref={ref}
