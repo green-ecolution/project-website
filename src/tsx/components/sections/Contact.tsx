@@ -1,8 +1,33 @@
+import { useEffect, useRef, useState } from 'react'
 import { Mail } from 'lucide-react'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 interface ContactProps {
   spacingTop?: boolean
+}
+
+function useIntersectionObserver(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
 }
 
 function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
@@ -146,36 +171,91 @@ function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
 
 const Contact: React.FC<ContactProps> = ({ spacingTop = true }) => {
   const reducedMotion = useReducedMotion()
+  const { ref, isVisible } = useIntersectionObserver()
 
   return (
     <section
+      ref={ref}
       className={`px-4 max-w-screen-lg mx-auto mb-28 md:px-6 lg:mb-36 xl:max-w-screen-xl xl:mb-52
             ${spacingTop ? 'mt-28 lg:mt-36 xl:mt-52' : ''}`}
     >
-      <div className="relative bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl p-6 md:p-10 lg:p-12 shadow-lg overflow-hidden">
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:gap-8">
+      {/* Section Label */}
+      <div
+        className={`inline-block mb-6 lg:mb-8 transition-all ${reducedMotion ? '' : 'duration-700'} ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+      >
+        <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+          Kontakt
+        </span>
+        <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
+      </div>
+
+      {/* CTA Card */}
+      <div
+        className={`relative bg-gradient-to-br from-green-dark-900 via-green-dark-900 to-green-middle-900 rounded-2xl lg:rounded-3xl p-6 md:p-10 lg:p-12 shadow-xl overflow-hidden transition-all ${reducedMotion ? '' : 'duration-1000'} ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+        style={{ transitionDelay: reducedMotion ? '0ms' : '200ms' }}
+      >
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-green-light-900/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-middle-900/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+        {/* Subtle pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '24px 24px',
+          }}
+        />
+
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:gap-12">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-white">
+            <h2
+              className={`font-lato font-bold text-2xl mb-4 lg:text-3xl xl:text-4xl text-white transition-all ${reducedMotion ? '' : 'duration-700'} ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: reducedMotion ? '0ms' : '400ms' }}
+            >
               Lass uns gemeinsam grüner werden
             </h2>
-            <p className="text-white/80 mb-6 lg:mb-8 max-w-xl lg:max-w-none">
+            <p
+              className={`text-white/80 mb-8 max-w-xl lg:max-w-none leading-relaxed transition-all ${reducedMotion ? '' : 'duration-700'} ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: reducedMotion ? '0ms' : '550ms' }}
+            >
               Hast du Fragen, Feedback oder ein Anliegen? Wir freuen uns über deine Nachricht und
               melden uns so schnell wie möglich bei dir.
             </p>
 
-            <a
-              href="mailto:info@green-ecolution.de"
-              aria-label="Kontaktiere uns gerne per E-Mail"
-              className="inline-flex items-center justify-center gap-x-3 rounded-2xl font-semibold px-6 py-3 bg-white text-green-dark-900 transition-all duration-300 hover:bg-green-light-100 hover:shadow-md hover:scale-105"
+            <div
+              className={`transition-all ${reducedMotion ? '' : 'duration-700'} ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: reducedMotion ? '0ms' : '700ms' }}
             >
-              <Mail className="w-5 h-5" />
-              <span>Schreib uns</span>
-            </a>
+              <a
+                href="mailto:info@green-ecolution.de"
+                aria-label="Kontaktiere uns gerne per E-Mail"
+                className="group inline-flex items-center justify-center gap-x-3 rounded-xl font-semibold px-8 py-4 bg-white text-green-dark-900 transition-all duration-300 hover:bg-green-light-100 hover:shadow-lg hover:shadow-black/20 hover:scale-105 active:scale-100"
+              >
+                <Mail className="w-5 h-5 transition-transform group-hover:-rotate-12" />
+                <span>Schreib uns</span>
+              </a>
+            </div>
           </div>
 
           {/* Watering Animation */}
-          <div className="hidden lg:block flex-shrink-0 w-80 h-40 xl:w-96 xl:h-44">
+          <div
+            className={`hidden lg:block flex-shrink-0 w-80 h-40 xl:w-96 xl:h-48 transition-all ${reducedMotion ? '' : 'duration-1000'} ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            }`}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '600ms' }}
+          >
             <WateringAnimation reducedMotion={reducedMotion} />
           </div>
         </div>
