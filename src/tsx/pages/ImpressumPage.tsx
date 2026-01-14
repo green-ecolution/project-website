@@ -1,8 +1,36 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Hero from '../components/sections/Hero'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { useReducedMotion } from '../hooks/useReducedMotion'
+
+function useIntersectionObserver(threshold = 0.1) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold, rootMargin: '0px 0px -50px 0px' },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
+}
 
 function ImpressumPage() {
+  const reducedMotion = useReducedMotion()
+  const { ref, isVisible } = useIntersectionObserver()
+
   useEffect(() => {
     document.title = 'Impressum | Green Ecolution | Smartes Grünflächenmanagement'
   }, [])
@@ -21,33 +49,59 @@ function ImpressumPage() {
           { name: 'Impressum', path: '/impressum' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} />
+      <Hero headline={heroHeadline} description={heroDescription} label="Rechtliches" />
 
-      <section className="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52">
+      <section
+        ref={ref}
+        className="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52"
+      >
         <div className="space-y-12">
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">Kontakt</h2>
-            <address className="not-italic space-y-1">
+          {/* Kontakt */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              Kontakt
+            </h2>
+            <address className="not-italic space-y-1 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
               <p className="font-bold">PROGEEK GmbH</p>
               <p>Lise-Meitner-Str. 2</p>
               <p>24941 Flensburg</p>
               <p className="mt-4">
                 Telefon:{' '}
-                <a href="tel:+494617933068" className="text-green-dark-900 hover:underline">
+                <a
+                  href="tel:+494617933068"
+                  className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                >
                   +49 461 793 306 80
                 </a>
               </p>
               <p>
                 E-Mail:{' '}
-                <a href="mailto:info@progeek.de" className="text-green-dark-900 hover:underline">
+                <a
+                  href="mailto:info@progeek.de"
+                  className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                >
                   info@progeek.de
                 </a>
               </p>
             </address>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">Handelsregister</h2>
+          {/* Handelsregister */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '100ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              Handelsregister
+            </h2>
             <ul className="space-y-1">
               <li>
                 <span className="font-bold">Registergericht:</span> Amtsgericht Flensburg
@@ -68,8 +122,17 @@ function ImpressumPage() {
             </ul>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">Haftung für Inhalte</h2>
+          {/* Haftung für Inhalte */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '200ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              Haftung für Inhalte
+            </h2>
             <p className="mb-4">
               Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
               nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
@@ -86,8 +149,17 @@ function ImpressumPage() {
             </p>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">Haftung für Links</h2>
+          {/* Haftung für Links */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '300ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              Haftung für Links
+            </h2>
             <p className="mb-4">
               Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
               Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
@@ -103,8 +175,17 @@ function ImpressumPage() {
             </p>
           </div>
 
-          <div>
-            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl">Urheberrecht</h2>
+          {/* Urheberrecht */}
+          <div
+            className={`
+              ${reducedMotion ? '' : 'transition-all duration-700'}
+              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+            style={{ transitionDelay: reducedMotion ? '0ms' : '400ms' }}
+          >
+            <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
+              Urheberrecht
+            </h2>
             <p className="mb-4">
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
               unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
