@@ -9,9 +9,9 @@ function ContactPage() {
     document.title = 'Kontakt | Green Ecolution | Smartes Grünflächenmanagement'
   }, [])
 
-  const heroHeadline = 'Weitere Informationen'
+  const heroHeadline = 'Lass uns in Kontakt treten'
   const heroDescription =
-    'Wenn du weitere Fragen hast, erreichst du uns per E-Mail. Einen Einblick in die technische Struktur bekommst du in unserem öffentlich zugänglichen GitHub-Projekt.'
+    'Du hast Fragen zum Projekt, möchtest deine Kommune anbinden oder zur Entwicklung beitragen? Wir freuen uns über jede Nachricht und melden uns zeitnah bei dir.'
 
   return (
     <main
@@ -24,7 +24,7 @@ function ContactPage() {
           { name: 'Kontakt', path: '/contact' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription}>
+      <Hero headline={heroHeadline} description={heroDescription} label="Kontakt">
         <ContactHeroContent />
       </Hero>
       <Stakeholder hasDesktopList />
