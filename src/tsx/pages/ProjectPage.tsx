@@ -7,6 +7,8 @@ import Contact from '../components/sections/Contact'
 import FurtherLinks from '../components/sections/FurhterLinks'
 import Process from '../components/sections/Process'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import ScrollProgress from '../components/ScrollProgress'
+import BackToTop from '../components/BackToTop'
 
 function ProjectPage() {
   useEffect(() => {
@@ -30,24 +32,28 @@ function ProjectPage() {
   ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg – bald auch verfügbar für Ihre Kommune.'
 
   return (
-    <main
-      id="main-content"
-      className="relative overflow-hidden before:bg-cover before:bg-background-light-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
-    >
-      <BreadcrumbSchema
-        items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Projekt', path: '/project' },
-        ]}
-      />
-      <Hero headline={heroHeadline} description={heroDescription} />
-      <DashboardPreview />
-      <Process />
-      <Architecture />
-      <Advantages />
-      <FurtherLinks />
-      <Contact />
-    </main>
+    <>
+      <ScrollProgress />
+      <BackToTop />
+      <main
+        id="main-content"
+        className="relative overflow-hidden before:bg-cover before:bg-background-light-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
+      >
+        <BreadcrumbSchema
+          items={[
+            { name: 'Startseite', path: '/' },
+            { name: 'Projekt', path: '/project' },
+          ]}
+        />
+        <Hero headline={heroHeadline} description={heroDescription} />
+        <DashboardPreview />
+        <Process />
+        <Architecture />
+        <Advantages />
+        <FurtherLinks />
+        <Contact />
+      </main>
+    </>
   )
 }
 
