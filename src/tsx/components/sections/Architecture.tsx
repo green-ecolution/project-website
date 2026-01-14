@@ -27,7 +27,7 @@ function useIntersectionObserver(threshold = 0.2) {
 }
 
 function useStaggeredVisibility(itemCount: number, baseDelay = 200) {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set())
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(() => new Set())
   const { ref, isVisible } = useIntersectionObserver(0.1)
 
   useEffect(() => {

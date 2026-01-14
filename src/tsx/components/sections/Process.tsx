@@ -10,7 +10,7 @@ interface IllustrationProps {
 }
 
 function useIntersectionObserver(threshold = 0.2) {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set())
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(() => new Set())
   const observerRef = useRef<IntersectionObserver | null>(null)
 
   const observe = useCallback(
@@ -333,9 +333,9 @@ function WateringIllustration({ reducedMotion, isVisible }: IllustrationProps) {
           { top: '-8px', left: '-16px', size: 'w-7 h-7', delay: '0s' },
           { top: '-14px', right: '4px', size: 'w-5 h-5', delay: '0.4s' },
           { bottom: '4px', right: '-20px', size: 'w-6 h-6', delay: '0.8s' },
-        ].map((drop, i) => (
+        ].map((drop) => (
           <svg
-            key={i}
+            key={drop.delay}
             className={`absolute ${drop.size} text-cyan-400/80 ${!reducedMotion ? 'animate-bounce' : ''}`}
             style={{
               top: drop.top,
