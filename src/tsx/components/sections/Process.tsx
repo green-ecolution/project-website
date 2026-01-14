@@ -27,14 +27,14 @@ function useIntersectionObserver(threshold = 0.2) {
               }
             })
           },
-          { threshold, rootMargin: '0px 0px -50px 0px' }
+          { threshold, rootMargin: '0px 0px -50px 0px' },
         )
       }
 
       element.setAttribute('data-index', String(index))
       observerRef.current.observe(element)
     },
-    [threshold]
+    [threshold],
   )
 
   useEffect(() => {
@@ -94,7 +94,7 @@ function SensorIllustration({ reducedMotion, isVisible }: IllustrationProps) {
 
       <div
         className={`absolute transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-        style={{ top: '18%', right: '28%' }}
+        style={{ top: '18%', right: '20%' }}
       >
         <div className="relative">
           <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-green-light-900 to-green-middle-900 flex items-center justify-center shadow-lg">
@@ -144,9 +144,24 @@ function DataFlowIllustration({ reducedMotion, isVisible }: IllustrationProps) {
           </filter>
         </defs>
 
-        <path d="M-20 100 Q60 40 150 100 T320 100" stroke="url(#lineGradient)" strokeWidth="2" fill="none" />
-        <path d="M-20 125 Q60 65 150 125 T320 125" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" fill="none" />
-        <path d="M-20 75 Q60 135 150 75 T320 75" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" fill="none" />
+        <path
+          d="M-20 100 Q60 40 150 100 T320 100"
+          stroke="url(#lineGradient)"
+          strokeWidth="2"
+          fill="none"
+        />
+        <path
+          d="M-20 125 Q60 65 150 125 T320 125"
+          stroke="rgba(255,255,255,0.15)"
+          strokeWidth="1.5"
+          fill="none"
+        />
+        <path
+          d="M-20 75 Q60 135 150 75 T320 75"
+          stroke="rgba(255,255,255,0.15)"
+          strokeWidth="1.5"
+          fill="none"
+        />
 
         {reducedMotion ? (
           <>
@@ -157,21 +172,43 @@ function DataFlowIllustration({ reducedMotion, isVisible }: IllustrationProps) {
         ) : (
           <>
             <circle r="7" fill="white">
-              <animateMotion dur="4s" repeatCount="indefinite" path="M-20 100 Q60 40 150 100 T320 100" />
+              <animateMotion
+                dur="4s"
+                repeatCount="indefinite"
+                path="M-20 100 Q60 40 150 100 T320 100"
+              />
             </circle>
             <circle r="5" fill="rgba(255,255,255,0.8)">
-              <animateMotion dur="4s" repeatCount="indefinite" path="M-20 125 Q60 65 150 125 T320 125" begin="0.8s" />
+              <animateMotion
+                dur="4s"
+                repeatCount="indefinite"
+                path="M-20 125 Q60 65 150 125 T320 125"
+                begin="0.8s"
+              />
             </circle>
             <circle r="6" fill="rgba(255,255,255,0.9)">
-              <animateMotion dur="4s" repeatCount="indefinite" path="M-20 75 Q60 135 150 75 T320 75" begin="1.6s" />
+              <animateMotion
+                dur="4s"
+                repeatCount="indefinite"
+                path="M-20 75 Q60 135 150 75 T320 75"
+                begin="1.6s"
+              />
             </circle>
           </>
         )}
       </svg>
 
-      <div className={`absolute transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+      <div
+        className={`absolute transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+      >
         <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center">
-          <svg className="w-8 h-8 lg:w-10 lg:h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg
+            className="w-8 h-8 lg:w-10 lg:h-10 text-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
             <rect x="3" y="3" width="18" height="18" rx="3" />
             <path d="M3 9h18M9 21V9" />
           </svg>
@@ -183,7 +220,9 @@ function DataFlowIllustration({ reducedMotion, isVisible }: IllustrationProps) {
 
 function DashboardIllustration({ reducedMotion, isVisible }: IllustrationProps) {
   return (
-    <div className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <div
+      className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+    >
       <div className="w-full max-w-[200px] lg:max-w-[240px] rounded-2xl overflow-hidden">
         <Lottie
           animationData={dashboardAnimation}
@@ -198,7 +237,9 @@ function DashboardIllustration({ reducedMotion, isVisible }: IllustrationProps) 
 
 function RouteIllustration({ reducedMotion, isVisible }: IllustrationProps) {
   return (
-    <div className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div
+      className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <svg className="w-44 h-44 sm:w-48 sm:h-48 lg:w-52 lg:h-52" viewBox="0 0 200 200">
         <defs>
           <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -212,7 +253,11 @@ function RouteIllustration({ reducedMotion, isVisible }: IllustrationProps) {
         </defs>
 
         <rect x="15" y="15" width="170" height="170" rx="16" fill="url(#mapGradient)" />
-        <path d="M15 75 H185 M15 125 H185 M75 15 V185 M125 15 V185" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+        <path
+          d="M15 75 H185 M15 125 H185 M75 15 V185 M125 15 V185"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth="1"
+        />
 
         <path
           d="M35 165 Q50 130 65 120 T105 140 T145 75 L165 35"
@@ -225,7 +270,13 @@ function RouteIllustration({ reducedMotion, isVisible }: IllustrationProps) {
           strokeDashoffset={reducedMotion ? '0' : '220'}
         >
           {!reducedMotion && (
-            <animate attributeName="stroke-dashoffset" from="220" to="0" dur="2.5s" repeatCount="indefinite" />
+            <animate
+              attributeName="stroke-dashoffset"
+              from="220"
+              to="0"
+              dur="2.5s"
+              repeatCount="indefinite"
+            />
           )}
         </path>
 
@@ -245,7 +296,11 @@ function RouteIllustration({ reducedMotion, isVisible }: IllustrationProps) {
           </g>
         ) : (
           <g>
-            <animateMotion dur="5s" repeatCount="indefinite" path="M35 165 Q50 130 65 120 T105 140 T145 75 L165 35" />
+            <animateMotion
+              dur="5s"
+              repeatCount="indefinite"
+              path="M35 165 Q50 130 65 120 T105 140 T145 75 L165 35"
+            />
             <rect x="-10" y="-6" width="20" height="12" rx="3" fill="white" />
             <circle cx="-5" cy="6" r="2" fill="#333" />
             <circle cx="5" cy="6" r="2" fill="#333" />
@@ -258,7 +313,9 @@ function RouteIllustration({ reducedMotion, isVisible }: IllustrationProps) {
 
 function WateringIllustration({ reducedMotion, isVisible }: IllustrationProps) {
   return (
-    <div className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+    <div
+      className={`relative w-full h-48 sm:h-56 lg:h-64 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+    >
       <div className="relative">
         <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-green-light-900/20 to-green-middle-900/10 flex items-center justify-center">
           <div className="w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-green-light-900 to-green-middle-900 flex items-center justify-center shadow-xl">
@@ -310,11 +367,36 @@ const illustrations: React.FC<IllustrationProps>[] = [
 ]
 
 const cardConfigs = [
-  { bg: 'from-green-dark-900 via-green-dark-900 to-green-middle-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
-  { bg: 'from-green-light-900 via-green-middle-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/70' },
-  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
-  { bg: 'from-green-dark-900 via-green-middle-900 to-green-light-900/80', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/70' },
-  { bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900', numberBg: 'bg-white', numberText: 'text-green-dark-900', mutedText: 'text-white/60' },
+  {
+    bg: 'from-green-dark-900 via-green-dark-900 to-green-middle-900',
+    numberBg: 'bg-white',
+    numberText: 'text-green-dark-900',
+    mutedText: 'text-white/60',
+  },
+  {
+    bg: 'from-green-light-900 via-green-middle-900 to-green-dark-900',
+    numberBg: 'bg-white',
+    numberText: 'text-green-dark-900',
+    mutedText: 'text-white/70',
+  },
+  {
+    bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900',
+    numberBg: 'bg-white',
+    numberText: 'text-green-dark-900',
+    mutedText: 'text-white/60',
+  },
+  {
+    bg: 'from-green-dark-900 via-green-middle-900 to-green-light-900/80',
+    numberBg: 'bg-white',
+    numberText: 'text-green-dark-900',
+    mutedText: 'text-white/70',
+  },
+  {
+    bg: 'from-green-middle-900 via-green-dark-900 to-green-dark-900',
+    numberBg: 'bg-white',
+    numberText: 'text-green-dark-900',
+    mutedText: 'text-white/60',
+  },
 ]
 
 function Process() {
@@ -380,22 +462,30 @@ function Process() {
                   <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/[0.03] rounded-full blur-2xl pointer-events-none" />
 
                   <div className="relative grid grid-cols-1 lg:grid-cols-2">
-                    <div className={`p-5 sm:p-6 lg:p-8 flex items-center justify-center ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div
+                      className={`p-5 sm:p-6 lg:p-8 flex items-center justify-center ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
+                    >
                       <div className="transition-transform duration-700 ease-out group-hover:scale-[1.03]">
                         <Illustration reducedMotion={reducedMotion} isVisible={isVisible} />
                       </div>
                     </div>
 
-                    <div className={`p-5 sm:p-6 lg:p-10 flex flex-col justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div
+                      className={`p-5 sm:p-6 lg:p-10 flex flex-col justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                    >
                       <div className="flex items-center gap-3 mb-4">
                         <div
                           className={`w-11 h-11 lg:w-12 lg:h-12 rounded-full ${config.numberBg} flex items-center justify-center shadow-md transition-transform duration-500 ${isVisible ? 'scale-100' : 'scale-0'}`}
                         >
-                          <span className={`font-lato font-bold text-base lg:text-lg ${config.numberText}`}>
+                          <span
+                            className={`font-lato font-bold text-base lg:text-lg ${config.numberText}`}
+                          >
                             {number}
                           </span>
                         </div>
-                        <span className={`text-xs font-medium uppercase tracking-widest ${config.mutedText}`}>
+                        <span
+                          className={`text-xs font-medium uppercase tracking-widest ${config.mutedText}`}
+                        >
                           Schritt {index + 1} von 5
                         </span>
                       </div>
@@ -417,7 +507,9 @@ function Process() {
                 </div>
 
                 {index < steps.length - 1 && (
-                  <div className={`hidden lg:flex flex-col items-center py-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                  <div
+                    className={`hidden lg:flex flex-col items-center py-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                  >
                     <div className="w-px h-6 bg-gradient-to-b from-green-middle-900/50 to-green-middle-900/20" />
                     <div className="w-2.5 h-2.5 rounded-full bg-green-light-900 my-1 shadow-sm" />
                     <div className="w-px h-6 bg-gradient-to-b from-green-middle-900/20 to-green-middle-900/50" />
