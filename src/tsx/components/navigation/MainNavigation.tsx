@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from '@tanstack/react-router'
 import NavItem from './NavItem'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
@@ -11,6 +12,15 @@ interface MainNavigationProps {
 }
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
+  const [isMobile, setIsMobile] = React.useState(false)
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(!window.matchMedia('(min-width: 1024px)').matches)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const ref = useOutsideClick((event: MouseEvent) => {
     const toggleElement = document.getElementById('main-navigation-toggle')
     if (
@@ -22,12 +32,12 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
     onClose()
   })
 
-  return (
+  const navContent = (
     <nav
       id="main-navigation"
       ref={ref}
       aria-label="Hauptnavigation"
-      className={`fixed inset-y-2 px-4 w-[70vw] z-10 bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
+      className={`fixed inset-y-2 px-4 w-[70vw] z-[60] bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto lg:z-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
     >
       <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
       <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
@@ -63,6 +73,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
       </ul>
     </nav>
   )
+
+  return isMobile ? createPortal(navContent, document.body) : navContent
 }
 
 export default MainNavigation
