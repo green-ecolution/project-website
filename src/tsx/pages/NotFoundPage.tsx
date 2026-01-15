@@ -22,11 +22,11 @@ function NotFoundPage() {
             Die Seite konnte nicht gefunden werden.
           </h1>
           <p className="lg:text-center mb-10">
-            Die gewünschte Seite ist nicht erreichbar, da sie entweder nicht exisitert oder es zu
+            Die gewünschte Seite ist nicht erreichbar, da sie entweder nicht existiert oder es zu
             einem Fehler gekommen ist. Error-Code: 404
           </p>
           <div className="lg:flex lg:items-center lg:justify-center">
-            <Button href="/" ariaLabel="Zur Statseite" isDark>
+            <Button href="/" ariaLabel="Zur Startseite" isDark>
               <span>Zur Startseite</span>
               <Arrow classes="w-6 text-white transition-all ease-in-out duration-300 group-hover:translate-x-2" />
             </Button>
