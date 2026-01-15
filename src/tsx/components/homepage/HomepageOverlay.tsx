@@ -183,7 +183,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
                 type="button"
                 className="
                   flex items-center justify-center gap-x-3 rounded-xl w-full
-                  font-semibold px-5 py-3 group
+                  font-semibold px-5 py-3 group cursor-pointer
                   bg-gradient-to-r from-green-dark-900 to-green-middle-900
                   text-white shadow-lg shadow-green-dark-900/20
                   transition-all duration-300
@@ -203,7 +203,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
               onClick={onClose}
               className="
                 absolute -right-3 -top-3
-                w-10 h-10 rounded-full
+                w-10 h-10 rounded-full cursor-pointer
                 bg-white shadow-lg border border-grey-100
                 flex items-center justify-center
                 text-grey-900/60

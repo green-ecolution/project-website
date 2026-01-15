@@ -87,7 +87,7 @@ function Header() {
             aria-controls="main-navigation"
             aria-haspopup="menu"
             aria-label="Hauptnavigation öffnen"
-            className="relative w-10 h-10 p-2 z-50 group lg:hidden"
+            className="relative w-10 h-10 p-2 z-50 group cursor-pointer lg:hidden"
             onClick={() => toggleNavigation(!open)}
           >
             <span

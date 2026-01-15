@@ -64,7 +64,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
         </p>
         <button
           type="button"
-          className="mx-auto mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white hover:bg-green-light-900 hover:border-green-light-900"
+          className="mx-auto mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white cursor-pointer hover:bg-green-light-900 hover:border-green-light-900"
           onClick={handleHideWelcomeCard}
         >
           Animation starten

@@ -10,7 +10,7 @@ interface NavItemProps {
 
 const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false, onClick }) => {
   const className =
-    'text-lg md:text-2xl font-bold flex justify-between items-center group lg:text-base xl:text-lg lg:leading-none lg:my-1'
+    'text-lg md:text-2xl font-bold flex justify-between items-center group cursor-pointer lg:text-base xl:text-lg lg:leading-none lg:my-1'
 
   const content = (
     <>

@@ -45,7 +45,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
           border border-grey-100 hover:border-green-light-900/40
           md:p-8 md:grid md:grid-cols-[12rem_auto] md:gap-x-10 md:items-center
           transition-all duration-300
-          ${hasDesktopList ? 'lg:cursor-default hover:-translate-y-0.5' : 'cursor-pointer hover:-translate-y-0.5'}
+          ${hasDesktopList ? 'lg:cursor-default hover:-translate-y-0.5' : 'hover:-translate-y-0.5'}
         `}
       >
         {/* Logo container */}
@@ -67,7 +67,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-green-dark-900 font-semibold group/link transition-all duration-300 hover:gap-3"
+            className="inline-flex items-center gap-2 text-green-dark-900 font-semibold group/link cursor-pointer transition-all duration-300 hover:gap-3"
           >
             <span className="transition-colors duration-300 group-hover/link:text-green-middle-900">
               Zur Webseite
