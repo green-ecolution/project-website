@@ -13,6 +13,40 @@ interface MainNavigationProps {
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
   const [isMobile, setIsMobile] = React.useState(false)
+  const previousActiveElement = React.useRef<HTMLElement | null>(null)
+  const touchStartX = React.useRef<number | null>(null)
+  const touchStartY = React.useRef<number | null>(null)
+
+  React.useEffect(() => {
+    if (isOpen) {
+      previousActiveElement.current = document.activeElement as HTMLElement
+    } else if (previousActiveElement.current) {
+      previousActiveElement.current.focus()
+      previousActiveElement.current = null
+    }
+  }, [isOpen])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+
+    const touchEndX = e.changedTouches[0].clientX
+    const touchEndY = e.changedTouches[0].clientY
+    const deltaX = touchEndX - touchStartX.current
+    const deltaY = Math.abs(touchEndY - touchStartY.current)
+
+    // Swipe right to close: deltaX > 50px and horizontal swipe (deltaX > deltaY)
+    if (deltaX > 50 && deltaX > deltaY) {
+      onClose()
+    }
+
+    touchStartX.current = null
+    touchStartY.current = null
+  }
 
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(!window.matchMedia('(min-width: 1024px)').matches)
@@ -44,6 +78,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         id="main-navigation"
         ref={ref}
         aria-label="Hauptnavigation"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         className={`fixed inset-y-2 px-4 w-[70vw] z-[60] bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:inset-y-auto lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto lg:max-w-none lg:z-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
       >
       <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
