@@ -109,7 +109,7 @@ function Features() {
       label: 'Intelligente Gruppierung',
       icon: <TreeDeciduous />,
       description:
-        'Fasse Bäume zu Bewässerungseinheiten zusammen. Automatische Berechnung des Wasserbedarfs pro Cluster.',
+        'Fasse Bäume zu Bewässerungs\u00ADeinheiten zusammen. Automatische Berechnung des Wasserbedarfs pro Cluster.',
       color: 'green-light',
     },
     {

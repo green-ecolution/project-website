@@ -30,14 +30,14 @@ function ErrorFallback({ onReset }: ErrorFallbackProps) {
             <button
               type="button"
               onClick={onReset}
-              className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group bg-green-dark-900 transition-colors text-white hover:bg-green-light-900"
+              className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer bg-green-dark-900 transition-colors text-white hover:bg-green-light-900"
             >
               <span>Erneut versuchen</span>
               <Retry classes="w-5" />
             </button>
             <a
               href="/"
-              className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group border border-green-dark-900 text-green-dark-900 transition-colors hover:bg-green-dark-900 hover:text-white"
+              className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer border border-green-dark-900 text-green-dark-900 transition-colors hover:bg-green-dark-900 hover:text-white"
             >
               <span>Zur Startseite</span>
               <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />

@@ -71,7 +71,7 @@ function Introduction() {
   return (
     <section
       ref={ref}
-      className="max-w-208 mx-auto mt-36 md:mt-40 lg:mt-16 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr,1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-screen-xl"
+      className="max-w-208 mx-auto mt-36 md:mt-40 lg:mt-16 lg:max-w-screen-lg lg:grid lg:grid-cols-[1fr_1.5fr] lg:gap-x-10 lg:items-center xl:grid-cols-2 xl:max-w-screen-xl"
     >
       <article className="px-4 mb-8 md:px-6 lg:mb-14">
         {/* Section Label */}
@@ -135,10 +135,7 @@ function Introduction() {
           className="splide--grid md:px-2"
         >
           {facts.map((fact) => (
-            <SplideSlide
-              key={fact.label}
-              className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:[&:nth-child(2)]:mt-16 lg:[&:nth-child(3)]:-mt-16 lg:[&:nth-child(3)]:mb-16"
-            >
+            <SplideSlide key={fact.label} className="pb-10 px-4 lg:px-2 lg:pb-2">
               <IntroductionCard
                 label={fact.label}
                 icon={fact.icon}

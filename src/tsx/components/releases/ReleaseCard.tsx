@@ -20,7 +20,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release, index = 0 }) => {
       <div className="absolute left-0 top-8 w-2 h-2 -translate-x-[3.5px] rounded-full bg-green-dark-900/30 ring-2 ring-green-light-100 hidden lg:block group-hover:bg-green-dark-900 group-hover:scale-125 transition-all duration-300" />
 
       <Link to="/releases/$slug" params={{ slug }} className="block lg:ml-6">
-        <div className="relative bg-white rounded-xl lg:rounded-2xl p-5 lg:p-6 border border-grey-900/10 shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-0.5 group-hover:border-green-dark-900/20 overflow-hidden">
+        <div className="relative bg-white rounded-xl lg:rounded-2xl p-5 lg:p-6 border border-grey-900/10 shadow-xs transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-0.5 group-hover:border-green-dark-900/20 overflow-hidden">
           {/* Subtle gradient overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-light-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 

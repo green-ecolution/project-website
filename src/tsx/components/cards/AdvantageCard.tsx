@@ -14,7 +14,7 @@ function AdvantageCard({ label, description, icon, accentColor }: AdvantageCardP
   return (
     <div
       className="group h-full bg-green-light-100 rounded-2xl p-6 lg:p-8
-        shadow-sm hover:shadow-md border border-green-dark-900/20
+        shadow-xs hover:shadow-sm border border-green-dark-900/20
         transition-all duration-300 hover:-translate-y-1"
     >
       <div className="flex flex-col items-center text-center">

@@ -37,6 +37,18 @@ function Header() {
     return () => document.body.classList.remove('overflow-hidden')
   }, [open])
 
+  // Update theme-color meta tag for iOS status bar
+  useEffect(() => {
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+    if (metaThemeColor) {
+      if (isScrolled) {
+        metaThemeColor.setAttribute('content', '#fcfcfc') // white for scrolled header
+      } else {
+        metaThemeColor.setAttribute('content', '#4C7741') // green-dark-900 default
+      }
+    }
+  }, [isScrolled])
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
@@ -62,8 +74,7 @@ function Header() {
         Zum Hauptinhalt springen
       </a>
       <header
-        className={`fixed w-screen inset-x-0 top-0 z-50 transition-all ease-in-out duration-300 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none
-            ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}
+        className={`fixed inset-x-0 top-0 z-50 transition-all ease-in-out duration-300
             ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg shadow-grey-900/5' : 'bg-transparent'}`}
       >
         <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
@@ -87,7 +98,7 @@ function Header() {
             aria-controls="main-navigation"
             aria-haspopup="menu"
             aria-label="Hauptnavigation öffnen"
-            className="relative w-10 h-10 p-2 z-50 group lg:hidden"
+            className="relative w-10 h-10 p-2 z-50 group cursor-pointer lg:hidden"
             onClick={() => toggleNavigation(!open)}
           >
             <span
