@@ -43,7 +43,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
           shadow-md hover:shadow-lg
           rounded-2xl p-6
           border border-grey-100 hover:border-green-light-900/40
-          md:p-8 md:grid md:grid-cols-[12rem,auto] md:gap-x-10 md:items-center
+          md:p-8 md:grid md:grid-cols-[12rem_auto] md:gap-x-10 md:items-center
           transition-all duration-300
           ${hasDesktopList ? 'lg:cursor-default hover:-translate-y-0.5' : 'cursor-pointer hover:-translate-y-0.5'}
         `}

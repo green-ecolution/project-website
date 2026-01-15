@@ -62,7 +62,7 @@ function Header() {
         Zum Hauptinhalt springen
       </a>
       <header
-        className={`fixed w-screen inset-x-0 top-0 z-50 transition-all ease-in-out duration-300 before:w-screen before:transition-all before:ease-in-out before:duration-300 before:h-screen before:absolute before:bg-grey-900 before:-z-10 lg:before:transition-none
+        className={`fixed inset-x-0 top-0 z-50 transition-all ease-in-out duration-300 before:fixed before:inset-0 before:transition-all before:ease-in-out before:duration-300 before:bg-grey-900 before:-z-10 lg:before:transition-none
             ${open ? 'before:visible before:opacity-60' : 'before:opacity-0 before:invisible'}
             ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg shadow-grey-900/5' : 'bg-transparent'}`}
       >

@@ -509,7 +509,7 @@ function Process() {
                     className={`hidden lg:flex flex-col items-center py-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                   >
                     <div className="w-px h-6 bg-gradient-to-b from-green-middle-900/50 to-green-middle-900/20" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-light-900 my-1 shadow-sm" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-light-900 my-1 shadow-xs" />
                     <div className="w-px h-6 bg-gradient-to-b from-green-middle-900/20 to-green-middle-900/50" />
                   </div>
                 )}

@@ -1,4 +1,103 @@
-@import 'tailwindcss/base';
-@import 'frontend';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+@import './frontend.css';
+
+@theme {
+  /* Colors */
+  --color-white: #fcfcfc;
+  --color-green-light-100: #f4f5e9;
+  --color-green-light-900: #acb63b;
+  --color-green-middle-900: #659858;
+  --color-green-dark-900: #4c7741;
+  --color-green-500: #22c55e;
+  --color-grey-100: #e5e5e5;
+  --color-grey-900: #171717;
+
+  /* Terminal colors */
+  --color-red-500: #ef4444;
+  --color-yellow-400: #facc15;
+  --color-yellow-500: #eab308;
+  --color-blue-400: #60a5fa;
+  --color-purple-400: #c084fc;
+  --color-pink-400: #f472b6;
+  --color-orange-400: #fb923c;
+  --color-cyan-400: #22d3ee;
+
+  /* Fonts */
+  --font-lato: 'Lato', sans-serif;
+  --font-nunito-sans: 'Nunito Sans', sans-serif;
+
+  /* Font sizes */
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 1;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.2;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.4;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.55;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.55;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.35;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 1.43;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 1.33;
+  --text-5xl: 2.25rem;
+  --text-5xl--line-height: 1.33;
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 1.25;
+
+  /* Breakpoints */
+  --breakpoint-xs: 400px;
+  --breakpoint-3xl: 1920px;
+
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-100: 25rem;
+  --spacing-208: 52rem;
+
+  /* Shadows */
+  --shadow-main-nav: -4px 0px 20px 8px rgba(0, 0, 0, 0.1);
+
+  /* Animations */
+  --animate-move: move 35s linear infinite;
+  --animate-shimmer: shimmer 1.5s ease-in-out infinite;
+
+  /* Transition delays */
+  --transition-delay-1500: 1500ms;
+
+  /* Transition durations */
+  --transition-duration-1500: 1500ms;
+
+  /* Background images */
+  --background-image-background-footer-mobile: url('/assets/svg/background/footer-mobile.svg');
+  --background-image-background-footer-desktop: url('/assets/svg/background/footer-desktop.svg');
+  --background-image-background-light-dot: url('/assets/svg/background/general-light-dot.svg');
+  --background-image-background-dark-dot: url('/assets/svg/background/general-dark-dot.svg');
+  --background-image-background-yellow-dot: url('/assets/svg/background/general-yellow-dot.svg');
+}
+
+@keyframes move {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50%, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom variant for landscape orientation */
+@custom-variant landscape (@media (orientation: landscape));

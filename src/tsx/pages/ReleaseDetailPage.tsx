@@ -241,11 +241,11 @@ function ReleaseDetailPage() {
             style={{ transitionDelay: reducedMotion ? '0ms' : '100ms' }}
           >
             <div className="flex items-center gap-3">
-              <span className="bg-green-dark-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
+              <span className="bg-green-dark-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-xs">
                 v{frontmatter.version}
               </span>
               {isLatest && (
-                <span className="inline-flex items-center gap-1.5 bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-sm">
+                <span className="inline-flex items-center gap-1.5 bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-xs">
                   <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                   Aktuell
                 </span>

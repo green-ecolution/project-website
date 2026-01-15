@@ -136,7 +136,7 @@ function HomepageHero() {
                 <span className="relative z-10">smarte Bewässerung</span>
                 <span
                   className={`
-                    absolute -bottom-1 left-0 h-3 bg-green-light-900/30 -z-0 rounded-sm
+                    absolute -bottom-1 left-0 h-3 bg-green-light-900/30 -z-0 rounded-xs
                     ${reducedMotion ? 'w-full' : 'transition-all duration-700 ease-out'}
                     ${isVisible ? 'w-full' : 'w-0'}
                   `}

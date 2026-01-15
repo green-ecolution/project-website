@@ -83,10 +83,10 @@ const HomepageOverlayIcons: React.FC<HomepageOverlayIconsProps> = ({
         <figure
           key={icon.id}
           aria-hidden="true"
-          className={`absolute rounded-full flex items-center justify-center bg-white bg-opacity-0 transition-all duration-300 ease-in-out before:bg-white/30 before:transition-all before:duration-300 before:ease-in-out before:absolute before:-z-10 before:rounded-full after:absolute after:border-dotted after:transition-all after:duration-300 after:ease-in-out
+          className={`absolute rounded-full flex items-center justify-center bg-white/0 transition-all duration-300 ease-in-out before:bg-white/30 before:transition-all before:duration-300 before:ease-in-out before:absolute before:-z-10 before:rounded-full after:absolute after:border-dotted after:transition-all after:duration-300 after:ease-in-out
                         ${key > 2 ? 'after:border-t-[6px] after:border-t-white' : 'after:border-l-[6px] after:border-l-white'}
                         ${icon.figureClasses}
-                        ${initialDelayOver ? (icon.activeOnIndex.includes(index) ? 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100 shadow-[0_0_40px_rgba(172,182,59,0.6)]' : 'before:scale-90 after:opacity-0') : 'bg-opacity-100 before:animate-pulse before:scale-100 after:opacity-100'}`}
+                        ${initialDelayOver ? (icon.activeOnIndex.includes(index) ? 'bg-white before:animate-pulse before:scale-100 after:opacity-100 shadow-[0_0_40px_rgba(172,182,59,0.6)]' : 'before:scale-90 after:opacity-0') : 'bg-white before:animate-pulse before:scale-100 after:opacity-100'}`}
         >
           <img
             src={icon.icon}

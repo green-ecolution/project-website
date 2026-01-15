@@ -108,7 +108,7 @@ function FurtherLinks() {
               target="_blank"
               rel="noopener noreferrer"
               className="group block h-full bg-green-light-100 border border-green-dark-900/20
-                rounded-2xl p-5 lg:p-6 shadow-sm hover:shadow-md
+                rounded-2xl p-5 lg:p-6 shadow-xs hover:shadow-sm
                 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="flex items-start justify-between gap-4">
