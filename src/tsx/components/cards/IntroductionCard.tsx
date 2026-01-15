@@ -15,7 +15,7 @@ const IntroductionCard: React.FC<IntroductionCardProps> = ({ label, icon, descri
         rounded-2xl p-6
         border border-grey-100 hover:border-green-light-900/30
         transition-all duration-300
-        cursor-pointer xl:cursor-default
+        cursor-default
         hover:-translate-y-0.5
       "
     >

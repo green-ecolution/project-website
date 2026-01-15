@@ -137,7 +137,7 @@ function Introduction() {
           {facts.map((fact) => (
             <SplideSlide
               key={fact.label}
-              className="pb-10 px-4 lg:px-2 lg:pb-2 lg:first:mb-16 lg:[&:nth-child(2)]:mt-16 lg:[&:nth-child(3)]:-mt-16 lg:[&:nth-child(3)]:mb-16"
+              className="pb-10 px-4 lg:px-2 lg:pb-2"
             >
               <IntroductionCard
                 label={fact.label}

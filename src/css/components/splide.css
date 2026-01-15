@@ -7,6 +7,19 @@
   @apply lg:!grid lg:!grid-cols-2 lg:!gap-x-6 lg:!gap-y-8;
 }
 
+/* Staggered card layout for Introduction section */
+.splide.splide--grid > .splide__track > .splide__list > .splide__slide:first-child {
+  @apply lg:mb-16;
+}
+
+.splide.splide--grid > .splide__track > .splide__list > .splide__slide:nth-child(2) {
+  @apply lg:mt-16;
+}
+
+.splide.splide--grid > .splide__track > .splide__list > .splide__slide:nth-child(3) {
+  @apply lg:-mt-16 lg:mb-16;
+}
+
 .splide__pagination {
   @apply !bottom-0 lg:!-bottom-4;
 }
