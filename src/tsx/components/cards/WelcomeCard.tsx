@@ -46,30 +46,53 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
   return (
     <article
       ref={ref}
-      className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-opacity ease-in-out duration-500
-                ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transition-all ease-out duration-500
+                ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
     >
-      <div className="relativen text-center bg-white shadow-md rounded-2xl p-8 border border-grey-100 w-[44rem]">
-        <figure className="w-28 mx-auto mb-6">
-          <Lottie animationData={logoAnimation} autoplay={!reducedMotion} />
-        </figure>
-        <h2 className="font-lato font-semibold text-2xl mb-4">
-          Willkommen auf der Projektseite von
-          <span className="text-green-dark-900"> Green Ecolution</span>
-        </h2>
-        <p className="text-base">
-          Hierbei handelt es sich um ein Forschungsprojekt der Hochschule Flensburg, wobei
-          Master-Studierende untersuchen, wie smartes Grünflächenmanagement in der Stadt Flensburg
-          umgesetzt werden kann. Start Sie die Animation, um mehr über das Vorgehen herauszufinden.
-        </p>
-        <button
-          type="button"
-          className="mx-auto mt-6 text-sm flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-4 py-1.5 group bg-green-dark-900 transition-color ease-in-out duration-300 text-white cursor-pointer hover:bg-green-light-900 hover:border-green-light-900"
-          onClick={handleHideWelcomeCard}
+      <div className="relative">
+        {/* Subtle glow effect */}
+        <div
+          className="absolute -inset-4 bg-green-light-900/15 rounded-3xl blur-2xl"
+          style={{ transform: 'scale(0.85)' }}
+        />
+
+        {/* Main card */}
+        <div
+          className="relative text-center bg-white/95 backdrop-blur-sm shadow-2xl rounded-2xl px-10 py-8 border border-green-light-900/10 w-[28rem]"
+          onMouseDown={(e) => e.stopPropagation()}
         >
-          Animation starten
-          <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-0.5" />
-        </button>
+          <figure className="w-28 h-20 mx-auto flex items-center justify-center">
+            <Lottie
+              animationData={logoAnimation}
+              autoplay={!reducedMotion}
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </figure>
+
+          <h2 className="font-lato font-bold text-2xl mb-2 text-grey-900">
+            Willkommen bei
+            <span className="text-green-dark-900"> Green Ecolution</span>
+          </h2>
+
+          <p className="text-sm text-green-dark-900 font-medium mb-4">
+            Intelligentes Grünflächenmanagement
+          </p>
+
+          <p className="text-base text-grey-900/80 leading-relaxed mb-6">
+            Erfahre, wie wir mit smarter Sensorik und datengestützten Analysen die Bewässerung
+            städtischer Grünflächen optimieren – für gesündere Bäume, Beete und Parks bei
+            effizientem Ressourceneinsatz.
+          </p>
+
+          <button
+            type="button"
+            className="mx-auto flex items-center justify-center gap-x-3 rounded-xl w-full font-semibold px-6 py-3 group cursor-pointer bg-gradient-to-r from-green-dark-900 to-green-middle-900 text-white shadow-lg shadow-green-dark-900/20 transition-all duration-300 hover:shadow-xl hover:shadow-green-dark-900/30 hover:gap-x-4"
+            onClick={handleHideWelcomeCard}
+          >
+            Jetzt entdecken
+            <Arrow classes="w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </div>
       </div>
     </article>
   )
