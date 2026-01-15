@@ -33,12 +33,19 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
   })
 
   const navContent = (
-    <nav
-      id="main-navigation"
-      ref={ref}
-      aria-label="Hauptnavigation"
-      className={`fixed inset-y-2 px-4 w-[70vw] z-[60] bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:inset-y-auto lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto lg:max-w-none lg:z-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
-    >
+    <>
+      {/* Backdrop overlay */}
+      <div
+        className={`fixed inset-0 bg-grey-900 z-[55] transition-opacity ease-in-out duration-300 lg:hidden ${isOpen ? 'opacity-60 visible' : 'opacity-0 invisible'}`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <nav
+        id="main-navigation"
+        ref={ref}
+        aria-label="Hauptnavigation"
+        className={`fixed inset-y-2 px-4 w-[70vw] z-[60] bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:inset-y-auto lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto lg:max-w-none lg:z-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
+      >
       <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
       <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
         <NavItem label="Das Projekt" url="/project" onClick={onClose} />
@@ -72,6 +79,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         </li>
       </ul>
     </nav>
+    </>
   )
 
   return isMobile ? createPortal(navContent, document.body) : navContent
