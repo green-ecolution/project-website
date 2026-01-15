@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1](https://github.com/green-ecolution/project-website/compare/v1.5.0...v1.5.1) (2026-01-15)
+
+
+### Bug Fixes
+
+* **404:** fix typos on not found page ([47fb2a0](https://github.com/green-ecolution/project-website/commit/47fb2a08c0e86695be9c3091434eee447c55af57))
+* **nav:** fix mobile navigation breaking on scroll ([2671cde](https://github.com/green-ecolution/project-website/commit/2671cde26419b0b41e508e957ece44e006c511cf))
+
 ## [1.5.0](https://github.com/green-ecolution/project-website/compare/v1.4.1...v1.5.0) (2026-01-15)
 
 
