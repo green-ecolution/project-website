@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0](https://github.com/green-ecolution/project-website/compare/v1.4.1...v1.5.0) (2026-01-15)
+
+
+### Features
+
+* **contact:** redesign contact page with animations and improved UI ([#279](https://github.com/green-ecolution/project-website/issues/279)) ([718fa4f](https://github.com/green-ecolution/project-website/commit/718fa4fcb5c8e02f564ffabc159c7609f28744cc))
+* **homepage:** redesign with scroll animations, improved UI and glow effects ([#280](https://github.com/green-ecolution/project-website/issues/280)) ([7436802](https://github.com/green-ecolution/project-website/commit/743680251ce32d3227faf319573f30d594755e60))
+* **legal:** add scroll animations and improved styling to Impressum and Datenschutz pages ([#281](https://github.com/green-ecolution/project-website/issues/281)) ([e0accc6](https://github.com/green-ecolution/project-website/commit/e0accc6e0c8f2cb361ea3fc9ee0773489058a6df))
+* **project:** redesign project page sections with animations and improved visual hierarchy ([#276](https://github.com/green-ecolution/project-website/issues/276)) ([d9b1c08](https://github.com/green-ecolution/project-website/commit/d9b1c08c6cc752a36189800f7f56f64c1fa2978c))
+* **releases:** redesign release pages with animations and improved UI ([#278](https://github.com/green-ecolution/project-website/issues/278)) ([2179c2e](https://github.com/green-ecolution/project-website/commit/2179c2e2ff9710d694a74d5b1d4cc806d449041e))
+
+
+### Bug Fixes
+
+* **header:** prevent text wrapping in navigation at intermediate viewports ([c42f7c9](https://github.com/green-ecolution/project-website/commit/c42f7c983489698c2b1756ca2c2af1986f5d82b8))
+* **legal:** fix mobile nav links and scroll animation visibility ([65b17bc](https://github.com/green-ecolution/project-website/commit/65b17bc427ecd189b34290d55fa637a2f062bc83))
+* **ui:** improve scroll progress smoothness on Safari/Chrome ([e4e9a6e](https://github.com/green-ecolution/project-website/commit/e4e9a6eaa9d397a3ee2fbbe699d5f0a0de508ffe))
+
 ## [1.4.1](https://github.com/green-ecolution/project-website/compare/v1.4.0...v1.4.1) (2026-01-11)
 
 
