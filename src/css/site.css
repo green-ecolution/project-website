@@ -65,6 +65,8 @@
   /* Animations */
   --animate-move: move 35s linear infinite;
   --animate-shimmer: shimmer 1.5s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-shadow-glow-pulse: shadow-glow-pulse 2s ease-in-out infinite;
 
   /* Transition delays */
   --transition-delay-1500: 1500ms;
@@ -96,6 +98,28 @@
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes shadow-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 40px rgba(172, 182, 59, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(172, 182, 59, 0.9);
   }
 }
 
