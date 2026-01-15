@@ -15,6 +15,7 @@ function HomepageHero() {
   const reducedMotion = useReducedMotion()
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- trigger animation on mount
     setIsVisible(true)
   }, [])
 
@@ -29,6 +30,11 @@ function HomepageHero() {
       setIsInitialLoad(false)
       setInitialLoadHelper()
     }
+  }
+
+  const bodyLock = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    document.body.classList.add('overflow-hidden')
   }
 
   useEffect(() => {
@@ -68,6 +74,7 @@ function HomepageHero() {
         return
       }
 
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- set initial load state
       setIsInitialLoad(true)
       bodyLock()
 
@@ -77,11 +84,6 @@ function HomepageHero() {
       return () => clearTimeout(timer)
     }
   }, [isOverlayVisible, reducedMotion])
-
-  function bodyLock() {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    document.body.classList.add('overflow-hidden')
-  }
 
   return (
     <section>

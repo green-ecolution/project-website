@@ -15,6 +15,7 @@ const HomepageOverlayIcons: React.FC<HomepageOverlayIconsProps> = ({
 
   useEffect(() => {
     if (!areIconsVisible) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on visibility change
       setInitialDelayOver(false)
     } else {
       const timer = setTimeout(() => {

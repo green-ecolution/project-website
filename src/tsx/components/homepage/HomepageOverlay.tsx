@@ -75,11 +75,13 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
 
   useEffect(() => {
     if (initialLoad) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on visibility change
     setCurrentPopupIndex(0)
     return startTimer(() => setIsPopupVisible(true), delay)
   }, [isOverlayVisible, initialLoad, delay, startTimer])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset state on visibility change
     if (!isOverlayVisible) setIsPopupVisible(false)
   }, [isOverlayVisible])
 
