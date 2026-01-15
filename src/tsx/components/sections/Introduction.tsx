@@ -135,10 +135,7 @@ function Introduction() {
           className="splide--grid md:px-2"
         >
           {facts.map((fact) => (
-            <SplideSlide
-              key={fact.label}
-              className="pb-10 px-4 lg:px-2 lg:pb-2"
-            >
+            <SplideSlide key={fact.label} className="pb-10 px-4 lg:px-2 lg:pb-2">
               <IntroductionCard
                 label={fact.label}
                 icon={fact.icon}
