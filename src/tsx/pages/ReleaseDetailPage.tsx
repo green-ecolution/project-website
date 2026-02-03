@@ -131,6 +131,23 @@ function ReleaseDetailPage() {
     ) {
       return '🚧'
     }
+    if (lowerText.includes('refactor')) {
+      return '🔧'
+    }
+    if (
+      lowerText.includes('dokumentation') ||
+      lowerText.includes('documentation') ||
+      lowerText.includes('docs')
+    ) {
+      return '📚'
+    }
+    if (
+      lowerText.includes('konfiguration') ||
+      lowerText.includes('configuration') ||
+      lowerText.includes('config')
+    ) {
+      return '🛠️'
+    }
     return '📋'
   }
 
@@ -193,6 +210,23 @@ function ReleaseDetailPage() {
       lowerText.includes('known issue')
     ) {
       return 'bg-amber-400/10 text-amber-500 border-amber-400/20'
+    }
+    if (lowerText.includes('refactor')) {
+      return 'bg-indigo-400/10 text-indigo-500 border-indigo-400/20'
+    }
+    if (
+      lowerText.includes('dokumentation') ||
+      lowerText.includes('documentation') ||
+      lowerText.includes('docs')
+    ) {
+      return 'bg-violet-500/10 text-violet-600 border-violet-500/20'
+    }
+    if (
+      lowerText.includes('konfiguration') ||
+      lowerText.includes('configuration') ||
+      lowerText.includes('config')
+    ) {
+      return 'bg-slate-400/10 text-slate-500 border-slate-400/20'
     }
     return 'bg-grey-100 text-grey-900 border-grey-100'
   }
