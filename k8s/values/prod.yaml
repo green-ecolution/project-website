@@ -5,6 +5,7 @@ image:
   tag: v1.5.3
   pullPolicy: Always
 ingress:
+  primaryDomain: green-ecolution.de
   hosts:
     - green-ecolution.de
     - green-ecolution.io
