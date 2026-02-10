@@ -57,6 +57,7 @@ service:
 ingress:
   enabled: true
   className: "traefik"
+  primaryDomain: ""
   hosts: []
   addWww: false
   path: /
