@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0](https://github.com/green-ecolution/project-website/compare/v1.5.3...v1.6.0) (2026-02-10)
+
+
+### Features
+
+* **ci:** add domain redirect to primary domain green-ecolution.de ([e120378](https://github.com/green-ecolution/project-website/commit/e120378eadc28ed809f6f9f44802037ce05a9bd3))
+
 ## [1.5.3](https://github.com/green-ecolution/project-website/compare/v1.5.2...v1.5.3) (2026-02-03)
 
 
