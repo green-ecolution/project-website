@@ -392,7 +392,7 @@ function ReleaseDetailPage() {
                     <img
                       src={src}
                       alt={alt ?? ''}
-                      className="w-full rounded-xl shadow-lg border border-grey-100"
+                      className="mx-auto h-auto max-w-full rounded-xl shadow-lg border border-grey-100"
                     />
                     {alt && (
                       <figcaption className="text-center text-sm text-grey-900/60 mt-2">
