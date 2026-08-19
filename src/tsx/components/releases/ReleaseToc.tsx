@@ -5,29 +5,41 @@ interface ReleaseTocProps {
   entries: TocEntry[]
 }
 
+// Matches scroll-padding-top on <html> (scroll-pt-40) plus a little tolerance,
+// so a heading counts as current right after an anchor jump lands on it.
+const ACTIVE_THRESHOLD_PX = 170
+
 const ReleaseToc: React.FC<ReleaseTocProps> = ({ entries }) => {
   const [activeId, setActiveId] = useState<string | null>(entries[0]?.id ?? null)
 
   useEffect(() => {
-    const headings = entries
-      .map((entry) => document.getElementById(entry.id))
-      .filter((element): element is HTMLElement => element !== null)
+    // Reading positions on scroll rather than observing a narrow band, because a
+    // jump longer than the band would skip the headings inside it.
+    let frame = 0
 
-    if (headings.length === 0) return
+    const update = () => {
+      frame = 0
+      const passed = entries.filter((entry) => {
+        const element = document.getElementById(entry.id)
+        return element ? element.getBoundingClientRect().top <= ACTIVE_THRESHOLD_PX : false
+      })
 
-    const observer = new IntersectionObserver(
-      (observed) => {
-        const visible = observed
-          .filter((record) => record.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+      setActiveId(passed[passed.length - 1]?.id ?? entries[0]?.id ?? null)
+    }
 
-        if (visible[0]) setActiveId(visible[0].target.id)
-      },
-      { rootMargin: '-120px 0px -70% 0px' },
-    )
+    const onScroll = () => {
+      if (frame === 0) frame = window.requestAnimationFrame(update)
+    }
 
-    headings.forEach((heading) => observer.observe(heading))
-    return () => observer.disconnect()
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+
+    return () => {
+      if (frame !== 0) window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [entries])
 
   return (

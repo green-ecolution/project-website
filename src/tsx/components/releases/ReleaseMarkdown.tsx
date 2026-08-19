@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { getSectionRule, type TocEntry } from '../../helper/releaseSections'
+import { getSectionRule, slugifyHeading, type TocEntry } from '../../helper/releaseSections'
 
 interface ReleaseMarkdownProps {
   content: string
@@ -20,24 +20,21 @@ function getTextContent(node: ReactNode): string {
 }
 
 const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) => {
-  // Headings render in document order, so consuming `sections` sequentially keeps
-  // the anchor ids identical to the ones the table of contents links to.
-  const cursor = { index: 0 }
+  // Keyed by source line rather than by render order: React may render a heading
+  // more than once, which would desynchronise any counter kept across calls.
+  const idByLine = new Map(sections.map((entry) => [entry.line, entry.id]))
 
   return (
     <Markdown
       remarkPlugins={[remarkGfm]}
       components={{
-        h2: ({ children }) => {
+        h2: ({ node, children }) => {
           const text = getTextContent(children)
           const { icon: Icon, tone } = getSectionRule(text)
-          const entry = sections[cursor.index++]
+          const id = idByLine.get(node?.position?.start.line ?? -1) ?? slugifyHeading(text)
 
           return (
-            <div
-              className="flex items-center gap-3 mt-10 mb-4 scroll-mt-28 first:mt-0"
-              id={entry?.id}
-            >
+            <div className="flex items-center gap-3 mt-10 mb-4 first:mt-0" id={id}>
               <span
                 className={`inline-flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 ${
                   tone === 'brand'

@@ -43,7 +43,7 @@ function ReleaseDetailPage() {
   return (
     <main
       id="main-content"
-      className="relative overflow-hidden flex-grow before:bg-cover before:bg-background-yellow-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
+      className="relative overflow-x-clip flex-grow before:bg-cover before:bg-background-yellow-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
     >
       <article className="px-4 max-w-208 mx-auto mt-20 pb-16 md:px-6 lg:mt-24 lg:pb-24 lg:max-w-screen-lg xl:mt-32 xl:max-w-screen-xl">
         <Link
@@ -129,7 +129,7 @@ function ReleaseDetailPage() {
           )}
         </header>
 
-        <div className={showToc ? 'xl:grid xl:grid-cols-[1fr_15rem] xl:gap-10 xl:items-start' : ''}>
+        <div className={showToc ? 'xl:grid xl:grid-cols-[1fr_15rem] xl:gap-10' : ''}>
           <div>
             <div className="bg-green-light-100 rounded-2xl lg:rounded-3xl shadow-md border border-grey-100 p-6 lg:p-8">
               <ReleaseMarkdown content={release.content} sections={sections} />

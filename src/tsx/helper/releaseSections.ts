@@ -73,23 +73,29 @@ export function slugifyHeading(heading: string): string {
 export interface TocEntry {
   id: string
   label: string
+  /** 1-based line in the markdown source; the renderer matches headings on it. */
+  line: number
 }
 
 export function extractSections(markdown: string): TocEntry[] {
   const entries: TocEntry[] = []
   const seen = new Map<string, number>()
 
-  for (const line of markdown.split('\n')) {
-    const match = /^##\s+(.+?)\s*$/.exec(line)
-    if (!match) continue
+  markdown.split('\n').forEach((text, index) => {
+    const match = /^##\s+(.+?)\s*$/.exec(text)
+    if (!match) return
 
     const label = match[1]
     const base = slugifyHeading(label)
     const count = seen.get(base) ?? 0
     seen.set(base, count + 1)
 
-    entries.push({ id: count === 0 ? base : `${base}-${count + 1}`, label })
-  }
+    entries.push({
+      id: count === 0 ? base : `${base}-${count + 1}`,
+      label,
+      line: index + 1,
+    })
+  })
 
   return entries
 }
