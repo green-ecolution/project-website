@@ -4,16 +4,20 @@ import Footer from '../tsx/layout/Footer'
 import { ErrorBoundary } from '../tsx/components/ErrorBoundary'
 import ScrollProgress from '../tsx/components/ScrollProgress'
 import BackToTop from '../tsx/components/BackToTop'
+import VotingBanner from '../tsx/components/VotingBanner'
 
 export const Route = createRootRoute({
   component: () => (
     <>
       <ScrollProgress />
       <BackToTop />
+      <VotingBanner />
       <Header />
-      <ErrorBoundary>
-        <Outlet />
-      </ErrorBoundary>
+      <div className="pt-[var(--voting-banner-height,0px)]">
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
+      </div>
       <Footer />
     </>
   ),

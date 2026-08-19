@@ -74,7 +74,7 @@ function Header() {
         Zum Hauptinhalt springen
       </a>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all ease-in-out duration-300
+        className={`fixed inset-x-0 top-[var(--voting-banner-height,0px)] z-50 transition-all ease-in-out duration-300
             ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg shadow-grey-900/5' : 'bg-transparent'}`}
       >
         <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
