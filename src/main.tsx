@@ -9,8 +9,12 @@ const router = createRouter({
   scrollRestoration: true,
 })
 
-router.subscribe('onResolved', () => {
-  window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+router.subscribe('onResolved', ({ pathChanged }) => {
+  // Hash-only navigations keep their scroll position, otherwise in-page anchors
+  // race against this handler and the browser lands back at the top.
+  if (pathChanged) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }
   window.a?.pageView()
 })
 
