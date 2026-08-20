@@ -29,11 +29,13 @@ export default defineConfig(() => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
-            router: ['@tanstack/react-router'],
-            lottie: ['lottie-react'],
-            video: ['react-player'],
+          codeSplitting: {
+            groups: [
+              { name: 'react-vendor', test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/ },
+              { name: 'router', test: /[\\/]node_modules[\\/]@tanstack[\\/]react-router[\\/]/ },
+              { name: 'lottie', test: /[\\/]node_modules[\\/]lottie-react[\\/]/ },
+              { name: 'video', test: /[\\/]node_modules[\\/]react-player[\\/]/ },
+            ],
           },
         },
       },
