@@ -1,14 +1,20 @@
+// level is the fill height AFTER servicing the stop: y=110 is a full tank, y=196 empty.
 const stops = [
-  { x: 40, label: 'D' },
-  { x: 100, label: '1' },
-  { x: 160, label: '2' },
-  { x: 220, label: 'R' },
-  { x: 280, label: '3' },
-  { x: 340, label: 'D' },
-]
+  { x: 40, label: 'D', type: 'depot', level: 110 },
+  { x: 100, label: '1', type: 'stop', level: 139 },
+  { x: 160, label: '2', type: 'stop', level: 168 },
+  { x: 220, label: 'R', type: 'refill', level: 110 },
+  { x: 280, label: '3', type: 'stop', level: 139 },
+  { x: 340, label: 'D', type: 'depot', level: 139 },
+] as const
 
-// Full tank sits exactly on the y=110 reference line, empty on y=196.
-const levelPoints = '40,110 100,110 100,139 160,139 160,168 220,168 220,110 280,110 280,139 340,139'
+const levelPoints = stops
+  .flatMap((stop, index) =>
+    index === 0
+      ? [`${stop.x},${stop.level}`]
+      : [`${stop.x},${stops[index - 1].level}`, `${stop.x},${stop.level}`],
+  )
+  .join(' ')
 
 function TourDiagram() {
   return (
@@ -20,30 +26,31 @@ function TourDiagram() {
     >
       <line x1="40" y1="60" x2="340" y2="60" stroke="#4C7741" strokeWidth="2" opacity="0.35" />
 
-      {stops.map((stop) => {
-        const isDepot = stop.label === 'D'
-        const isRefill = stop.label === 'R'
-        return (
-          <g key={`${stop.label}-${stop.x}`}>
-            {isDepot ? (
-              <rect x={stop.x - 9} y="51" width="18" height="18" rx="4" fill="#3D5F35" />
-            ) : (
-              <circle cx={stop.x} cy="60" r="9" fill={isRefill ? '#ACB63B' : '#658A58'} />
-            )}
-            <text
-              x={stop.x}
-              y="64"
-              textAnchor="middle"
-              fill="#ffffff"
-              fontSize="9"
-              fontFamily="Lato"
-              fontWeight="700"
-            >
-              {stop.label}
-            </text>
-          </g>
-        )
-      })}
+      {stops.map((stop) => (
+        <g key={stop.x}>
+          {stop.type === 'depot' ? (
+            <rect x={stop.x - 9} y="51" width="18" height="18" rx="4" fill="#3D5F35" />
+          ) : (
+            <circle
+              cx={stop.x}
+              cy="60"
+              r="9"
+              fill={stop.type === 'refill' ? '#ACB63B' : '#658A58'}
+            />
+          )}
+          <text
+            x={stop.x}
+            y="64"
+            textAnchor="middle"
+            fill="#ffffff"
+            fontSize="9"
+            fontFamily="Lato"
+            fontWeight="700"
+          >
+            {stop.label}
+          </text>
+        </g>
+      ))}
 
       <text x="40" y="38" textAnchor="middle" fill="#3D5F35" fontSize="9" fontFamily="Lato">
         Depot
@@ -53,7 +60,7 @@ function TourDiagram() {
       </text>
 
       <line x1="40" y1="110" x2="340" y2="110" stroke="#8B7355" strokeWidth="0.5" opacity="0.3" />
-      <text x="40" y="104" fill="#8B7355" fontSize="8" fontFamily="Lato" opacity="0.7">
+      <text x="40" y="104" fill="#8B7355" fontSize="9" fontFamily="Lato" opacity="0.7">
         Tank voll
       </text>
       <line
@@ -66,7 +73,7 @@ function TourDiagram() {
         strokeDasharray="4 3"
         opacity="0.4"
       />
-      <text x="40" y="207" fill="#8B7355" fontSize="8" fontFamily="Lato" opacity="0.7">
+      <text x="40" y="207" fill="#8B7355" fontSize="9" fontFamily="Lato" opacity="0.7">
         leer
       </text>
 
@@ -79,7 +86,7 @@ function TourDiagram() {
       />
       <circle cx="220" cy="168" r="3" fill="#ACB63B" />
       <circle cx="220" cy="110" r="3" fill="#ACB63B" />
-      <text x="228" y="106" fill="#4C7741" fontSize="8" fontFamily="Lato" fontWeight="600">
+      <text x="228" y="106" fill="#4C7741" fontSize="9" fontFamily="Lato" fontWeight="600">
         nachgefüllt
       </text>
     </svg>
