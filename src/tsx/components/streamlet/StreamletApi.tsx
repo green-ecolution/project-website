@@ -41,9 +41,14 @@ function StreamletApi() {
           <span className="ml-2 text-grey-100/60 text-sm font-mono">POST /v1/solve</span>
         </div>
 
-        <div className="overflow-x-auto p-4">
+        <div
+          className="overflow-x-auto p-4"
+          tabIndex={0}
+          role="region"
+          aria-label="Beispielhafte Anfrage an POST /v1/solve"
+        >
           <pre className="font-mono text-xs lg:text-sm text-grey-100/90 leading-relaxed">
-            {solveRequestExample}
+            <code>{solveRequestExample}</code>
           </pre>
         </div>
       </div>
