@@ -41,7 +41,9 @@ function StreamletOperations() {
 
       <div className="rounded-2xl border border-green-dark-900/10 overflow-hidden">
         <div className="bg-green-light-100/60 px-5 py-3 border-b border-green-dark-900/10">
-          <h3 className="font-lato font-semibold text-grey-900 text-sm">Konfiguration</h3>
+          <h3 id="streamlet-config" className="font-lato font-semibold text-grey-900 text-sm">
+            Konfiguration
+          </h3>
         </div>
         <div
           className="overflow-x-auto"
@@ -49,7 +51,7 @@ function StreamletOperations() {
           role="region"
           aria-label="Konfiguration über Umgebungsvariablen"
         >
-          <table className="w-full text-left text-sm">
+          <table aria-labelledby="streamlet-config" className="w-full text-left text-sm">
             <thead>
               <tr className="border-b border-green-dark-900/10">
                 <th scope="col" className="px-5 py-3 font-semibold text-grey-900">
