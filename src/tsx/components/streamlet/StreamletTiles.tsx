@@ -36,22 +36,23 @@ function StreamletTiles() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-        {tileChangesets.map((changeset) => (
-          <article
-            key={changeset.name}
-            className="rounded-2xl border border-green-dark-900/10 p-6 lg:p-8"
-          >
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <span className="font-mono text-sm font-bold text-grey-900">{changeset.name}</span>
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-semibold ${statusConfig[changeset.status].badge}`}
-              >
-                {statusConfig[changeset.status].label}
-              </span>
-            </div>
-            <p className="text-grey-900/70 leading-relaxed">{changeset.description}</p>
-          </article>
-        ))}
+        {tileChangesets.map((changeset) => {
+          const status = statusConfig[changeset.status]
+          return (
+            <article
+              key={changeset.name}
+              className="rounded-2xl border border-green-dark-900/10 p-6 lg:p-8"
+            >
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <h3 className="font-mono text-sm font-bold text-grey-900">{changeset.name}</h3>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${status.badge}`}>
+                  {status.label}
+                </span>
+              </div>
+              <p className="text-grey-900/70 leading-relaxed">{changeset.description}</p>
+            </article>
+          )
+        })}
       </div>
 
       <p className="text-sm text-grey-900/60 leading-relaxed mt-8 max-w-2xl">
