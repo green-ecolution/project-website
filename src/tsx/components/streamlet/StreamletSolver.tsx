@@ -66,10 +66,11 @@ function StreamletSolver() {
                 <dd className="font-lato font-bold text-2xl text-green-light-900">
                   {benchmark.gap}
                 </dd>
-                <p className="text-xs text-white/50 mt-1">Abstand zur besten bekannten Lösung</p>
               </div>
             ))}
           </dl>
+
+          <p className="text-xs text-white/50 mt-3">Abstand zur besten bekannten Lösung</p>
         </div>
       </div>
     </section>
