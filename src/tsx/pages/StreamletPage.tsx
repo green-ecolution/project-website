@@ -6,6 +6,7 @@ import StreamletHero from '../components/streamlet/StreamletHero'
 import StreamletOperations from '../components/streamlet/StreamletOperations'
 import StreamletProblem from '../components/streamlet/StreamletProblem'
 import StreamletSolver from '../components/streamlet/StreamletSolver'
+import StreamletStatus from '../components/streamlet/StreamletStatus'
 import StreamletTiles from '../components/streamlet/StreamletTiles'
 import { applyDocumentMeta } from '../helper/documentMeta'
 
@@ -34,6 +35,7 @@ function StreamletPage() {
       <StreamletSolver />
       <StreamletTiles />
       <StreamletOperations />
+      <StreamletStatus />
     </main>
   )
 }

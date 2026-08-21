@@ -16,7 +16,6 @@ export const streamletLinks = {
   repo: 'https://github.com/green-ecolution/streamlet',
   readme: 'https://github.com/green-ecolution/streamlet#readme',
   issues: 'https://github.com/green-ecolution/streamlet/issues',
-  release: '/releases/v0.4.0',
 } as const
 
 export const streamletBadges: string[] = ['Rust', 'AGPL-3.0', 'v0.1.0', 'Zustandslose HTTP-API']
