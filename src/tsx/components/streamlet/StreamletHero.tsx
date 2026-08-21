@@ -58,9 +58,9 @@ function StreamletHero() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Dokumentation von Streamlet öffnen"
-          className="flex items-center justify-center gap-x-3 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer transition-all ease-in-out duration-300 text-green-dark-900 border border-green-dark-900/30 hover:border-green-dark-900 hover:bg-green-light-100/60"
+          className="flex items-center justify-center gap-x-3 rounded-2xl w-max font-semibold px-5 py-2 cursor-pointer transition-all ease-in-out duration-300 text-green-dark-900 border border-green-dark-900/30 hover:border-green-dark-900 hover:bg-green-light-100/60"
         >
-          <BookOpen className="w-5 h-5" />
+          <BookOpen className="w-5 h-5" aria-hidden="true" />
           <span className="whitespace-nowrap">Dokumentation</span>
         </a>
       </div>
