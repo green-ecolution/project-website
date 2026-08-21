@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import StreamletFit from '../components/streamlet/StreamletFit'
 import StreamletHero from '../components/streamlet/StreamletHero'
 import StreamletProblem from '../components/streamlet/StreamletProblem'
 import { applyDocumentMeta } from '../helper/documentMeta'
@@ -24,6 +25,7 @@ function StreamletPage() {
       />
       <StreamletHero />
       <StreamletProblem />
+      <StreamletFit />
     </main>
   )
 }
