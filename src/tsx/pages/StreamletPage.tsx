@@ -3,6 +3,7 @@ import BreadcrumbSchema from '../components/BreadcrumbSchema'
 import StreamletApi from '../components/streamlet/StreamletApi'
 import StreamletFit from '../components/streamlet/StreamletFit'
 import StreamletHero from '../components/streamlet/StreamletHero'
+import StreamletOperations from '../components/streamlet/StreamletOperations'
 import StreamletProblem from '../components/streamlet/StreamletProblem'
 import StreamletSolver from '../components/streamlet/StreamletSolver'
 import StreamletTiles from '../components/streamlet/StreamletTiles'
@@ -32,6 +33,7 @@ function StreamletPage() {
       <StreamletApi />
       <StreamletSolver />
       <StreamletTiles />
+      <StreamletOperations />
     </main>
   )
 }
