@@ -4,6 +4,7 @@ import StreamletApi from '../components/streamlet/StreamletApi'
 import StreamletFit from '../components/streamlet/StreamletFit'
 import StreamletHero from '../components/streamlet/StreamletHero'
 import StreamletProblem from '../components/streamlet/StreamletProblem'
+import StreamletSolver from '../components/streamlet/StreamletSolver'
 import { applyDocumentMeta } from '../helper/documentMeta'
 
 function StreamletPage() {
@@ -28,6 +29,7 @@ function StreamletPage() {
       <StreamletProblem />
       <StreamletFit />
       <StreamletApi />
+      <StreamletSolver />
     </main>
   )
 }
