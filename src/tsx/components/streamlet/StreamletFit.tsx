@@ -30,7 +30,7 @@ function StreamletFit() {
               className="flex items-start gap-4 rounded-2xl border border-green-dark-900/10 bg-white p-5 transition-colors duration-300 hover:border-green-light-900/60"
             >
               <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-light-900/15 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-green-dark-900" />
+                <Icon className="w-5 h-5 text-green-dark-900" aria-hidden="true" />
               </span>
               <span className="text-grey-900/80 leading-relaxed">{criterion.label}</span>
             </li>
