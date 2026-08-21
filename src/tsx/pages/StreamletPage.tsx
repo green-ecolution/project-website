@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import StreamletApi from '../components/streamlet/StreamletApi'
 import StreamletFit from '../components/streamlet/StreamletFit'
 import StreamletHero from '../components/streamlet/StreamletHero'
 import StreamletProblem from '../components/streamlet/StreamletProblem'
@@ -26,6 +27,7 @@ function StreamletPage() {
       <StreamletHero />
       <StreamletProblem />
       <StreamletFit />
+      <StreamletApi />
     </main>
   )
 }
