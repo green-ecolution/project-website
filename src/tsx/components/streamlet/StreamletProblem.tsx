@@ -7,7 +7,8 @@ const stops = [
   { x: 340, label: 'D' },
 ]
 
-const levelPoints = '40,150 100,150 100,168 160,168 160,186 220,186 220,150 280,150 280,168 340,168'
+// Full tank sits exactly on the y=110 reference line, empty on y=196.
+const levelPoints = '40,110 100,110 100,139 160,139 160,168 220,168 220,110 280,110 280,139 340,139'
 
 function TourDiagram() {
   return (
@@ -77,8 +78,8 @@ function TourDiagram() {
         strokeLinejoin="round"
       />
       <circle cx="220" cy="168" r="3" fill="#ACB63B" />
-      <circle cx="220" cy="150" r="3" fill="#ACB63B" />
-      <text x="228" y="146" fill="#4C7741" fontSize="8" fontFamily="Lato" fontWeight="600">
+      <circle cx="220" cy="110" r="3" fill="#ACB63B" />
+      <text x="228" y="106" fill="#4C7741" fontSize="8" fontFamily="Lato" fontWeight="600">
         nachgefüllt
       </text>
     </svg>
