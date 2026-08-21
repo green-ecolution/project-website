@@ -134,10 +134,9 @@ export const solverBenchmarks: Benchmark[] = [
   { instance: 'rc101', gap: '1,5 %' },
 ]
 
-interface TileChangeset {
+export interface TileChangeset {
   name: string
   status: 'available' | 'in-progress'
-  statusLabel: string
   description: string
 }
 
@@ -145,14 +144,12 @@ export const tileChangesets: TileChangeset[] = [
   {
     name: 'construction',
     status: 'available',
-    statusLabel: 'Verfügbar',
     description:
       'Markiert Straßen, die wegen Baustellen gesperrt sind, als access=no. Routen führen dann nicht mehr durch die Sperrung. Die Baustellendaten kommen beim ersten Konsumenten aus dem Flensburger Verkehrsticker.',
   },
   {
     name: 'allowed-paths',
     status: 'in-progress',
-    statusLabel: 'In Entwicklung',
     description:
       'Öffnet Wege rund um Zielpunkte, die von keiner befahrbaren Straße aus erreichbar sind, für Kraftfahrzeuge. Die Zielpunkte kommen als GeoJSON-FeatureCollection herein, damit der Patcher ohne Bezug zu einem fremden System läuft.',
   },
