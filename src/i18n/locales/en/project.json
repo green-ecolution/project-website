@@ -14,5 +14,45 @@
     "titleLine2": "for irrigation at a glance",
     "description": "Our system scientifically evaluates the sensor data and shows when irrigation is needed. The data is prepared so that it is easy to interpret and can be directly incorporated into deployment planning.",
     "imageAlt": "Green Ecolution dashboard - overview of irrigation recommendations"
+  },
+  "process": {
+    "sectionLabel": "Process",
+    "title": "Measure. Understand. Act.",
+    "description": "From soil moisture to an optimized irrigation route, in one continuous digital workflow.",
+    "steps": {
+      "measure": {
+        "category": "Capture",
+        "title": "Measure",
+        "description": "Soil moisture sensors capture parameters such as soil moisture, temperature, and soil water tension at multiple depths (30/60/90 cm). The data is transmitted energy-efficiently via LoRaWAN.",
+        "details": {
+          "item1": "Soil moisture sensors at depths of 30, 60, and 90 cm",
+          "item2": "Measurement of soil moisture, temperature, and soil water tension",
+          "item3": "Energy-efficient transmission via LoRaWAN",
+          "item4": "Flush-mounted installation, no impact on maintenance work"
+        }
+      },
+      "understand": {
+        "category": "Analyze",
+        "title": "Understand",
+        "description": "A traffic-light system shows the current irrigation need on a map. Staff can see at a glance which green spaces need water. Time series enable detailed analyses.",
+        "details": {
+          "item1": "Traffic-light system shows irrigation needs on a map",
+          "item2": "Prioritization by urgency when capacity is limited",
+          "item3": "Time series for soil moisture, temperature, and water tension",
+          "item4": "Real-time dashboard with all relevant KPIs"
+        }
+      },
+      "act": {
+        "category": "Execute",
+        "title": "Act",
+        "description": "Automated dispatch and route planning generates optimized irrigation routes, taking into account water capacity, vehicle size, and road restrictions.",
+        "details": {
+          "item1": "Automated dispatch and route planning",
+          "item2": "Takes water capacity and vehicle size into account",
+          "item3": "Road and access restrictions included",
+          "item4": "Export of routes to navigation devices"
+        }
+      }
+    }
   }
 }

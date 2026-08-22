@@ -4,12 +4,6 @@ import { workflowSteps } from '../../../data/workflowSteps'
 import Arrow from '../../icons/Arrow'
 import { useLanguage } from '../../../i18n/useLanguage'
 
-type WorkflowStepId = 'measure' | 'understand' | 'act'
-
-// workflowSteps is shared with the project page's Process.tsx, so its German
-// text stays as-is here; translation is looked up via this positional id map instead.
-const WORKFLOW_STEP_IDS: readonly WorkflowStepId[] = ['measure', 'understand', 'act']
-
 function ProcessCompact() {
   const { t } = useTranslation('home')
   const lang = useLanguage()
@@ -49,7 +43,7 @@ function ProcessCompact() {
           {workflowSteps.map((step, index) => {
             const Icon = step.icon
             const isLast = index === workflowSteps.length - 1
-            const id = WORKFLOW_STEP_IDS[index]
+            const id = step.id
 
             return (
               <article
