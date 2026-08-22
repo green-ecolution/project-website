@@ -49,6 +49,10 @@ export default defineConfig(() => {
               { name: 'router', test: /[\\/]node_modules[\\/]@tanstack[\\/]react-router[\\/]/ },
               { name: 'lottie', test: /[\\/]node_modules[\\/]lottie-react[\\/]/ },
               { name: 'video', test: /[\\/]node_modules[\\/]react-player[\\/]/ },
+              {
+                name: 'three',
+                test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
+              },
             ],
           },
         },

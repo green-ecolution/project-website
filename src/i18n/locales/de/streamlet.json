@@ -6,12 +6,15 @@
   "hero": {
     "sectionLabel": "Open-Source-Projekt",
     "title": "Streamlet",
-    "lead": "Tourenplanung für Fahrzeuge, deren Tankfüllung nicht für die ganze Tour reicht. Streamlet legt die Reihenfolge der Halte fest und plant das Nachfüllen unterwegs gleich mit. Es läuft als eigenständiger Dienst hinter einer HTTP-API.",
+    "tagline": "Tourenplanung für Fahrzeuge, deren Tankfüllung nicht für die ganze Tour reicht.",
+    "lead": "Streamlet legt die Reihenfolge der Halte fest und plant das Nachfüllen unterwegs gleich mit. Es läuft als eigenständiger Dienst hinter einer HTTP-API.",
     "origin": "Entstanden ist Streamlet für Green Ecolution, weil die geprüften Solver dieses Problem nicht abbilden konnten. Heute liegt es in einem eigenen Repository und hat keine Abhängigkeit zu Green Ecolution. Wer dasselbe Planungsproblem hat, kann es unverändert übernehmen.",
     "repo": "Repository",
     "repoAriaLabel": "Streamlet-Repository auf GitHub öffnen",
     "docs": "Dokumentation",
-    "docsAriaLabel": "Dokumentation von Streamlet öffnen"
+    "docsAriaLabel": "Dokumentation von Streamlet öffnen",
+    "tourAriaLabel": "Isometrisches Modell einer Tour: vom Depot über fünf Halte und eine Nachfüllstation zurück zum Depot. Das Fahrzeug hält an jedem Halt zum Gießen. Der Tankstand daneben sinkt dabei und füllt sich an der Nachfüllstation wieder.",
+    "tank": "Tank"
   },
   "problem": {
     "sectionLabel": "Das Problem",
