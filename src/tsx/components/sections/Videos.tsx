@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player'
+import { useTranslation } from 'react-i18next'
 import VideoPreview from '../VideoPreview'
 import { videoBaseUrl } from '../../lib/runtimeEnv'
 
@@ -44,6 +45,8 @@ const VideoCard = (props: {
 )
 
 const Videos = () => {
+  const { t } = useTranslation('home')
+
   return (
     <section className="relative overflow-hidden px-4 mx-auto md:px-6 py-20 lg:py-28 xl:py-36 before:bg-cover before:bg-background-light-dot before:w-[90%] before:h-[80%] before:absolute before:-right-4 before:top-12 before:-z-10 before:bg-no-repeat xl:before:bg-contain xl:before:top-20 xl:before:left-[10%] 3xl:before:left-[20%]">
       <article className="mx-auto mb-8 lg:mb-14 lg:text-center xl:max-w-screen-lg">
@@ -51,20 +54,16 @@ const Videos = () => {
         <div className="mb-6 lg:mb-8 lg:flex lg:justify-center">
           <div className="inline-block">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Videos
+              {t('videos.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1 lg:mx-auto" />
           </div>
         </div>
 
         <h2 className="font-lato font-bold text-2xl mb-6 text-grey-900 lg:text-3xl">
-          Lerne das Projekt per Video kennen
+          {t('videos.title')}
         </h2>
-        <p className="text-grey-900/80 leading-relaxed">
-          Im Rahmen des Forschungsprojekts sind neben der Sensorlösung und der Software auch zwei
-          Videos entstanden. Sie stellen das Projekt vor: die Zielsetzung, die Problemstellung und
-          die entwickelte Lösung.
-        </p>
+        <p className="text-grey-900/80 leading-relaxed">{t('videos.description')}</p>
       </article>
 
       <section className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 xl:max-w-screen-xl">
@@ -72,18 +71,18 @@ const Videos = () => {
           <VideoCard
             src={VIDEO_SHORT}
             thumbnail={VIDEO_SHORT_THMBNL}
-            title="Kurzvideo"
-            describtion="Ein kurzer Einstieg in das Projekt. In rund einer halben Minute erfährst du, worum es bei Green Ecolution geht."
-            duration="ca. 30 Sekunden"
+            title={t('videos.short.title')}
+            describtion={t('videos.short.description')}
+            duration={t('videos.short.duration')}
           />
         </div>
         <div>
           <VideoCard
             src={VIDEO_LONG}
             thumbnail={VIDEO_LONG_THMBNL}
-            title="Langvideo"
-            describtion="Das ausführliche Video geht tiefer und erklärt die wichtigsten Hintergründe, Details und die nächsten Schritte des Projekts."
-            duration="ca. 4 Minuten"
+            title={t('videos.long.title')}
+            describtion={t('videos.long.description')}
+            duration={t('videos.long.duration')}
           />
         </div>
       </section>
