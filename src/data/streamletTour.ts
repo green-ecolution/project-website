@@ -101,24 +101,49 @@ export interface CityBlock {
 export const cityBlocks: CityBlock[] = [
   { x: 34, z: 43, width: 13, depth: 11, height: 3.5 },
   { x: 18, z: 44, width: 9, depth: 13, height: 2.5 },
-  { x: 36, z: 20, width: 8, depth: 8, height: 5 },
+  { x: 34, z: 21, width: 8, depth: 8, height: 5 },
   { x: 58, z: 21, width: 10, depth: 8, height: 3 },
-  { x: 77, z: 27, width: 8, depth: 12, height: 4.5 },
   { x: 63, z: 46, width: 12, depth: 10, height: 3 },
   { x: 0, z: 30, width: 10, depth: 12, height: 3.5 },
-  { x: 32, z: 70, width: 13, depth: 9, height: 3 },
-  { x: 62, z: 70, width: 11, depth: 8, height: 4.5 },
-  { x: 96, z: 32, width: 10, depth: 13, height: 3 },
+  { x: 14, z: 14, width: 9, depth: 8, height: 3 },
   { x: 24, z: 4, width: 10, depth: 8, height: 3.5 },
   { x: 56, z: 2, width: 11, depth: 8, height: 2.5 },
+  { x: 64, z: 4, width: 10, depth: 8, height: 3.5 },
 ]
 
 export const roadHeight = 0.2
 export const roadWidth = 5
-export const depotSize = 8
-export const depotHeight = 6
-export const stopPostHeight = 4.4
-export const refillPostHeight = 6
+export const depotWidth = 11
+export const depotDepth = 8
+export const depotHeight = 4.6
+
+// The hall stands beside the corner where the tour starts and ends, so the
+// vehicle parks in front of it rather than inside it.
+export const depotPosition: GroundPoint = [11, 68]
+// Markers stand at the kerb, never on the carriageway, so the vehicle drives
+// past them instead of through them.
+export const markerOffset = 3.4
+
+export const stopMarker = {
+  plateRadius: 1.3,
+  plateHeight: 0.3,
+  postRadius: 0.32,
+  postHeight: 3.2,
+  capRadius: 1,
+  capHeight: 0.4,
+} as const
+
+export const refillMarker = {
+  plateRadius: 1.7,
+  plateHeight: 0.3,
+  postRadius: 0.48,
+  postHeight: 6.2,
+  // the arm has to clear the tank on the vehicle passing underneath it
+  armHeight: 5.8,
+  armLength: 3.6,
+  armRadius: 0.28,
+  nozzleLength: 0.9,
+} as const
 
 export const tourColors = {
   road: '#4C7741',
@@ -181,6 +206,40 @@ export function tankLevelAt(progress: number) {
 
 export const staticTourPosition = 0.75
 
+function legHeading(index: number): GroundPoint {
+  const [from, to] = tourLegs[index].points
+  const dx = to[0] - from[0]
+  const dz = to[1] - from[1]
+  const length = Math.hypot(dx, dz)
+
+  return [dx / length, dz / length]
+}
+
+export interface StopPlacement {
+  kind: 'stop' | 'refill'
+  label: string
+  onRoad: GroundPoint
+  at: GroundPoint
+  towardsRoad: GroundPoint
+}
+
+export const stopPlacements: StopPlacement[] = tourMarks.flatMap((mark, index) => {
+  if (mark.kind === 'depot') return []
+
+  const heading = legHeading(index)
+  const left: GroundPoint = [-heading[1], heading[0]]
+
+  return [
+    {
+      kind: mark.kind,
+      label: mark.label,
+      onRoad: mark.at,
+      at: [mark.at[0] + left[0] * markerOffset, mark.at[1] + left[1] * markerOffset],
+      towardsRoad: [-left[0], -left[1]],
+    },
+  ]
+})
+
 const COS_30 = Math.cos(Math.PI / 6)
 
 // The one isometric direction both renderers use: +x goes right and down,
@@ -193,11 +252,6 @@ export function projectIso(x: number, z: number, y = 0): [number, number] {
 export const isoEllipseX = COS_30 * Math.SQRT2
 export const isoEllipseY = 0.5 * Math.SQRT2
 
-function markHeight(mark: TourMark) {
-  if (mark.kind === 'depot') return depotHeight
-  return mark.kind === 'refill' ? refillPostHeight : stopPostHeight
-}
-
 function projectedBounds() {
   const points: [number, number][] = []
 
@@ -209,18 +263,23 @@ function projectedBounds() {
     }
   }
 
-  for (const mark of tourMarks) {
-    points.push(
-      projectIso(mark.at[0], mark.at[1], 0),
-      projectIso(mark.at[0], mark.at[1], markHeight(mark)),
-    )
+  for (const x of [depotPosition[0] - depotWidth / 2, depotPosition[0] + depotWidth / 2]) {
+    for (const z of [depotPosition[1] - depotDepth / 2, depotPosition[1] + depotDepth / 2]) {
+      points.push(projectIso(x, z, 0), projectIso(x, z, depotHeight))
+    }
+  }
+
+  for (const stop of stopPlacements) {
+    const top = stop.kind === 'refill' ? refillMarker.postHeight : stopMarker.postHeight
+    points.push(projectIso(stop.at[0], stop.at[1], 0), projectIso(stop.at[0], stop.at[1], top))
   }
 
   for (const leg of tourLegs) {
     for (const [x, z] of leg.points) points.push(projectIso(x, z, 0))
   }
 
-  const pad = roadWidth
+  // enough to keep the kerb of the road inside the frame
+  const pad = roadWidth / 2 + 0.5
   const xs = points.map(([x]) => x)
   const ys = points.map(([, y]) => y)
   const minX = Math.min(...xs) - pad

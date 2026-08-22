@@ -1,18 +1,21 @@
 import {
   cityBlocks,
   depotHeight,
-  depotSize,
+  depotPosition,
+  depotDepth,
+  depotWidth,
   isoEllipseX,
   isoEllipseY,
   projectIso,
-  refillPostHeight,
+  refillMarker,
   roadWidth,
-  stopPostHeight,
+  stopMarker,
+  stopPlacements,
   tourColors,
   tourLegs,
-  tourMarks,
   tourViewBox,
   type GroundPoint,
+  type StopPlacement,
 } from '../../../data/streamletTour'
 
 function roundedPath(points: [number, number][], radius: number) {
@@ -86,6 +89,96 @@ function IsoBox({ at, width, depth, height, top, lit, shaded }: IsoBoxProps) {
   )
 }
 
+function Plate({ at, radius, color }: { at: GroundPoint; radius: number; color: string }) {
+  const [x, y] = projectIso(at[0], at[1])
+
+  return <ellipse cx={x} cy={y} rx={radius * isoEllipseX} ry={radius * isoEllipseY} fill={color} />
+}
+
+function Post({
+  at,
+  height,
+  width,
+  color,
+}: {
+  at: GroundPoint
+  height: number
+  width: number
+  color: string
+}) {
+  const foot = projectIso(at[0], at[1])
+  const head = projectIso(at[0], at[1], height)
+
+  return (
+    <line x1={foot[0]} y1={foot[1]} x2={head[0]} y2={head[1]} stroke={color} strokeWidth={width} />
+  )
+}
+
+function StopPin({ stop }: { stop: StopPlacement }) {
+  const cap = projectIso(stop.at[0], stop.at[1], stopMarker.postHeight)
+
+  return (
+    <g>
+      <Plate at={stop.at} radius={stopMarker.plateRadius} color={tourColors.stop} />
+      <Post
+        at={stop.at}
+        height={stopMarker.postHeight}
+        width={stopMarker.postRadius * 2}
+        color={tourColors.stop}
+      />
+      <ellipse
+        cx={cap[0]}
+        cy={cap[1]}
+        rx={stopMarker.capRadius * isoEllipseX}
+        ry={stopMarker.capRadius * isoEllipseY}
+        fill={tourColors.stop}
+      />
+    </g>
+  )
+}
+
+function RefillStation({ stop }: { stop: StopPlacement }) {
+  const armFoot = projectIso(stop.at[0], stop.at[1], refillMarker.armHeight)
+  const armTip = projectIso(
+    stop.at[0] + stop.towardsRoad[0] * refillMarker.armLength,
+    stop.at[1] + stop.towardsRoad[1] * refillMarker.armLength,
+    refillMarker.armHeight,
+  )
+  const nozzle = projectIso(
+    stop.at[0] + stop.towardsRoad[0] * refillMarker.armLength,
+    stop.at[1] + stop.towardsRoad[1] * refillMarker.armLength,
+    refillMarker.armHeight - refillMarker.nozzleLength,
+  )
+
+  return (
+    <g>
+      <Plate at={stop.at} radius={refillMarker.plateRadius} color={tourColors.refill} />
+      <Post
+        at={stop.at}
+        height={refillMarker.postHeight}
+        width={refillMarker.postRadius * 2}
+        color={tourColors.refill}
+      />
+      <line
+        x1={armFoot[0]}
+        y1={armFoot[1]}
+        x2={armTip[0]}
+        y2={armTip[1]}
+        stroke={tourColors.refill}
+        strokeWidth={refillMarker.armRadius * 2}
+      />
+      <line
+        x1={armTip[0]}
+        y1={armTip[1]}
+        x2={nozzle[0]}
+        y2={nozzle[1]}
+        stroke={tourColors.refill}
+        strokeWidth={refillMarker.armRadius * 1.6}
+      />
+    </g>
+  )
+}
+
 const sortedBlocks = [...cityBlocks].sort((a, b) => a.x + a.z - (b.x + b.z))
 
 const roadPath = roundedPath(
@@ -120,52 +213,23 @@ function StreamletTourSketch() {
         strokeLinejoin="round"
       />
 
-      {tourMarks.map((mark) => {
-        if (mark.kind === 'depot') {
-          return (
-            <IsoBox
-              key={mark.label}
-              at={mark.at}
-              width={depotSize}
-              depth={depotSize}
-              height={depotHeight}
-              top="#4B7440"
-              lit={tourColors.depot}
-              shaded="#33512C"
-            />
-          )
-        }
+      <IsoBox
+        at={depotPosition}
+        width={depotWidth}
+        depth={depotDepth}
+        height={depotHeight}
+        top="#4B7440"
+        lit={tourColors.depot}
+        shaded="#33512C"
+      />
 
-        const isRefill = mark.kind === 'refill'
-        const color = isRefill ? tourColors.refill : tourColors.stop
-        const ground = projectIso(mark.at[0], mark.at[1])
-        const top = projectIso(mark.at[0], mark.at[1], isRefill ? refillPostHeight : stopPostHeight)
-
-        return (
-          <g key={mark.label}>
-            {isRefill && (
-              <ellipse
-                cx={ground[0]}
-                cy={ground[1]}
-                rx={6 * isoEllipseX}
-                ry={6 * isoEllipseY}
-                fill="none"
-                stroke={color}
-                strokeWidth="0.9"
-              />
-            )}
-            <line
-              x1={ground[0]}
-              y1={ground[1]}
-              x2={top[0]}
-              y2={top[1]}
-              stroke={color}
-              strokeWidth={isRefill ? 1.24 : 0.76}
-            />
-            <circle cx={top[0]} cy={top[1]} r={isRefill ? 1.18 : 0.72} fill={color} />
-          </g>
-        )
-      })}
+      {stopPlacements.map((stop) =>
+        stop.kind === 'refill' ? (
+          <RefillStation key={stop.label} stop={stop} />
+        ) : (
+          <StopPin key={stop.label} stop={stop} />
+        ),
+      )}
     </svg>
   )
 }

@@ -11,27 +11,39 @@ import {
 import {
   cityBlocks,
   depotHeight,
-  depotSize,
-  refillPostHeight,
+  depotPosition,
+  depotDepth,
+  depotWidth,
+  refillMarker,
   roadHeight,
   roadWidth,
   staticTourPosition,
-  stopPostHeight,
+  stopMarker,
+  stopPlacements,
   tankLevelAt,
   tourColors,
   tourLegs,
-  tourMarks,
   tourProjectedSize,
   tourWorldOffset,
   type GroundPoint,
+  type StopPlacement,
 } from '../../../data/streamletTour'
 
 const TOUR_SECONDS = 20
+
+// A camera at [d, d, d] foreshortens by sqrt(2/3) against the 2:1 projection
+// projectIso() uses, so the scene has to be scaled back up by that much to fill
+// the frame the shared bounds describe.
+const ISO_FORESHORTENING = Math.sqrt(2 / 3)
 
 const [offsetX, offsetZ] = tourWorldOffset
 
 function toWorld([x, z]: GroundPoint, y: number) {
   return new Vector3(x + offsetX, y, z + offsetZ)
+}
+
+function facing([x, z]: GroundPoint) {
+  return Math.atan2(x, z)
 }
 
 const tourCurve = new CatmullRomCurve3(
@@ -87,6 +99,83 @@ interface TourProps {
   levelRef: RefObject<HTMLDivElement | null>
 }
 
+function StopPin({ stop }: { stop: StopPlacement }) {
+  return (
+    <group position={toWorld(stop.at, 0)}>
+      <mesh position={[0, stopMarker.plateHeight / 2, 0]}>
+        <cylinderGeometry
+          args={[stopMarker.plateRadius, stopMarker.plateRadius, stopMarker.plateHeight, 20]}
+        />
+        <meshLambertMaterial color={tourColors.stop} />
+      </mesh>
+
+      <mesh position={[0, stopMarker.postHeight / 2, 0]}>
+        <cylinderGeometry
+          args={[stopMarker.postRadius, stopMarker.postRadius, stopMarker.postHeight, 12]}
+        />
+        <meshLambertMaterial color={tourColors.stop} />
+      </mesh>
+
+      <mesh position={[0, stopMarker.postHeight + stopMarker.capHeight / 2, 0]}>
+        <cylinderGeometry
+          args={[stopMarker.capRadius, stopMarker.capRadius, stopMarker.capHeight, 20]}
+        />
+        <meshLambertMaterial color={tourColors.stop} />
+      </mesh>
+    </group>
+  )
+}
+
+function RefillStation({ stop }: { stop: StopPlacement }) {
+  return (
+    <group position={toWorld(stop.at, 0)}>
+      <mesh position={[0, refillMarker.plateHeight / 2, 0]}>
+        <cylinderGeometry
+          args={[refillMarker.plateRadius, refillMarker.plateRadius, refillMarker.plateHeight, 24]}
+        />
+        <meshLambertMaterial color={tourColors.refill} />
+      </mesh>
+
+      <mesh position={[0, refillMarker.postHeight / 2, 0]}>
+        <cylinderGeometry
+          args={[refillMarker.postRadius, refillMarker.postRadius, refillMarker.postHeight, 16]}
+        />
+        <meshLambertMaterial color={tourColors.refill} />
+      </mesh>
+
+      <group rotation={[0, facing(stop.towardsRoad), 0]}>
+        <mesh
+          position={[0, refillMarker.armHeight, refillMarker.armLength / 2]}
+          rotation={[Math.PI / 2, 0, 0]}
+        >
+          <cylinderGeometry
+            args={[refillMarker.armRadius, refillMarker.armRadius, refillMarker.armLength, 12]}
+          />
+          <meshLambertMaterial color={tourColors.refill} />
+        </mesh>
+
+        <mesh
+          position={[
+            0,
+            refillMarker.armHeight - refillMarker.nozzleLength / 2,
+            refillMarker.armLength,
+          ]}
+        >
+          <cylinderGeometry
+            args={[
+              refillMarker.armRadius * 0.8,
+              refillMarker.armRadius * 0.8,
+              refillMarker.nozzleLength,
+              12,
+            ]}
+          />
+          <meshLambertMaterial color={tourColors.refill} />
+        </mesh>
+      </group>
+    </group>
+  )
+}
+
 function Vehicle({ isStatic, levelRef }: TourProps) {
   const group = useRef<Group>(null)
   const start = isStatic ? staticTourPosition : 0
@@ -96,7 +185,6 @@ function Vehicle({ isStatic, levelRef }: TourProps) {
 
     const progress = (clock.getElapsedTime() % TOUR_SECONDS) / TOUR_SECONDS
     const point = tourCurve.getPointAt(progress)
-
     const tangent = tourCurve.getTangentAt(progress)
 
     group.current.position.copy(point)
@@ -134,7 +222,9 @@ function Vehicle({ isStatic, levelRef }: TourProps) {
 
 function TourModel({ isStatic, levelRef }: TourProps) {
   const size = useThree((state) => state.size)
-  const fit = Math.min(size.width / tourProjectedSize.width, size.height / tourProjectedSize.height)
+  const fit =
+    Math.min(size.width / tourProjectedSize.width, size.height / tourProjectedSize.height) /
+    ISO_FORESHORTENING
 
   return (
     <>
@@ -156,45 +246,18 @@ function TourModel({ isStatic, levelRef }: TourProps) {
           <meshLambertMaterial color={tourColors.road} side={DoubleSide} />
         </mesh>
 
-        {tourMarks.map((mark) => {
-          if (mark.kind === 'depot') {
-            return (
-              <mesh
-                key={mark.label}
-                position={[mark.at[0] + offsetX, depotHeight / 2, mark.at[1] + offsetZ]}
-              >
-                <boxGeometry args={[depotSize, depotHeight, depotSize]} />
-                <meshLambertMaterial color={tourColors.depot} />
-              </mesh>
-            )
-          }
+        <mesh position={toWorld(depotPosition, depotHeight / 2)}>
+          <boxGeometry args={[depotWidth, depotHeight, depotDepth]} />
+          <meshLambertMaterial color={tourColors.depot} />
+        </mesh>
 
-          const isRefill = mark.kind === 'refill'
-          const height = isRefill ? refillPostHeight : stopPostHeight
-          const radius = isRefill ? 0.62 : 0.38
-          const color = isRefill ? tourColors.refill : tourColors.stop
-
-          return (
-            <group key={mark.label}>
-              <mesh position={toWorld(mark.at, height / 2)}>
-                <cylinderGeometry args={[radius, radius, height, 16]} />
-                <meshLambertMaterial color={color} />
-              </mesh>
-
-              <mesh position={toWorld(mark.at, height)}>
-                <sphereGeometry args={[radius * 1.9, 16, 12]} />
-                <meshLambertMaterial color={color} />
-              </mesh>
-
-              {isRefill && (
-                <mesh position={toWorld(mark.at, 0.3)} rotation={[-Math.PI / 2, 0, 0]}>
-                  <torusGeometry args={[6, 0.45, 8, 48]} />
-                  <meshLambertMaterial color={color} />
-                </mesh>
-              )}
-            </group>
-          )
-        })}
+        {stopPlacements.map((stop) =>
+          stop.kind === 'refill' ? (
+            <RefillStation key={stop.label} stop={stop} />
+          ) : (
+            <StopPin key={stop.label} stop={stop} />
+          ),
+        )}
 
         <Vehicle isStatic={isStatic} levelRef={levelRef} />
       </group>
