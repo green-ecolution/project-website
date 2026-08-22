@@ -54,5 +54,28 @@
         }
       }
     }
+  },
+  "architecture": {
+    "sectionLabel": "System Architecture",
+    "title": "The path of the data",
+    "description": "This is how the readings travel from the tree to the optimized irrigation route through the Green Ecolution system.",
+    "steps": {
+      "sensor": {
+        "label": "Sensor",
+        "description": "Measures soil moisture at the tree"
+      },
+      "gateway": {
+        "label": "Gateway",
+        "description": "LoRaWAN transmission"
+      },
+      "backend": {
+        "label": "Backend",
+        "description": "Data processing & analysis"
+      },
+      "dashboard": {
+        "label": "Dashboard",
+        "description": "Visualization & route planning"
+      }
+    }
   }
 }

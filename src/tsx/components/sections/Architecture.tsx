@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { architectureSteps } from '../../../data/architectureSteps'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
@@ -111,6 +112,7 @@ function ArchitectureCard({
   step: (typeof architectureSteps)[0]
   config: (typeof cardConfigs)[0]
 }) {
+  const { t } = useTranslation('project')
   const Icon = step.icon
 
   return (
@@ -148,8 +150,12 @@ function ArchitectureCard({
           </div>
 
           {/* Content */}
-          <h3 className="font-lato font-bold text-lg lg:text-xl text-white mb-1">{step.label}</h3>
-          <p className="text-white/70 text-sm leading-relaxed">{step.description}</p>
+          <h3 className="font-lato font-bold text-lg lg:text-xl text-white mb-1">
+            {t(`architecture.steps.${step.id}.label`)}
+          </h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            {t(`architecture.steps.${step.id}.description`)}
+          </p>
         </div>
       </div>
     </div>
@@ -158,6 +164,7 @@ function ArchitectureCard({
 
 function Architecture() {
   const reducedMotion = useReducedMotion()
+  const { t } = useTranslation('project')
 
   return (
     <section
@@ -168,23 +175,22 @@ function Architecture() {
       <article className="mb-12 lg:mb-16 lg:text-center">
         <div className="inline-block mb-4">
           <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-            System-Architektur
+            {t('architecture.sectionLabel')}
           </span>
           <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
         </div>
         <h2 className="font-lato font-bold text-2xl lg:text-4xl mb-4 text-grey-900">
-          Der Weg der Daten
+          {t('architecture.title')}
         </h2>
         <p className="text-grey-600 max-w-2xl mx-auto text-base lg:text-lg">
-          So gelangen die Messwerte vom Baum bis zur optimierten Bewässerungsroute durch das Green
-          Ecolution System.
+          {t('architecture.description')}
         </p>
       </article>
 
       {/* Desktop Flowchart */}
       <div className="hidden lg:flex items-start justify-center">
         {architectureSteps.map((step, index) => (
-          <div key={step.label} className="flex items-center">
+          <div key={step.id} className="flex items-center">
             <ArchitectureCard step={step} config={cardConfigs[index]} />
             {index < architectureSteps.length - 1 && (
               <ConnectionLine reducedMotion={reducedMotion} index={index} />
@@ -196,7 +202,7 @@ function Architecture() {
       {/* Mobile Flowchart */}
       <div className="lg:hidden flex flex-col items-center max-w-sm mx-auto">
         {architectureSteps.map((step, index) => (
-          <div key={step.label} className="w-full">
+          <div key={step.id} className="w-full">
             <ArchitectureCard step={step} config={cardConfigs[index]} />
             {index < architectureSteps.length - 1 && <MobileConnectionLine />}
           </div>
