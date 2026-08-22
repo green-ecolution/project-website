@@ -50,7 +50,7 @@ function StreamletStatus() {
           <Link
             to="/releases/$slug"
             params={{ slug: 'v0.4.0' }}
-            className="font-semibold text-green-dark-900 underline decoration-green-light-900 decoration-2 underline-offset-2 transition-colors hover:text-green-light-900"
+            className="font-semibold text-green-dark-900 underline decoration-green-dark-900 decoration-2 underline-offset-2 transition-all hover:decoration-4"
           >
             Release 0.4.0 von Green Ecolution
           </Link>
