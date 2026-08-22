@@ -218,8 +218,8 @@ function Architecture() {
         >
           Streamlet
         </Link>
-        , ein eigenständiges Open-Source-Projekt, das auch außerhalb von Green Ecolution nutzbar
-        ist.
+        , ein eigenes Open-Source-Projekt, das sich auch außerhalb von Green Ecolution einsetzen
+        lässt.
       </p>
     </section>
   )

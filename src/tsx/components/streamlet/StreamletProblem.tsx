@@ -116,15 +116,16 @@ function StreamletProblem() {
           </p>
 
           <p className="text-grey-900/70 leading-relaxed mb-4">
-            Wer das dem Solver nicht mitgeben kann, hat zwei Möglichkeiten, und beide kosten. Die
-            Tour ohne das Nachfüllen planen und ein unzulässiges Ergebnis erhalten, oder die Tour
-            von Hand in Teilstücke schneiden und damit die Optimierung über das Ganze aufgeben.
+            Wer das dem Solver nicht mitgeben kann, hat zwei Möglichkeiten, und beide kosten
+            Lösungsqualität: die Tour ohne das Nachfüllen planen und ein unzulässiges Ergebnis
+            bekommen, oder die Tour von Hand in Teilstücke schneiden und damit die Optimierung über
+            das Ganze aufgeben.
           </p>
 
           <p className="text-grey-900/70 leading-relaxed">
-            Genau hier setzt Streamlet an. Nachfüllstationen sind Teil des Problems, nicht eine
-            Sache, die hinterher hineingerechnet wird. Bei Green Ecolution lief diese Stufe vorher
-            auf Vroom, das mehrere Nachfüllstationen mitten in der Tour nicht abbilden konnte.
+            Streamlet plant die Nachfüllstationen im selben Optimierungslauf und rechnet sie nicht
+            hinterher hinein. Bei Green Ecolution lief die Routenoptimierung vorher auf Vroom, das
+            mehrere Nachfüllstationen mitten in der Tour nicht abbilden konnte.
           </p>
         </div>
 

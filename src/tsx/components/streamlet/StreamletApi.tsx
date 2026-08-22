@@ -16,8 +16,8 @@ function StreamletApi() {
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
-          Streamlet arbeitet synchron. Kein Job, kein Polling, keine Datenbank dazwischen: Das
-          Problem geht rein, die Routen kommen zurück.
+          Streamlet arbeitet synchron. Du schickst das Problem, du bekommst die Routen zurück, ohne
+          Job-Handling und ohne Polling dazwischen.
         </p>
       </div>
 
@@ -47,10 +47,10 @@ function StreamletApi() {
       </ul>
 
       <p className="text-sm text-grey-900/60 leading-relaxed mt-6">
-        Geprüft wird bereits beim Einlesen: Ein Problem mit überfülltem Tank, verdrehtem Zeitfenster
-        oder ohne Fahrzeug wird mit 422 abgelehnt, statt später im Solver aufzulaufen.
-        Fehlerantworten geben keine internen Details preis, weder Engine-URLs noch fremde
-        Response-Bodies.
+        Streamlet prüft das Problem schon beim Einlesen. Eine Startladung über der Tankkapazität,
+        ein Zeitfenster, das vor seinem Beginn endet, oder ein Problem ohne Fahrzeug wird mit 422
+        abgelehnt, statt später im Solver aufzulaufen. Fehlerantworten geben keine internen Details
+        preis, weder Engine-URLs noch fremde Response-Bodies.
       </p>
     </section>
   )

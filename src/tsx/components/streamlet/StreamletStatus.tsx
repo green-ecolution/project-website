@@ -40,19 +40,18 @@ function StreamletStatus() {
 
       <div className="rounded-2xl bg-green-light-100/70 border border-green-light-900/20 p-6 lg:p-10">
         <h3 className="font-lato font-bold text-xl text-grey-900 mb-3 lg:text-2xl">
-          Mitmachen oder übernehmen
+          Mitmachen oder selbst einsetzen
         </h3>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl mb-8">
-          Streamlet lässt sich unabhängig von Green Ecolution einsetzen. Fragen, Fehlerberichte und
-          Erfahrungen aus anderen Anwendungsfällen sind im Repository willkommen. Wie der Dienst in
-          einem echten Betrieb läuft, zeigt das{' '}
+          Fragen, Fehlerberichte und Erfahrungen aus anderen Anwendungsfällen sind im Repository
+          willkommen. Wie Streamlet bei Green Ecolution eingebunden ist, beschreibt{' '}
           <Link
             to="/releases/$slug"
             params={{ slug: 'v0.4.0' }}
             className="font-semibold text-green-dark-900 underline decoration-green-dark-900 decoration-2 underline-offset-2 transition-all hover:decoration-4"
           >
-            Release 0.4.0 von Green Ecolution
+            Release 0.4.0
           </Link>
           .
         </p>

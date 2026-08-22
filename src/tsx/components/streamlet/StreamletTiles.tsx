@@ -11,7 +11,7 @@ function StreamletTiles() {
       <div className="mb-10 lg:mb-14">
         <div className="inline-block mb-4">
           <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-            Tile-Pipeline
+            Kartendaten
           </span>
           <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
         </div>
@@ -21,17 +21,17 @@ function StreamletTiles() {
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl mb-4">
-          Eine gute Route hilft nichts, wenn das Straßennetz nicht zur Flotte passt. Ein
+          Eine gute Route nützt nichts, wenn das Straßennetz nicht zur Flotte passt. Ein
           Betriebsfahrzeug darf über Wirtschafts- und Dienstwege fahren, die für den allgemeinen
           Verkehr gesperrt sind. Eine Standardkarte weiß das nicht und lässt Ziele unerreichbar
           aussehen, die es nicht sind.
         </p>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
-          Die Routing-Engine rechnet auf Tiles, die aus einem OSM-Extrakt gebaut werden. Zum
-          Streamlet-Repository gehört ein CLI, das dieses Extrakt vor dem Tile-Build über
-          OSC-Changesets verändert. Damit bildest du ab, was deine Fahrzeuge tatsächlich befahren
-          dürfen.
+          Die Routing-Engine rechnet auf Tiles, die aus einem OSM-Extrakt entstehen. Zum
+          Streamlet-Repository gehört ein CLI, das dieses Extrakt vorher über OSC-Changesets
+          verändert, also über Änderungsdateien im OSM-Format. Damit bildest du ab, was deine
+          Fahrzeuge tatsächlich befahren dürfen.
         </p>
       </div>
 

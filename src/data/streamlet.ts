@@ -42,7 +42,7 @@ export const solveFlowSteps: SolveFlowStep[] = [
     step: '01',
     label: 'Problem senden',
     description:
-      'Fahrzeuge mit Tank und Schicht, Depots, Halte mit Bedarf und Zeitfenster, Nachfüllstationen gehen als JSON an POST /v1/solve.',
+      'Ein JSON-Body an POST /v1/solve beschreibt die Fahrzeuge mit Tankkapazität und Schichtzeitfenster, die Depots, die Halte mit Bedarf und Zeitfenster sowie die Nachfüllstationen.',
   },
   {
     step: '02',
@@ -104,9 +104,9 @@ interface Benchmark {
 }
 
 export const solverBenchmarks: Benchmark[] = [
-  { instance: 'c101', gap: '3,1 %' },
-  { instance: 'r101', gap: '1,9 %' },
-  { instance: 'rc101', gap: '1,5 %' },
+  { instance: 'c101', gap: '3,1\u00A0%' },
+  { instance: 'r101', gap: '1,9\u00A0%' },
+  { instance: 'rc101', gap: '1,5\u00A0%' },
 ]
 
 export interface TileChangeset {
@@ -126,7 +126,7 @@ export const tileChangesets: TileChangeset[] = [
     name: 'allowed-paths',
     status: 'in-progress',
     description:
-      'Öffnet Wege rund um Zielpunkte, die von keiner befahrbaren Straße aus erreichbar sind, für Kraftfahrzeuge. Die Zielpunkte kommen als GeoJSON-FeatureCollection herein, damit der Patcher ohne Bezug zu einem fremden System läuft.',
+      'Öffnet Wege für Kraftfahrzeuge, wenn ein Zielpunkt von keiner befahrbaren Straße aus erreichbar ist. Die Zielpunkte übergibst du als GeoJSON-FeatureCollection, der Patcher braucht dafür kein anderes System.',
   },
 ]
 
@@ -140,30 +140,31 @@ export const operationsFacts: OperationsFact[] = [
   {
     label: 'Zustandslos',
     description:
-      'Keine Datenbank, keine Job-Queue. Anfrage rein, Lösung raus. Beim Herunterfahren laufen offene Anfragen aus, statt abzubrechen.',
+      'Keine Datenbank, keine Job-Queue. Beim Herunterfahren laufen offene Anfragen aus, statt abzubrechen.',
     icon: ServerCog,
   },
   {
     label: 'Engine austauschbar',
     description:
-      'Die Routing-Engine hängt hinter dem Port-Trait Router. Valhalla ist die Implementierung, die es gibt; eine weitere käme ohne Eingriff in den Solver dazu.',
+      'Die Routing-Engine hängt hinter dem Port-Trait Router. Bisher gibt es eine Implementierung für Valhalla, eine weitere wird ergänzt, ohne den Solver zu ändern.',
     icon: Repeat,
   },
   {
-    label: 'Kern ohne Ballast',
+    label: 'Solver als separate Crate',
     description:
-      'Der Solver liegt in der eigenen Crate streamlet-core, frei von tokio, axum und HTTP-Zubehör. Nur Serialisierung und Fehlertypen kommen dazu.',
+      'Der Solver liegt in der Crate streamlet-core, ohne tokio, axum und HTTP-Code. Dazu kommen nur Serialisierung und Fehlertypen.',
     icon: Layers,
   },
   {
     label: 'AGPL-3.0',
-    description: 'Der Quellcode steht unter der GNU Affero General Public License, Version 3.',
+    description:
+      'Der Quellcode steht unter der GNU Affero General Public License, Version 3. Wer Streamlet verändert und als Netzwerkdienst betreibt, muss den geänderten Quellcode dessen Nutzern anbieten.',
     icon: Scale,
   },
 ]
 
 export const streamletLimitations: string[] = [
-  'Die Geometrie kommt als encoded Polyline zurück. Die Option geojson verhält sich derzeit wie polyline.',
+  'Die Geometrie kommt als kodierte Polyline zurück. Die Option geojson verhält sich derzeit wie polyline.',
   'Die API nimmt mehrere Depots entgegen, jede Route kehrt aber zum ersten zurück.',
-  'Kein GPX-Endpoint, keine Persistenz, keine eingebettete Routing-Engine.',
+  'Es gibt keinen GPX-Endpoint und keine eingebettete Routing-Engine.',
 ]

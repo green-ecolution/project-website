@@ -20,14 +20,14 @@ function StreamletHero() {
 
       <p className="text-lg text-grey-900/80 leading-relaxed max-w-3xl mb-6 lg:text-xl">
         Tourenplanung für Fahrzeuge, deren Tankfüllung nicht für die ganze Tour reicht. Streamlet
-        legt die Reihenfolge der Halte fest und plant das Nachfüllen unterwegs gleich mit, als
-        eigenständiger Dienst hinter einer HTTP-API.
+        legt die Reihenfolge der Halte fest und plant das Nachfüllen unterwegs gleich mit. Es läuft
+        als eigenständiger Dienst hinter einer HTTP-API.
       </p>
 
       <p className="text-grey-900/60 leading-relaxed max-w-3xl mb-8">
         Entstanden ist Streamlet für Green Ecolution, weil die geprüften Solver dieses Problem nicht
-        abbilden konnten. Das Projekt liegt in seinem eigenen Repository, kennt keinen seiner
-        Konsumenten und lässt sich für jedes Vorhaben mit demselben Problem einsetzen.
+        abbilden konnten. Heute liegt es in einem eigenen Repository und hat keine Abhängigkeit zu
+        Green Ecolution. Wer dasselbe Planungsproblem hat, kann es unverändert übernehmen.
       </p>
 
       <div className="flex flex-wrap gap-4">

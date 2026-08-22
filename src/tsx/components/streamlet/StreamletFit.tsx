@@ -16,8 +16,8 @@ function StreamletFit() {
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed lg:max-w-2xl lg:mx-auto">
-          Streamlet löst ein Muster, nicht eine Branche. Je mehr dieser Merkmale auf deine Touren
-          zutreffen, desto eher ist es das richtige Werkzeug.
+          Streamlet ist nicht auf eine Branche zugeschnitten, entscheidend ist die Struktur der
+          Tour. Je mehr dieser Merkmale auf deine Touren zutreffen, desto eher passt es.
         </p>
       </div>
 
@@ -41,9 +41,8 @@ function StreamletFit() {
       <div className="mt-8 rounded-2xl bg-green-light-100/70 border border-green-light-900/20 p-6 lg:p-8">
         <h3 className="font-lato font-semibold text-grey-900 mb-2">Unabhängig vom Transportgut</h3>
         <p className="text-grey-900/70 leading-relaxed">
-          Streamlet kennt Tankkapazität und Bedarf, nicht Bewässerung. Was transportiert wird,
-          bleibt offen; Wasser ist der erste Fall, nicht der einzige. Der erste Konsument ist Green
-          Ecolution, und die API setzt davon nichts voraus.
+          Streamlet kennt Tankkapazität und Bedarf, nicht Bewässerung. Was du transportierst, bleibt
+          offen. Wasser ist der erste Anwendungsfall, die API setzt ihn an keiner Stelle voraus.
         </p>
       </div>
     </section>
