@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { architectureSteps } from '../../../data/architectureSteps'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
@@ -208,6 +209,18 @@ function Architecture() {
           </div>
         ))}
       </div>
+
+      <p className="text-sm text-grey-900/70 leading-relaxed mt-10 lg:text-center">
+        Die Routenoptimierung im Backend übernimmt{' '}
+        <Link
+          to="/streamlet"
+          className="font-semibold text-green-dark-900 underline decoration-green-dark-900 decoration-2 underline-offset-2 transition-all hover:decoration-4"
+        >
+          Streamlet
+        </Link>
+        , ein eigenständiges Open-Source-Projekt, das auch außerhalb von Green Ecolution nutzbar
+        ist.
+      </p>
     </section>
   )
 }

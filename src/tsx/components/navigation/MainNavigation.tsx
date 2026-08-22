@@ -90,13 +90,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">{t('nav.heading')}</p>
         <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
           <NavItem label={t('nav.project')} url="/$lang/project" onClick={onClose} />
+          <NavItem label={t('nav.streamlet')} url="/$lang/streamlet" onClick={onClose} />
           <NavItem label={t('nav.releases')} url="/$lang/releases" onClick={onClose} />
           <NavItem label={t('nav.contact')} url="/$lang/contact" onClick={onClose} />
-          <NavItem
-            label={t('nav.github')}
-            url="https://github.com/green-ecolution"
-            isExternalLink
-          />
           <Button ariaLabel="demo" href="https://demo.green-ecolution.de" isExternalLink isDark>
             <span className="whitespace-nowrap">{t('nav.tryNow')}</span>
             <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
