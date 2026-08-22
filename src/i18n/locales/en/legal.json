@@ -40,5 +40,43 @@
         "paragraph2": "Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such."
       }
     }
+  },
+  "datenschutz": {
+    "meta": {
+      "title": "Privacy Policy | Green Ecolution | Smart Green Space Management"
+    },
+    "hero": {
+      "label": "Legal",
+      "headline": "Privacy Policy",
+      "description": "Information on how we handle your personal data"
+    },
+    "sections": {
+      "overview": {
+        "title": "1. Data Protection at a Glance",
+        "generalNotes": {
+          "title": "General Information",
+          "paragraph": "The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you. For detailed information on the subject of data protection, please refer to our privacy policy listed below this text."
+        },
+        "dataCollection": {
+          "title": "Data Collection on This Website",
+          "responsibleParty": {
+            "question": "Who is responsible for data collection on this website?",
+            "answer": "Data processing on this website is carried out by the website operator. Their contact details can be found in the section \"Notice concerning the responsible party\" in this privacy policy."
+          },
+          "howWeCollect": {
+            "question": "How do we collect your data?",
+            "answer": "Your data is collected, on the one hand, when you provide it to us. This may, for example, be data that you enter into a contact form. Other data is collected automatically or with your consent when you visit the website, by our IT systems. This is primarily technical data (e.g. internet browser, operating system, or time of page access). This data is collected automatically as soon as you enter this website."
+          },
+          "whatWeUseFor": {
+            "question": "What do we use your data for?",
+            "answer": "Some of the data is collected to ensure that the website is provided without errors. Other data may be used to analyze your user behavior."
+          },
+          "yourRights": {
+            "question": "What rights do you have regarding your data?",
+            "answer": "You have the right at any time to receive information free of charge about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction or deletion of this data. If you have given consent to data processing, you can revoke this consent at any time for the future. You also have the right, under certain circumstances, to request the restriction of the processing of your personal data. Furthermore, you have the right to lodge a complaint with the competent supervisory authority."
+          }
+        }
+      }
+    }
   }
 }

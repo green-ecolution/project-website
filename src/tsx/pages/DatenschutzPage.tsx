@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Hero from '../components/sections/Hero'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { DEFAULT_LANGUAGE } from '../../i18n/languages'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function DatenschutzPage() {
-  useEffect(() => {
-    document.title = 'Datenschutz | Green Ecolution | Smartes Grünflächenmanagement'
-  }, [])
+  const { t } = useTranslation('legal')
+  const language = useLanguage()
 
-  const heroHeadline = 'Datenschutz'
-  const heroDescription = 'Informationen zum Umgang mit Ihren personenbezogenen Daten'
+  useEffect(() => {
+    document.title = t('datenschutz.meta.title')
+  }, [t])
 
   const linkClasses =
     'text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900'
@@ -24,70 +27,60 @@ function DatenschutzPage() {
           { name: 'Datenschutz', path: '/datenschutz' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} label="Rechtliches" />
+      <Hero
+        headline={t('datenschutz.hero.headline')}
+        description={t('datenschutz.hero.description')}
+        label={t('datenschutz.hero.label')}
+      />
 
       <section className="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52">
         <div className="space-y-12">
+          {language !== DEFAULT_LANGUAGE && (
+            <p className="text-sm text-grey-900/70 bg-grey-100/50 border border-grey-200/50 rounded-xl p-4">
+              {t('translationNotice')}
+            </p>
+          )}
+
           {/* Section 1: Datenschutz auf einen Blick */}
           <div>
             <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
-              1. Datenschutz auf einen Blick
+              {t('datenschutz.sections.overview.title')}
             </h2>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Allgemeine Hinweise
+              {t('datenschutz.sections.overview.generalNotes.title')}
             </h3>
-            <p className="mb-4">
-              Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
-              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene
-              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-              Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem
-              Text aufgeführten Datenschutzerklärung.
-            </p>
+            <p className="mb-4">{t('datenschutz.sections.overview.generalNotes.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Datenerfassung auf dieser Website
+              {t('datenschutz.sections.overview.dataCollection.title')}
             </h3>
 
             <h4 className="font-bold mb-2 text-grey-900">
-              Wer ist verantwortlich für die Datenerfassung auf dieser Website?
+              {t('datenschutz.sections.overview.dataCollection.responsibleParty.question')}
             </h4>
             <p className="mb-4">
-              Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
-              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser
-              Datenschutzerklärung entnehmen.
-            </p>
-
-            <h4 className="font-bold mb-2 text-grey-900">Wie erfassen wir Ihre Daten?</h4>
-            <p className="mb-4">
-              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei
-              kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere
-              Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch
-              unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser,
-              Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt
-              automatisch, sobald Sie diese Website betreten.
-            </p>
-
-            <h4 className="font-bold mb-2 text-grey-900">Wofür nutzen wir Ihre Daten?</h4>
-            <p className="mb-4">
-              Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu
-              gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet
-              werden.
+              {t('datenschutz.sections.overview.dataCollection.responsibleParty.answer')}
             </p>
 
             <h4 className="font-bold mb-2 text-grey-900">
-              Welche Rechte haben Sie bezüglich Ihrer Daten?
+              {t('datenschutz.sections.overview.dataCollection.howWeCollect.question')}
             </h4>
-            <p>
-              Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und
-              Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein
-              Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine
-              Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung
-              jederzeit für die Zukunft widerrufen. Zudem haben Sie das Recht, unter bestimmten
-              Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu
-              verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen
-              Aufsichtsbehörde zu.
+            <p className="mb-4">
+              {t('datenschutz.sections.overview.dataCollection.howWeCollect.answer')}
             </p>
+
+            <h4 className="font-bold mb-2 text-grey-900">
+              {t('datenschutz.sections.overview.dataCollection.whatWeUseFor.question')}
+            </h4>
+            <p className="mb-4">
+              {t('datenschutz.sections.overview.dataCollection.whatWeUseFor.answer')}
+            </p>
+
+            <h4 className="font-bold mb-2 text-grey-900">
+              {t('datenschutz.sections.overview.dataCollection.yourRights.question')}
+            </h4>
+            <p>{t('datenschutz.sections.overview.dataCollection.yourRights.answer')}</p>
           </div>
 
           {/* Section 2: Hosting */}
