@@ -54,7 +54,8 @@
   "notFound": {
     "title": "This page could not be found.",
     "description": "The requested page is unavailable, either because it does not exist or because an error has occurred. Error code: 404",
-    "cta": "Go to homepage"
+    "cta": "Go to homepage",
+    "metaTitle": "Page not found | Green Ecolution"
   },
   "slider": {
     "prev": "Show previous slide",

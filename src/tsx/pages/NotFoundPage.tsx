@@ -1,13 +1,21 @@
+import { useEffect } from 'react'
 import Lottie from 'lottie-react'
 import { useTranslation } from 'react-i18next'
 import cableAnimation from '../../json/cableAnimation.json'
 import Button from '../components/Button'
 import Arrow from '../icons/Arrow'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { useLanguage } from '../../i18n/useLanguage'
+import { applyDocumentMeta } from '../helper/documentMeta'
 
 function NotFoundPage() {
   const { t } = useTranslation('common')
+  const language = useLanguage()
   const reducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    applyDocumentMeta({ title: t('notFound.metaTitle'), language })
+  }, [t, language])
 
   return (
     <main

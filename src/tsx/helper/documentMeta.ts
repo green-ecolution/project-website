@@ -11,7 +11,10 @@ interface DocumentMeta {
   title: string
   description?: string
   language: Language
-  path: string
+  // Path without the language prefix. Omit it for pages that have no canonical
+  // address, such as the 404 page: a self-referencing canonical there would tell
+  // crawlers the URL is a real page.
+  path?: string
 }
 
 function setMetaTag(selector: string, attribute: 'name' | 'property', key: string, value: string) {
@@ -53,6 +56,15 @@ export function applyDocumentMeta({ title, description, language, path }: Docume
     setMetaTag('meta[name="description"]', 'name', 'description', description)
     setMetaTag('meta[property="og:description"]', 'property', 'og:description', description)
     setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', description)
+  }
+
+  if (path === undefined) {
+    // Client-side navigation reuses the same document, so tags from the previous
+    // page would otherwise linger and claim this one has a canonical address.
+    document.head
+      .querySelectorAll('link[rel="canonical"], link[rel="alternate"]')
+      .forEach((tag) => tag.remove())
+    return
   }
 
   const canonicalUrl = `${BASE_URL}/${language}${path}`

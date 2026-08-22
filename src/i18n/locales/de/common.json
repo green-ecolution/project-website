@@ -54,7 +54,8 @@
   "notFound": {
     "title": "Die Seite konnte nicht gefunden werden.",
     "description": "Die gewünschte Seite ist nicht erreichbar, da sie entweder nicht existiert oder es zu einem Fehler gekommen ist. Fehlercode: 404",
-    "cta": "Zur Startseite"
+    "cta": "Zur Startseite",
+    "metaTitle": "Seite nicht gefunden | Green Ecolution"
   },
   "slider": {
     "prev": "Vorheriges Element anzeigen",
