@@ -7,5 +7,12 @@
     "label": "Project",
     "headline": "Smart green space management for livable cities",
     "description": "Green Ecolution is an open-source solution for the efficient irrigation of urban trees. Our software combines sensor data with intelligent route optimization, enabling targeted, resource-efficient deployment planning. Developed in collaboration with the City of Flensburg, and soon available for your municipality too."
+  },
+  "dashboard": {
+    "sectionLabel": "Software",
+    "titleLine1": "Well-founded recommendations",
+    "titleLine2": "for irrigation at a glance",
+    "description": "Our system scientifically evaluates the sensor data and shows when irrigation is needed. The data is prepared so that it is easy to interpret and can be directly incorporated into deployment planning.",
+    "imageAlt": "Green Ecolution dashboard - overview of irrigation recommendations"
   }
 }
