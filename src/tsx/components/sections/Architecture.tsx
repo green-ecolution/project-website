@@ -210,7 +210,7 @@ function Architecture() {
         ))}
       </div>
 
-      <p className="text-sm text-grey-900/70 leading-relaxed mt-10 lg:text-center">
+      <p className="text-sm text-grey-900/70 leading-relaxed max-w-2xl mx-auto mt-10 lg:text-center">
         Die Routenoptimierung im Backend übernimmt{' '}
         <Link
           to="/streamlet"
