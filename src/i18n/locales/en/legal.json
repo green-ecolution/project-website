@@ -112,6 +112,38 @@
         "consentWithdrawal": {
           "title": "Withdrawal of Your Consent to Data Processing",
           "paragraph": "Many data processing operations are only possible with your express consent. You may revoke consent already given at any time. The lawfulness of the data processing carried out until the revocation remains unaffected by the revocation."
+        },
+        "objectionRight": {
+          "title": "Right to Object to Data Collection in Special Cases and to Direct Marketing (Art. 21 GDPR)",
+          "paragraph1": "If data processing is carried out on the basis of Art. 6(1)(e) or (f) GDPR, you have the right at any time, for reasons arising from your particular situation, to object to the processing of your personal data; this also applies to profiling based on these provisions. If you object, we will no longer process your affected personal data, unless we can demonstrate compelling legitimate grounds for the processing that outweigh your interests, rights, and freedoms, or the processing serves the purpose of asserting, exercising, or defending legal claims (objection pursuant to Art. 21(1) GDPR).",
+          "paragraph2": "If your personal data is processed for direct marketing purposes, you have the right to object at any time to the processing of personal data concerning you for the purpose of such marketing; this also applies to profiling, insofar as it is associated with such direct marketing. If you object, your personal data will subsequently no longer be used for the purpose of direct marketing (objection pursuant to Art. 21(2) GDPR)."
+        },
+        "complaintRight": {
+          "title": "Right to Lodge a Complaint with the Competent Supervisory Authority",
+          "paragraph": "In the event of violations of the GDPR, data subjects have the right to lodge a complaint with a supervisory authority, in particular in the member state of their habitual residence, place of work, or the place of the alleged violation. The right to lodge a complaint exists without prejudice to any other administrative or judicial remedy."
+        },
+        "dataPortability": {
+          "title": "Right to Data Portability",
+          "paragraph": "You have the right to have data that we process automatically on the basis of your consent or in fulfillment of a contract handed over to you or to a third party in a common, machine-readable format. If you request the direct transfer of the data to another controller, this will only be done insofar as it is technically feasible."
+        },
+        "sslTls": {
+          "title": "SSL or TLS Encryption",
+          "paragraph": "For security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address bar of the browser changes from \"http://\" to \"https://\" and by the padlock icon in your browser bar. If SSL or TLS encryption is activated, the data you transmit to us cannot be read by third parties."
+        },
+        "accessErasureCorrection": {
+          "title": "Access, Erasure, and Rectification",
+          "paragraph": "Within the framework of the applicable statutory provisions, you have the right at any time to free information about your stored personal data, its origin and recipient, and the purpose of the data processing, and, if applicable, a right to rectification or erasure of this data. If you have further questions on the subject of personal data, you may contact us at any time."
+        },
+        "processingRestriction": {
+          "title": "Right to Restriction of Processing",
+          "intro": "You have the right to request the restriction of the processing of your personal data. To do so, you may contact us at any time. The right to restriction of processing exists in the following cases:",
+          "items": {
+            "disputedAccuracy": "If you dispute the accuracy of your personal data stored by us, we generally need time to verify this. For the duration of the verification, you have the right to request the restriction of the processing of your personal data.",
+            "unlawfulProcessing": "If the processing of your personal data has occurred/is occurring unlawfully, you may request the restriction of data processing instead of erasure.",
+            "noLongerNeeded": "If we no longer need your personal data, but you need it to assert, exercise, or defend legal claims, you have the right to request the restriction of the processing of your personal data instead of erasure.",
+            "pendingObjection": "If you have lodged an objection pursuant to Art. 21(1) GDPR, a balance must be struck between your interests and ours. As long as it has not yet been determined whose interests prevail, you have the right to request the restriction of the processing of your personal data."
+          },
+          "outro": "If you have restricted the processing of your personal data, this data may, with the exception of its storage, only be processed with your consent or for the assertion, exercise, or defense of legal claims, or for the protection of the rights of another natural or legal person, or for reasons of important public interest of the European Union or a member state."
         }
       }
     }

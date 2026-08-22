@@ -5,6 +5,13 @@ import BreadcrumbSchema from '../components/BreadcrumbSchema'
 import { DEFAULT_LANGUAGE } from '../../i18n/languages'
 import { useLanguage } from '../../i18n/useLanguage'
 
+const processingRestrictionItemIds = [
+  'disputedAccuracy',
+  'unlawfulProcessing',
+  'noLongerNeeded',
+  'pendingObjection',
+] as const
+
 function DatenschutzPage() {
   const { t } = useTranslation('legal')
   const language = useLanguage()
@@ -158,115 +165,49 @@ function DatenschutzPage() {
             <p>{t('datenschutz.sections.generalInfo.consentWithdrawal.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen
-              Direktwerbung (Art. 21 DSGVO)
+              {t('datenschutz.sections.generalInfo.objectionRight.title')}
             </h3>
             <p className="mb-4 p-4 bg-green-light-100 rounded-lg">
-              Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO
-              erfolgt, haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen
-              Situation ergeben, gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch
-              einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Wenn
-              Sie Widerspruch einlegen, werden wir Ihre betroffenen personenbezogenen Daten nicht
-              mehr verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die
-              Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen oder
-              die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von
-              Rechtsansprüchen (Widerspruch nach Art. 21 Abs. 1 DSGVO).
+              {t('datenschutz.sections.generalInfo.objectionRight.paragraph1')}
             </p>
             <p className="p-4 bg-green-light-100 rounded-lg">
-              Werden Ihre personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, so
-              haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung Sie betreffender
-              personenbezogener Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für
-              das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. Wenn Sie
-              widersprechen, werden Ihre personenbezogenen Daten anschließend nicht mehr zum Zwecke
-              der Direktwerbung verwendet (Widerspruch nach Art. 21 Abs. 2 DSGVO).
+              {t('datenschutz.sections.generalInfo.objectionRight.paragraph2')}
             </p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Beschwerderecht bei der zuständigen Aufsichtsbehörde
+              {t('datenschutz.sections.generalInfo.complaintRight.title')}
             </h3>
-            <p>
-              Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei
-              einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen
-              Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das
-              Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder
-              gerichtlicher Rechtsbehelfe.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.complaintRight.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Recht auf Datenübertragbarkeit
+              {t('datenschutz.sections.generalInfo.dataPortability.title')}
             </h3>
-            <p>
-              Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung
-              eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem
-              gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte
-              Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur,
-              soweit es technisch machbar ist.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.dataPortability.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              SSL- bzw. TLS-Verschlüsselung
+              {t('datenschutz.sections.generalInfo.sslTls.title')}
             </h3>
-            <p>
-              Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
-              Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als
-              Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte
-              Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf
-              „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. Wenn die SSL-
-              bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln,
-              nicht von Dritten mitgelesen werden.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.sslTls.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Auskunft, Löschung und Berichtigung
+              {t('datenschutz.sections.generalInfo.accessErasureCorrection.title')}
             </h3>
-            <p>
-              Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf
-              unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren
-              Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf
-              Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema
-              personenbezogene Daten können Sie sich jederzeit an uns wenden.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.accessErasureCorrection.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Recht auf Einschränkung der Verarbeitung
+              {t('datenschutz.sections.generalInfo.processingRestriction.title')}
             </h3>
             <p className="mb-4">
-              Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten
-              zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf
-              Einschränkung der Verarbeitung besteht in folgenden Fällen:
+              {t('datenschutz.sections.generalInfo.processingRestriction.intro')}
             </p>
             <ul className="list-disc list-inside space-y-2 mb-4">
-              <li>
-                Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten
-                bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer
-                der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer
-                personenbezogenen Daten zu verlangen.
-              </li>
-              <li>
-                Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht,
-                können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.
-              </li>
-              <li>
-                Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur
-                Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie
-                das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer
-                personenbezogenen Daten zu verlangen.
-              </li>
-              <li>
-                Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine
-                Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch
-                nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die
-                Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-              </li>
+              {processingRestrictionItemIds.map((id) => (
+                <li key={id}>
+                  {t(`datenschutz.sections.generalInfo.processingRestriction.items.${id}`)}
+                </li>
+              ))}
             </ul>
-            <p>
-              Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen
-              diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur
-              Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der
-              Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines
-              wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats
-              verarbeitet werden.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.processingRestriction.outro')}</p>
           </div>
 
           {/* Section 4: Datenerfassung auf dieser Website */}
