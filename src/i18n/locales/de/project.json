@@ -59,6 +59,7 @@
     "sectionLabel": "System-Architektur",
     "title": "Der Weg der Daten",
     "description": "So gelangen die Messwerte vom Baum bis zur optimierten Bewässerungsroute durch das Green Ecolution System.",
+    "streamletRich": "Die Routenoptimierung im Backend übernimmt <streamlet>Streamlet</streamlet>, ein eigenes Open-Source-Projekt, das sich auch außerhalb von Green Ecolution einsetzen lässt.",
     "steps": {
       "sensor": {
         "label": "Sensor",

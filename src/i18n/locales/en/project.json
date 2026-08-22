@@ -59,6 +59,7 @@
     "sectionLabel": "System Architecture",
     "title": "The path of the data",
     "description": "This is how the readings travel from the tree to the optimized irrigation route through the Green Ecolution system.",
+    "streamletRich": "Route optimisation in the backend is handled by <streamlet>Streamlet</streamlet>, a separate open source project that can also be used outside Green Ecolution.",
     "steps": {
       "sensor": {
         "label": "Sensor",
