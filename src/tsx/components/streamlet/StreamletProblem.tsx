@@ -106,7 +106,7 @@ function StreamletProblem() {
           </div>
 
           <h2 className="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl xl:text-4xl">
-            Wenn die Ladung nicht für die ganze Tour reicht
+            Reihenfolge und Nachfüllen hängen voneinander ab
           </h2>
 
           <p className="text-grey-900/70 leading-relaxed mb-4">
@@ -117,14 +117,14 @@ function StreamletProblem() {
 
           <p className="text-grey-900/70 leading-relaxed mb-4">
             Wer das dem Solver nicht mitgeben kann, hat zwei Möglichkeiten, und beide kosten. Die
-            Tour ohne Nachfüllstopp planen und ein unzulässiges Ergebnis erhalten, oder die Tour von
-            Hand in Teilstücke schneiden und damit die Optimierung über das Ganze aufgeben.
+            Tour ohne das Nachfüllen planen und ein unzulässiges Ergebnis erhalten, oder die Tour
+            von Hand in Teilstücke schneiden und damit die Optimierung über das Ganze aufgeben.
           </p>
 
           <p className="text-grey-900/70 leading-relaxed">
             Genau hier setzt Streamlet an. Nachfüllstationen sind Teil des Problems, nicht eine
             Sache, die hinterher hineingerechnet wird. Bei Green Ecolution lief diese Stufe vorher
-            auf Vroom, das mehrere Nachfüllpunkte mitten in der Tour nicht modellieren kann.
+            auf Vroom, das mehrere Nachfüllstationen mitten in der Tour nicht abbilden konnte.
           </p>
         </div>
 

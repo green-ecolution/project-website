@@ -13,7 +13,7 @@ import { applyDocumentMeta } from '../helper/documentMeta'
 function StreamletPage() {
   useEffect(() => {
     applyDocumentMeta({
-      title: 'Streamlet | Tourenplanung mit Nachfüllstopps | Green Ecolution',
+      title: 'Streamlet | Tourenplanung mit Nachfüllstationen | Green Ecolution',
       description:
         'Streamlet ist ein eigenständiger Open-Source-Dienst für Tourenplanung mit Zeitfenstern und mehreren Nachfüllstationen. Zustandslose HTTP-API, deterministischer Solver, AGPL-3.0.',
       url: `${window.location.origin}/streamlet`,

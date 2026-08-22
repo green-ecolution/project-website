@@ -24,8 +24,8 @@ interface FitCriterion {
 }
 
 export const fitCriteria: FitCriterion[] = [
-  { label: 'Fahrzeuge mit begrenzter Ladekapazität', icon: Container },
-  { label: 'Haltepunkte mit Zeitfenstern', icon: Clock },
+  { label: 'Fahrzeuge mit begrenzter Tankkapazität', icon: Container },
+  { label: 'Halte mit Zeitfenstern', icon: Clock },
   { label: 'Nachfüllen oder Umladen mitten in der Tour', icon: Fuel },
   { label: 'Mehrere mögliche Nachfüllstationen', icon: Repeat },
   { label: 'Rückkehr zum Depot am Schichtende', icon: Warehouse },
@@ -54,7 +54,7 @@ export const solveFlowSteps: SolveFlowStep[] = [
     step: '03',
     label: 'Routen erhalten',
     description:
-      'Die Antwort enthält die Routen mit Reihenfolge der Stopps, Distanz, Fahrt- und Wartezeit, Geometrie sowie die Halte, die unbedient bleiben.',
+      'Die Antwort enthält für jede Route die Reihenfolge der Halte, Distanz, Fahrt- und Wartezeit sowie die Geometrie. Dazu kommt die Liste der Halte, die unbedient bleiben.',
   },
 ]
 

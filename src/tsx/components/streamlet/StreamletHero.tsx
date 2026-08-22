@@ -19,8 +19,8 @@ function StreamletHero() {
       </h1>
 
       <p className="text-lg text-grey-900/80 leading-relaxed max-w-3xl mb-6 lg:text-xl">
-        Tourenplanung für Fahrzeuge, deren Ladung nicht für die ganze Tour reicht. Streamlet legt
-        die Reihenfolge der Halte fest und plant die Nachfüllstopps unterwegs gleich mit, als
+        Tourenplanung für Fahrzeuge, deren Tankfüllung nicht für die ganze Tour reicht. Streamlet
+        legt die Reihenfolge der Halte fest und plant das Nachfüllen unterwegs gleich mit, als
         eigenständiger Dienst hinter einer HTTP-API.
       </p>
 
