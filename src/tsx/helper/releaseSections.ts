@@ -47,10 +47,15 @@ interface SectionRule {
 }
 
 // First match wins, so put narrow keyword groups before broad ones. Keywords
-// match against the release note's own markdown headings, currently German.
+// match against the release note's own markdown headings, in German or English.
 const SECTION_RULES: SectionRule[] = [
   { id: 'highlights', keywords: ['highlight'], icon: Sparkles, tone: 'brand' },
-  { id: 'important', keywords: ['breaking', 'wichtig'], icon: TriangleAlert, tone: 'muted' },
+  {
+    id: 'important',
+    keywords: ['breaking', 'wichtig', 'important'],
+    icon: TriangleAlert,
+    tone: 'muted',
+  },
   {
     id: 'limitations',
     keywords: ['einschränkung', 'limitation', 'known issue'],
@@ -62,11 +67,11 @@ const SECTION_RULES: SectionRule[] = [
   { id: 'security', keywords: ['sicher', 'security'], icon: ShieldCheck, tone: 'brand' },
   {
     id: 'improvements',
-    keywords: ['verbesser', 'improv', 'optimier'],
+    keywords: ['verbesser', 'improv', 'optimier', 'optimiz'],
     icon: SlidersHorizontal,
     tone: 'brand',
   },
-  { id: 'features', keywords: ['neu', 'feature', 'funktion'], icon: Plus, tone: 'brand' },
+  { id: 'features', keywords: ['neu', 'new', 'feature', 'funktion'], icon: Plus, tone: 'brand' },
   { id: 'refactor', keywords: ['refactor'], icon: Wrench, tone: 'brand' },
   {
     id: 'configuration',
@@ -82,12 +87,17 @@ const SECTION_RULES: SectionRule[] = [
   },
   {
     id: 'technical',
-    keywords: ['technisch', 'technical', 'basis', 'architektur'],
+    keywords: ['technisch', 'technical', 'basis', 'architektur', 'architecture'],
     icon: Settings,
     tone: 'brand',
   },
   { id: 'demo', keywords: ['demo', 'preview', 'ausprobieren'], icon: CirclePlay, tone: 'brand' },
-  { id: 'about', keywords: ['was ist', 'about', 'über'], icon: Lightbulb, tone: 'brand' },
+  {
+    id: 'about',
+    keywords: ['was ist', 'what is', 'about', 'über'],
+    icon: Lightbulb,
+    tone: 'brand',
+  },
   { id: 'core', keywords: ['kern', 'core', 'haupt'], icon: Target, tone: 'brand' },
 ]
 
