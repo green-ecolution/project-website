@@ -86,15 +86,15 @@ export const solverStages: SolverStage[] = [
   {
     label: 'Lokale Suche',
     description:
-      'Eine VND-artige Suche verbessert die Lösung. Sie verschiebt und tauscht Halte innerhalb und zwischen den Routen, und mit Relocate-with-Refill verlegt sie einen Halt samt der nötigen Nachfüllstation.',
+      'Eine VND-artige Suche verbessert die Lösung. Zuerst laufen die günstigen Züge innerhalb einer Route, danach die teureren zwischen den Routen. Findet keiner davon mehr etwas, setzt sie alle Nachfüllbesuche neu und verwirft die, die sich nicht mehr lohnen.',
     icon: GitBranch,
   },
 ]
 
 export const solverMoveEvaluation = {
-  label: 'Zulässigkeit in O(1)',
+  label: 'Load- und Duration-Segmente',
   description:
-    'Beide Phasen bewerten jeden Zug in konstanter Zeit, statt die Route neu durchzurechnen. Dafür sorgen vorberechnete Load- und Duration-Segmente nach Vidal et al. (2014).',
+    'Kapazität und Zeitfenster prüft der Solver über Load- und Duration-Segmente nach Vidal et al. (2014). Sie lassen sich in konstanter Zeit zusammenführen, bewertet wird jeder Zug an der betroffenen Route.',
   icon: Layers,
 } as const
 
@@ -126,7 +126,7 @@ export const tileChangesets: TileChangeset[] = [
     name: 'allowed-paths',
     status: 'in-progress',
     description:
-      'Öffnet Wege für Kraftfahrzeuge, wenn ein Zielpunkt von keiner befahrbaren Straße aus erreichbar ist. Die Zielpunkte übergibst du als GeoJSON-FeatureCollection, der Patcher braucht dafür kein anderes System.',
+      'Öffnet Wege für Kraftfahrzeuge, wenn ein Zielpunkt von keiner befahrbaren Straße aus erreichbar ist. Die Zielpunkte soll der Patcher aus der API von Green Ecolution lesen.',
   },
 ]
 
@@ -146,7 +146,7 @@ export const operationsFacts: OperationsFact[] = [
   {
     label: 'Engine austauschbar',
     description:
-      'Die Routing-Engine hängt hinter dem Port-Trait Router. Bisher gibt es eine Implementierung für Valhalla, eine weitere wird ergänzt, ohne den Solver zu ändern.',
+      'Die Routing-Engine hängt hinter dem Port-Trait Router. Implementiert ist Valhalla. Eine andere Engine lässt sich dahinter setzen, ohne den Solver zu ändern.',
     icon: Repeat,
   },
   {

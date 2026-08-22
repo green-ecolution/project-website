@@ -27,8 +27,9 @@ function StreamletSolver() {
           </h2>
 
           <p className="text-white/60 leading-relaxed max-w-2xl">
-            Der Solver arbeitet in zwei Phasen und ohne Zufall. Dieselbe Eingabe ergibt dieselbe
-            Ausgabe, das macht Ergebnisse reproduzierbar und Regressionen prüfbar.
+            Der Solver arbeitet in zwei Phasen und ohne Zufall. Solange das Zeitbudget nicht greift,
+            ergibt dieselbe Eingabe dieselbe Ausgabe, das macht Ergebnisse reproduzierbar und
+            Regressionen prüfbar.
           </p>
         </div>
 
