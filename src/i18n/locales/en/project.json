@@ -171,5 +171,39 @@
     },
     "moreInPlanningLabel": "and much more in the pipeline",
     "moreIdeasAriaLabel": "More ideas in the pipeline"
+  },
+  "resources": {
+    "sectionLabel": "Resources",
+    "title": "Further links & mentions",
+    "items": {
+      "flensburgSoftware": {
+        "label": "Software for the City of Flensburg",
+        "description": "This is the software that was developed and set up for the City of Flensburg. It is primarily used by the Technisches Betriebszentrum Flensburg (the city's technical operations center)."
+      },
+      "github": {
+        "label": "Organization on GitHub",
+        "description": "There you can find all code repositories associated with the project, such as the backend and frontend of the software"
+      },
+      "hsflBlog": {
+        "label": "Blog post by Hochschule Flensburg",
+        "description": "A post about the research project was also published on the Hochschule Flensburg website."
+      },
+      "hsflInstagram": {
+        "label": "Instagram post by Hochschule Flensburg",
+        "description": "Green Ecolution was mentioned not only on the website but also on Instagram."
+      },
+      "digitalHub": {
+        "label": "Part of DigitalHub.SH 2025",
+        "description": "Green Ecolution was presented and funded as one of the open-source projects as part of DigitalHub.SH 2025."
+      },
+      "pressRelease": {
+        "label": "Press release by the City of Flensburg",
+        "description": "The City of Flensburg also reported on Green Ecolution and its significance for sustainable city management."
+      },
+      "liveDemo": {
+        "label": "Live demo",
+        "description": "The public demo instance, directly in the browser and without installation."
+      }
+    }
   }
 }
