@@ -86,6 +86,33 @@
           "paragraph3": "Our host will only process your data to the extent necessary to fulfill its performance obligations and will follow our instructions with regard to this data.",
           "hostersIntro": "We use the following host:"
         }
+      },
+      "generalInfo": {
+        "title": "3. General Information and Mandatory Disclosures",
+        "dataProtection": {
+          "title": "Data Protection",
+          "paragraph1": "The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy.",
+          "paragraph2": "When you use this website, various personal data is collected. Personal data is data that can be used to personally identify you. This privacy policy explains what data we collect and what we use it for. It also explains how and for what purpose this happens.",
+          "paragraph3": "We would like to point out that data transmission over the Internet (e.g. when communicating by email) may be subject to security vulnerabilities. Complete protection of data against access by third parties is not possible."
+        },
+        "responsibleParty": {
+          "title": "Notice Concerning the Responsible Party",
+          "paragraph1": "The party responsible for data processing on this website is:",
+          "emailLabel": "Email:",
+          "paragraph2": "The responsible party is the natural or legal person who, alone or jointly with others, decides on the purposes and means of the processing of personal data (e.g. names, email addresses, etc.)."
+        },
+        "storageDuration": {
+          "title": "Storage Period",
+          "paragraph": "Unless a more specific storage period has been specified within this privacy policy, your personal data will remain with us until the purpose for the data processing no longer applies. If you assert a legitimate request for deletion or revoke your consent to data processing, your data will be deleted, unless we have other legally permissible reasons for storing your personal data (e.g. tax or commercial law retention periods); in the latter case, deletion will take place once these reasons no longer apply."
+        },
+        "legalBases": {
+          "title": "General Information on the Legal Bases for Data Processing on This Website",
+          "paragraph": "If you have consented to data processing, we process your personal data on the basis of Art. 6(1)(a) GDPR or Art. 9(2)(a) GDPR, insofar as special categories of data pursuant to Art. 9(1) GDPR are processed. If your data is required for the performance of a contract or for the implementation of pre-contractual measures, we process your data on the basis of Art. 6(1)(b) GDPR. Furthermore, we process your data if this is required to fulfill a legal obligation, on the basis of Art. 6(1)(c) GDPR. Data processing may also be carried out on the basis of our legitimate interest pursuant to Art. 6(1)(f) GDPR."
+        },
+        "consentWithdrawal": {
+          "title": "Withdrawal of Your Consent to Data Processing",
+          "paragraph": "Many data processing operations are only possible with your express consent. You may revoke consent already given at any time. The lawfulness of the data processing carried out until the revocation remains unaffected by the revocation."
+        }
       }
     }
   }

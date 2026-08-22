@@ -109,86 +109,53 @@ function DatenschutzPage() {
           {/* Section 3: Allgemeine Hinweise und Pflichtinformationen */}
           <div>
             <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
-              3. Allgemeine Hinweise und Pflichtinformationen
+              {t('datenschutz.sections.generalInfo.title')}
             </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Datenschutz</h3>
-            <p className="mb-4">
-              Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir
-              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen
-              Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-            </p>
-            <p className="mb-4">
-              Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben.
-              Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden
-              können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und
-              wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
-            </p>
-            <p>
-              Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der
-              Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der
-              Daten vor dem Zugriff durch Dritte ist nicht möglich.
-            </p>
-
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Hinweis zur verantwortlichen Stelle
+              {t('datenschutz.sections.generalInfo.dataProtection.title')}
             </h3>
             <p className="mb-4">
-              Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
+              {t('datenschutz.sections.generalInfo.dataProtection.paragraph1')}
+            </p>
+            <p className="mb-4">
+              {t('datenschutz.sections.generalInfo.dataProtection.paragraph2')}
+            </p>
+            <p>{t('datenschutz.sections.generalInfo.dataProtection.paragraph3')}</p>
+
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              {t('datenschutz.sections.generalInfo.responsibleParty.title')}
+            </h3>
+            <p className="mb-4">
+              {t('datenschutz.sections.generalInfo.responsibleParty.paragraph1')}
             </p>
             <address className="not-italic mb-4 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
               <p className="font-bold">PROGEEK GmbH</p>
               <p>Lise-Meitner-Str. 2</p>
               <p>24941 Flensburg</p>
               <p className="mt-2">
-                E-Mail:{' '}
+                {t('impressum.sections.contact.emailLabel')}{' '}
                 <a href="mailto:info@progeek.de" className={linkClasses}>
                   info@progeek.de
                 </a>
               </p>
             </address>
-            <p>
-              Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder
-              gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von
-              personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o.Ä.) entscheidet.
-            </p>
-
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Speicherdauer</h3>
-            <p>
-              Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt
-              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die
-              Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen
-              oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht,
-              sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer
-              personenbezogenen Daten haben (z.B. steuer- oder handelsrechtliche
-              Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall
-              dieser Gründe.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.responsibleParty.paragraph2')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website
+              {t('datenschutz.sections.generalInfo.storageDuration.title')}
             </h3>
-            <p>
-              Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre
-              personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs.
-              2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet
-              werden. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher
-              Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1
-              lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung
-              einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit.
-              c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten
-              Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.storageDuration.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Widerruf Ihrer Einwilligung zur Datenverarbeitung
+              {t('datenschutz.sections.generalInfo.legalBases.title')}
             </h3>
-            <p>
-              Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung
-              möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die
-              Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf
-              unberührt.
-            </p>
+            <p>{t('datenschutz.sections.generalInfo.legalBases.paragraph')}</p>
+
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              {t('datenschutz.sections.generalInfo.consentWithdrawal.title')}
+            </h3>
+            <p>{t('datenschutz.sections.generalInfo.consentWithdrawal.paragraph')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
               Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen
