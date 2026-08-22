@@ -6,7 +6,7 @@ import { streamletLinks } from '../../../data/streamlet'
 
 function StreamletHero() {
   return (
-    <section className="px-4 max-w-208 mx-auto pt-12 pb-14 md:px-6 lg:pt-20 lg:pb-20 lg:max-w-screen-lg xl:pt-24 xl:max-w-screen-xl">
+    <section className="px-4 max-w-208 mx-auto pt-28 pb-14 md:px-6 lg:pt-36 lg:pb-20 lg:max-w-screen-lg xl:pt-44 xl:max-w-screen-xl">
       <div className="inline-block mb-6">
         <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
           Open-Source-Projekt
