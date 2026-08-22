@@ -1,6 +1,7 @@
 import type { Release, ReleaseFrontmatter, ChangelogEntry } from '../../tsx/types/release'
+import { DEFAULT_LANGUAGE, isSupportedLanguage, type Language } from '../../i18n/languages'
 
-const releaseFiles = import.meta.glob<string>('./*.md', {
+const releaseFiles = import.meta.glob<string>('./*/*.md', {
   query: '?raw',
   import: 'default',
   eager: true,
@@ -132,32 +133,60 @@ function parseFrontmatter(raw: string): { data: ReleaseFrontmatter; content: str
   }
 }
 
-export function getAllReleases(): Release[] {
-  return Object.entries(releaseFiles)
-    .map(([path, raw]) => {
-      const { data, content } = parseFrontmatter(raw)
-      return {
-        frontmatter: data,
-        content,
-        slug: path.replace('./', '').replace('.md', ''),
-      }
-    })
-    .sort((a, b) =>
-      b.frontmatter.version.localeCompare(a.frontmatter.version, undefined, {
-        numeric: true,
-      }),
-    )
+const PATH_PATTERN = /^\.\/([^/]+)\/([^/]+)\.md$/
+
+const releasesByLanguage = new Map<Language, Map<string, Release>>()
+
+for (const [path, raw] of Object.entries(releaseFiles)) {
+  const match = PATH_PATTERN.exec(path)
+  if (!match) continue
+
+  const [, language, slug] = match
+  const { data, content } = parseFrontmatter(raw)
+
+  const bucket = releasesByLanguage.get(language as Language) ?? new Map<string, Release>()
+  bucket.set(slug, { frontmatter: data, content, slug })
+  releasesByLanguage.set(language as Language, bucket)
 }
 
-export function getReleaseBySlug(slug: string): Release | undefined {
-  return getAllReleases().find((release) => release.slug === slug)
+function sortByVersionDesc(releases: Release[]): Release[] {
+  return releases.sort((a, b) =>
+    b.frontmatter.version.localeCompare(a.frontmatter.version, undefined, {
+      numeric: true,
+    }),
+  )
 }
 
-export function getAdjacentReleases(slug: string): {
+// German is the canonical language, so its slugs define which releases exist.
+// A release without an English file yet still has to appear on /en, with the
+// German content standing in until the translation is written.
+export function getAllReleases(language: string = DEFAULT_LANGUAGE): Release[] {
+  const normalizedLanguage: Language = isSupportedLanguage(language) ? language : DEFAULT_LANGUAGE
+  const canonical = releasesByLanguage.get(DEFAULT_LANGUAGE) ?? new Map<string, Release>()
+  const translated = releasesByLanguage.get(normalizedLanguage)
+
+  const releases = Array.from(canonical.keys()).map(
+    (slug) => translated?.get(slug) ?? canonical.get(slug)!,
+  )
+
+  return sortByVersionDesc(releases)
+}
+
+export function getReleaseBySlug(
+  slug: string,
+  language: string = DEFAULT_LANGUAGE,
+): Release | undefined {
+  return getAllReleases(language).find((release) => release.slug === slug)
+}
+
+export function getAdjacentReleases(
+  slug: string,
+  language: string = DEFAULT_LANGUAGE,
+): {
   prev: Release | undefined
   next: Release | undefined
 } {
-  const releases = getAllReleases()
+  const releases = getAllReleases(language)
   const currentIndex = releases.findIndex((r) => r.slug === slug)
 
   return {

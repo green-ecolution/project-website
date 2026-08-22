@@ -4,10 +4,12 @@ import { getAllReleases } from '../../content/releases'
 import FeaturedRelease from '../components/releases/FeaturedRelease'
 import ReleaseTimeline from '../components/releases/ReleaseTimeline'
 import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function ReleasesPage() {
   const { t } = useTranslation('releases')
-  const releases = getAllReleases()
+  const lang = useLanguage()
+  const releases = getAllReleases(lang)
   const latestRelease = releases[0]
   const olderReleases = releases.slice(1)
 

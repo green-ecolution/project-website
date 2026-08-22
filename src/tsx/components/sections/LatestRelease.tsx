@@ -9,7 +9,7 @@ import { useLanguage } from '../../../i18n/useLanguage'
 function LatestRelease() {
   const lang = useLanguage()
   const { t } = useTranslation('releases')
-  const releases = getAllReleases()
+  const releases = getAllReleases(lang)
   const latestRelease = releases[0]
 
   if (!latestRelease) return null

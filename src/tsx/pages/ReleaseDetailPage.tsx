@@ -17,8 +17,8 @@ const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 function ReleaseDetailPage() {
   const { lang, slug } = Route.useParams()
   const { t } = useTranslation('releases')
-  const release = getReleaseBySlug(slug)
-  const { prev, next } = getAdjacentReleases(slug)
+  const release = getReleaseBySlug(slug, lang)
+  const { prev, next } = getAdjacentReleases(slug, lang)
 
   const content = release?.content ?? ''
   const sections = useMemo(() => extractSections(content), [content])
@@ -41,7 +41,7 @@ function ReleaseDetailPage() {
   }
 
   const { frontmatter } = release
-  const isLatest = getAllReleases()[0]?.slug === slug
+  const isLatest = getAllReleases(lang)[0]?.slug === slug
   const repository = frontmatter.repository ?? DEFAULT_REPOSITORY
   const showToc = sections.length >= 3
 
