@@ -15,7 +15,7 @@ function StreamletTankGauge({ levelRef, level }: StreamletTankGaugeProps) {
         {t('hero.tank')}
       </span>
 
-      <div className="relative h-1/2 w-3.5 overflow-hidden rounded-full bg-green-dark-900/10">
+      <div className="relative h-1/2 max-h-64 w-3.5 overflow-hidden rounded-full bg-green-dark-900/10">
         <div
           ref={levelRef}
           className="absolute inset-x-0 bottom-0 h-full origin-bottom rounded-full bg-green-light-900"

@@ -1,5 +1,5 @@
 import { BookOpen } from 'lucide-react'
-import { Suspense, lazy, useRef, useState } from 'react'
+import { Suspense, lazy, useRef, useState, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '../Button'
 import Github from '../../icons/Github'
@@ -21,8 +21,8 @@ function StreamletHero() {
 
   return (
     <section className="px-4 max-w-208 mx-auto pt-28 pb-14 md:px-6 lg:pt-36 lg:pb-24 lg:max-w-screen-lg xl:pt-44 xl:max-w-screen-xl">
-      <div className="lg:grid lg:grid-cols-2 lg:gap-x-10 lg:items-start xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-x-14">
-        <div>
+      <div className="lg:grid lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-x-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-x-14">
+        <div className="lg:col-start-1 lg:row-start-1">
           <div className="inline-block mb-6">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
               {t('hero.sectionLabel')}
@@ -34,10 +34,37 @@ function StreamletHero() {
             {t('hero.title')}
           </h1>
 
-          <p className="font-lato text-xl text-grey-900 leading-snug mb-5 lg:text-2xl">
+          <p className="font-lato text-xl text-grey-900 leading-snug lg:text-2xl">
             {t('hero.tagline')}
           </p>
+        </div>
 
+        <figure
+          role="img"
+          aria-label={t('hero.tourAriaLabel')}
+          // the aspect ratio rides on a custom property so the desktop rule can
+          // drop it and let the model fill the height of the text column instead
+          style={
+            {
+              '--tour-aspect': `${tourProjectedSize.width} / ${tourProjectedSize.height}`,
+            } as CSSProperties
+          }
+          className="my-10 flex items-stretch gap-3 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-0 lg:min-h-0 lg:gap-6"
+        >
+          <StreamletTankGauge levelRef={tankLevel} level={tankLevelAt(staticTourPosition)} />
+
+          <div className="flex aspect-[var(--tour-aspect)] min-w-0 flex-1 items-center self-start lg:aspect-auto lg:h-full lg:self-stretch">
+            {canRenderModel ? (
+              <Suspense fallback={<StreamletTourSketch />}>
+                <StreamletTour3D isStatic={prefersReducedMotion} levelRef={tankLevel} />
+              </Suspense>
+            ) : (
+              <StreamletTourSketch />
+            )}
+          </div>
+        </figure>
+
+        <div className="lg:col-start-1 lg:row-start-2 lg:mt-5 lg:self-start">
           <p className="text-grey-900/70 leading-relaxed mb-4">{t('hero.lead')}</p>
 
           <p className="text-grey-900/60 leading-relaxed mb-8">{t('hero.origin')}</p>
@@ -66,27 +93,6 @@ function StreamletHero() {
             </a>
           </div>
         </div>
-
-        <figure
-          role="img"
-          aria-label={t('hero.tourAriaLabel')}
-          className="mt-12 flex items-stretch gap-3 lg:mt-20 lg:gap-6"
-        >
-          <StreamletTankGauge levelRef={tankLevel} level={tankLevelAt(staticTourPosition)} />
-
-          <div
-            className="min-w-0 flex-1 self-start"
-            style={{ aspectRatio: `${tourProjectedSize.width} / ${tourProjectedSize.height}` }}
-          >
-            {canRenderModel ? (
-              <Suspense fallback={<StreamletTourSketch />}>
-                <StreamletTour3D isStatic={prefersReducedMotion} levelRef={tankLevel} />
-              </Suspense>
-            ) : (
-              <StreamletTourSketch />
-            )}
-          </div>
-        </figure>
       </div>
     </section>
   )
