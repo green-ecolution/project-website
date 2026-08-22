@@ -13,3 +13,11 @@ export function dismissVotingBanner() {
 export function isVotingBannerDismissed(): boolean {
   return localStorage.getItem('green_ecolution_voting_banner_dismissed') === 'true'
 }
+
+export function setStoredLanguage(language: string) {
+  localStorage.setItem('green_ecolution_language', language)
+}
+
+export function getStoredLanguage(): string | null {
+  return localStorage.getItem('green_ecolution_language')
+}
