@@ -1,17 +1,16 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import ContactHeroContent from '../components/hero/ContactHeroContent'
 import Hero from '../components/sections/Hero'
 import Stakeholder from '../components/sections/Stakeholder'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 
 function ContactPage() {
-  useEffect(() => {
-    document.title = 'Kontakt | Green Ecolution | Smartes Grünflächenmanagement'
-  }, [])
+  const { t } = useTranslation('contact')
 
-  const heroHeadline = 'Lass uns in Kontakt treten'
-  const heroDescription =
-    'Du hast Fragen zum Projekt, möchtest deine Kommune anbinden oder zur Entwicklung beitragen? Wir freuen uns über jede Nachricht und melden uns zeitnah bei dir.'
+  useEffect(() => {
+    document.title = t('meta.title')
+  }, [t])
 
   return (
     <main
@@ -24,7 +23,11 @@ function ContactPage() {
           { name: 'Kontakt', path: '/contact' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} label="Kontakt">
+      <Hero
+        headline={t('hero.headline')}
+        description={t('hero.description')}
+        label={t('hero.label')}
+      >
         <ContactHeroContent />
       </Hero>
       <Stakeholder hasDesktopList />

@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 interface ContactProps {
@@ -144,7 +145,10 @@ function WateringAnimation({ reducedMotion }: { reducedMotion: boolean }) {
   )
 }
 
+// Used on both the contact page and the homepage, so its keys live in the
+// contact namespace to avoid maintaining the same strings in two places.
 const Contact: React.FC<ContactProps> = ({ spacingTop = true }) => {
+  const { t } = useTranslation('contact')
   const reducedMotion = useReducedMotion()
 
   return (
@@ -155,7 +159,7 @@ const Contact: React.FC<ContactProps> = ({ spacingTop = true }) => {
       {/* Section Label */}
       <div className="inline-block mb-6 lg:mb-8">
         <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-          Kontakt
+          {t('cta.sectionLabel')}
         </span>
         <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
       </div>
@@ -179,21 +183,20 @@ const Contact: React.FC<ContactProps> = ({ spacingTop = true }) => {
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl xl:text-4xl text-white">
-              Lass uns gemeinsam grüner werden
+              {t('cta.headline')}
             </h2>
             <p className="text-white/80 mb-8 max-w-xl lg:max-w-none leading-relaxed">
-              Hast du Fragen, Feedback oder ein Anliegen? Wir freuen uns über deine Nachricht und
-              melden uns so schnell wie möglich bei dir.
+              {t('cta.description')}
             </p>
 
             <div>
               <a
                 href="mailto:info@green-ecolution.de"
-                aria-label="Kontaktiere uns gerne per E-Mail"
+                aria-label={t('cta.mailAriaLabel')}
                 className="group inline-flex items-center justify-center gap-x-3 rounded-xl font-semibold px-8 py-4 bg-white text-green-dark-900 transition-all duration-300 hover:bg-green-light-100 hover:shadow-lg hover:shadow-black/20 hover:scale-105 active:scale-100"
               >
                 <Mail className="w-5 h-5 transition-transform group-hover:-rotate-12" />
-                <span>Schreib uns</span>
+                <span>{t('cta.mailButtonLabel')}</span>
               </a>
             </div>
           </div>

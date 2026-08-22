@@ -1,5 +1,6 @@
 import { Mail, ExternalLink, Leaf, ArrowRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 function FloatingLeaf({
@@ -140,6 +141,7 @@ function ContactCard({
 }
 
 function ContactHeroContent() {
+  const { t } = useTranslation('contact')
   const reducedMotion = useReducedMotion()
 
   return (
@@ -166,7 +168,7 @@ function ContactHeroContent() {
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-light-100 rounded-full mb-4">
           <div className="w-2 h-2 bg-green-light-900 rounded-full animate-pulse" />
           <span className="text-xs font-semibold text-green-dark-900 tracking-wide uppercase">
-            Wir freuen uns auf dich
+            {t('channels.badge')}
           </span>
         </div>
       </div>
@@ -176,18 +178,18 @@ function ContactHeroContent() {
         <ContactCard
           href="mailto:info@green-ecolution.de"
           icon={Mail}
-          title="Schreib uns"
-          description="Hast du Fragen zum Projekt oder möchtest du mehr erfahren? Wir melden uns zeitnah bei dir zurück."
-          cta="E-Mail senden"
+          title={t('channels.mail.label')}
+          description={t('channels.mail.description')}
+          cta={t('channels.mail.cta')}
           accentColor="dark"
         />
 
         <ContactCard
           href="https://github.com/green-ecolution"
           icon="/assets/svg/socials/github.svg"
-          title="Open Source"
-          description="Entdecke unseren Code, trage zur Entwicklung bei oder nutze Green Ecolution für deine Kommune."
-          cta="Auf GitHub ansehen"
+          title={t('channels.github.label')}
+          description={t('channels.github.description')}
+          cta={t('channels.github.cta')}
           isExternal
           accentColor="middle"
         />

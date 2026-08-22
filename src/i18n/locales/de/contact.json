@@ -1,1 +1,31 @@
-{}
+{
+  "meta": {
+    "title": "Kontakt | Green Ecolution | Smartes Grünflächenmanagement",
+    "description": "Kontaktiere Green Ecolution bei Fragen zum Projekt, für die Anbindung deiner Kommune oder um zur Entwicklung beizutragen."
+  },
+  "hero": {
+    "label": "Kontakt",
+    "headline": "Lass uns in Kontakt treten",
+    "description": "Du hast Fragen zum Projekt, möchtest deine Kommune anbinden oder zur Entwicklung beitragen? Wir freuen uns über jede Nachricht und melden uns zeitnah bei dir."
+  },
+  "channels": {
+    "badge": "Wir freuen uns auf dich",
+    "mail": {
+      "label": "Schreib uns",
+      "description": "Hast du Fragen zum Projekt oder möchtest du mehr erfahren? Wir melden uns zeitnah bei dir zurück.",
+      "cta": "E-Mail senden"
+    },
+    "github": {
+      "label": "Open Source",
+      "description": "Entdecke unseren Code, trage zur Entwicklung bei oder nutze Green Ecolution für deine Kommune.",
+      "cta": "Auf GitHub ansehen"
+    }
+  },
+  "cta": {
+    "sectionLabel": "Kontakt",
+    "headline": "Lass uns gemeinsam grüner werden",
+    "description": "Hast du Fragen, Feedback oder ein Anliegen? Wir freuen uns über deine Nachricht und melden uns so schnell wie möglich bei dir.",
+    "mailAriaLabel": "Kontaktiere uns gerne per E-Mail",
+    "mailButtonLabel": "Schreib uns"
+  }
+}
