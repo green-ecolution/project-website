@@ -25,6 +25,13 @@ export default defineConfig(() => {
     process.env.VITE_BUILD_VERSION ?? new Date().toISOString().slice(0, 10).replace(/-/g, '')
 
   return {
+    resolve: {
+      alias: {
+        // vite 8 resolves this package's browser field to a UMD bundle whose default
+        // export is the CJS exports object, so <Lottie /> would receive an object.
+        'lottie-react': 'lottie-react/build/index.es.js',
+      },
+    },
     plugins: [tailwindcss(), TanStackRouterVite({ routesDirectory: './src/routes' }), react()],
     build: {
       rollupOptions: {
