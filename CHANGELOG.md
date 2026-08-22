@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.9.2...v1.10.0) (2026-08-22)
+
+
+### Features
+
+* **i18n:** add English alongside German with language-prefixed routes ([#447](https://github.com/green-ecolution/green-ecolution.de/issues/447)) ([600ee68](https://github.com/green-ecolution/green-ecolution.de/commit/600ee68b39fa865e9ab1e5d6728aa92a760051fc))
+* **streamlet:** add a page for the standalone route optimization service ([#445](https://github.com/green-ecolution/green-ecolution.de/issues/445)) ([2b802b0](https://github.com/green-ecolution/green-ecolution.de/commit/2b802b067423827d406aca4fdb56d43e79368fc3))
+* **streamlet:** show the tour as an animated isometric model in the hero ([#448](https://github.com/green-ecolution/green-ecolution.de/issues/448)) ([4c0e7e7](https://github.com/green-ecolution/green-ecolution.de/commit/4c0e7e78536415ed7feba649830c36827112ce1d))
+
+
+### Bug Fixes
+
+* **build:** resolve lottie-react to its esm entry under vite 8 ([e91f74d](https://github.com/green-ecolution/green-ecolution.de/commit/e91f74de9a24018ca3dd9d5fc762d32171a35f0a))
+* **dev:** keep the dev server and tsc artifacts out of each other's way ([06bfa78](https://github.com/green-ecolution/green-ecolution.de/commit/06bfa7822fa3f0238f3e51e5f936ebf386599739))
+
 ## [1.9.2](https://github.com/green-ecolution/green-ecolution.de/compare/v1.9.1...v1.9.2) (2026-08-19)
 
 
