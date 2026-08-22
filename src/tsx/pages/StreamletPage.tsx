@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 import StreamletApi from '../components/streamlet/StreamletApi'
 import StreamletFit from '../components/streamlet/StreamletFit'
@@ -9,23 +10,27 @@ import StreamletSolver from '../components/streamlet/StreamletSolver'
 import StreamletStatus from '../components/streamlet/StreamletStatus'
 import StreamletTiles from '../components/streamlet/StreamletTiles'
 import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function StreamletPage() {
+  const { t } = useTranslation('streamlet')
+  const language = useLanguage()
+
   useEffect(() => {
     applyDocumentMeta({
-      title: 'Streamlet | Tourenplanung mit Nachfüllstationen | Green Ecolution',
-      description:
-        'Streamlet ist ein eigenständiger Open-Source-Dienst für Tourenplanung mit Zeitfenstern und mehreren Nachfüllstationen. Zustandslose HTTP-API, deterministischer Solver, AGPL-3.0.',
-      url: `${window.location.origin}/streamlet`,
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '/streamlet',
     })
-  }, [])
+  }, [t, language])
 
   return (
     <main id="main-content">
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Streamlet', path: '/streamlet' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.streamlet', path: '/streamlet' },
         ]}
       />
       <StreamletHero />

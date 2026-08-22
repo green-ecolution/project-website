@@ -2,7 +2,15 @@ import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { DEFAULT_LANGUAGE, type Language } from './languages'
 
-export const NAMESPACES = ['common', 'home', 'project', 'contact', 'releases', 'legal'] as const
+export const NAMESPACES = [
+  'common',
+  'home',
+  'project',
+  'streamlet',
+  'contact',
+  'releases',
+  'legal',
+] as const
 
 type Catalog = Record<string, Record<string, unknown>>
 

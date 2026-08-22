@@ -1,6 +1,13 @@
-import { solverBenchmarks, solverMoveEvaluation, solverStages } from '../../../data/streamlet'
+import { useTranslation } from 'react-i18next'
+import { solverBenchmarks, solverMoveEvaluationIcon, solverStages } from '../../../data/streamlet'
+import { useLanguage } from '../../../i18n/useLanguage'
+
+const MoveEvaluationIcon = solverMoveEvaluationIcon
 
 function StreamletSolver() {
+  const { t } = useTranslation('streamlet')
+  const language = useLanguage()
+
   return (
     <section className="relative overflow-hidden bg-[#1a2a16]">
       <div
@@ -17,57 +24,54 @@ function StreamletSolver() {
         <div className="mb-10 lg:mb-14">
           <div className="inline-block mb-6">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Solver
+              {t('solver.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
 
           <h2 className="font-lato font-bold text-2xl mb-4 text-white lg:text-3xl xl:text-4xl">
-            Nachvollziehbar statt zufällig
+            {t('solver.title')}
           </h2>
 
-          <p className="text-white/60 leading-relaxed max-w-2xl">
-            Der Solver arbeitet in zwei Phasen und ohne Zufall. Solange das Zeitbudget nicht greift,
-            ergibt dieselbe Eingabe dieselbe Ausgabe, das macht Ergebnisse reproduzierbar und
-            Regressionen prüfbar.
-          </p>
+          <p className="text-white/60 leading-relaxed max-w-2xl">{t('solver.description')}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-2 lg:gap-8">
           {solverStages.map((stage) => {
             const Icon = stage.icon
             return (
-              <article key={stage.label}>
+              <article key={stage.id}>
                 <div className="mb-4 w-10 h-10 rounded-lg bg-green-dark-900/60 flex items-center justify-center">
                   <Icon className="w-5 h-5 text-green-light-900" aria-hidden="true" />
                 </div>
-                <h3 className="font-lato font-semibold text-white mb-2">{stage.label}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{stage.description}</p>
+                <h3 className="font-lato font-semibold text-white mb-2">
+                  {t(`solver.stages.${stage.id}.label`)}
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  {t(`solver.stages.${stage.id}.description`)}
+                </p>
               </article>
             )
           })}
         </div>
 
         <div className="flex items-start gap-4 mb-12 border-l-2 border-green-light-900/40 pl-5">
-          <solverMoveEvaluation.icon
+          <MoveEvaluationIcon
             className="w-5 h-5 flex-shrink-0 mt-0.5 text-green-light-900"
             aria-hidden="true"
           />
           <p className="text-sm text-white/60 leading-relaxed max-w-2xl">
-            <span className="font-semibold text-white">{solverMoveEvaluation.label}.</span>{' '}
-            {solverMoveEvaluation.description}
+            <span className="font-semibold text-white">{t('solver.moveEvaluation.label')}.</span>{' '}
+            {t('solver.moveEvaluation.description')}
           </p>
         </div>
 
         <div className="rounded-2xl border border-white/10 p-6 lg:p-8">
           <h3 className="font-lato font-semibold text-white mb-2">
-            Gemessen an den Solomon-Instanzen
+            {t('solver.benchmarks.title')}
           </h3>
           <p className="text-sm text-white/60 leading-relaxed mb-6 max-w-2xl">
-            Die Regressionstests lösen bekannte Instanzen des VRPTW, also Tourenplanung mit
-            Zeitfenstern. Sie prüfen, ob die Lösung Kapazität und Zeitfenster einhält und ob sie nah
-            genug am Optimum liegt. Nachfüllstationen enthalten diese Instanzen nicht, gemessen wird
-            also die Grundqualität des Solvers.
+            {t('solver.benchmarks.description')}
           </p>
 
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -77,15 +81,13 @@ function StreamletSolver() {
                   {benchmark.instance}
                 </dt>
                 <dd className="font-lato font-bold text-2xl text-green-light-900">
-                  {benchmark.gap}
+                  {t('solver.benchmarks.gap', { value: benchmark.gap.toLocaleString(language) })}
                 </dd>
               </div>
             ))}
           </dl>
 
-          <p className="text-xs text-white/50 mt-3">
-            Abstand zur besten bekannten Lösung, Schwelle 5&nbsp;%
-          </p>
+          <p className="text-xs text-white/50 mt-3">{t('solver.benchmarks.footnote')}</p>
         </div>
       </div>
     </section>

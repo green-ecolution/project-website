@@ -15,9 +15,9 @@
     "ariaLabel": "Hauptnavigation",
     "heading": "Hauptnavigation",
     "project": "Das Projekt",
+    "streamlet": "Streamlet",
     "releases": "Releases",
     "contact": "Kontakt",
-    "github": "GitHub",
     "tryNow": "Jetzt ausprobieren",
     "imprint": "Impressum",
     "privacy": "Datenschutz"
@@ -72,6 +72,7 @@
   "breadcrumb": {
     "home": "Startseite",
     "project": "Projekt",
+    "streamlet": "Streamlet",
     "contact": "Kontakt",
     "imprint": "Impressum",
     "privacy": "Datenschutz"
