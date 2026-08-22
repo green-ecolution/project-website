@@ -7,13 +7,20 @@ import {
   BarChart3,
 } from 'lucide-react'
 import { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
+
+type FeatureId = 'dashboard' | 'grouping' | 'fleet' | 'tourPlanning' | 'teamManagement' | 'analysis'
 
 interface Feature {
-  label: string
+  id: FeatureId
   icon: ReactNode
-  description: string
   color: 'green-light' | 'green-dark' | 'green-middle'
   size?: 'default' | 'large'
+}
+
+interface TranslatedFeature extends Feature {
+  label: string
+  description: string
 }
 
 const colorClasses = {
@@ -34,7 +41,7 @@ const iconColorClasses = {
   'green-middle': 'bg-green-middle-900/20 text-green-middle-900',
 }
 
-function FeatureCard({ feature }: { feature: Feature }) {
+function FeatureCard({ feature }: { feature: TranslatedFeature }) {
   return (
     <div
       className={`
@@ -67,48 +74,38 @@ function FeatureCard({ feature }: { feature: Feature }) {
 }
 
 function Features() {
+  const { t } = useTranslation('home')
+
   const features: Feature[] = [
     {
-      label: 'Echtzeit-Dashboard',
+      id: 'dashboard',
       icon: <LayoutDashboard />,
-      description:
-        'Alle wichtigen KPIs auf einen Blick: Bodenfeuchtewerte, anstehende Touren, Teamverfügbarkeit und Fahrzeugstatus in einem zentralen Dashboard.',
       color: 'green-dark',
       size: 'large',
     },
     {
-      label: 'Intelligente Gruppierung',
+      id: 'grouping',
       icon: <TreeDeciduous />,
-      description:
-        'Fasse Bäume zu Bewässerungs\u00ADeinheiten zusammen. Automatische Berechnung des Wasserbedarfs pro Cluster.',
       color: 'green-light',
     },
     {
-      label: 'Fleet Management',
+      id: 'fleet',
       icon: <Truck />,
-      description:
-        'Verwalte Transporter und Anhänger mit Wasserkapazitäten. Automatische Nachfüllstopps in der Routenplanung.',
       color: 'green-middle',
     },
     {
-      label: 'Tour-Planung',
+      id: 'tourPlanning',
       icon: <ClipboardList />,
-      description:
-        'Optimierte Bewässerungspläne mit Echtzeit-Status: Von „geplant“ über „aktiv“ bis „abgeschlossen“.',
       color: 'green-middle',
     },
     {
-      label: 'Teamverwaltung',
+      id: 'teamManagement',
       icon: <Users />,
-      description:
-        'Verwalte Fahrer mit Führerscheinklassen und Verfügbarkeit. Optimiere die Einsatzplanung.',
       color: 'green-light',
     },
     {
-      label: 'Nachanalyse',
+      id: 'analysis',
       icon: <BarChart3 />,
-      description:
-        'Dokumentiere den tatsächlichen Wasserverbrauch pro Cluster und Tour. Analysiere Trends und optimiere zukünftige Planungen datenbasiert.',
       color: 'green-dark',
       size: 'large',
     },
@@ -123,7 +120,7 @@ function Features() {
       <div className="text-center mb-6 lg:mb-8">
         <div className="inline-block">
           <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-            Features
+            {t('features.sectionLabel')}
           </span>
           <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1 mx-auto" />
         </div>
@@ -131,21 +128,26 @@ function Features() {
 
       <article className="mb-8 lg:mb-14 text-center">
         <h2 className="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl">
-          Green Ecolution im Überblick
+          {t('features.title')}
         </h2>
         <p className="text-grey-900/70 max-w-2xl mx-auto leading-relaxed">
-          Von der Sensorerfassung über die intelligente Routenplanung bis zur detaillierten
-          Auswertung: alle Funktionen für ein effizientes und nachhaltiges Grünflächenmanagement
+          {t('features.description')}
         </p>
       </article>
 
       <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4 lg:grid-rows-2">
         {features.map((feature, index) => (
           <div
-            key={feature.label}
+            key={feature.id}
             className={`${feature.size === 'large' ? 'col-span-2' : ''} ${index === 0 ? 'lg:row-span-1' : ''}`}
           >
-            <FeatureCard feature={feature} />
+            <FeatureCard
+              feature={{
+                ...feature,
+                label: t(`features.items.${feature.id}.label`),
+                description: t(`features.items.${feature.id}.description`),
+              }}
+            />
           </div>
         ))}
       </div>

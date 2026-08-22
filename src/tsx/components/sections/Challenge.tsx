@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next'
 import { challengeFigures } from '../../../data/challengeFigures'
 
 function Challenge() {
+  const { t } = useTranslation('home')
+
   return (
     <section className="relative overflow-hidden">
       {/* Dark gradient background — steeper angle for distinct feel vs Contact/Demo */}
@@ -35,9 +38,9 @@ function Challenge() {
 
             <blockquote className="border-l-2 border-green-light-900/30 pl-6 lg:pl-8">
               <p className="font-lato text-2xl font-light italic text-white leading-snug max-w-3xl md:text-3xl lg:text-4xl xl:text-5xl">
-                Städte gießen nach Gefühl.
+                {t('challenge.quoteLine1')}
                 <br />
-                <span className="text-green-light-900">Nicht nach Bedarf.</span>
+                <span className="text-green-light-900">{t('challenge.quoteLine2')}</span>
               </p>
             </blockquote>
           </div>
@@ -47,31 +50,27 @@ function Challenge() {
 
           {/* Supporting text */}
           <p className="text-white/70 leading-relaxed max-w-3xl mb-12 lg:mb-16 lg:text-lg">
-            Städtische Grünflächen regulieren das Mikroklima, fördern Biodiversität und stärken den
-            Standortwettbewerb. Doch anhaltende Trockenheit und fehlende Digitalisierung gefährden
-            dieses Gut. Die Bewässerungsplanung vieler Kommunen stützt sich allein auf die
-            Einschätzung einzelner Mitarbeiter, ganz ohne Datengrundlage. Statt bedarfsgerechter
-            Bewässerung wird pauschal gegossen, was Wasser verschwendet und trotzdem nicht alle
-            Bäume erreicht. Nicht optimierte Bewässerungsfahrten verursachen zusätzlich vermeidbare
-            CO₂-Emissionen.
+            {t('challenge.supportingText')}
           </p>
 
           {/* Cost Figures Grid */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">
             {challengeFigures.map((figure) => (
               <article
-                key={figure.unit}
+                key={figure.id}
                 className="group bg-white/[0.07] backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-lg"
               >
                 <div className="mb-3">
                   <span className="font-lato text-3xl font-bold text-white tracking-tight lg:text-4xl xl:text-5xl">
-                    {figure.value}
+                    {t(`challenge.figures.${figure.id}.value`)}
                   </span>
                 </div>
                 <span className="inline-block text-xs font-semibold tracking-widest uppercase text-green-light-900 mb-3">
-                  {figure.unit}
+                  {t(`challenge.figures.${figure.id}.unit`)}
                 </span>
-                <p className="text-white/60 text-sm leading-relaxed">{figure.description}</p>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  {t(`challenge.figures.${figure.id}.description`)}
+                </p>
               </article>
             ))}
           </div>

@@ -1,18 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { sensorSpecs, sensorFeatures } from '../../../data/sensorSpecs'
 
 function SoilIllustration({ reducedMotion }: { reducedMotion: boolean }) {
+  const { t } = useTranslation('home')
   const depths = [
-    { y: 120, label: '30 cm', color: '#658A58', zone: 'Feinwurzeln' },
-    { y: 200, label: '60 cm', color: '#4C7741', zone: 'Hauptwurzeln' },
-    { y: 280, label: '90 cm', color: '#3D5F35', zone: 'Tiefenwurzeln' },
+    { y: 120, label: '30 cm', color: '#658A58', zone: t('sensorProbe.zones.fineRoots') },
+    { y: 200, label: '60 cm', color: '#4C7741', zone: t('sensorProbe.zones.mainRoots') },
+    { y: 280, label: '90 cm', color: '#3D5F35', zone: t('sensorProbe.zones.deepRoots') },
   ]
 
   return (
     <svg
       viewBox="0 0 320 360"
       className="w-full max-w-sm mx-auto"
-      aria-label="Schematische Darstellung einer Bodensonde in drei Tiefen"
+      aria-label={t('sensorProbe.illustrationAriaLabel')}
       role="img"
     >
       {/* Sky */}
@@ -218,6 +220,7 @@ function SoilIllustration({ reducedMotion }: { reducedMotion: boolean }) {
 }
 
 function SensorProbe() {
+  const { t } = useTranslation('home')
   const reducedMotion = useReducedMotion()
 
   return (
@@ -235,35 +238,30 @@ function SensorProbe() {
           {/* Section Label */}
           <div className="inline-block mb-6">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Hardware
+              {t('sensorProbe.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
 
           {/* Heading */}
           <h2 className="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl xl:text-4xl">
-            Die Bodensonde
+            {t('sensorProbe.title')}
           </h2>
 
           {/* Description */}
-          <p className="text-grey-900/70 leading-relaxed mb-8">
-            Konzipiert für den Einsatz im öffentlichen Raum. Sensoren in drei Tiefen (30, 60 und 90
-            cm) bilden das gesamte Wurzelprofil eines Baumes ab, von den oberflächennahen
-            Feinwurzeln bis zu den tieferen Hauptwurzeln. So lässt sich erkennen, ob Wasser
-            tatsächlich im Wurzelbereich ankommt oder nur die Oberfläche benetzt wird. Die
-            Installation erfolgt bodenbündig mit handelsüblichen Erdbohrern. Pflegearbeiten wie
-            Mähen werden nicht beeinträchtigt.
-          </p>
+          <p className="text-grey-900/70 leading-relaxed mb-8">{t('sensorProbe.description')}</p>
 
           {/* Spec Badges */}
           <div className="flex flex-wrap gap-3 mb-8">
             {sensorSpecs.map((spec) => (
               <div
-                key={spec.label}
+                key={spec.id}
                 className="flex items-center gap-2 border border-green-light-900/40 rounded-full px-4 py-2 transition-all duration-300 hover:border-green-light-900 hover:bg-green-light-100/50 hover:shadow-sm cursor-default"
               >
                 <span className="font-lato font-bold text-green-dark-900">{spec.value}</span>
-                <span className="text-sm text-grey-600">{spec.label}</span>
+                <span className="text-sm text-grey-600">
+                  {t(`sensorProbe.specs.${spec.id}.label`)}
+                </span>
               </div>
             ))}
           </div>
@@ -273,15 +271,17 @@ function SensorProbe() {
             {sensorFeatures.map((feature) => {
               const Icon = feature.icon
               return (
-                <div key={feature.label} className="flex items-start gap-4">
+                <div key={feature.id} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-light-900/15 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-green-dark-900" />
                   </div>
                   <div>
                     <h3 className="font-lato font-semibold text-grey-900 mb-0.5">
-                      {feature.label}
+                      {t(`sensorProbe.features.${feature.id}.label`)}
                     </h3>
-                    <p className="text-sm text-grey-600 leading-relaxed">{feature.description}</p>
+                    <p className="text-sm text-grey-600 leading-relaxed">
+                      {t(`sensorProbe.features.${feature.id}.description`)}
+                    </p>
                   </div>
                 </div>
               )
