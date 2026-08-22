@@ -1,1 +1,82 @@
-{}
+{
+  "overview": {
+    "meta": {
+      "title": "Releases | Green Ecolution | Smartes Grünflächenmanagement",
+      "description": "Alle Versionen von Green Ecolution im Überblick, von neuen Funktionen bis zu behobenen Fehlern."
+    },
+    "eyebrow": "Releases",
+    "title": "Release Notes",
+    "description": "Hier siehst du, was sich von Version zu Version geändert hat, von neuen Funktionen bis zu behobenen Fehlern.",
+    "currentReleaseLabel": "Aktuelles Release"
+  },
+  "detail": {
+    "meta": {
+      "title": "v{{version}} - {{title}} | Green Ecolution"
+    },
+    "backToOverview": "Alle Releases",
+    "backToOverviewAriaLabel": "Zurück zu allen Releases",
+    "eyebrow": "Release Notes",
+    "githubReleaseLabel": "Release",
+    "sourceLabel": "Source",
+    "navAriaLabel": "Release Navigation",
+    "newerVersion": "Neuere Version",
+    "olderVersion": "Ältere Version",
+    "feedback": {
+      "text": "Fehler gefunden oder Feedback zu diesem Release? <issue>Issue erstellen →</issue>"
+    }
+  },
+  "badge": {
+    "current": "Aktuell"
+  },
+  "featured": {
+    "viewDetails": "Details ansehen"
+  },
+  "card": {
+    "maintenanceBadge": "Wartung",
+    "readMore": "Mehr erfahren"
+  },
+  "timeline": {
+    "yearAriaLabel": "Releases aus {{year}}",
+    "empty": "Es sind noch keine Release Notes vorhanden."
+  },
+  "toc": {
+    "ariaLabel": "Abschnitte dieser Release Note",
+    "title": "Inhalt"
+  },
+  "latest": {
+    "eyebrow": "Releases",
+    "title": "Was gibt's Neues?",
+    "description": "Wir entwickeln Green Ecolution kontinuierlich weiter. Schau dir die neuesten Funktionen an und erfahre, woran wir gerade arbeiten.",
+    "viewAll": "Alle Releases",
+    "viewAllAriaLabel": "Alle Releases ansehen",
+    "viewDetails": "Details ansehen"
+  },
+  "changelog": {
+    "fileHeader": "CHANGELOG.md - v{{version}}",
+    "comment": "# Changelog for v{{version}}"
+  },
+  "sections": {
+    "highlights": "Highlights",
+    "important": "Wichtiger Hinweis",
+    "limitations": "Bekannte Einschränkungen",
+    "outlook": "Ausblick",
+    "fixes": "Fehlerbehebungen",
+    "security": "Sicherheit",
+    "improvements": "Verbesserungen",
+    "features": "Neue Funktionen",
+    "refactor": "Refactoring",
+    "configuration": "Konfiguration",
+    "documentation": "Dokumentation",
+    "technical": "Technische Grundlagen",
+    "demo": "Demo",
+    "about": "Einführung",
+    "core": "Kernfunktionen",
+    "general": "Änderungen"
+  },
+  "stats": {
+    "features_one": "{{count}} neue Funktion",
+    "features_other": "{{count}} neue Funktionen",
+    "fixes_one": "{{count}} Behebung",
+    "fixes_other": "{{count}} Behebungen"
+  }
+}

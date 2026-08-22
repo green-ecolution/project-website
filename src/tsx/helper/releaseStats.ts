@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next'
 import type { Release } from '../types/release'
 
 export type ReleaseKind = 'feature' | 'maintenance'
@@ -25,14 +26,14 @@ export function getReleaseStats(release: Release): ReleaseStats {
   }
 }
 
-export function formatReleaseStats(stats: ReleaseStats): string[] {
+export function formatReleaseStats(stats: ReleaseStats, t: TFunction<'releases'>): string[] {
   const parts: string[] = []
 
   if (stats.features > 0) {
-    parts.push(`${stats.features} ${stats.features === 1 ? 'neue Funktion' : 'neue Funktionen'}`)
+    parts.push(t('stats.features', { count: stats.features }))
   }
   if (stats.fixes > 0) {
-    parts.push(`${stats.fixes} ${stats.fixes === 1 ? 'Behebung' : 'Behebungen'}`)
+    parts.push(t('stats.fixes', { count: stats.fixes }))
   }
 
   return parts

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getSectionRule, slugifyHeading, type TocEntry } from '../../helper/releaseSections'
@@ -34,6 +35,7 @@ function getTextContent(node: ReactNode): string {
 
 const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) => {
   const lang = useLanguage()
+  const { t } = useTranslation('releases')
 
   // Keyed by source line rather than by render order: React may render a heading
   // more than once, which would desynchronise any counter kept across calls.
@@ -45,11 +47,11 @@ const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) 
       components={{
         h2: ({ node, children }) => {
           const text = getTextContent(children)
-          const { icon: Icon, tone } = getSectionRule(text)
-          const id = idByLine.get(node?.position?.start.line ?? -1) ?? slugifyHeading(text)
+          const { id: sectionId, icon: Icon, tone } = getSectionRule(text)
+          const headingId = idByLine.get(node?.position?.start.line ?? -1) ?? slugifyHeading(text)
 
           return (
-            <div className="flex items-center gap-3 mt-10 mb-4 first:mt-0" id={id}>
+            <div className="flex items-center gap-3 mt-10 mb-4 first:mt-0" id={headingId}>
               <span
                 className={`inline-flex items-center justify-center w-8 h-8 rounded-lg flex-shrink-0 ${
                   tone === 'brand'
@@ -58,6 +60,7 @@ const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) 
                 }`}
               >
                 <Icon className="w-4 h-4" aria-hidden="true" />
+                <span className="sr-only">{t(`sections.${sectionId}`)}</span>
               </span>
               <h2 className="text-lg font-lato font-bold text-grey-900">{children}</h2>
             </div>

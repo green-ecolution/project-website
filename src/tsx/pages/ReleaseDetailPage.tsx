@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { Link, redirect } from '@tanstack/react-router'
 import { ArrowLeft, ArrowRight, CodeXml } from 'lucide-react'
+import { Trans, useTranslation } from 'react-i18next'
 import { getReleaseBySlug, getAdjacentReleases, getAllReleases } from '../../content/releases'
 import { Route } from '../../routes/$lang/releases_.$slug'
 import { formatReleaseDate } from '../helper/formatDate'
@@ -15,6 +16,7 @@ const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 
 function ReleaseDetailPage() {
   const { lang, slug } = Route.useParams()
+  const { t } = useTranslation('releases')
   const release = getReleaseBySlug(slug)
   const { prev, next } = getAdjacentReleases(slug)
 
@@ -25,11 +27,14 @@ function ReleaseDetailPage() {
     if (!release) return
 
     applyDocumentMeta({
-      title: `v${release.frontmatter.version} - ${release.frontmatter.title} | Green Ecolution`,
+      title: t('detail.meta.title', {
+        version: release.frontmatter.version,
+        title: release.frontmatter.title,
+      }),
       description: release.frontmatter.summary,
       url: `${window.location.origin}/releases/${release.slug}`,
     })
-  }, [release])
+  }, [release, t])
 
   if (!release) {
     throw redirect({ to: '/$lang/releases', params: { lang } })
@@ -49,7 +54,7 @@ function ReleaseDetailPage() {
         <Link
           to="/$lang/releases"
           params={{ lang }}
-          aria-label="Zurück zu allen Releases"
+          aria-label={t('detail.backToOverviewAriaLabel')}
           className="group inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:gap-3 transition-all mb-8"
         >
           <span
@@ -58,13 +63,13 @@ function ReleaseDetailPage() {
           >
             <ArrowLeft className="w-4 h-4" />
           </span>
-          <span className="group-hover:underline">Alle Releases</span>
+          <span className="group-hover:underline">{t('detail.backToOverview')}</span>
         </Link>
 
         <header className="mb-10">
           <div className="inline-block mb-4">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Release Notes
+              {t('detail.eyebrow')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
@@ -76,11 +81,11 @@ function ReleaseDetailPage() {
               </span>
               {isLatest && (
                 <span className="inline-flex items-center bg-green-light-900 text-white px-4 py-1.5 rounded-full text-sm font-lato font-bold shadow-xs">
-                  Aktuell
+                  {t('badge.current')}
                 </span>
               )}
               <time dateTime={frontmatter.date} className="text-grey-900/60 text-sm">
-                {formatReleaseDate(frontmatter.date)}
+                {formatReleaseDate(frontmatter.date, lang)}
               </time>
             </div>
             <span className="text-grey-900/30 hidden sm:inline">|</span>
@@ -92,7 +97,7 @@ function ReleaseDetailPage() {
                 className="inline-flex items-center gap-1.5 text-sm text-grey-900/60 hover:text-green-dark-900 transition-colors"
               >
                 <GithubIcon classes="w-4 h-4" />
-                Release
+                {t('detail.githubReleaseLabel')}
               </a>
               <a
                 href={`${repository}/tree/v${frontmatter.version}`}
@@ -101,7 +106,7 @@ function ReleaseDetailPage() {
                 className="inline-flex items-center gap-1.5 text-sm text-grey-900/60 hover:text-green-dark-900 transition-colors"
               >
                 <CodeXml className="w-4 h-4" aria-hidden="true" />
-                Source
+                {t('detail.sourceLabel')}
               </a>
             </div>
           </div>
@@ -155,7 +160,7 @@ function ReleaseDetailPage() {
         </div>
 
         <nav
-          aria-label="Release Navigation"
+          aria-label={t('detail.navAriaLabel')}
           className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {prev ? (
@@ -165,7 +170,7 @@ function ReleaseDetailPage() {
               className="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all"
             >
               <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">
-                Neuere Version
+                {t('detail.newerVersion')}
               </span>
               <div className="flex items-center gap-3 mt-2">
                 <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-100 text-grey-400 group-hover:bg-green-dark-900 group-hover:text-white transition-all flex-shrink-0">
@@ -189,7 +194,7 @@ function ReleaseDetailPage() {
               className="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all sm:text-right"
             >
               <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">
-                Ältere Version
+                {t('detail.olderVersion')}
               </span>
               <div className="flex items-center gap-3 mt-2 sm:justify-end">
                 <div className="min-w-0">
@@ -210,15 +215,20 @@ function ReleaseDetailPage() {
 
         <div className="mt-10 pt-6 border-t border-grey-100 text-center">
           <p className="text-grey-900/60 text-sm">
-            Fehler gefunden oder Feedback zu diesem Release?{' '}
-            <a
-              href={`${repository}/issues/new`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-dark-900 hover:underline font-medium"
-            >
-              Issue erstellen →
-            </a>
+            <Trans
+              i18nKey="detail.feedback.text"
+              ns="releases"
+              components={{
+                issue: (
+                  <a
+                    href={`${repository}/issues/new`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-dark-900 hover:underline font-medium"
+                  />
+                ),
+              }}
+            />
           </p>
         </div>
       </article>

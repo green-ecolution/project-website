@@ -1,1 +1,82 @@
-{}
+{
+  "overview": {
+    "meta": {
+      "title": "Releases | Green Ecolution | Smart Green Space Management",
+      "description": "All versions of Green Ecolution at a glance, from new features to bug fixes."
+    },
+    "eyebrow": "Releases",
+    "title": "Release Notes",
+    "description": "Here you can see what has changed from version to version, from new features to bug fixes.",
+    "currentReleaseLabel": "Current release"
+  },
+  "detail": {
+    "meta": {
+      "title": "v{{version}} - {{title}} | Green Ecolution"
+    },
+    "backToOverview": "All releases",
+    "backToOverviewAriaLabel": "Back to all releases",
+    "eyebrow": "Release Notes",
+    "githubReleaseLabel": "Release",
+    "sourceLabel": "Source",
+    "navAriaLabel": "Release navigation",
+    "newerVersion": "Newer version",
+    "olderVersion": "Older version",
+    "feedback": {
+      "text": "Found an error or have feedback on this release? <issue>Create an issue →</issue>"
+    }
+  },
+  "badge": {
+    "current": "Current"
+  },
+  "featured": {
+    "viewDetails": "View details"
+  },
+  "card": {
+    "maintenanceBadge": "Maintenance",
+    "readMore": "Read more"
+  },
+  "timeline": {
+    "yearAriaLabel": "Releases from {{year}}",
+    "empty": "There are no release notes yet."
+  },
+  "toc": {
+    "ariaLabel": "Sections in this release note",
+    "title": "Contents"
+  },
+  "latest": {
+    "eyebrow": "Releases",
+    "title": "What's new?",
+    "description": "We continuously develop Green Ecolution further. Take a look at the latest features and find out what we're currently working on.",
+    "viewAll": "All releases",
+    "viewAllAriaLabel": "View all releases",
+    "viewDetails": "View details"
+  },
+  "changelog": {
+    "fileHeader": "CHANGELOG.md - v{{version}}",
+    "comment": "# Changelog for v{{version}}"
+  },
+  "sections": {
+    "highlights": "Highlights",
+    "important": "Important notice",
+    "limitations": "Known limitations",
+    "outlook": "Outlook",
+    "fixes": "Bug fixes",
+    "security": "Security",
+    "improvements": "Improvements",
+    "features": "New features",
+    "refactor": "Refactoring",
+    "configuration": "Configuration",
+    "documentation": "Documentation",
+    "technical": "Technical foundations",
+    "demo": "Demo",
+    "about": "Introduction",
+    "core": "Core features",
+    "general": "Changes"
+  },
+  "stats": {
+    "features_one": "{{count}} new feature",
+    "features_other": "{{count}} new features",
+    "fixes_one": "{{count}} fix",
+    "fixes_other": "{{count}} fixes"
+  }
+}

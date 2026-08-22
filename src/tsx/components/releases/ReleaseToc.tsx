@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { TocEntry } from '../../helper/releaseSections'
 
 interface ReleaseTocProps {
@@ -10,6 +11,7 @@ interface ReleaseTocProps {
 const ACTIVE_THRESHOLD_PX = 170
 
 const ReleaseToc: React.FC<ReleaseTocProps> = ({ entries }) => {
+  const { t } = useTranslation('releases')
   const [activeId, setActiveId] = useState<string | null>(entries[0]?.id ?? null)
 
   useEffect(() => {
@@ -43,9 +45,9 @@ const ReleaseToc: React.FC<ReleaseTocProps> = ({ entries }) => {
   }, [entries])
 
   return (
-    <nav aria-label="Abschnitte dieser Release Note" className="sticky top-28">
+    <nav aria-label={t('toc.ariaLabel')} className="sticky top-28">
       <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-        Inhalt
+        {t('toc.title')}
       </span>
       <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1 mb-4" />
 

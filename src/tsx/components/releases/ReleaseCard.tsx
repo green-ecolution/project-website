@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type { Release } from '../../types/release'
 import { formatReleaseDate } from '../../helper/formatDate'
 import { formatReleaseStats, getReleaseStats } from '../../helper/releaseStats'
@@ -11,9 +12,10 @@ interface ReleaseCardProps {
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
   const lang = useLanguage()
+  const { t } = useTranslation('releases')
   const { frontmatter, slug } = release
   const stats = getReleaseStats(release)
-  const statLabels = formatReleaseStats(stats)
+  const statLabels = formatReleaseStats(stats, t)
 
   return (
     <article className="group relative">
@@ -31,16 +33,17 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
               </span>
               {stats.kind === 'maintenance' && (
                 <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-grey-900/55 bg-grey-900/10">
-                  Wartung
+                  {t('card.maintenanceBadge')}
                 </span>
               )}
               <time dateTime={frontmatter.date} className="text-grey-900/50 text-sm">
-                {formatReleaseDate(frontmatter.date)}
+                {formatReleaseDate(frontmatter.date, lang)}
               </time>
             </div>
 
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-900/5 text-grey-900/40 transition-all duration-300 group-hover:bg-green-dark-900 group-hover:text-white">
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <span className="sr-only">{t('card.readMore')}</span>
             </span>
           </div>
 
