@@ -1,28 +1,35 @@
+import { useTranslation } from 'react-i18next'
 import AdvantageCard from '../cards/AdvantageCard'
 
-const advantages = [
+type AdvantageId = 'openSource' | 'optimizedRoutes' | 'water'
+
+interface Advantage {
+  id: AdvantageId
+  icon: string
+  accentColor: 'dark' | 'middle'
+}
+
+const advantages: Advantage[] = [
   {
-    label: 'Offene Lösung für alle',
+    id: 'openSource',
     icon: '/assets/svg/general/people.svg',
-    description:
-      'Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz',
-    accentColor: 'dark' as const,
+    accentColor: 'dark',
   },
   {
-    label: 'Optimierte Routen',
+    id: 'optimizedRoutes',
     icon: '/assets/svg/general/map.svg',
-    description: 'Individuelle Einsatzplanung zur effizienteren Bewässerung',
-    accentColor: 'middle' as const,
+    accentColor: 'middle',
   },
   {
-    label: 'Weniger ist mehr',
+    id: 'water',
     icon: '/assets/svg/general/reduce.svg',
-    description: 'Gezielte Bewässerung, weniger Wasserverbrauch',
-    accentColor: 'dark' as const,
+    accentColor: 'dark',
   },
 ]
 
 function Advantages() {
+  const { t } = useTranslation('project')
+
   return (
     <section
       id="vorteile"
@@ -33,26 +40,23 @@ function Advantages() {
         <article className="mb-8 md:mb-0">
           <div className="inline-block mb-4">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Vorteile
+              {t('advantages.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
           <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900">
-            Alle weiteren Funktionen und Vorteile
+            {t('advantages.title')}
           </h2>
-          <p className="text-grey-600 leading-relaxed">
-            Das Projekt ist öffentlich einsehbar und hat als Ziel, den Wasserverbrauch für die
-            Bewässerung zu verringern sowie eine variable Einsatzplanung zu ermöglichen.
-          </p>
+          <p className="text-grey-600 leading-relaxed">{t('advantages.description')}</p>
         </article>
 
         {/* Advantage Cards */}
         {advantages.map((advantage) => (
-          <article key={advantage.label} className="mb-4 last:mb-0 md:mb-0">
+          <article key={advantage.id} className="mb-4 last:mb-0 md:mb-0">
             <AdvantageCard
-              label={advantage.label}
+              label={t(`advantages.items.${advantage.id}.title`)}
               icon={advantage.icon}
-              description={advantage.description}
+              description={t(`advantages.items.${advantage.id}.description`)}
               accentColor={advantage.accentColor}
             />
           </article>

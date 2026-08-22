@@ -114,5 +114,24 @@
         "description": "Keine Lizenzkosten. Geschäftsmodell basiert auf Dienstleistungen: Hosting, Anpassung, Sensorvertrieb. Regionale Wertschöpfung in Schleswig-Holstein."
       }
     }
+  },
+  "advantages": {
+    "sectionLabel": "Vorteile",
+    "title": "Alle weiteren Funktionen und Vorteile",
+    "description": "Das Projekt ist öffentlich einsehbar und hat als Ziel, den Wasserverbrauch für die Bewässerung zu verringern sowie eine variable Einsatzplanung zu ermöglichen.",
+    "items": {
+      "openSource": {
+        "title": "Offene Lösung für alle",
+        "description": "Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz"
+      },
+      "optimizedRoutes": {
+        "title": "Optimierte Routen",
+        "description": "Individuelle Einsatzplanung zur effizienteren Bewässerung"
+      },
+      "water": {
+        "title": "Weniger ist mehr",
+        "description": "Gezielte Bewässerung, weniger Wasserverbrauch"
+      }
+    }
   }
 }

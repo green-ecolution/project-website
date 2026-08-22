@@ -114,5 +114,24 @@
         "description": "No license fees. The business model is based on services: hosting, customization, and sensor distribution. Regional value creation in Schleswig-Holstein."
       }
     }
+  },
+  "advantages": {
+    "sectionLabel": "Advantages",
+    "title": "All other features and advantages",
+    "description": "The project is publicly viewable and aims to reduce water consumption for irrigation while enabling variable deployment planning.",
+    "items": {
+      "openSource": {
+        "title": "An open solution for everyone",
+        "description": "Scalable open-source solution for municipalities that promotes further development and transparency"
+      },
+      "optimizedRoutes": {
+        "title": "Optimized routes",
+        "description": "Individual deployment planning for more efficient irrigation"
+      },
+      "water": {
+        "title": "Less is more",
+        "description": "Targeted irrigation, less water consumption"
+      }
+    }
   }
 }
