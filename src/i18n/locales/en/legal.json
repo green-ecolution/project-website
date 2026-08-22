@@ -145,7 +145,40 @@
           },
           "outro": "If you have restricted the processing of your personal data, this data may, with the exception of its storage, only be processed with your consent or for the assertion, exercise, or defense of legal claims, or for the protection of the rights of another natural or legal person, or for reasons of important public interest of the European Union or a member state."
         }
+      },
+      "dataCollection": {
+        "title": "4. Data Collection on This Website",
+        "cookies": {
+          "title": "Cookies",
+          "paragraph1": "Our websites use so-called \"cookies\". Cookies are small text files and do not cause any damage to your device. They are stored either temporarily for the duration of a session (session cookies) or permanently (permanent cookies) on your device. Session cookies are automatically deleted after your visit ends. Permanent cookies remain stored on your device until you delete them yourself or they are automatically deleted by your web browser.",
+          "paragraph2": "In some cases, cookies from third-party companies may also be stored on your device when you enter our site (third-party cookies). These enable us or you to use certain services of the third-party company (e.g. cookies for processing payment services).",
+          "paragraph3": "Cookies have various functions. Many cookies are technically necessary, as certain website functions would not work without them (e.g. the shopping cart function or the display of videos). Other cookies are used to evaluate user behavior or display advertising.",
+          "paragraph4": "Cookies that are required for the performance of the electronic communication process, for the provision of certain functions that you desire, or for the optimization of the website (necessary cookies) are stored on the basis of Art. 6(1)(f) GDPR, unless another legal basis is specified. The website operator has a legitimate interest in the storage of necessary cookies for the technically error-free and optimized provision of its services.",
+          "paragraph5": "You can set your browser so that you are informed about the setting of cookies and only allow cookies on a case-by-case basis, exclude the acceptance of cookies for certain cases or in general, and activate the automatic deletion of cookies when closing the browser. If you disable cookies, the functionality of this website may be limited."
+        },
+        "serverLogFiles": {
+          "title": "Server Log Files",
+          "intro": "The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:",
+          "items": {
+            "browserType": "Browser type and browser version",
+            "operatingSystem": "Operating system used",
+            "referrerUrl": "Referrer URL",
+            "hostname": "Host name of the accessing computer",
+            "requestTime": "Time of the server request",
+            "ipAddress": "IP address"
+          },
+          "outro": "This data is not merged with other data sources. The collection of this data is based on Art. 6(1)(f) GDPR. The website operator has a legitimate interest in the technically error-free presentation and optimization of its website – the server log files must be recorded for this purpose."
+        },
+        "contactForm": {
+          "title": "Contact Form",
+          "paragraph1": "If you send us inquiries via the contact form, the information you provide in the inquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent.",
+          "paragraph2": "The processing of this data is based on Art. 6(1)(b) GDPR, insofar as your inquiry is related to the performance of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective handling of inquiries addressed to us (Art. 6(1)(f) GDPR) or on your consent (Art. 6(1)(a) GDPR), insofar as this was requested; consent can be revoked at any time.",
+          "paragraph3": "The data you enter in the contact form will remain with us until you ask us to delete it, revoke your consent to its storage, or the purpose for which the data is stored no longer applies. Mandatory statutory provisions – in particular retention periods – remain unaffected."
+        }
       }
+    },
+    "footer": {
+      "sourceLabel": "Source:"
     }
   }
 }

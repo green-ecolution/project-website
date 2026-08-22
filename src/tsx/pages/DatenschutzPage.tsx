@@ -12,6 +12,15 @@ const processingRestrictionItemIds = [
   'pendingObjection',
 ] as const
 
+const serverLogFileItemIds = [
+  'browserType',
+  'operatingSystem',
+  'referrerUrl',
+  'hostname',
+  'requestTime',
+  'ipAddress',
+] as const
+
 function DatenschutzPage() {
   const { t } = useTranslation('legal')
   const language = useLanguage()
@@ -141,7 +150,7 @@ function DatenschutzPage() {
               <p>Lise-Meitner-Str. 2</p>
               <p>24941 Flensburg</p>
               <p className="mt-2">
-                {t('impressum.sections.contact.emailLabel')}{' '}
+                {t('datenschutz.sections.generalInfo.responsibleParty.emailLabel')}{' '}
                 <a href="mailto:info@progeek.de" className={linkClasses}>
                   info@progeek.de
                 </a>
@@ -213,95 +222,45 @@ function DatenschutzPage() {
           {/* Section 4: Datenerfassung auf dieser Website */}
           <div>
             <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
-              4. Datenerfassung auf dieser Website
+              {t('datenschutz.sections.dataCollection.title')}
             </h2>
 
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Cookies</h3>
-            <p className="mb-4">
-              Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Textdateien
-              und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend
-              für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf
-              Ihrem Endgerät gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch
-              gelöscht. Permanente Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese
-              selbst löschen oder eine automatische Löschung durch Ihren Webbrowser erfolgt.
-            </p>
-            <p className="mb-4">
-              Teilweise können auch Cookies von Drittunternehmen auf Ihrem Endgerät gespeichert
-              werden, wenn Sie unsere Seite betreten (Third-Party-Cookies). Diese ermöglichen uns
-              oder Ihnen die Nutzung bestimmter Dienstleistungen des Drittunternehmens (z.B. Cookies
-              zur Abwicklung von Zahlungsdienstleistungen).
-            </p>
-            <p className="mb-4">
-              Cookies haben verschiedene Funktionen. Zahlreiche Cookies sind technisch notwendig, da
-              bestimmte Websitefunktionen ohne diese nicht funktionieren würden (z.B. die
-              Warenkorbfunktion oder die Anzeige von Videos). Andere Cookies dienen dazu, das
-              Nutzerverhalten auszuwerten oder Werbung anzuzeigen.
-            </p>
-            <p className="mb-4">
-              Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs, zur
-              Bereitstellung bestimmter, von Ihnen erwünschter Funktionen oder zur Optimierung der
-              Website erforderlich sind (notwendige Cookies), werden auf Grundlage von Art. 6 Abs. 1
-              lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben wird. Der
-              Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von notwendigen
-              Cookies zur technisch fehlerfreien und optimierten Bereitstellung seiner Dienste.
-            </p>
-            <p>
-              Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies
-              informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für
-              bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies
-              beim Schließen des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die
-              Funktionalität dieser Website eingeschränkt sein.
-            </p>
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              {t('datenschutz.sections.dataCollection.cookies.title')}
+            </h3>
+            <p className="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph1')}</p>
+            <p className="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph2')}</p>
+            <p className="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph3')}</p>
+            <p className="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph4')}</p>
+            <p>{t('datenschutz.sections.dataCollection.cookies.paragraph5')}</p>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Server-Log-Dateien
+              {t('datenschutz.sections.dataCollection.serverLogFiles.title')}
+            </h3>
+            <p className="mb-4">{t('datenschutz.sections.dataCollection.serverLogFiles.intro')}</p>
+            <ul className="list-disc list-inside space-y-1 mb-4">
+              {serverLogFileItemIds.map((id) => (
+                <li key={id}>
+                  {t(`datenschutz.sections.dataCollection.serverLogFiles.items.${id}`)}
+                </li>
+              ))}
+            </ul>
+            <p>{t('datenschutz.sections.dataCollection.serverLogFiles.outro')}</p>
+
+            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+              {t('datenschutz.sections.dataCollection.contactForm.title')}
             </h3>
             <p className="mb-4">
-              Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
-              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
-            </p>
-            <ul className="list-disc list-inside space-y-1 mb-4">
-              <li>Browsertyp und Browserversion</li>
-              <li>verwendetes Betriebssystem</li>
-              <li>Referrer URL</li>
-              <li>Hostname des zugreifenden Rechners</li>
-              <li>Uhrzeit der Serveranfrage</li>
-              <li>IP-Adresse</li>
-            </ul>
-            <p>
-              Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die
-              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der
-              Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien
-              Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files
-              erfasst werden.
-            </p>
-
-            <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">Kontaktformular</h3>
-            <p className="mb-4">
-              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
-              Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks
-              Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
-              Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+              {t('datenschutz.sections.dataCollection.contactForm.paragraph1')}
             </p>
             <p className="mb-4">
-              Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO,
-              sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur
-              Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen
-              beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven
-              Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf
-              Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die
-              Einwilligung ist jederzeit widerrufbar.
+              {t('datenschutz.sections.dataCollection.contactForm.paragraph2')}
             </p>
-            <p>
-              Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns
-              zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck
-              für die Datenspeicherung entfällt. Zwingende gesetzliche Bestimmungen – insbesondere
-              Aufbewahrungsfristen – bleiben unberührt.
-            </p>
+            <p>{t('datenschutz.sections.dataCollection.contactForm.paragraph3')}</p>
           </div>
 
           <p className="text-sm text-grey-900/60 mt-8">
-            Quelle:{' '}
+            {t('datenschutz.footer.sourceLabel')}{' '}
             <a
               href="https://www.e-recht24.de/"
               target="_blank"
