@@ -77,5 +77,42 @@
         "description": "Visualization & route planning"
       }
     }
+  },
+  "governance": {
+    "sectionLabel": "Governance",
+    "title": "Open source as a principle",
+    "description": "Transparency, independence, and reusability: the cornerstones of our open-source strategy.",
+    "pillars": {
+      "license": {
+        "category": "License",
+        "title": "AGPL-3.0-only",
+        "description": "Licensed under the AGPL. Funded as part of DigitalHub.SH's \"Offene Innovation\" (\"Open Innovation\") state program."
+      },
+      "sovereignty": {
+        "category": "Sovereignty",
+        "title": "Digital sovereignty",
+        "description": "No dependency on proprietary platforms. Municipalities retain control over their data and infrastructure. No vendor lock-in."
+      },
+      "modularity": {
+        "category": "Modularity",
+        "title": "Plugin system",
+        "description": "Modular extensions for municipality-specific adaptations without changing the core software. Import plugins for tree registries, CSV, and databases."
+      },
+      "integration": {
+        "category": "Integration",
+        "title": "API-first",
+        "description": "Open interfaces for integration into municipal IT landscapes. Connection to IoT hubs and open data portals."
+      },
+      "community": {
+        "category": "Community",
+        "title": "Reuse & community",
+        "description": "Source code and documentation are publicly available on GitHub. Other municipalities can reuse and adapt the solution."
+      },
+      "costEfficiency": {
+        "category": "Cost efficiency",
+        "title": "Cost efficiency",
+        "description": "No license fees. The business model is based on services: hosting, customization, and sensor distribution. Regional value creation in Schleswig-Holstein."
+      }
+    }
   }
 }

@@ -77,5 +77,42 @@
         "description": "Visualisierung & Tourenplanung"
       }
     }
+  },
+  "governance": {
+    "sectionLabel": "Governance",
+    "title": "Open Source als Prinzip",
+    "description": "Transparenz, Unabhängigkeit und Nachnutzbarkeit: die Grundpfeiler unserer Open-Source-Strategie.",
+    "pillars": {
+      "license": {
+        "category": "Lizenz",
+        "title": "AGPL-3.0-only",
+        "description": "Lizenziert unter der AGPL. Finanziert im Rahmen des Landesprogramms „Offene Innovation\" des DigitalHub.SH."
+      },
+      "sovereignty": {
+        "category": "Souveränität",
+        "title": "Digitale Souveränität",
+        "description": "Keine Abhängigkeit von proprietären Plattformen. Kommunen behalten die Kontrolle über ihre Daten und Infrastruktur. Kein Vendor-Lock-in."
+      },
+      "modularity": {
+        "category": "Modularität",
+        "title": "Plugin-System",
+        "description": "Modulare Erweiterungen für kommunenspezifische Anpassungen ohne Änderung der Kernsoftware. Import-Plugins für Baumkataster, CSV, Datenbanken."
+      },
+      "integration": {
+        "category": "Integration",
+        "title": "API-first",
+        "description": "Offene Schnittstellen für Integration in kommunale IT-Landschaften. Anbindung an IoT-Hubs und Open-Data-Portale."
+      },
+      "community": {
+        "category": "Community",
+        "title": "Nachnutzung & Community",
+        "description": "Quellcode und Dokumentation öffentlich auf GitHub. Andere Kommunen können die Lösung nachnutzen und anpassen."
+      },
+      "costEfficiency": {
+        "category": "Wirtschaftlichkeit",
+        "title": "Kosteneffizienz",
+        "description": "Keine Lizenzkosten. Geschäftsmodell basiert auf Dienstleistungen: Hosting, Anpassung, Sensorvertrieb. Regionale Wertschöpfung in Schleswig-Holstein."
+      }
+    }
   }
 }
