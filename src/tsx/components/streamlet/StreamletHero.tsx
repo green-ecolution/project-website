@@ -7,7 +7,7 @@ import Arrow from '../../icons/Arrow'
 import StreamletTankGauge from './StreamletTankGauge'
 import StreamletTourSketch from './StreamletTourSketch'
 import { streamletLinks } from '../../../data/streamlet'
-import { staticTourPosition, tankLevelAt, tourProjectedSize } from '../../../data/streamletTour'
+import { staticTankLevel, tourProjectedSize } from '../../../data/streamletTour'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { supportsWebgl } from '../../helper/webgl'
 
@@ -51,7 +51,7 @@ function StreamletHero() {
           }
           className="my-10 flex items-stretch gap-3 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-0 lg:min-h-0 lg:gap-6"
         >
-          <StreamletTankGauge levelRef={tankLevel} level={tankLevelAt(staticTourPosition)} />
+          <StreamletTankGauge levelRef={tankLevel} level={staticTankLevel} />
 
           <div className="flex aspect-[var(--tour-aspect)] min-w-0 flex-1 items-center self-start lg:aspect-auto lg:h-full lg:self-stretch">
             {canRenderModel ? (

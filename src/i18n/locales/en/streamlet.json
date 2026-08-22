@@ -13,7 +13,7 @@
     "repoAriaLabel": "Open the Streamlet repository on GitHub",
     "docs": "Documentation",
     "docsAriaLabel": "Open the Streamlet documentation",
-    "tourAriaLabel": "Isometric model of one tour: from the depot via five stops and one refill station back to the depot. The fuller the tank, the thicker the route. It narrows at every stop and jumps back to full width at the refill station.",
+    "tourAriaLabel": "Isometric model of one tour: from the depot via five stops and one refill station back to the depot. The vehicle stops at every stop to water. The tank gauge beside it drops as it goes and fills up again at the refill station.",
     "tank": "Tank"
   },
   "problem": {
