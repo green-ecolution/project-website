@@ -1,1 +1,11 @@
-{}
+{
+  "meta": {
+    "title": "Projekt | Green Ecolution | Smartes Grünflächenmanagement",
+    "description": "Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume, entwickelt in Zusammenarbeit mit der Stadt Flensburg."
+  },
+  "hero": {
+    "label": "Projekt",
+    "headline": "Smartes Grünflächenmanagement für lebenswerte Städte",
+    "description": "Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume. Unsere Software kombiniert Sensordaten mit intelligenter Routenoptimierung und ermöglicht so eine gezielte, ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg und bald auch für deine Kommune verfügbar."
+  }
+}

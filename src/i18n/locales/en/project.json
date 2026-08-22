@@ -1,1 +1,11 @@
-{}
+{
+  "meta": {
+    "title": "Project | Green Ecolution | Smart Green Space Management",
+    "description": "Green Ecolution is an open-source solution for efficient irrigation of urban trees, developed in collaboration with the City of Flensburg."
+  },
+  "hero": {
+    "label": "Project",
+    "headline": "Smart green space management for livable cities",
+    "description": "Green Ecolution is an open-source solution for the efficient irrigation of urban trees. Our software combines sensor data with intelligent route optimization, enabling targeted, resource-efficient deployment planning. Developed in collaboration with the City of Flensburg, and soon available for your municipality too."
+  }
+}
