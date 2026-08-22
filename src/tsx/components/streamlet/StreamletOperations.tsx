@@ -16,8 +16,8 @@ function StreamletOperations() {
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
-          Streamlet ist ein einzelner Dienst neben der eigenen Anwendung. Ein Container-Image wird
-          aus dem Release-Tag gebaut, konfiguriert wird über Umgebungsvariablen. Dazu gehört eine
+          Streamlet ist ein einzelner Dienst neben deiner Anwendung. Aus jedem Release-Tag entsteht
+          ein Container-Image, konfiguriert wird es über Umgebungsvariablen. Dazu brauchst du eine
           erreichbare Routing-Engine.
         </p>
       </div>

@@ -48,7 +48,7 @@ export const solveFlowSteps: SolveFlowStep[] = [
     step: '02',
     label: 'Kosten holen und lösen',
     description:
-      'Streamlet fragt die Reisezeit- und Distanzmatrix bei der Routing-Engine ab und löst das Problem im eigenen Solver.',
+      'Streamlet fragt die Reisezeit- und Distanzmatrix bei der Routing-Engine ab und löst das Problem im Solver.',
   },
   {
     step: '03',

@@ -17,7 +17,7 @@ function StreamletTiles() {
         </div>
 
         <h2 className="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl xl:text-4xl">
-          Das Straßennetz an die eigene Flotte anpassen
+          Das Straßennetz an deine Flotte anpassen
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl mb-4">
@@ -30,8 +30,8 @@ function StreamletTiles() {
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
           Die Routing-Engine rechnet auf Tiles, die aus einem OSM-Extrakt gebaut werden. Zum
           Streamlet-Repository gehört ein CLI, das dieses Extrakt vor dem Tile-Build über
-          OSC-Changesets verändert. Damit lässt sich abbilden, was für die eigenen Fahrzeuge
-          tatsächlich befahrbar ist.
+          OSC-Changesets verändert. Damit bildest du ab, was deine Fahrzeuge tatsächlich befahren
+          dürfen.
         </p>
       </div>
 
@@ -56,9 +56,9 @@ function StreamletTiles() {
       </div>
 
       <p className="text-sm text-grey-900/60 leading-relaxed mt-8 max-w-2xl">
-        Gepatcht wird das eigene Extrakt für die eigene Routing-Instanz. Das verändert, was die
-        Engine für die eigene Flotte als befahrbar ansieht, und erteilt keine Befahrungserlaubnis.
-        Wer den Patcher einbindet, braucht dafür eine eigene Tile-Pipeline.
+        Der Patcher verändert nur dein Extrakt für deine Routing-Instanz. Er beeinflusst, was die
+        Engine für deine Fahrzeuge als befahrbar ansieht. Eine Befahrungserlaubnis erteilt er damit
+        nicht. Wer ihn einbindet, braucht dafür eine eigene Tile-Pipeline.
       </p>
     </section>
   )
