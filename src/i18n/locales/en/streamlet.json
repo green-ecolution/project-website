@@ -6,12 +6,15 @@
   "hero": {
     "sectionLabel": "Open source project",
     "title": "Streamlet",
-    "lead": "Route planning for vehicles whose tank does not hold enough for the whole tour. Streamlet fixes the order of the stops and plans the refills along the way in the same pass. It runs as a standalone service behind an HTTP API.",
+    "tagline": "Route planning for vehicles whose tank does not hold enough for the whole tour.",
+    "lead": "Streamlet fixes the order of the stops and plans the refills along the way in the same pass. It runs as a standalone service behind an HTTP API.",
     "origin": "Streamlet was built for Green Ecolution because none of the solvers we evaluated could express this problem. It now lives in a repository of its own and has no dependency on Green Ecolution. Anyone with the same planning problem can adopt it as it is.",
     "repo": "Repository",
     "repoAriaLabel": "Open the Streamlet repository on GitHub",
     "docs": "Documentation",
-    "docsAriaLabel": "Open the Streamlet documentation"
+    "docsAriaLabel": "Open the Streamlet documentation",
+    "tourAriaLabel": "Isometric model of one tour: from the depot via five stops and one refill station back to the depot. The fuller the tank, the thicker the route. It narrows at every stop and jumps back to full width at the refill station.",
+    "tank": "Tank"
   },
   "problem": {
     "sectionLabel": "The problem",

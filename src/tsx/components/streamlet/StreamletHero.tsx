@@ -1,54 +1,92 @@
 import { BookOpen } from 'lucide-react'
+import { Suspense, lazy, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '../Button'
 import Github from '../../icons/Github'
 import Arrow from '../../icons/Arrow'
+import StreamletTankGauge from './StreamletTankGauge'
+import StreamletTourSketch from './StreamletTourSketch'
 import { streamletLinks } from '../../../data/streamlet'
+import { staticTourPosition, tankLevelAt, tourProjectedSize } from '../../../data/streamletTour'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { supportsWebgl } from '../../helper/webgl'
+
+const StreamletTour3D = lazy(() => import('./StreamletTour3D'))
 
 function StreamletHero() {
   const { t } = useTranslation('streamlet')
+  const prefersReducedMotion = useReducedMotion()
+  const [canRenderModel] = useState(supportsWebgl)
+  const tankLevel = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="px-4 max-w-208 mx-auto pt-28 pb-14 md:px-6 lg:pt-36 lg:pb-20 lg:max-w-screen-lg xl:pt-44 xl:max-w-screen-xl">
-      <div className="inline-block mb-6">
-        <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-          {t('hero.sectionLabel')}
-        </span>
-        <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
-      </div>
+    <section className="px-4 max-w-208 mx-auto pt-28 pb-14 md:px-6 lg:pt-36 lg:pb-24 lg:max-w-screen-lg xl:pt-44 xl:max-w-screen-xl">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-10 lg:items-start xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-x-14">
+        <div>
+          <div className="inline-block mb-6">
+            <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+              {t('hero.sectionLabel')}
+            </span>
+            <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
+          </div>
 
-      <h1 className="font-lato font-bold text-3xl mb-6 text-grey-900 lg:text-5xl xl:text-6xl">
-        {t('hero.title')}
-      </h1>
+          <h1 className="font-lato font-bold tracking-tight text-grey-900 text-[2.75rem] leading-[1.05] mb-5 md:text-[3.25rem] lg:text-[3.5rem] xl:text-[4.25rem]">
+            {t('hero.title')}
+          </h1>
 
-      <p className="text-lg text-grey-900/80 leading-relaxed max-w-3xl mb-6 lg:text-xl">
-        {t('hero.lead')}
-      </p>
+          <p className="font-lato text-xl text-grey-900 leading-snug mb-5 lg:text-2xl">
+            {t('hero.tagline')}
+          </p>
 
-      <p className="text-grey-900/60 leading-relaxed max-w-3xl mb-8">{t('hero.origin')}</p>
+          <p className="text-grey-900/70 leading-relaxed mb-4">{t('hero.lead')}</p>
 
-      <div className="flex flex-wrap gap-4">
-        <Button
-          href={streamletLinks.repo}
-          ariaLabel={t('hero.repoAriaLabel')}
-          isExternalLink
-          isDark
+          <p className="text-grey-900/60 leading-relaxed mb-8">{t('hero.origin')}</p>
+
+          <div className="flex flex-wrap gap-4">
+            <Button
+              href={streamletLinks.repo}
+              ariaLabel={t('hero.repoAriaLabel')}
+              isExternalLink
+              isDark
+            >
+              <Github classes="w-5" />
+              <span className="whitespace-nowrap">{t('hero.repo')}</span>
+              <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
+            </Button>
+
+            <a
+              href={streamletLinks.readme}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('hero.docsAriaLabel')}
+              className="flex items-center justify-center gap-x-3 rounded-2xl w-max font-semibold px-5 py-2 cursor-pointer transition-all ease-in-out duration-300 text-green-dark-900 border border-green-dark-900/30 hover:border-green-dark-900 hover:bg-green-light-100/60"
+            >
+              <BookOpen className="w-5 h-5" aria-hidden="true" />
+              <span className="whitespace-nowrap">{t('hero.docs')}</span>
+            </a>
+          </div>
+        </div>
+
+        <figure
+          role="img"
+          aria-label={t('hero.tourAriaLabel')}
+          className="mt-12 flex items-stretch gap-3 lg:mt-20 lg:gap-6"
         >
-          <Github classes="w-5" />
-          <span className="whitespace-nowrap">{t('hero.repo')}</span>
-          <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
-        </Button>
+          <StreamletTankGauge levelRef={tankLevel} level={tankLevelAt(staticTourPosition)} />
 
-        <a
-          href={streamletLinks.readme}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t('hero.docsAriaLabel')}
-          className="flex items-center justify-center gap-x-3 rounded-2xl w-max font-semibold px-5 py-2 cursor-pointer transition-all ease-in-out duration-300 text-green-dark-900 border border-green-dark-900/30 hover:border-green-dark-900 hover:bg-green-light-100/60"
-        >
-          <BookOpen className="w-5 h-5" aria-hidden="true" />
-          <span className="whitespace-nowrap">{t('hero.docs')}</span>
-        </a>
+          <div
+            className="min-w-0 flex-1 self-start"
+            style={{ aspectRatio: `${tourProjectedSize.width} / ${tourProjectedSize.height}` }}
+          >
+            {canRenderModel ? (
+              <Suspense fallback={<StreamletTourSketch />}>
+                <StreamletTour3D isStatic={prefersReducedMotion} levelRef={tankLevel} />
+              </Suspense>
+            ) : (
+              <StreamletTourSketch />
+            )}
+          </div>
+        </figure>
       </div>
     </section>
   )
