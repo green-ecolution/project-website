@@ -167,9 +167,15 @@
     "title": "Die Bodensonde",
     "description": "Konzipiert für den Einsatz im öffentlichen Raum. Sensoren in drei Tiefen (30, 60 und 90 cm) bilden das gesamte Wurzelprofil eines Baumes ab, von den oberflächennahen Feinwurzeln bis zu den tieferen Hauptwurzeln. So lässt sich erkennen, ob Wasser tatsächlich im Wurzelbereich ankommt oder nur die Oberfläche benetzt wird. Die Installation erfolgt bodenbündig mit handelsüblichen Erdbohrern. Pflegearbeiten wie Mähen werden nicht beeinträchtigt.",
     "specs": {
-      "depths": { "label": "Messtiefen" },
-      "network": { "label": "Funknetz" },
-      "batteryLife": { "label": "Jahre Batterie" }
+      "depths": {
+        "label": "Messtiefen"
+      },
+      "network": {
+        "label": "Funknetz"
+      },
+      "batteryLife": {
+        "label": "Jahre Batterie"
+      }
     },
     "features": {
       "soilMoisture": {
@@ -221,35 +227,6 @@
         "category": "Ausführen",
         "title": "Handeln",
         "description": "Automatisierte Einsatz- und Routenplanung erzeugt optimierte Bewässerungstouren unter Berücksichtigung von Wasserkapazität, Fahrzeuggröße und Straßenrestriktionen."
-      }
-    }
-  },
-  "process": {
-    "steps": {
-      "install": {
-        "label": "Sensoren installieren",
-        "shortName": "Installation",
-        "description": "Bodenfeuchtesensoren werden an ausgewählten Bäumen angebracht. Das ist schnell, unkompliziert und wartungsarm."
-      },
-      "data": {
-        "label": "Echtzeitdaten erfassen",
-        "shortName": "Daten",
-        "description": "Die Sensoren messen kontinuierlich die Bodenfeuchtigkeit und übertragen die Werte automatisch ins System."
-      },
-      "analysis": {
-        "label": "Bewässerungsbedarf erkennen",
-        "shortName": "Analyse",
-        "description": "Das Dashboard zeigt dir auf einen Blick, welche Bäume Wasser brauchen, priorisiert nach Dringlichkeit."
-      },
-      "planning": {
-        "label": "Optimierte Routen planen",
-        "shortName": "Planung",
-        "description": "Green Ecolution berechnet die effizienteste Tour für dein Team: weniger Fahrzeit, mehr Bewässerung."
-      },
-      "execution": {
-        "label": "Bewässern und auswerten",
-        "shortName": "Umsetzung",
-        "description": "Dein Team fährt die optimierte Route. Danach siehst du genau, wie viel Wasser wo eingesetzt wurde."
       }
     }
   },

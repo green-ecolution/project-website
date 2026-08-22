@@ -167,9 +167,15 @@
     "title": "The soil probe",
     "description": "Designed for use in public spaces. Sensors at three depths (30, 60 and 90 cm) capture the full root profile of a tree, from the near-surface fine roots to the deeper main roots. This makes it possible to see whether water actually reaches the root zone or only wets the surface. Installation is flush with the ground using standard soil augers. Maintenance work such as mowing is not affected.",
     "specs": {
-      "depths": { "label": "Measurement depths" },
-      "network": { "label": "Wireless network" },
-      "batteryLife": { "label": "Years of battery life" }
+      "depths": {
+        "label": "Measurement depths"
+      },
+      "network": {
+        "label": "Wireless network"
+      },
+      "batteryLife": {
+        "label": "Years of battery life"
+      }
     },
     "features": {
       "soilMoisture": {
@@ -221,35 +227,6 @@
         "category": "Execute",
         "title": "Act",
         "description": "Automated dispatch and route planning generates optimized irrigation routes, taking into account water capacity, vehicle size, and road restrictions."
-      }
-    }
-  },
-  "process": {
-    "steps": {
-      "install": {
-        "label": "Install sensors",
-        "shortName": "Installation",
-        "description": "Soil moisture sensors are attached to selected trees. This is quick, straightforward, and low-maintenance."
-      },
-      "data": {
-        "label": "Capture real-time data",
-        "shortName": "Data",
-        "description": "The sensors continuously measure soil moisture and automatically transmit the values to the system."
-      },
-      "analysis": {
-        "label": "Identify irrigation needs",
-        "shortName": "Analysis",
-        "description": "The dashboard shows you at a glance which trees need water, prioritized by urgency."
-      },
-      "planning": {
-        "label": "Plan optimized routes",
-        "shortName": "Planning",
-        "description": "Green Ecolution calculates the most efficient route for your team: less driving time, more irrigation."
-      },
-      "execution": {
-        "label": "Irrigate and evaluate",
-        "shortName": "Execution",
-        "description": "Your team drives the optimized route. Afterwards, you can see exactly how much water was used where."
       }
     }
   },
