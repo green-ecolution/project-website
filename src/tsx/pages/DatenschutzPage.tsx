@@ -86,36 +86,18 @@ function DatenschutzPage() {
           {/* Section 2: Hosting */}
           <div>
             <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900">
-              2. Hosting
+              {t('datenschutz.sections.hosting.title')}
             </h2>
 
             <h3 className="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
-              Externes Hosting
+              {t('datenschutz.sections.hosting.externalHosting.title')}
             </h3>
-            <p className="mb-4">
-              Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die
-              personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern
-              des Hosters gespeichert. Hierbei kann es v.a. um IP-Adressen, Kontaktanfragen, Meta-
-              und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und
-              sonstige Daten, die über eine Website generiert werden, handeln.
+            <p className="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph1')}</p>
+            <p className="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph2')}</p>
+            <p className="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph3')}</p>
+            <p className="font-bold">
+              {t('datenschutz.sections.hosting.externalHosting.hostersIntro')}
             </p>
-            <p className="mb-4">
-              Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren
-              potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse
-              einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch
-              einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Sofern eine entsprechende
-              Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage
-              von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die
-              Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers
-              (z.B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist
-              jederzeit widerrufbar.
-            </p>
-            <p className="mb-4">
-              Unser Hoster wird Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner
-              Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten
-              befolgen.
-            </p>
-            <p className="font-bold">Wir nutzen folgenden Hoster:</p>
             <address className="not-italic mt-2 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
               <p>Digitalocean LLC</p>
               <p>101 Avenue of the Americas</p>
