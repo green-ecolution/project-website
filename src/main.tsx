@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
+import { initI18n } from './i18n'
+import { detectLanguage, languageFromPathname } from './i18n/detectLanguage'
 import './css/site.css'
 
 const router = createRouter({
@@ -24,8 +26,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+const initialLanguage = languageFromPathname(window.location.pathname) ?? detectLanguage()
+
+void initI18n(initialLanguage).then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  )
+})
