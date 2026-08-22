@@ -185,5 +185,139 @@
         "description": "Measurement of suction tension to determine water availability"
       }
     }
+  },
+  "videos": {
+    "sectionLabel": "Videos",
+    "title": "Get to know the project through video",
+    "description": "As part of the research project, two videos were produced alongside the sensor solution and the software. They introduce the project: its objective, the problem, and the solution developed.",
+    "short": {
+      "title": "Short video",
+      "description": "A brief introduction to the project. In about half a minute, you'll learn what Green Ecolution is about.",
+      "duration": "approx. 30 seconds"
+    },
+    "long": {
+      "title": "Long video",
+      "description": "The detailed video goes deeper and explains the key background, details, and next steps of the project.",
+      "duration": "approx. 4 minutes"
+    }
+  },
+  "workflow": {
+    "sectionLabel": "Solution",
+    "title": "The end-to-end workflow",
+    "moreLink": "Learn more",
+    "moreLinkAriaLabel": "Learn more about the process",
+    "steps": {
+      "measure": {
+        "category": "Capture",
+        "title": "Measure",
+        "description": "Soil moisture sensors capture parameters such as soil moisture, temperature, and soil water tension at multiple depths (30/60/90 cm). The data is transmitted energy-efficiently via LoRaWAN."
+      },
+      "understand": {
+        "category": "Analyze",
+        "title": "Understand",
+        "description": "A traffic-light system shows the current irrigation need on a map. Staff can see at a glance which green spaces need water. Time series enable detailed analyses."
+      },
+      "act": {
+        "category": "Execute",
+        "title": "Act",
+        "description": "Automated dispatch and route planning generates optimized irrigation routes, taking into account water capacity, vehicle size, and road restrictions."
+      }
+    }
+  },
+  "process": {
+    "steps": {
+      "install": {
+        "label": "Install sensors",
+        "shortName": "Installation",
+        "description": "Soil moisture sensors are attached to selected trees. This is quick, straightforward, and low-maintenance."
+      },
+      "data": {
+        "label": "Capture real-time data",
+        "shortName": "Data",
+        "description": "The sensors continuously measure soil moisture and automatically transmit the values to the system."
+      },
+      "analysis": {
+        "label": "Identify irrigation needs",
+        "shortName": "Analysis",
+        "description": "The dashboard shows you at a glance which trees need water, prioritized by urgency."
+      },
+      "planning": {
+        "label": "Plan optimized routes",
+        "shortName": "Planning",
+        "description": "Green Ecolution calculates the most efficient route for your team: less driving time, more irrigation."
+      },
+      "execution": {
+        "label": "Irrigate and evaluate",
+        "shortName": "Execution",
+        "description": "Your team drives the optimized route. Afterwards, you can see exactly how much water was used where."
+      }
+    }
+  },
+  "demo": {
+    "sectionLabel": "Live Demo",
+    "title": "See it for yourself",
+    "description": "The publicly accessible demo instance shows the current feature set: map view with a traffic-light system, dashboard with sensor data, and automated route calculation. No installation needed, directly in the browser.",
+    "cta": "Open demo",
+    "ctaAriaLabel": "Open the Green Ecolution demo in the browser",
+    "screenshotAlt": "Green Ecolution demo, dashboard with map view and sensor data"
+  },
+  "stakeholder": {
+    "sectionLabel": "Partners & Stakeholders",
+    "title": "Who is involved?",
+    "description": "In collaboration between PROGEEK, Smarte Grenzregion, the City of Flensburg and Hochschule Flensburg, a demand-driven and data-based irrigation system for trees is to be established.",
+    "sliderAriaLabel": "Project stakeholders",
+    "items": {
+      "progeek": {
+        "role": "Technical partner",
+        "description": "PROGEEK stands for innovative IT solutions, custom software development, and digital consulting, with the goal of guiding companies on their way into the future of digitalization."
+      },
+      "smarteGrenzregion": {
+        "role": "Project coordinator",
+        "description": "The project \"Smarte Grenzregion zwischen den Meeren\" aims to drive digital transformation in the region in order to shape integrated and sustainable urban and regional development and strengthen the common good."
+      },
+      "hsFlensburg": {
+        "role": "Initiator",
+        "description": "Hochschule Flensburg offers practice-oriented degree programs with a focus on applied research and close collaboration with industry."
+      },
+      "tbz": {
+        "role": "Application partner",
+        "description": "The Technisches Betriebszentrum (TBZ) is the central service provider for the City of Flensburg and is responsible, among other things, for the upkeep of public green spaces, street cleaning, and waste management."
+      }
+    }
+  },
+  "stakeholderCard": {
+    "logoAlt": "Logo {{label}}",
+    "visitWebsite": "Visit website"
+  },
+  "faq": {
+    "sectionLabel": "FAQ",
+    "title": "Frequently asked questions about Green Ecolution",
+    "items": {
+      "origin": {
+        "question": "Who is behind the Green Ecolution project?",
+        "answerPlain": "The \"Green Ecolution\" project was launched as part of a research project in the Applied Computer Science (Angewandte Informatik) master's program at Hochschule Flensburg. Following the successful completion of the research project, the further development of the system is now being continued by PROGEEK, in close collaboration with Smarte Grenzregion and the City of Flensburg.",
+        "answerRich": "The \"Green Ecolution\" project was launched as part of a research project in the Applied Computer Science (Angewandte Informatik) master's program at <hsfl>Hochschule Flensburg</hsfl>. Following the successful completion of the research project, the further development of the system is now being continued by <progeek>PROGEEK</progeek>, in close collaboration with <grenzregion>Smarte Grenzregion</grenzregion> and the <flensburg>City of Flensburg</flensburg>."
+      },
+      "value": {
+        "question": "What value does the project provide?",
+        "answerPlain": "The \"Green Ecolution\" research project demonstrated how digital technologies can be deployed to make the irrigation of urban trees more efficient, more sustainable, and more resource-conscious. Through the use of modern sensor technology and intelligent data analysis, a foundation was created to significantly reduce water consumption and maintenance effort.\n\nThe insights gained and the systems developed make an important contribution to sustainable urban development in Flensburg. They support data-based decision-making and promote the responsible use of natural resources, for the benefit of the environment, the city administration, and citizens.",
+        "answerRich": "<p1>The \"Green Ecolution\" research project demonstrated how digital technologies can be deployed to make the irrigation of urban trees more efficient, more sustainable, and more resource-conscious. Through the use of modern sensor technology and intelligent data analysis, a foundation was created to significantly reduce water consumption and maintenance effort.</p1><p2>The insights gained and the systems developed make an important contribution to sustainable urban development in Flensburg. They support data-based decision-making and promote the responsible use of natural resources, for the benefit of the environment, the city administration, and citizens.</p2>"
+      },
+      "openSource": {
+        "question": "What does it mean that the project is publicly accessible?",
+        "answerPlain": "The project's source code is available in a publicly accessible GitHub repository. This means the current state of development can be viewed at any time, which creates transparency and allows interested people to follow the ongoing development or get actively involved.\n\nA connection to the Open Data Portal of the state of Schleswig-Holstein is also planned for the future, in order to make selected sensor data publicly accessible. This extension is currently in the planning stage.",
+        "answerRich": "<p1>The project's source code is available in a publicly accessible <repo>GitHub repository</repo>. This means the current state of development can be viewed at any time, which creates transparency and allows interested people to follow the ongoing development or get actively involved.</p1><p2>A connection to the <opendata>Open Data Portal</opendata> of the state of Schleswig-Holstein is also planned for the future, in order to make selected sensor data publicly accessible. This extension is currently in the planning stage.</p2>"
+      },
+      "sensors": {
+        "question": "Which sensors are used?",
+        "answerPlain": "As part of the research project, the following sensors were used to capture precise data on soil moisture and soil condition. These sensors formed the basis for the development and testing of the system.\n\nFor measuring soil water tension: Watermark sensor. For measuring soil moisture and temperature: SMT100 sensor.\n\nIn future development phases, the sensor technology can be further adapted or extended depending on requirements and technological progress.",
+        "answerRich": "<p1>As part of the research project, the following sensors were used to capture precise data on soil moisture and soil condition. These sensors formed the basis for the development and testing of the system.</p1><list><item1>For measuring soil water tension: <watermark>Watermark sensor</watermark></item1><item2>For measuring soil moisture and temperature: <smt100>SMT100 sensor</smt100></item2></list><p3>In future development phases, the sensor technology can be further adapted or extended depending on requirements and technological progress.</p3>"
+      },
+      "progress": {
+        "question": "What is the current progress of the project?",
+        "answerPlain": "The \"Green Ecolution\" research project was successfully completed as part of the Applied Computer Science (Angewandte Informatik) master's program at Hochschule Flensburg. Building on the results achieved in the project, the further development is now being continued.\n\nIn October 2025, the project received funding through the DigitalHub Call for Concepts of the state program \"Offene Innovation – Open Source made in Schleswig-Holstein.\" This enables the system to be further expanded and tested in practice.\n\nPROGEEK, the City of Flensburg, and Smarte Grenzregion are currently working together on the further development and integration of the system, in order to transfer the insights gained into everyday municipal practice on a lasting basis.",
+        "answerRich": "<p1>The \"Green Ecolution\" research project was successfully completed as part of the Applied Computer Science (Angewandte Informatik) master's program at <hsfl>Hochschule Flensburg</hsfl>. Building on the results achieved in the project, the further development is now being continued.</p1><p2>In October 2025, the project received funding through the <program>DigitalHub Call for Concepts</program> of the state program <funding>\"Offene Innovation – Open Source made in Schleswig-Holstein\"</funding>. This enables the system to be further expanded and tested in practice.</p2><p3><progeek>PROGEEK</progeek>, the <flensburg>City of Flensburg</flensburg>, and <grenzregion>Smarte Grenzregion</grenzregion> are currently working together on the further development and integration of the system, in order to transfer the insights gained into everyday municipal practice on a lasting basis.</p3>"
+      }
+    }
   }
 }

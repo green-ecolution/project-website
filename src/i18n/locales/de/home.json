@@ -185,5 +185,139 @@
         "description": "Messung der Saugspannung zur Bestimmung der Wasserverfügbarkeit"
       }
     }
+  },
+  "videos": {
+    "sectionLabel": "Videos",
+    "title": "Lerne das Projekt per Video kennen",
+    "description": "Im Rahmen des Forschungsprojekts sind neben der Sensorlösung und der Software auch zwei Videos entstanden. Sie stellen das Projekt vor: die Zielsetzung, die Problemstellung und die entwickelte Lösung.",
+    "short": {
+      "title": "Kurzvideo",
+      "description": "Ein kurzer Einstieg in das Projekt. In rund einer halben Minute erfährst du, worum es bei Green Ecolution geht.",
+      "duration": "ca. 30 Sekunden"
+    },
+    "long": {
+      "title": "Langvideo",
+      "description": "Das ausführliche Video geht tiefer und erklärt die wichtigsten Hintergründe, Details und die nächsten Schritte des Projekts.",
+      "duration": "ca. 4 Minuten"
+    }
+  },
+  "workflow": {
+    "sectionLabel": "Lösung",
+    "title": "Der durchgängige Workflow",
+    "moreLink": "Mehr erfahren",
+    "moreLinkAriaLabel": "Mehr über den Prozess erfahren",
+    "steps": {
+      "measure": {
+        "category": "Erfassen",
+        "title": "Messen",
+        "description": "Bodenfeuchtesensoren erfassen Parameter wie Bodenfeuchte, Temperatur und Bodenwasserspannung in mehreren Tiefen (30/60/90 cm). Die Daten werden energieeffizient über LoRaWAN übertragen."
+      },
+      "understand": {
+        "category": "Analysieren",
+        "title": "Verstehen",
+        "description": "Ein Ampelsystem zeigt auf einer Karte den aktuellen Bewässerungsbedarf. Mitarbeiter erkennen auf einen Blick, welche Grünflächen Wasser brauchen. Zeitverläufe ermöglichen detaillierte Analysen."
+      },
+      "act": {
+        "category": "Ausführen",
+        "title": "Handeln",
+        "description": "Automatisierte Einsatz- und Routenplanung erzeugt optimierte Bewässerungstouren unter Berücksichtigung von Wasserkapazität, Fahrzeuggröße und Straßenrestriktionen."
+      }
+    }
+  },
+  "process": {
+    "steps": {
+      "install": {
+        "label": "Sensoren installieren",
+        "shortName": "Installation",
+        "description": "Bodenfeuchtesensoren werden an ausgewählten Bäumen angebracht. Das ist schnell, unkompliziert und wartungsarm."
+      },
+      "data": {
+        "label": "Echtzeitdaten erfassen",
+        "shortName": "Daten",
+        "description": "Die Sensoren messen kontinuierlich die Bodenfeuchtigkeit und übertragen die Werte automatisch ins System."
+      },
+      "analysis": {
+        "label": "Bewässerungsbedarf erkennen",
+        "shortName": "Analyse",
+        "description": "Das Dashboard zeigt dir auf einen Blick, welche Bäume Wasser brauchen, priorisiert nach Dringlichkeit."
+      },
+      "planning": {
+        "label": "Optimierte Routen planen",
+        "shortName": "Planung",
+        "description": "Green Ecolution berechnet die effizienteste Tour für dein Team: weniger Fahrzeit, mehr Bewässerung."
+      },
+      "execution": {
+        "label": "Bewässern und auswerten",
+        "shortName": "Umsetzung",
+        "description": "Dein Team fährt die optimierte Route. Danach siehst du genau, wie viel Wasser wo eingesetzt wurde."
+      }
+    }
+  },
+  "demo": {
+    "sectionLabel": "Live Demo",
+    "title": "Überzeug dich selbst",
+    "description": "Die öffentlich zugängliche Demo-Instanz zeigt den aktuellen Funktionsumfang: Kartenansicht mit Ampelsystem, Dashboard mit Sensordaten und automatisierte Routenberechnung. Keine Installation nötig, direkt im Browser.",
+    "cta": "Demo öffnen",
+    "ctaAriaLabel": "Demo von Green Ecolution im Browser öffnen",
+    "screenshotAlt": "Green Ecolution Demo, Dashboard mit Kartenansicht und Sensordaten"
+  },
+  "stakeholder": {
+    "sectionLabel": "Partner & Beteiligte",
+    "title": "Wer sind die Beteiligten?",
+    "description": "In Zusammenarbeit zwischen PROGEEK, der Smarten-Grenzregion, der Stadt Flensburg und der Hochschule Flensburg soll eine bedarfsgerechte und datenbasierte Bewässerung für Bäume aufgebaut werden.",
+    "sliderAriaLabel": "Beteiligten am Projekt",
+    "items": {
+      "progeek": {
+        "role": "Technischer Partner",
+        "description": "PROGEEK steht für innovative IT-Lösungen, individuelle Softwareentwicklung und digitale Beratung, mit dem Ziel, Unternehmen auf ihrem Weg in die Zukunft der Digitalisierung zu begleiten."
+      },
+      "smarteGrenzregion": {
+        "role": "Projektkoordinator",
+        "description": "Das Projekt „Smarte Grenzregion zwischen den Meeren\" will die digitale Transformation in der Region vorantreiben, um eine integrierte und nachhaltige Stadt- und Regionalentwicklung zu gestalten und das Gemeinwohl zu stärken."
+      },
+      "hsFlensburg": {
+        "role": "Initiator",
+        "description": "Die Hochschule Flensburg bietet praxisnahe Studiengänge mit Fokus auf angewandte Forschung und enge Zusammenarbeit mit der Industrie an."
+      },
+      "tbz": {
+        "role": "Anwendungspartner",
+        "description": "Das Technische Betriebszentrum (TBZ) ist der zentrale Dienstleister für die Stadt Flensburg und u.a. für die Pflege öffentlicher Grünflächen, Straßenreinigung sowie Abfallwirtschaft zuständig."
+      }
+    }
+  },
+  "stakeholderCard": {
+    "logoAlt": "Logo {{label}}",
+    "visitWebsite": "Zur Webseite"
+  },
+  "faq": {
+    "sectionLabel": "FAQ",
+    "title": "Oft gestellte Fragen zu Green Ecolution",
+    "items": {
+      "origin": {
+        "question": "Wer steckt hinter dem Projekt Green Ecolution?",
+        "answerPlain": "Das Projekt „Green Ecolution“ wurde im Rahmen eines Forschungsprojekts im Masterstudiengang „Angewandte Informatik“ an der Hochschule Flensburg ins Leben gerufen. Nach dem erfolgreichen Abschluss des Forschungsprojekts wird die Weiterentwicklung des Systems nun von PROGEEK übernommen, in enger Zusammenarbeit mit der Smarten Grenzregion und der Stadt Flensburg.",
+        "answerRich": "Das Projekt „Green Ecolution“ wurde im Rahmen eines Forschungsprojekts im Masterstudiengang „Angewandte Informatik“ an der <hsfl>Hochschule Flensburg</hsfl> ins Leben gerufen. Nach dem erfolgreichen Abschluss des Forschungsprojekts wird die Weiterentwicklung des Systems nun von <progeek>PROGEEK</progeek> übernommen, in enger Zusammenarbeit mit der <grenzregion>Smarten Grenzregion</grenzregion> und der <flensburg>Stadt Flensburg</flensburg>."
+      },
+      "value": {
+        "question": "Welchen Mehrwert bietet das Projekt?",
+        "answerPlain": "Das Forschungsprojekt „Green Ecolution“ hat gezeigt, wie digitale Technologien gezielt eingesetzt werden können, um die Bewässerung von Stadtbäumen effizienter, nachhaltiger und ressourcenschonender zu gestalten. Durch den Einsatz moderner Sensorik und intelligenter Datenauswertung wurde eine Grundlage geschaffen, um Wasserverbrauch und Pflegeaufwand deutlich zu reduzieren.\n\nDie gewonnenen Erkenntnisse und entwickelten Systeme leisten einen wichtigen Beitrag zur nachhaltigen Stadtentwicklung in Flensburg. Sie unterstützen eine datenbasierte Entscheidungsfindung und fördern den verantwortungsvollen Umgang mit natürlichen Ressourcen, zum Nutzen von Umwelt, Stadtverwaltung und Bürger:innen.",
+        "answerRich": "<p1>Das Forschungsprojekt „Green Ecolution“ hat gezeigt, wie digitale Technologien gezielt eingesetzt werden können, um die Bewässerung von Stadtbäumen effizienter, nachhaltiger und ressourcenschonender zu gestalten. Durch den Einsatz moderner Sensorik und intelligenter Datenauswertung wurde eine Grundlage geschaffen, um Wasserverbrauch und Pflegeaufwand deutlich zu reduzieren.</p1><p2>Die gewonnenen Erkenntnisse und entwickelten Systeme leisten einen wichtigen Beitrag zur nachhaltigen Stadtentwicklung in Flensburg. Sie unterstützen eine datenbasierte Entscheidungsfindung und fördern den verantwortungsvollen Umgang mit natürlichen Ressourcen, zum Nutzen von Umwelt, Stadtverwaltung und Bürger:innen.</p2>"
+      },
+      "openSource": {
+        "question": "Was bedeutet es, dass das Projekt öffentlich zugänglich ist?",
+        "answerPlain": "Der Quellcode des Projekts ist in einem öffentlich zugänglichen GitHub-Repository verfügbar. Dadurch kann der aktuelle Entwicklungsstand jederzeit eingesehen werden, was Transparenz schafft und interessierten Personen ermöglicht, die Weiterentwicklung nachzuvollziehen oder sich aktiv einzubringen.\n\nPerspektivisch ist zudem eine Anbindung an das Open-Data-Portal des Landes Schleswig-Holstein vorgesehen, um zukünftig ausgewählte Sensordaten öffentlich zugänglich zu machen. Diese Erweiterung befindet sich derzeit in Planung.",
+        "answerRich": "<p1>Der Quellcode des Projekts ist in einem öffentlich zugänglichen <repo>GitHub-Repository</repo> verfügbar. Dadurch kann der aktuelle Entwicklungsstand jederzeit eingesehen werden, was Transparenz schafft und interessierten Personen ermöglicht, die Weiterentwicklung nachzuvollziehen oder sich aktiv einzubringen.</p1><p2>Perspektivisch ist zudem eine Anbindung an das <opendata>Open-Data-Portal</opendata> des Landes Schleswig-Holstein vorgesehen, um zukünftig ausgewählte Sensordaten öffentlich zugänglich zu machen. Diese Erweiterung befindet sich derzeit in Planung.</p2>"
+      },
+      "sensors": {
+        "question": "Welche Sensoren werden eingesetzt?",
+        "answerPlain": "Im Rahmen des Forschungsprojekts wurden folgende Sensoren eingesetzt, um präzise Daten zur Bodenfeuchte und -beschaffenheit zu erfassen. Diese Sensoren bildeten die Grundlage für die Entwicklung und Erprobung des Systems.\n\nZur Messung der Bodenwasserspannung: Watermark-Sensor. Zur Messung der Bodenfeuchte und -temperatur: SMT100-Sensor.\n\nIn zukünftigen Entwicklungsphasen kann die Sensorik je nach Anforderungen und technologischem Fortschritt weiter angepasst oder erweitert werden.",
+        "answerRich": "<p1>Im Rahmen des Forschungsprojekts wurden folgende Sensoren eingesetzt, um präzise Daten zur Bodenfeuchte und -beschaffenheit zu erfassen. Diese Sensoren bildeten die Grundlage für die Entwicklung und Erprobung des Systems.</p1><list><item1>Zur Messung der Bodenwasserspannung: <watermark>Watermark-Sensor</watermark></item1><item2>Zur Messung der Bodenfeuchte und -temperatur: <smt100>SMT100-Sensor</smt100></item2></list><p3>In zukünftigen Entwicklungsphasen kann die Sensorik je nach Anforderungen und technologischem Fortschritt weiter angepasst oder erweitert werden.</p3>"
+      },
+      "progress": {
+        "question": "Wie ist der aktuelle Fortschritt des Projekts?",
+        "answerPlain": "Das Forschungsprojekt „Green Ecolution“ wurde im Rahmen des Masterstudiengangs „Angewandte Informatik“ an der Hochschule Flensburg erfolgreich abgeschlossen. Aufbauend auf den im Projekt erzielten Ergebnissen wird die Weiterentwicklung nun fortgesetzt.\n\nIm Oktober 2025 erhielt das Projekt im Rahmen des DigitalHub Call for Concepts des Landesprogramms „Offene Innovation – Open Source made in Schleswig-Holstein“ eine Finanzierung. Dadurch kann das System weiter ausgebaut und praxisnah erprobt werden.\n\nAktuell arbeiten PROGEEK, die Stadt Flensburg und die Smarte Grenzregion gemeinsam an der Weiterentwicklung und Integration des Systems, um die gewonnenen Erkenntnisse nachhaltig in den kommunalen Alltag zu überführen.",
+        "answerRich": "<p1>Das Forschungsprojekt „Green Ecolution“ wurde im Rahmen des Masterstudiengangs „Angewandte Informatik“ an der <hsfl>Hochschule Flensburg</hsfl> erfolgreich abgeschlossen. Aufbauend auf den im Projekt erzielten Ergebnissen wird die Weiterentwicklung nun fortgesetzt.</p1><p2>Im Oktober 2025 erhielt das Projekt im Rahmen des <program>DigitalHub Call for Concepts</program> des Landesprogramms <funding>„Offene Innovation – Open Source made in Schleswig-Holstein“</funding> eine Finanzierung. Dadurch kann das System weiter ausgebaut und praxisnah erprobt werden.</p2><p3>Aktuell arbeiten <progeek>PROGEEK</progeek>, die <flensburg>Stadt Flensburg</flensburg> und die <grenzregion>Smarte Grenzregion</grenzregion> gemeinsam an der Weiterentwicklung und Integration des Systems, um die gewonnenen Erkenntnisse nachhaltig in den kommunalen Alltag zu überführen.</p3>"
+      }
+    }
   }
 }
