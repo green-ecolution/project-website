@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouterState } from '@tanstack/react-router'
 import { Trophy, X, ArrowRight } from 'lucide-react'
 import { dismissVotingBanner, isVotingBannerDismissed } from '../helper/storage'
+import { useLanguage } from '../../i18n/useLanguage'
 
 const VOTING_URL = 'https://open-source-wettbewerb.de/voting/green-ecolution/'
 const VOTING_DEADLINE = new Date('2026-09-30T23:59:59+02:00').getTime()
@@ -9,10 +10,12 @@ const isVotingOpen = Date.now() <= VOTING_DEADLINE
 
 function VotingBanner() {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
+  const lang = useLanguage()
   const [isDismissed, setIsDismissed] = useState(() => isVotingBannerDismissed())
   const bannerRef = useRef<HTMLElement>(null)
 
-  const isVisible = !isDismissed && isVotingOpen && pathname === '/'
+  const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/`
+  const isVisible = !isDismissed && isVotingOpen && isHomePage
 
   // Header and page content are pushed down by this, so the height must stay in sync
   useEffect(() => {
