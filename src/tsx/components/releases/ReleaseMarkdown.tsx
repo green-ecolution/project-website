@@ -4,6 +4,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getSectionRule, slugifyHeading, type TocEntry } from '../../helper/releaseSections'
 import { useLanguage } from '../../../i18n/useLanguage'
+import { isSupportedLanguage } from '../../../i18n/languages'
 
 interface ReleaseMarkdownProps {
   content: string
@@ -11,6 +12,13 @@ interface ReleaseMarkdownProps {
 }
 
 function withLanguagePrefix(path: string): string {
+  // Release notes are runtime content, so a path may already carry a language
+  // prefix (e.g. copied from the address bar). Prefixing again would double it.
+  const [, firstSegment] = path.split('/')
+  if (isSupportedLanguage(firstSegment)) {
+    return path
+  }
+
   return `/$lang${path}`
 }
 
