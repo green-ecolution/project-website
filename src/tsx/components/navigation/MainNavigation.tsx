@@ -5,6 +5,7 @@ import NavItem from './NavItem'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
+import LanguageSwitcher from '../LanguageSwitcher'
 import { useLanguage } from '../../../i18n/useLanguage'
 
 interface MainNavigationProps {
@@ -94,6 +95,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
             <span className="whitespace-nowrap">Jetzt ausprobieren</span>
             <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
           </Button>
+          <li className="mt-6 lg:mt-0 lg:ml-2">
+            <LanguageSwitcher onNavigate={onClose} />
+          </li>
         </ul>
 
         <ul className="absolute bottom-6 text-white lg:text-grey-900 flex flex-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
