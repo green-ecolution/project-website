@@ -1,9 +1,10 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import { i18nTranslated } from '../../helper/sliderTranslations'
+import { useSliderTranslations } from '../../hooks/useSliderTranslations'
 import '@splidejs/react-splide/css'
 import IntroductionCard from '../cards/IntroductionCard'
 
 function Introduction() {
+  const sliderTranslations = useSliderTranslations()
   const facts = [
     {
       label: 'Entwicklung einer Sensorlösung',
@@ -68,7 +69,7 @@ function Introduction() {
           options={{
             rewind: true,
             arrows: false,
-            i18n: i18nTranslated,
+            i18n: sliderTranslations,
             mediaQuery: 'min',
             breakpoints: breakpoints,
             reducedMotion: { speed: 0, rewindSpeed: 0 },

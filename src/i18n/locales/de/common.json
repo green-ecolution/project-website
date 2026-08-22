@@ -5,5 +5,67 @@
     "en": "Englisch",
     "deShort": "DE",
     "enShort": "EN"
+  },
+  "header": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "logoAriaLabel": "Zur Startseite navigieren",
+    "openNavigation": "Hauptnavigation öffnen"
+  },
+  "nav": {
+    "ariaLabel": "Hauptnavigation",
+    "heading": "Hauptnavigation",
+    "project": "Das Projekt",
+    "releases": "Releases",
+    "contact": "Kontakt",
+    "github": "GitHub",
+    "tryNow": "Jetzt ausprobieren",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "footer": {
+    "logoAriaLabel": "Zur Startseite navigieren",
+    "logoAlt": "Logo Green Ecolution",
+    "description": "Green Ecolution ist ein digitales System zur bedarfsgerechten und ressourcenschonenden Bewässerung von Stadtbäumen und leistet damit einen Beitrag zu einer nachhaltigen und klimaresilienten Stadtentwicklung.",
+    "contact": "Kontakt",
+    "contactAriaLabel": "Kontaktiere uns gern per Mail",
+    "github": "GitHub",
+    "githubAriaLabel": "Besuche uns auf GitHub",
+    "metaNavAriaLabel": "Meta-Navigation",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "banner": {
+    "ariaLabel": "Aufruf zum Community Voting",
+    "title": "Community Voting",
+    "desktopDescription": "Green Ecolution steht beim Open-Source-Wettbewerb zur Abstimmung. Noch bis zum 30. September.",
+    "mobileDescription": "Green Ecolution beim Open-Source-Wettbewerb unterstützen, noch bis 30.09.",
+    "cta": "Jetzt abstimmen",
+    "dismissAriaLabel": "Hinweis zum Community Voting schließen"
+  },
+  "backToTop": {
+    "ariaLabel": "Zurück nach oben"
+  },
+  "error": {
+    "title": "Etwas ist schief gelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut oder kehre zur Startseite zurück.",
+    "retry": "Erneut versuchen",
+    "home": "Zur Startseite"
+  },
+  "notFound": {
+    "title": "Die Seite konnte nicht gefunden werden.",
+    "description": "Die gewünschte Seite ist nicht erreichbar, da sie entweder nicht existiert oder es zu einem Fehler gekommen ist. Fehlercode: 404",
+    "cta": "Zur Startseite"
+  },
+  "slider": {
+    "prev": "Vorheriges Element anzeigen",
+    "next": "Nächstes Element anzeigen",
+    "first": "Erstes Element anzeigen",
+    "last": "Letztes Element anzeigen",
+    "slideX": "Zu Seite %s springen",
+    "pageX": "Zu Seite %s springen",
+    "carousel": "Slider",
+    "select": "Paginierung der Elemente",
+    "slide": "Slider Element",
+    "slideLabel": "%s von %s"
   }
 }

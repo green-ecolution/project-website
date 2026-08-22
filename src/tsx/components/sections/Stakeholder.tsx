@@ -1,5 +1,5 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import { i18nTranslated } from '../../helper/sliderTranslations'
+import { useSliderTranslations } from '../../hooks/useSliderTranslations'
 import '@splidejs/react-splide/css'
 import StakeholderCard from '../cards/StakeholderCard'
 
@@ -8,6 +8,7 @@ interface StakeholderProps {
 }
 
 const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => {
+  const sliderTranslations = useSliderTranslations()
   const stakeholder = [
     {
       label: 'PROGEEK GmbH',
@@ -87,7 +88,7 @@ const Stakeholder: React.FC<StakeholderProps> = ({ hasDesktopList = false }) => 
           options={{
             rewind: true,
             arrows: false,
-            i18n: i18nTranslated,
+            i18n: sliderTranslations,
             mediaQuery: 'min',
             ...(hasDesktopList && { breakpoints: breakpoints }),
             reducedMotion: { speed: 0, rewindSpeed: 0 },
