@@ -45,12 +45,12 @@ export default tseslint.config(
             {
               from: 'package',
               name: 'Redirect',
-              package: '@tanstack/router',
+              package: '@tanstack/router-core',
             },
             {
               from: 'package',
               name: 'NotFoundError',
-              package: '@tanstack/router',
+              package: '@tanstack/router-core',
             },
           ],
         },
