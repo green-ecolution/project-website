@@ -3,10 +3,15 @@ import { Link } from '@tanstack/react-router'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getSectionRule, slugifyHeading, type TocEntry } from '../../helper/releaseSections'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface ReleaseMarkdownProps {
   content: string
   sections: TocEntry[]
+}
+
+function withLanguagePrefix(path: string): string {
+  return `/$lang${path}`
 }
 
 function getTextContent(node: ReactNode): string {
@@ -20,6 +25,8 @@ function getTextContent(node: ReactNode): string {
 }
 
 const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) => {
+  const lang = useLanguage()
+
   // Keyed by source line rather than by render order: React may render a heading
   // more than once, which would desynchronise any counter kept across calls.
   const idByLine = new Map(sections.map((entry) => [entry.line, entry.id]))
@@ -92,7 +99,11 @@ const ReleaseMarkdown: React.FC<ReleaseMarkdownProps> = ({ content, sections }) 
         a: ({ href, children }) => {
           if (href?.startsWith('/')) {
             return (
-              <Link to={href} className="text-green-dark-900 font-medium hover:underline">
+              <Link
+                to={withLanguagePrefix(href)}
+                params={{ lang }}
+                className="text-green-dark-900 font-medium hover:underline"
+              >
                 {children}
               </Link>
             )

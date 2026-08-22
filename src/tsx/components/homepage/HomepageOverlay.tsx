@@ -3,6 +3,8 @@ import { Link } from '@tanstack/react-router'
 import Arrow from '../../icons/Arrow'
 import HomepageOverlayIcons from './HomepageOverlayIcons'
 import WelcomeCard from '../cards/WelcomeCard'
+import { useLanguage } from '../../../i18n/useLanguage'
+import type { Language } from '../../../i18n/languages'
 
 interface Popup {
   label: string
@@ -16,7 +18,7 @@ interface HomepageOverlayProps {
   onClose: () => void
 }
 
-const popups: Popup[] = [
+const getPopups = (lang: Language): Popup[] => [
   {
     label: 'Messung des Bewässerungszustandes',
     shortName: 'Bewässerungszustand',
@@ -47,7 +49,8 @@ const popups: Popup[] = [
         ausgewertet. Auf einem Dashboard wird grafisch dargestellt, ob eine Bewässerung in nächster
         Zeit notwendig ist.&nbsp;
         <Link
-          to="/project"
+          to="/$lang/project"
+          params={{ lang }}
           hash="vorteile"
           className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
         >
@@ -63,6 +66,8 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
   isOverlayVisible,
   onClose,
 }) => {
+  const lang = useLanguage()
+  const popups = getPopups(lang)
   const [currentPopupIndex, setCurrentPopupIndex] = useState(0)
   const [isPopupVisible, setIsPopupVisible] = useState(false)
   const currentPopup = popups[currentPopupIndex]

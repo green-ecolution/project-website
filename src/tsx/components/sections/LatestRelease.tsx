@@ -3,8 +3,10 @@ import { getAllReleases } from '../../../content/releases'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
 import { formatReleaseDate } from '../../helper/formatDate'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 function LatestRelease() {
+  const lang = useLanguage()
   const releases = getAllReleases()
   const latestRelease = releases[0]
 
@@ -34,7 +36,7 @@ function LatestRelease() {
             an und erfahre, woran wir gerade arbeiten.
           </p>
           <div>
-            <Button href="/releases" ariaLabel="Alle Releases ansehen" isDark>
+            <Button href="/$lang/releases" ariaLabel="Alle Releases ansehen" isDark>
               <span>Alle Releases</span>
               <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
             </Button>
@@ -43,8 +45,8 @@ function LatestRelease() {
 
         <div>
           <Link
-            to="/releases/$slug"
-            params={{ slug: latestRelease.slug }}
+            to="/$lang/releases/$slug"
+            params={{ lang, slug: latestRelease.slug }}
             className="group block bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-3">

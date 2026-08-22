@@ -26,7 +26,7 @@ function NotFoundPage() {
             einem Fehler gekommen ist. Fehlercode: 404
           </p>
           <div className="lg:flex lg:items-center lg:justify-center">
-            <Button href="/" ariaLabel="Zur Startseite" isDark>
+            <Button href="/$lang" ariaLabel="Zur Startseite" isDark>
               <span>Zur Startseite</span>
               <Arrow classes="w-6 text-white transition-all ease-in-out duration-300 group-hover:translate-x-2" />
             </Button>

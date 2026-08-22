@@ -5,6 +5,7 @@ import NavItem from './NavItem'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface MainNavigationProps {
   isOpen: boolean
@@ -12,6 +13,7 @@ interface MainNavigationProps {
 }
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
+  const lang = useLanguage()
   const [isMobile, setIsMobile] = React.useState(false)
   const previousActiveElement = React.useRef<HTMLElement | null>(null)
   const touchStartX = React.useRef<number | null>(null)
@@ -84,9 +86,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
       >
         <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
         <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
-          <NavItem label="Das Projekt" url="/project" onClick={onClose} />
-          <NavItem label="Releases" url="/releases" onClick={onClose} />
-          <NavItem label="Kontakt" url="/contact" onClick={onClose} />
+          <NavItem label="Das Projekt" url="/$lang/project" onClick={onClose} />
+          <NavItem label="Releases" url="/$lang/releases" onClick={onClose} />
+          <NavItem label="Kontakt" url="/$lang/contact" onClick={onClose} />
           <NavItem label="GitHub" url="https://github.com/green-ecolution" isExternalLink />
           <Button ariaLabel="demo" href="https://demo.green-ecolution.de" isExternalLink isDark>
             <span className="whitespace-nowrap">Jetzt ausprobieren</span>
@@ -97,7 +99,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
         <ul className="absolute bottom-6 text-white lg:text-grey-900 flex flex-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
           <li>
             <Link
-              to="/impressum"
+              to="/$lang/impressum"
+              params={{ lang }}
               onClick={onClose}
               className="transition-color ease-in-out duration-300 hover:opacity-75"
             >
@@ -106,7 +109,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
           </li>
           <li>
             <Link
-              to="/datenschutz"
+              to="/$lang/datenschutz"
+              params={{ lang }}
               onClick={onClose}
               className="transition-color ease-in-out duration-300 hover:opacity-75"
             >

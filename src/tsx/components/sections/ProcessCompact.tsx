@@ -1,8 +1,11 @@
 import { Link } from '@tanstack/react-router'
 import { workflowSteps } from '../../../data/workflowSteps'
 import Arrow from '../../icons/Arrow'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 function ProcessCompact() {
+  const lang = useLanguage()
+
   return (
     <section className="max-w-208 mx-auto my-20 px-4 md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl">
       {/* Header */}
@@ -21,7 +24,8 @@ function ProcessCompact() {
         </div>
 
         <Link
-          to="/project"
+          to="/$lang/project"
+          params={{ lang }}
           hash="process"
           aria-label="Mehr über den Prozess erfahren"
           className="hidden lg:flex group items-center gap-x-2 font-semibold text-green-dark-900 hover:text-green-light-900 transition-colors duration-300 whitespace-nowrap"
@@ -63,7 +67,8 @@ function ProcessCompact() {
       {/* Mobile CTA */}
       <div className="flex justify-center mt-8 lg:hidden">
         <Link
-          to="/project"
+          to="/$lang/project"
+          params={{ lang }}
           hash="process"
           aria-label="Mehr über den Prozess erfahren"
           className="group flex items-center gap-x-2 font-semibold text-green-dark-900 hover:text-green-light-900 transition-colors duration-300"

@@ -14,7 +14,7 @@ import ReleaseToc from '../components/releases/ReleaseToc'
 const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 
 function ReleaseDetailPage() {
-  const { slug } = Route.useParams()
+  const { lang, slug } = Route.useParams()
   const release = getReleaseBySlug(slug)
   const { prev, next } = getAdjacentReleases(slug)
 
@@ -32,7 +32,7 @@ function ReleaseDetailPage() {
   }, [release])
 
   if (!release) {
-    throw redirect({ to: '/releases' })
+    throw redirect({ to: '/$lang/releases', params: { lang } })
   }
 
   const { frontmatter } = release
@@ -47,7 +47,8 @@ function ReleaseDetailPage() {
     >
       <article className="px-4 max-w-208 mx-auto mt-20 pb-16 md:px-6 lg:mt-24 lg:pb-24 lg:max-w-screen-lg xl:mt-32 xl:max-w-screen-xl">
         <Link
-          to="/releases"
+          to="/$lang/releases"
+          params={{ lang }}
           aria-label="Zurück zu allen Releases"
           className="group inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:gap-3 transition-all mb-8"
         >
@@ -159,8 +160,8 @@ function ReleaseDetailPage() {
         >
           {prev ? (
             <Link
-              to="/releases/$slug"
-              params={{ slug: prev.slug }}
+              to="/$lang/releases/$slug"
+              params={{ lang, slug: prev.slug }}
               className="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all"
             >
               <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">
@@ -183,8 +184,8 @@ function ReleaseDetailPage() {
           )}
           {next ? (
             <Link
-              to="/releases/$slug"
-              params={{ slug: next.slug }}
+              to="/$lang/releases/$slug"
+              params={{ lang, slug: next.slug }}
               className="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all sm:text-right"
             >
               <span className="text-xs text-grey-500 uppercase tracking-wide font-semibold">

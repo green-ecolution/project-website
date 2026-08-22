@@ -2,18 +2,20 @@ import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import type { Release } from '../../types/release'
 import { formatReleaseDate } from '../../helper/formatDate'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface FeaturedReleaseProps {
   release: Release
 }
 
 const FeaturedRelease: React.FC<FeaturedReleaseProps> = ({ release }) => {
+  const lang = useLanguage()
   const { frontmatter, slug } = release
 
   return (
     <Link
-      to="/releases/$slug"
-      params={{ slug }}
+      to="/$lang/releases/$slug"
+      params={{ lang, slug }}
       className="group block bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl lg:rounded-3xl p-6 lg:p-10 shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="flex flex-wrap items-center gap-3 mb-4">

@@ -4,8 +4,10 @@ import Lottie from 'lottie-react'
 import MainNavigation from '../components/navigation/MainNavigation'
 import logoAnimation from '../../json/logoAnimation.json'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function Header() {
+  const lang = useLanguage()
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const reducedMotion = useReducedMotion()
@@ -79,7 +81,8 @@ function Header() {
       >
         <div className="relative px-4 py-5 max-w-screen-lg mx-auto flex justify-between items-center md:px-6 xl:max-w-screen-xl">
           <Link
-            to="/"
+            to="/$lang"
+            params={{ lang }}
             aria-label="Zur Startseite navigieren"
             className={`flex items-center gap-x-4 xl:gap-x-5 ${open ? 'opacity-0' : ''}`}
           >

@@ -3,12 +3,14 @@ import { ArrowRight } from 'lucide-react'
 import type { Release } from '../../types/release'
 import { formatReleaseDate } from '../../helper/formatDate'
 import { formatReleaseStats, getReleaseStats } from '../../helper/releaseStats'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface ReleaseCardProps {
   release: Release
 }
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
+  const lang = useLanguage()
   const { frontmatter, slug } = release
   const stats = getReleaseStats(release)
   const statLabels = formatReleaseStats(stats)
@@ -20,7 +22,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
         className="absolute lg:-left-[1.375rem] top-7 w-3 h-3 rounded-full bg-white border-2 border-grey-900/20 transition-colors duration-300 group-hover:border-green-dark-900 hidden lg:block"
       />
 
-      <Link to="/releases/$slug" params={{ slug }} className="block">
+      <Link to="/$lang/releases/$slug" params={{ lang, slug }} className="block">
         <div className="bg-white rounded-xl lg:rounded-2xl p-5 lg:p-6 border border-grey-900/10 shadow-xs transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-0.5 group-hover:border-green-dark-900/20">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
             <div className="flex flex-wrap items-center gap-3">
