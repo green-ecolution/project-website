@@ -18,8 +18,6 @@ export const streamletLinks = {
   issues: 'https://github.com/green-ecolution/streamlet/issues',
 } as const
 
-export const streamletBadges: string[] = ['Rust', 'AGPL-3.0', 'v0.1.0', 'Zustandslose HTTP-API']
-
 interface FitCriterion {
   label: string
   icon: ComponentType<{ className?: string }>
@@ -72,29 +70,6 @@ export const apiEndpoints: ApiEndpoint[] = [
   { method: 'GET', path: '/api-docs/openapi.json', description: 'OpenAPI-Schema der API' },
 ]
 
-export const solveRequestExample = `{
-  "problem": {
-    "vehicles": [{
-      "id": 1,
-      "start": {"lat": 54.78, "lon": 9.43},
-      "tank": {"capacity": 100.0, "level": 100.0},
-      "kind": {"Car": {"width": 2.0, "height": 2.0}},
-      "shift": {"start": 0.0, "end": 28800.0},
-      "max_trips": null
-    }],
-    "depots": [{"id": 1, "location": {"lat": 54.78, "lon": 9.43}}],
-    "customers": [
-      {"id": 1, "location": {"lat": 54.79, "lon": 9.44},
-       "demand": 40.0, "service_time": 300.0, "time_window": null},
-      {"id": 2, "location": {"lat": 54.80, "lon": 9.45},
-       "demand": 40.0, "service_time": 300.0, "time_window": null}
-    ],
-    "refill_stations": [{"id": 1, "location": {"lat": 54.785, "lon": 9.435},
-                         "refill_duration": 600.0}]
-  },
-  "options": {"geometry": "polyline"}
-}`
-
 interface SolverStage {
   label: string
   description: string
@@ -144,7 +119,7 @@ export const tileChangesets: TileChangeset[] = [
     name: 'construction',
     status: 'available',
     description:
-      'Markiert Straßen, die wegen Baustellen gesperrt sind, als access=no. Routen führen dann nicht mehr durch die Sperrung. Die Baustellendaten kommen beim ersten Konsumenten aus dem Flensburger Verkehrsticker.',
+      'Markiert Straßen, die wegen Baustellen gesperrt sind, als access=no. Routen führen dann nicht mehr durch die Sperrung.',
   },
   {
     name: 'allowed-paths',
@@ -183,31 +158,6 @@ export const operationsFacts: OperationsFact[] = [
     label: 'AGPL-3.0',
     description: 'Der Quellcode steht unter der GNU Affero General Public License, Version 3.',
     icon: Scale,
-  },
-]
-
-interface EnvVar {
-  name: string
-  fallback: string
-  description: string
-}
-
-export const envVars: EnvVar[] = [
-  { name: 'STREAMLET_ADDR', fallback: '0.0.0.0:3000', description: 'Adresse und Port des Servers' },
-  {
-    name: 'STREAMLET_VALHALLA_URL',
-    fallback: 'http://localhost:8002',
-    description: 'Basis-URL der Routing-Engine',
-  },
-  {
-    name: 'STREAMLET_ENGINE_TIMEOUT_MS',
-    fallback: '10000',
-    description: 'Timeout für Anfragen an die Engine',
-  },
-  {
-    name: 'STREAMLET_SOLVER_TIME_LIMIT_MS',
-    fallback: '2000',
-    description: 'Zeitbudget des Solvers je Anfrage',
   },
 ]
 

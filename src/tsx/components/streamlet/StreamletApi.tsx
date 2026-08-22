@@ -1,4 +1,4 @@
-import { apiEndpoints, solveFlowSteps, solveRequestExample } from '../../../data/streamlet'
+import { apiEndpoints, solveFlowSteps } from '../../../data/streamlet'
 
 function StreamletApi() {
   return (
@@ -30,28 +30,6 @@ function StreamletApi() {
           </li>
         ))}
       </ol>
-
-      <div className="bg-grey-900 rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl mb-10">
-        <div className="px-4 py-3 flex items-center gap-2 border-b border-grey-100/10">
-          <div className="flex gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-red-500/80" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <span className="w-3 h-3 rounded-full bg-green-500/80" />
-          </div>
-          <span className="ml-2 text-grey-100/60 text-sm font-mono">POST /v1/solve</span>
-        </div>
-
-        <div
-          className="overflow-x-auto p-4"
-          tabIndex={0}
-          role="region"
-          aria-label="Beispielhafte Anfrage an POST /v1/solve"
-        >
-          <pre className="font-mono text-xs lg:text-sm text-grey-100/90 leading-relaxed">
-            <code>{solveRequestExample}</code>
-          </pre>
-        </div>
-      </div>
 
       <ul className="grid grid-cols-1 gap-3">
         {apiEndpoints.map((endpoint) => (

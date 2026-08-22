@@ -2,7 +2,7 @@ import { BookOpen } from 'lucide-react'
 import Button from '../Button'
 import Github from '../../icons/Github'
 import Arrow from '../../icons/Arrow'
-import { streamletBadges, streamletLinks } from '../../../data/streamlet'
+import { streamletLinks } from '../../../data/streamlet'
 
 function StreamletHero() {
   return (
@@ -29,17 +29,6 @@ function StreamletHero() {
         abbilden konnte. Das Projekt liegt in seinem eigenen Repository, kennt keinen seiner
         Konsumenten und lässt sich für jedes Vorhaben mit demselben Problem einsetzen.
       </p>
-
-      <ul className="flex flex-wrap gap-3 mb-10">
-        {streamletBadges.map((badge) => (
-          <li
-            key={badge}
-            className="border border-green-light-900/40 rounded-full px-4 py-1.5 text-sm font-semibold text-green-dark-900"
-          >
-            {badge}
-          </li>
-        ))}
-      </ul>
 
       <div className="flex flex-wrap gap-4">
         <Button

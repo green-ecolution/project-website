@@ -1,4 +1,4 @@
-import { envVars, operationsFacts } from '../../../data/streamlet'
+import { operationsFacts } from '../../../data/streamlet'
 
 function StreamletOperations() {
   return (
@@ -22,7 +22,7 @@ function StreamletOperations() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:gap-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
         {operationsFacts.map((fact) => {
           const Icon = fact.icon
           return (
@@ -37,49 +37,6 @@ function StreamletOperations() {
             </article>
           )
         })}
-      </div>
-
-      <div className="rounded-2xl border border-green-dark-900/10 overflow-hidden">
-        <div className="bg-green-light-100/60 px-5 py-3 border-b border-green-dark-900/10">
-          <h3 id="streamlet-config" className="font-lato font-semibold text-grey-900 text-sm">
-            Konfiguration
-          </h3>
-        </div>
-        <div
-          className="overflow-x-auto"
-          tabIndex={0}
-          role="region"
-          aria-label="Konfiguration über Umgebungsvariablen"
-        >
-          <table aria-labelledby="streamlet-config" className="w-full text-left text-sm">
-            <thead>
-              <tr className="border-b border-green-dark-900/10">
-                <th scope="col" className="px-5 py-3 font-semibold text-grey-900">
-                  Variable
-                </th>
-                <th scope="col" className="px-5 py-3 font-semibold text-grey-900">
-                  Standard
-                </th>
-                <th scope="col" className="px-5 py-3 font-semibold text-grey-900">
-                  Bedeutung
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {envVars.map((envVar) => (
-                <tr key={envVar.name} className="border-b border-green-dark-900/5 last:border-b-0">
-                  <td className="px-5 py-3 font-mono text-xs text-green-dark-900 whitespace-nowrap">
-                    {envVar.name}
-                  </td>
-                  <td className="px-5 py-3 font-mono text-xs text-grey-900/60 whitespace-nowrap">
-                    {envVar.fallback}
-                  </td>
-                  <td className="px-5 py-3 text-grey-900/70">{envVar.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
   )

@@ -54,7 +54,7 @@ function StreamletSolver() {
           <p className="text-sm text-white/60 leading-relaxed mb-6 max-w-2xl">
             Die Regressionstests lösen bekannte VRPTW-Instanzen und prüfen zwei Dinge: dass die
             Lösung zulässig ist, also Kapazität und Zeitfenster einhält, und dass der Abstand zur
-            besten bekannten Lösung eine Grenze nicht überschreitet.
+            besten bekannten Lösung unter fünf Prozent bleibt.
           </p>
 
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -70,7 +70,9 @@ function StreamletSolver() {
             ))}
           </dl>
 
-          <p className="text-xs text-white/50 mt-3">Abstand zur besten bekannten Lösung</p>
+          <p className="text-xs text-white/50 mt-3">
+            Gemessener Abstand zur besten bekannten Lösung
+          </p>
         </div>
       </div>
     </section>

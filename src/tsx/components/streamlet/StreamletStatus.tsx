@@ -21,8 +21,8 @@ function StreamletStatus() {
         </h2>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
-          Streamlet steht bei Version 0.1.0 vom 7. Juli 2026 und läuft bei Green Ecolution in der
-          Einsatzplanung. Diese Punkte sind offen, damit niemand sie erst beim Einbauen entdeckt.
+          Streamlet steht am Anfang und läuft bei Green Ecolution in der Einsatzplanung. Diese
+          Punkte sind offen, damit niemand sie erst beim Einbauen entdeckt.
         </p>
       </div>
 
@@ -44,9 +44,9 @@ function StreamletStatus() {
         </h3>
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl mb-8">
-          Wer dasselbe Problem hat, kann Streamlet einsetzen, ohne Green Ecolution mitzunehmen.
-          Fragen, Fehlerberichte und Erfahrungen aus anderen Anwendungsfällen gehören ins
-          Repository. Wie Streamlet in einem echten Betrieb eingesetzt wird, steht im{' '}
+          Streamlet lässt sich unabhängig von Green Ecolution einsetzen. Fragen, Fehlerberichte und
+          Erfahrungen aus anderen Anwendungsfällen sind im Repository willkommen. Wie der Dienst in
+          einem echten Betrieb läuft, zeigt das{' '}
           <Link
             to="/releases/$slug"
             params={{ slug: 'v0.4.0' }}
