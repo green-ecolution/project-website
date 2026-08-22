@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next'
 import { governancePillars } from '../../../data/governancePillars'
 
 function OpenSourceGovernance() {
+  const { t } = useTranslation('project')
+
   return (
     <section className="relative overflow-hidden bg-[#1a2a16]">
       {/* Subtle noise texture */}
@@ -21,19 +24,16 @@ function OpenSourceGovernance() {
         <div className="mb-10 lg:mb-14">
           <div className="inline-block mb-6">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Governance
+              {t('governance.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
 
           <h2 className="font-lato font-bold text-2xl mb-4 text-white lg:text-3xl xl:text-4xl">
-            Open Source als Prinzip
+            {t('governance.title')}
           </h2>
 
-          <p className="text-white/60 leading-relaxed max-w-2xl">
-            Transparenz, Unabhängigkeit und Nachnutzbarkeit: die Grundpfeiler unserer
-            Open-Source-Strategie.
-          </p>
+          <p className="text-white/60 leading-relaxed max-w-2xl">{t('governance.description')}</p>
         </div>
 
         {/* 3×2 Grid */}
@@ -57,7 +57,7 @@ function OpenSourceGovernance() {
 
             return (
               <article
-                key={pillar.category}
+                key={pillar.id}
                 className={`group p-6 lg:p-8 hover:bg-white/[0.03] transition-colors duration-300 ${borderClasses}`}
               >
                 <div className="mb-4 w-10 h-10 rounded-lg bg-green-dark-900/60 flex items-center justify-center transition-colors group-hover:bg-green-dark-900">
@@ -65,14 +65,16 @@ function OpenSourceGovernance() {
                 </div>
 
                 <span className="text-xs font-semibold tracking-widest uppercase text-green-light-900/70 mb-2 block">
-                  {pillar.category}
+                  {t(`governance.pillars.${pillar.id}.category`)}
                 </span>
 
                 <h3 className="font-lato font-bold text-white mb-2 tracking-wide">
-                  {pillar.title}
+                  {t(`governance.pillars.${pillar.id}.title`)}
                 </h3>
 
-                <p className="text-white/50 text-sm leading-relaxed">{pillar.description}</p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  {t(`governance.pillars.${pillar.id}.description`)}
+                </p>
               </article>
             )
           })}

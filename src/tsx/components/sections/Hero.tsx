@@ -7,7 +7,7 @@ interface HeroProps {
   children?: ReactNode
 }
 
-const Hero: React.FC<HeroProps> = ({ headline, description, label = 'Projekt', children }) => {
+const Hero: React.FC<HeroProps> = ({ headline, description, label, children }) => {
   return (
     <section className="mt-28 px-4 max-w-208 mx-auto md:px-6 lg:mt-36 lg:max-w-screen-lg xl:mt-52 xl:max-w-screen-xl">
       <div className="lg:text-center">

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Advantages from '../components/sections/Advantages'
 import Architecture from '../components/sections/Architecture'
 import DashboardPreview from '../components/sections/DashboardPreview'
@@ -10,11 +11,21 @@ import OpenSourceGovernance from '../components/sections/OpenSourceGovernance'
 
 import VisionRoadmap from '../components/sections/VisionRoadmap'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function ProjectPage() {
+  const { t } = useTranslation('project')
+  const language = useLanguage()
+
   useEffect(() => {
-    document.title = 'Projekt | Green Ecolution | Smartes Grünflächenmanagement'
-  }, [])
+    applyDocumentMeta({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '/project',
+    })
+  }, [t, language])
 
   useEffect(() => {
     const hash = window.location.hash
@@ -26,12 +37,6 @@ function ProjectPage() {
     }
   }, [])
 
-  const heroHeadline = 'Smartes Grünflächenmanagement für lebenswerte Städte'
-  const heroDescription =
-    'Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume. \
-  Unsere Software kombiniert Sensordaten mit intelligenter Routenoptimierung und ermöglicht so eine gezielte, \
-  ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg und bald auch für deine Kommune verfügbar.'
-
   return (
     <main
       id="main-content"
@@ -39,11 +44,15 @@ function ProjectPage() {
     >
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Projekt', path: '/project' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.project', path: '/project' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} />
+      <Hero
+        label={t('hero.label')}
+        headline={t('hero.headline')}
+        description={t('hero.description')}
+      />
       <DashboardPreview />
       <Process />
       <Architecture />

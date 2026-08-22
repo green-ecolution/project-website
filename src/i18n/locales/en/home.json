@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "title": "Home | Green Ecolution | Smart Green Space Management",
+    "description": "Green Ecolution enables smart irrigation of green spaces through sensor-based monitoring and data-driven recommendations."
+  },
+  "hero": {
+    "badge": "Smart Irrigation",
+    "headlinePrefix": "We enable ",
+    "headlineHighlight": "smart irrigation",
+    "headlineSuffix": " of green spaces!",
+    "tagline": "Measure. Understand. Act.",
+    "description": "Sensor-based monitoring of green spaces transmits data over the LoRaWAN network for analysis, so that irrigation recommendations can be provided.",
+    "playAnimation": "Play animation",
+    "adoptTreeAriaLabel": "Adopt a tree"
+  },
+  "overlay": {
+    "popups": {
+      "moisture": {
+        "label": "Measuring irrigation status",
+        "description": "Soil moisture is measured at different soil depths depending on the vegetation type, providing data across different soil layers."
+      },
+      "transmission": {
+        "label": "Data transmission",
+        "description": "The sensor data is transmitted via a public LoRaWAN network to a backend for further processing. LoRaWAN requires little energy and has a long range, resulting in wide area coverage and low maintenance effort."
+      },
+      "recommendation": {
+        "label": "Recommendations",
+        "description": "The transmitted sensor data is analyzed using scientific and mathematical methods. A dashboard graphically shows whether irrigation will be needed soon. <Link>See the benefits</Link>"
+      }
+    },
+    "next": "Next",
+    "discover": "Discover",
+    "closeAriaLabel": "Close popup"
+  },
+  "welcomeCard": {
+    "greeting": "Welcome to",
+    "tagline": "Smart green space management",
+    "description": "Learn how we use smart sensors and data-driven analysis to optimize the irrigation of urban green spaces, for healthier trees, beds and parks with efficient use of resources.",
+    "cta": "Discover now"
+  },
+  "adoptModal": {
+    "ariaLabel": "Adoption certificate for {{fullName}}",
+    "fullName": "{{name}} the {{species}}",
+    "certificateLabel": "Adoption certificate",
+    "certificateNumber": "No. {{number}}",
+    "waitingIn": "is waiting for you in Flensburg",
+    "funFactLabel": "Did you know?",
+    "quote": "“Thank you for thinking of me! With projects like Green Ecolution, city trees like me finally get the attention we deserve.”",
+    "signature": "— {{name}}, in Flensburg since {{year}}",
+    "thanks": "Thank you, {{name}}! 🌳"
+  },
+  "adoptTree": {
+    "species": {
+      "birch": "Birch",
+      "spruce": "Spruce",
+      "oak": "Oak",
+      "beech": "Beech",
+      "chestnut": "Chestnut",
+      "linden": "Linden",
+      "maple": "Maple",
+      "ash": "Ash",
+      "elm": "Elm",
+      "plane": "Plane tree",
+      "fir": "Fir",
+      "willow": "Willow",
+      "robinia": "Robinia",
+      "alder": "Alder",
+      "poplar": "Poplar"
+    },
+    "facts": {
+      "evaporation": "A large city tree can evaporate up to 400 liters of water a day, cooling its surroundings by up to 3°C.",
+      "oxygen": "A single beech tree produces enough oxygen for 10 people per year.",
+      "dust": "City trees filter a significant share of particulate matter from the air in their immediate surroundings.",
+      "roots": "The roots of a street tree often extend over one and a half times the area of its crown.",
+      "co2": "Over its lifetime, a 100-year-old tree has bound around 5 tons of CO₂.",
+      "network": "Trees communicate through underground fungal networks, known as the “Wood Wide Web”.",
+      "lifespan": "Street trees live an average of only 60 years. In rural areas, they live three times as long.",
+      "noise": "A dense stand of trees can reduce noise levels by up to 10 decibels.",
+      "water": "In hot summers, a city tree needs up to 200 additional liters of water per week."
+    }
+  },
+  "introduction": {
+    "sectionLabel": "Overview",
+    "title": "What does smart green space management involve?",
+    "description": "In smart green space management, sensors continuously monitor green spaces and provide the data basis for their irrigation and care. This allows measures to be controlled precisely and adapted to the respective site conditions.",
+    "sliderAriaLabel": "Facts about green space management",
+    "facts": {
+      "sensor": {
+        "label": "Development of a sensor solution",
+        "description": "Soil moisture data is provided by sensors placed at different depths."
+      },
+      "evaluation": {
+        "label": "Analysis of measurement data",
+        "description": "Analysis of the data transmitted by sensors for demand-based irrigation of young trees."
+      },
+      "youngTrees": {
+        "label": "Focus on young trees",
+        "description": "Young trees are particularly vulnerable to heat and therefore need protection. That's why trees are monitored during their first three years at their site."
+      },
+      "monitoring": {
+        "label": "Monitoring multiple locations",
+        "description": "Using the LoRaWAN network, different locations can be monitored, and additional ones can easily be added."
+      }
+    }
+  },
+  "challenge": {
+    "quoteLine1": "Cities water by feel.",
+    "quoteLine2": "Not by need.",
+    "supportingText": "Urban green spaces regulate the microclimate, promote biodiversity and strengthen a location's competitiveness. But persistent drought and a lack of digitalization threaten this asset. Many municipalities base their irrigation planning solely on the judgment of individual staff, with no data basis at all. Instead of demand-based irrigation, watering is done uniformly, wasting water while still not reaching every tree. Unoptimized irrigation trips also cause avoidable CO₂ emissions.",
+    "figures": {
+      "waterUse": {
+        "value": "50,000",
+        "unit": "liters / year",
+        "description": "Water is consumed by a mid-sized municipality for irrigation, often without a data basis and without demand-based control."
+      },
+      "treeCost": {
+        "value": "1,700 €",
+        "unit": "per tree",
+        "description": "is the cost of a single street tree. If it is lost due to insufficient irrigation, this damage alone covers the sensor costs for several years."
+      },
+      "bedCost": {
+        "value": "up to 60,000 €",
+        "unit": "per bed",
+        "description": "can be the cost of a complete street bed, including civil works, substrate and infrastructure."
+      }
+    }
+  },
+  "features": {
+    "sectionLabel": "Features",
+    "title": "Green Ecolution at a glance",
+    "description": "From sensor data collection through intelligent route planning to detailed analysis: all the features for efficient and sustainable green space management",
+    "items": {
+      "dashboard": {
+        "label": "Real-time dashboard",
+        "description": "All key KPIs at a glance: soil moisture values, upcoming tours, team availability and vehicle status in one central dashboard."
+      },
+      "grouping": {
+        "label": "Intelligent grouping",
+        "description": "Group trees into irrigation units. Automatic calculation of water demand per cluster."
+      },
+      "fleet": {
+        "label": "Fleet Management",
+        "description": "Manage vans and trailers with water capacities. Automatic refill stops in route planning."
+      },
+      "tourPlanning": {
+        "label": "Tour planning",
+        "description": "Optimized irrigation schedules with real-time status: from “planned” through “active” to “completed”."
+      },
+      "teamManagement": {
+        "label": "Team management",
+        "description": "Manage drivers by license class and availability. Optimize deployment planning."
+      },
+      "analysis": {
+        "label": "Post-analysis",
+        "description": "Document actual water consumption per cluster and tour. Analyze trends and optimize future planning based on data."
+      }
+    }
+  },
+  "sensorProbe": {
+    "illustrationAriaLabel": "Schematic diagram of a soil probe at three depths",
+    "zones": {
+      "fineRoots": "Fine roots",
+      "mainRoots": "Main roots",
+      "deepRoots": "Deep roots"
+    },
+    "sectionLabel": "Hardware",
+    "title": "The soil probe",
+    "description": "Designed for use in public spaces. Sensors at three depths (30, 60 and 90 cm) capture the full root profile of a tree, from the near-surface fine roots to the deeper main roots. This makes it possible to see whether water actually reaches the root zone or only wets the surface. Installation is flush with the ground using standard soil augers. Maintenance work such as mowing is not affected.",
+    "specs": {
+      "depths": {
+        "label": "Measurement depths"
+      },
+      "network": {
+        "label": "Wireless network"
+      },
+      "batteryLife": {
+        "label": "Years of battery life"
+      }
+    },
+    "features": {
+      "soilMoisture": {
+        "label": "Soil moisture",
+        "description": "Volumetric measurement of soil moisture at multiple depths"
+      },
+      "temperature": {
+        "label": "Temperature",
+        "description": "Measurement of soil temperature for precise irrigation recommendations"
+      },
+      "soilTension": {
+        "label": "Soil water tension",
+        "description": "Measurement of suction tension to determine water availability"
+      }
+    }
+  },
+  "videos": {
+    "sectionLabel": "Videos",
+    "title": "Get to know the project through video",
+    "description": "As part of the research project, two videos were produced alongside the sensor solution and the software. They introduce the project: its objective, the problem, and the solution developed.",
+    "short": {
+      "title": "Short video",
+      "description": "A brief introduction to the project. In about half a minute, you'll learn what Green Ecolution is about.",
+      "duration": "approx. 30 seconds"
+    },
+    "long": {
+      "title": "Long video",
+      "description": "The detailed video goes deeper and explains the key background, details, and next steps of the project.",
+      "duration": "approx. 4 minutes"
+    }
+  },
+  "workflow": {
+    "sectionLabel": "Solution",
+    "title": "The end-to-end workflow",
+    "moreLink": "Learn more",
+    "moreLinkAriaLabel": "Learn more about the process",
+    "steps": {
+      "measure": {
+        "category": "Capture",
+        "title": "Measure",
+        "description": "Soil moisture sensors capture parameters such as soil moisture, temperature, and soil water tension at multiple depths (30/60/90 cm). The data is transmitted energy-efficiently via LoRaWAN."
+      },
+      "understand": {
+        "category": "Analyze",
+        "title": "Understand",
+        "description": "A traffic-light system shows the current irrigation need on a map. Staff can see at a glance which green spaces need water. Time series enable detailed analyses."
+      },
+      "act": {
+        "category": "Execute",
+        "title": "Act",
+        "description": "Automated dispatch and route planning generates optimized irrigation routes, taking into account water capacity, vehicle size, and road restrictions."
+      }
+    }
+  },
+  "demo": {
+    "sectionLabel": "Live Demo",
+    "title": "See it for yourself",
+    "description": "The publicly accessible demo instance shows the current feature set: map view with a traffic-light system, dashboard with sensor data, and automated route calculation. No installation needed, directly in the browser.",
+    "cta": "Open demo",
+    "ctaAriaLabel": "Open the Green Ecolution demo in the browser",
+    "screenshotAlt": "Green Ecolution demo, dashboard with map view and sensor data"
+  },
+  "stakeholder": {
+    "sectionLabel": "Partners & Stakeholders",
+    "title": "Who is involved?",
+    "description": "In collaboration between PROGEEK, Smarte Grenzregion, the City of Flensburg and Hochschule Flensburg, a demand-driven and data-based irrigation system for trees is to be established.",
+    "sliderAriaLabel": "Project stakeholders",
+    "items": {
+      "progeek": {
+        "role": "Technical partner",
+        "description": "PROGEEK stands for innovative IT solutions, custom software development, and digital consulting, with the goal of guiding companies on their way into the future of digitalization."
+      },
+      "smarteGrenzregion": {
+        "role": "Project coordinator",
+        "description": "The project \"Smarte Grenzregion zwischen den Meeren\" aims to drive digital transformation in the region in order to shape integrated and sustainable urban and regional development and strengthen the common good."
+      },
+      "hsFlensburg": {
+        "role": "Initiator",
+        "description": "Hochschule Flensburg offers practice-oriented degree programs with a focus on applied research and close collaboration with industry."
+      },
+      "tbz": {
+        "role": "Application partner",
+        "description": "The Technisches Betriebszentrum (TBZ) is the central service provider for the City of Flensburg and is responsible, among other things, for the upkeep of public green spaces, street cleaning, and waste management."
+      }
+    }
+  },
+  "stakeholderCard": {
+    "logoAlt": "Logo {{label}}",
+    "visitWebsite": "Visit website"
+  },
+  "faq": {
+    "sectionLabel": "FAQ",
+    "title": "Frequently asked questions about Green Ecolution",
+    "items": {
+      "origin": {
+        "question": "Who is behind the Green Ecolution project?",
+        "answerPlain": "The \"Green Ecolution\" project was launched as part of a research project in the Applied Computer Science (Angewandte Informatik) master's program at Hochschule Flensburg. Following the successful completion of the research project, the further development of the system is now being continued by PROGEEK, in close collaboration with Smarte Grenzregion and the City of Flensburg.",
+        "answerRich": "The \"Green Ecolution\" project was launched as part of a research project in the Applied Computer Science (Angewandte Informatik) master's program at <hsfl>Hochschule Flensburg</hsfl>. Following the successful completion of the research project, the further development of the system is now being continued by <progeek>PROGEEK</progeek>, in close collaboration with <grenzregion>Smarte Grenzregion</grenzregion> and the <flensburg>City of Flensburg</flensburg>."
+      },
+      "value": {
+        "question": "What value does the project provide?",
+        "answerPlain": "The \"Green Ecolution\" research project demonstrated how digital technologies can be deployed to make the irrigation of urban trees more efficient, more sustainable, and more resource-conscious. Through the use of modern sensor technology and intelligent data analysis, a foundation was created to significantly reduce water consumption and maintenance effort.\n\nThe insights gained and the systems developed make an important contribution to sustainable urban development in Flensburg. They support data-based decision-making and promote the responsible use of natural resources, for the benefit of the environment, the city administration, and citizens.",
+        "answerRich": "<p1>The \"Green Ecolution\" research project demonstrated how digital technologies can be deployed to make the irrigation of urban trees more efficient, more sustainable, and more resource-conscious. Through the use of modern sensor technology and intelligent data analysis, a foundation was created to significantly reduce water consumption and maintenance effort.</p1><p2>The insights gained and the systems developed make an important contribution to sustainable urban development in Flensburg. They support data-based decision-making and promote the responsible use of natural resources, for the benefit of the environment, the city administration, and citizens.</p2>"
+      },
+      "openSource": {
+        "question": "What does it mean that the project is publicly accessible?",
+        "answerPlain": "The project's source code is available in a publicly accessible GitHub repository. This means the current state of development can be viewed at any time, which creates transparency and allows interested people to follow the ongoing development or get actively involved.\n\nA connection to the Open Data Portal of the state of Schleswig-Holstein is also planned for the future, in order to make selected sensor data publicly accessible. This extension is currently in the planning stage.",
+        "answerRich": "<p1>The project's source code is available in a publicly accessible <repo>GitHub repository</repo>. This means the current state of development can be viewed at any time, which creates transparency and allows interested people to follow the ongoing development or get actively involved.</p1><p2>A connection to the <opendata>Open Data Portal</opendata> of the state of Schleswig-Holstein is also planned for the future, in order to make selected sensor data publicly accessible. This extension is currently in the planning stage.</p2>"
+      },
+      "sensors": {
+        "question": "Which sensors are used?",
+        "answerPlain": "As part of the research project, the following sensors were used to capture precise data on soil moisture and soil condition. These sensors formed the basis for the development and testing of the system.\n\nFor measuring soil water tension: Watermark sensor. For measuring soil moisture and temperature: SMT100 sensor.\n\nIn future development phases, the sensor technology can be further adapted or extended depending on requirements and technological progress.",
+        "answerRich": "<p1>As part of the research project, the following sensors were used to capture precise data on soil moisture and soil condition. These sensors formed the basis for the development and testing of the system.</p1><list><item1>For measuring soil water tension: <watermark>Watermark sensor</watermark></item1><item2>For measuring soil moisture and temperature: <smt100>SMT100 sensor</smt100></item2></list><p3>In future development phases, the sensor technology can be further adapted or extended depending on requirements and technological progress.</p3>"
+      },
+      "progress": {
+        "question": "What is the current progress of the project?",
+        "answerPlain": "The \"Green Ecolution\" research project was successfully completed as part of the Applied Computer Science (Angewandte Informatik) master's program at Hochschule Flensburg. Building on the results achieved in the project, the further development is now being continued.\n\nIn October 2025, the project received funding through the DigitalHub Call for Concepts of the state program \"Offene Innovation – Open Source made in Schleswig-Holstein.\" This enables the system to be further expanded and tested in practice.\n\nPROGEEK, the City of Flensburg, and Smarte Grenzregion are currently working together on the further development and integration of the system, in order to transfer the insights gained into everyday municipal practice on a lasting basis.",
+        "answerRich": "<p1>The \"Green Ecolution\" research project was successfully completed as part of the Applied Computer Science (Angewandte Informatik) master's program at <hsfl>Hochschule Flensburg</hsfl>. Building on the results achieved in the project, the further development is now being continued.</p1><p2>In October 2025, the project received funding through the <program>DigitalHub Call for Concepts</program> of the state program <funding>\"Offene Innovation – Open Source made in Schleswig-Holstein\"</funding>. This enables the system to be further expanded and tested in practice.</p2><p3><progeek>PROGEEK</progeek>, the <flensburg>City of Flensburg</flensburg>, and <grenzregion>Smarte Grenzregion</grenzregion> are currently working together on the further development and integration of the system, in order to transfer the insights gained into everyday municipal practice on a lasting basis.</p3>"
+      }
+    }
+  }
+}

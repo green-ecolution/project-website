@@ -1,34 +1,29 @@
+export type RoadmapItemId = 'mobileApp' | 'firmware' | 'userRoles' | 'openData' | 'greenSpaceTypes'
+
 interface RoadmapItem {
-  title: string
-  description: string
+  id: RoadmapItemId
   status: 'planned' | 'in-progress' | 'completed'
 }
 
 export const roadmapItems: RoadmapItem[] = [
   {
-    title: 'Mobile App mit QR-Scan',
-    description: 'Sensor-Setup per QR-Code und GPS direkt vor Ort am Baum',
+    id: 'mobileApp',
     status: 'in-progress',
   },
   {
-    title: 'Eigene Sensor-Firmware',
-    description: 'Vollständig selbst entwickelte Firmware für maximale Kontrolle und Anpassbarkeit',
+    id: 'firmware',
     status: 'planned',
   },
   {
-    title: 'Benutzer- und Rollenkonzept',
-    description:
-      'Feingranulare Rechteverwaltung für Mitarbeitende, Dienstleister und Partnerkommunen',
+    id: 'userRoles',
     status: 'planned',
   },
   {
-    title: 'Open-Data-Export',
-    description: 'Anbindung an das Open-Data-Portal des Landes Schleswig-Holstein',
+    id: 'openData',
     status: 'planned',
   },
   {
-    title: 'Weitere Grünflächentypen',
-    description: 'Erweiterung auf Beete, Stauden und Parks über Bäume hinaus',
+    id: 'greenSpaceTypes',
     status: 'planned',
   },
 ]

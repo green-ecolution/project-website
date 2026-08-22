@@ -1,35 +1,26 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import { i18nTranslated } from '../../helper/sliderTranslations'
+import { useTranslation } from 'react-i18next'
+import { useSliderTranslations } from '../../hooks/useSliderTranslations'
 import '@splidejs/react-splide/css'
 import IntroductionCard from '../cards/IntroductionCard'
 
+type IntroductionFactId = 'sensor' | 'evaluation' | 'youngTrees' | 'monitoring'
+
+interface IntroductionFact {
+  id: IntroductionFactId
+  icon: string
+}
+
+const facts: IntroductionFact[] = [
+  { id: 'sensor', icon: '/assets/svg/general/sensor.svg' },
+  { id: 'evaluation', icon: '/assets/svg/general/statistics.svg' },
+  { id: 'youngTrees', icon: '/assets/svg/general/tree.svg' },
+  { id: 'monitoring', icon: '/assets/svg/general/location.svg' },
+]
+
 function Introduction() {
-  const facts = [
-    {
-      label: 'Entwicklung einer Sensorlösung',
-      icon: '/assets/svg/general/sensor.svg',
-      description:
-        'Daten zur Bodenfeuchte werden mithilfe von in unterschiedlicher Tiefe platzierten Sensoren geliefert.',
-    },
-    {
-      label: 'Auswertung der Messdaten',
-      icon: '/assets/svg/general/statistics.svg',
-      description:
-        'Auswertung der durch Sensoren übermittelten Daten für eine bedarfsgerechte Bewässerung von Jungbäumen.',
-    },
-    {
-      label: 'Augenmerk auf Jungbäume',
-      icon: '/assets/svg/general/tree.svg',
-      description:
-        'Jungbäume sind besonders hitzeanfällig und daher schutzbedürftig. Deshalb werden Bäume in ihren ersten drei Standjahren überwacht.',
-    },
-    {
-      label: 'Monitoring mehrerer Standorte',
-      icon: '/assets/svg/general/location.svg',
-      description:
-        'Unter Verwendung des LoRaWAN-Netzes können verschiedene Standorte überwacht und weitere einfach eingebunden werden.',
-    },
-  ]
+  const { t } = useTranslation('home')
+  const sliderTranslations = useSliderTranslations()
 
   const breakpoints = {
     640: {
@@ -47,20 +38,16 @@ function Introduction() {
         <div className="mb-6 lg:mb-8">
           <div className="inline-block">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Überblick
+              {t('introduction.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
         </div>
 
         <h2 className="font-lato font-bold text-2xl mb-6 text-grey-900 lg:text-3xl">
-          Was beinhaltet smartes Grünflächenmanagement?
+          {t('introduction.title')}
         </h2>
-        <p className="text-grey-900/80 leading-relaxed">
-          Beim smarten Grünflächenmanagement überwachen Sensoren die Grünflächen kontinuierlich und
-          liefern die Datengrundlage für ihre Bewässerung und Pflege. So lassen sich die Maßnahmen
-          präzise steuern und an die jeweiligen Standortbedingungen anpassen.
-        </p>
+        <p className="text-grey-900/80 leading-relaxed">{t('introduction.description')}</p>
       </article>
 
       <div>
@@ -68,20 +55,20 @@ function Introduction() {
           options={{
             rewind: true,
             arrows: false,
-            i18n: i18nTranslated,
+            i18n: sliderTranslations,
             mediaQuery: 'min',
             breakpoints: breakpoints,
             reducedMotion: { speed: 0, rewindSpeed: 0 },
           }}
-          aria-label="Fakten zum Grünflächenmanagement"
+          aria-label={t('introduction.sliderAriaLabel')}
           className="splide--grid md:px-2"
         >
           {facts.map((fact) => (
-            <SplideSlide key={fact.label} className="pb-10 px-4 lg:px-2 lg:pb-2">
+            <SplideSlide key={fact.id} className="pb-10 px-4 lg:px-2 lg:pb-2">
               <IntroductionCard
-                label={fact.label}
+                label={t(`introduction.facts.${fact.id}.label`)}
                 icon={fact.icon}
-                description={fact.description}
+                description={t(`introduction.facts.${fact.id}.description`)}
               />
             </SplideSlide>
           ))}

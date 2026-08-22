@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "title": "Project | Green Ecolution | Smart Green Space Management",
+    "description": "Green Ecolution is an open-source solution for efficient irrigation of urban trees, developed in collaboration with the City of Flensburg."
+  },
+  "hero": {
+    "label": "Project",
+    "headline": "Smart green space management for livable cities",
+    "description": "Green Ecolution is an open-source solution for the efficient irrigation of urban trees. Our software combines sensor data with intelligent route optimization, enabling targeted, resource-efficient deployment planning. Developed in collaboration with the City of Flensburg, and soon available for your municipality too."
+  },
+  "dashboard": {
+    "sectionLabel": "Software",
+    "titleLine1": "Well-founded recommendations",
+    "titleLine2": "for irrigation at a glance",
+    "description": "Our system scientifically evaluates the sensor data and shows when irrigation is needed. The data is prepared so that it is easy to interpret and can be directly incorporated into deployment planning.",
+    "imageAlt": "Green Ecolution dashboard - overview of irrigation recommendations"
+  },
+  "process": {
+    "sectionLabel": "Process",
+    "title": "Measure. Understand. Act.",
+    "description": "From soil moisture to an optimized irrigation route, in one continuous digital workflow.",
+    "steps": {
+      "measure": {
+        "category": "Capture",
+        "title": "Measure",
+        "description": "Soil moisture sensors capture parameters such as soil moisture, temperature, and soil water tension at multiple depths (30/60/90 cm). The data is transmitted energy-efficiently via LoRaWAN.",
+        "details": {
+          "item1": "Soil moisture sensors at depths of 30, 60, and 90 cm",
+          "item2": "Measurement of soil moisture, temperature, and soil water tension",
+          "item3": "Energy-efficient transmission via LoRaWAN",
+          "item4": "Flush-mounted installation, no impact on maintenance work"
+        }
+      },
+      "understand": {
+        "category": "Analyze",
+        "title": "Understand",
+        "description": "A traffic-light system shows the current irrigation need on a map. Staff can see at a glance which green spaces need water. Time series enable detailed analyses.",
+        "details": {
+          "item1": "Traffic-light system shows irrigation needs on a map",
+          "item2": "Prioritization by urgency when capacity is limited",
+          "item3": "Time series for soil moisture, temperature, and water tension",
+          "item4": "Real-time dashboard with all relevant KPIs"
+        }
+      },
+      "act": {
+        "category": "Execute",
+        "title": "Act",
+        "description": "Automated dispatch and route planning generates optimized irrigation routes, taking into account water capacity, vehicle size, and road restrictions.",
+        "details": {
+          "item1": "Automated dispatch and route planning",
+          "item2": "Takes water capacity and vehicle size into account",
+          "item3": "Road and access restrictions included",
+          "item4": "Export of routes to navigation devices"
+        }
+      }
+    }
+  },
+  "architecture": {
+    "sectionLabel": "System Architecture",
+    "title": "The path of the data",
+    "description": "This is how the readings travel from the tree to the optimized irrigation route through the Green Ecolution system.",
+    "steps": {
+      "sensor": {
+        "label": "Sensor",
+        "description": "Measures soil moisture at the tree"
+      },
+      "gateway": {
+        "label": "Gateway",
+        "description": "LoRaWAN transmission"
+      },
+      "backend": {
+        "label": "Backend",
+        "description": "Data processing & analysis"
+      },
+      "dashboard": {
+        "label": "Dashboard",
+        "description": "Visualization & route planning"
+      }
+    }
+  },
+  "governance": {
+    "sectionLabel": "Governance",
+    "title": "Open source as a principle",
+    "description": "Transparency, independence, and reusability: the cornerstones of our open-source strategy.",
+    "pillars": {
+      "license": {
+        "category": "License",
+        "title": "AGPL-3.0-only",
+        "description": "Licensed under the AGPL. Funded as part of DigitalHub.SH's \"Offene Innovation\" (\"Open Innovation\") state program."
+      },
+      "sovereignty": {
+        "category": "Sovereignty",
+        "title": "Digital sovereignty",
+        "description": "No dependency on proprietary platforms. Municipalities retain control over their data and infrastructure. No vendor lock-in."
+      },
+      "modularity": {
+        "category": "Modularity",
+        "title": "Plugin system",
+        "description": "Modular extensions for municipality-specific adaptations without changing the core software. Import plugins for tree registries, CSV, and databases."
+      },
+      "integration": {
+        "category": "Integration",
+        "title": "API-first",
+        "description": "Open interfaces for integration into municipal IT landscapes. Connection to IoT hubs and open data portals."
+      },
+      "community": {
+        "category": "Community",
+        "title": "Reuse & community",
+        "description": "Source code and documentation are publicly available on GitHub. Other municipalities can reuse and adapt the solution."
+      },
+      "costEfficiency": {
+        "category": "Cost efficiency",
+        "title": "Cost efficiency",
+        "description": "No license fees. The business model is based on services: hosting, customization, and sensor distribution. Regional value creation in Schleswig-Holstein."
+      }
+    }
+  },
+  "advantages": {
+    "sectionLabel": "Advantages",
+    "title": "All other features and advantages",
+    "description": "The project is publicly viewable and aims to reduce water consumption for irrigation while enabling variable deployment planning.",
+    "items": {
+      "openSource": {
+        "title": "An open solution for everyone",
+        "description": "Scalable open-source solution for municipalities that promotes further development and transparency"
+      },
+      "optimizedRoutes": {
+        "title": "Optimized routes",
+        "description": "Individual deployment planning for more efficient irrigation"
+      },
+      "water": {
+        "title": "Less is more",
+        "description": "Targeted irrigation, less water consumption"
+      }
+    }
+  },
+  "vision": {
+    "sectionLabel": "Vision",
+    "title": "Made for every municipality",
+    "descriptionPart1": "The platform is deliberately designed to be usable in any municipality. Map areas, organizational structures, and irrigation regions are freely configurable.",
+    "descriptionPart2": "Only open standards and open-source components are used. A cloud-native architecture based on Kubernetes enables multi-tenant, highly available operation. Additional municipalities can easily be added."
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In progress",
+      "planned": "Planned"
+    },
+    "items": {
+      "mobileApp": {
+        "title": "Mobile app with QR scan",
+        "description": "Sensor setup via QR code and GPS directly on-site at the tree"
+      },
+      "firmware": {
+        "title": "In-house sensor firmware",
+        "description": "Fully self-developed firmware for maximum control and adaptability"
+      },
+      "userRoles": {
+        "title": "User and role concept",
+        "description": "Fine-grained permission management for staff, service providers, and partner municipalities"
+      },
+      "openData": {
+        "title": "Open data export",
+        "description": "Connection to the open data portal of the state of Schleswig-Holstein"
+      },
+      "greenSpaceTypes": {
+        "title": "Additional green space types",
+        "description": "Expansion to flower beds, perennials, and parks beyond trees"
+      }
+    },
+    "moreInPlanningLabel": "and much more in the pipeline",
+    "moreIdeasAriaLabel": "More ideas in the pipeline"
+  },
+  "resources": {
+    "sectionLabel": "Resources",
+    "title": "Further links & mentions",
+    "items": {
+      "flensburgSoftware": {
+        "label": "Software for the City of Flensburg",
+        "description": "This is the software that was developed and set up for the City of Flensburg. It is primarily used by the Technisches Betriebszentrum Flensburg (the city's technical operations center)."
+      },
+      "github": {
+        "label": "Organization on GitHub",
+        "description": "There you can find all code repositories associated with the project, such as the backend and frontend of the software"
+      },
+      "hsflBlog": {
+        "label": "Blog post by Hochschule Flensburg",
+        "description": "A post about the research project was also published on the Hochschule Flensburg website."
+      },
+      "hsflInstagram": {
+        "label": "Instagram post by Hochschule Flensburg",
+        "description": "Green Ecolution was mentioned not only on the website but also on Instagram."
+      },
+      "digitalHub": {
+        "label": "Part of DigitalHub.SH 2025",
+        "description": "Green Ecolution was presented and funded as one of the open-source projects as part of DigitalHub.SH 2025."
+      },
+      "pressRelease": {
+        "label": "Press release by the City of Flensburg",
+        "description": "The City of Flensburg also reported on Green Ecolution and its significance for sustainable city management."
+      },
+      "liveDemo": {
+        "label": "Live demo",
+        "description": "The public demo instance, directly in the browser and without installation."
+      }
+    }
+  }
+}

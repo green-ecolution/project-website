@@ -1,8 +1,13 @@
 import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { workflowSteps } from '../../../data/workflowSteps'
 import Arrow from '../../icons/Arrow'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 function ProcessCompact() {
+  const { t } = useTranslation('home')
+  const lang = useLanguage()
+
   return (
     <section className="max-w-208 mx-auto my-20 px-4 md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl">
       {/* Header */}
@@ -10,23 +15,24 @@ function ProcessCompact() {
         <div>
           <div className="inline-block mb-4">
             <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-              Lösung
+              {t('workflow.sectionLabel')}
             </span>
             <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
           </div>
 
           <h2 className="font-lato font-bold text-2xl text-grey-900 lg:text-3xl xl:text-4xl">
-            Der durchgängige Workflow
+            {t('workflow.title')}
           </h2>
         </div>
 
         <Link
-          to="/project"
+          to="/$lang/project"
+          params={{ lang }}
           hash="process"
-          aria-label="Mehr über den Prozess erfahren"
+          aria-label={t('workflow.moreLinkAriaLabel')}
           className="hidden lg:flex group items-center gap-x-2 font-semibold text-green-dark-900 hover:text-green-light-900 transition-colors duration-300 whitespace-nowrap"
         >
-          Mehr erfahren
+          {t('workflow.moreLink')}
           <Arrow classes="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
@@ -37,23 +43,26 @@ function ProcessCompact() {
           {workflowSteps.map((step, index) => {
             const Icon = step.icon
             const isLast = index === workflowSteps.length - 1
+            const id = step.id
 
             return (
               <article
-                key={step.title}
+                key={id}
                 className={`${!isLast ? 'md:border-r md:border-green-dark-900/10 md:pr-8 lg:pr-10' : ''} ${index > 0 ? 'md:pl-8 lg:pl-10' : ''} ${index > 0 ? 'border-t border-green-dark-900/10 pt-8 md:border-t-0 md:pt-0' : ''}`}
               >
                 <Icon className="w-8 h-8 text-green-dark-900/40 mb-5 lg:w-10 lg:h-10" />
 
                 <span className="text-xs font-semibold tracking-widest uppercase text-green-dark-900/60 block mb-2">
-                  {step.number} · {step.category}
+                  {step.number} · {t(`workflow.steps.${id}.category`)}
                 </span>
 
                 <h3 className="font-lato font-bold text-xl text-grey-900 mb-3 lg:text-2xl">
-                  {step.title}
+                  {t(`workflow.steps.${id}.title`)}
                 </h3>
 
-                <p className="text-grey-600 text-sm leading-relaxed">{step.description}</p>
+                <p className="text-grey-600 text-sm leading-relaxed">
+                  {t(`workflow.steps.${id}.description`)}
+                </p>
               </article>
             )
           })}
@@ -63,12 +72,13 @@ function ProcessCompact() {
       {/* Mobile CTA */}
       <div className="flex justify-center mt-8 lg:hidden">
         <Link
-          to="/project"
+          to="/$lang/project"
+          params={{ lang }}
           hash="process"
-          aria-label="Mehr über den Prozess erfahren"
+          aria-label={t('workflow.moreLinkAriaLabel')}
           className="group flex items-center gap-x-2 font-semibold text-green-dark-900 hover:text-green-light-900 transition-colors duration-300"
         >
-          Mehr erfahren
+          {t('workflow.moreLink')}
           <Arrow classes="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>

@@ -55,10 +55,23 @@ server {
     listen       8080;
     listen  [::]:8080;
 
+    # Keep Location headers relative. nginx would otherwise emit the container's
+    # own scheme and port, sending crawlers that follow a legacy 301 to
+    # http://green-ecolution.de:8080/... instead of the public https URL.
+    absolute_redirect off;
+
     location /status {
         stub_status on;
         access_log off;
     }
+
+    location = /project      { return 301 /de/project; }
+    location = /contact      { return 301 /de/contact; }
+    location = /releases     { return 301 /de/releases; }
+    location = /impressum    { return 301 /de/impressum; }
+    location = /datenschutz  { return 301 /de/datenschutz; }
+
+    location ~ ^/releases/(.+)$ { return 301 /de/releases/$1; }
 
     location / {
         root   /usr/share/nginx/html;

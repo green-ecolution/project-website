@@ -1,35 +1,32 @@
 import { Radio, Wifi, Server, LayoutDashboard } from 'lucide-react'
 import { ComponentType } from 'react'
 
+export type ArchitectureStepId = 'sensor' | 'gateway' | 'backend' | 'dashboard'
+
 interface ArchitectureStep {
-  label: string
-  description: string
+  id: ArchitectureStepId
   icon: ComponentType<{ className?: string }>
   color: 'green-light' | 'green-middle' | 'green-dark'
 }
 
 export const architectureSteps: ArchitectureStep[] = [
   {
-    label: 'Sensor',
-    description: 'Misst Bodenfeuchte am Baum',
+    id: 'sensor',
     icon: Radio,
     color: 'green-dark',
   },
   {
-    label: 'Gateway',
-    description: 'LoRaWAN Übertragung',
+    id: 'gateway',
     icon: Wifi,
     color: 'green-light',
   },
   {
-    label: 'Backend',
-    description: 'Datenverarbeitung & Analyse',
+    id: 'backend',
     icon: Server,
     color: 'green-middle',
   },
   {
-    label: 'Dashboard',
-    description: 'Visualisierung & Tourenplanung',
+    id: 'dashboard',
     icon: LayoutDashboard,
     color: 'green-dark',
   },

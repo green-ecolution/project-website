@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "title": "Projekt | Green Ecolution | Smartes Grünflächenmanagement",
+    "description": "Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume, entwickelt in Zusammenarbeit mit der Stadt Flensburg."
+  },
+  "hero": {
+    "label": "Projekt",
+    "headline": "Smartes Grünflächenmanagement für lebenswerte Städte",
+    "description": "Green Ecolution ist eine Open-Source-Lösung für die effiziente Bewässerung urbaner Bäume. Unsere Software kombiniert Sensordaten mit intelligenter Routenoptimierung und ermöglicht so eine gezielte, ressourcenschonende Einsatzplanung. Entwickelt in Zusammenarbeit mit der Stadt Flensburg und bald auch für deine Kommune verfügbar."
+  },
+  "dashboard": {
+    "sectionLabel": "Software",
+    "titleLine1": "Fundierte Handlungsempfehlungen",
+    "titleLine2": "zur Bewässerung auf einen Blick",
+    "description": "Unser System wertet die Sensordaten wissenschaftlich aus und zeigt, zu welchem Zeitpunkt eine Bewässerung notwendig ist. Die Daten werden so aufbereitet, dass sie einfach zu interpretieren und direkt in die Einsatzplanung einzubinden sind.",
+    "imageAlt": "Green Ecolution Dashboard - Übersicht der Bewässerungsempfehlungen"
+  },
+  "process": {
+    "sectionLabel": "Prozess",
+    "title": "Messen. Verstehen. Handeln.",
+    "description": "Von der Bodenfeuchte zur optimierten Bewässerungsroute, in einem durchgängigen digitalen Workflow.",
+    "steps": {
+      "measure": {
+        "category": "Erfassen",
+        "title": "Messen",
+        "description": "Bodenfeuchtesensoren erfassen Parameter wie Bodenfeuchte, Temperatur und Bodenwasserspannung in mehreren Tiefen (30/60/90 cm). Die Daten werden energieeffizient über LoRaWAN übertragen.",
+        "details": {
+          "item1": "Bodenfeuchtesensoren in 30, 60 und 90 cm Tiefe",
+          "item2": "Erfassung von Bodenfeuchte, Temperatur und Bodenwasserspannung",
+          "item3": "Energieeffiziente Übertragung über LoRaWAN",
+          "item4": "Bodenbündige Installation, kein Einfluss auf Pflegearbeiten"
+        }
+      },
+      "understand": {
+        "category": "Analysieren",
+        "title": "Verstehen",
+        "description": "Ein Ampelsystem zeigt auf einer Karte den aktuellen Bewässerungsbedarf. Mitarbeiter erkennen auf einen Blick, welche Grünflächen Wasser brauchen. Zeitverläufe ermöglichen detaillierte Analysen.",
+        "details": {
+          "item1": "Ampelsystem zeigt Bewässerungsbedarf auf einer Karte",
+          "item2": "Priorisierung nach Dringlichkeit bei begrenzten Kapazitäten",
+          "item3": "Zeitverläufe für Bodenfeuchte, Temperatur und Wasserspannung",
+          "item4": "Echtzeit-Dashboard mit allen relevanten KPIs"
+        }
+      },
+      "act": {
+        "category": "Ausführen",
+        "title": "Handeln",
+        "description": "Automatisierte Einsatz- und Routenplanung erzeugt optimierte Bewässerungstouren unter Berücksichtigung von Wasserkapazität, Fahrzeuggröße und Straßenrestriktionen.",
+        "details": {
+          "item1": "Automatisierte Einsatz- und Routenplanung",
+          "item2": "Berücksichtigung von Wasserkapazität und Fahrzeuggröße",
+          "item3": "Straßen- und Zufahrtsrestriktionen einbezogen",
+          "item4": "Export der Routen auf Navigationsgeräte"
+        }
+      }
+    }
+  },
+  "architecture": {
+    "sectionLabel": "System-Architektur",
+    "title": "Der Weg der Daten",
+    "description": "So gelangen die Messwerte vom Baum bis zur optimierten Bewässerungsroute durch das Green Ecolution System.",
+    "steps": {
+      "sensor": {
+        "label": "Sensor",
+        "description": "Misst Bodenfeuchte am Baum"
+      },
+      "gateway": {
+        "label": "Gateway",
+        "description": "LoRaWAN Übertragung"
+      },
+      "backend": {
+        "label": "Backend",
+        "description": "Datenverarbeitung & Analyse"
+      },
+      "dashboard": {
+        "label": "Dashboard",
+        "description": "Visualisierung & Tourenplanung"
+      }
+    }
+  },
+  "governance": {
+    "sectionLabel": "Governance",
+    "title": "Open Source als Prinzip",
+    "description": "Transparenz, Unabhängigkeit und Nachnutzbarkeit: die Grundpfeiler unserer Open-Source-Strategie.",
+    "pillars": {
+      "license": {
+        "category": "Lizenz",
+        "title": "AGPL-3.0-only",
+        "description": "Lizenziert unter der AGPL. Finanziert im Rahmen des Landesprogramms „Offene Innovation\" des DigitalHub.SH."
+      },
+      "sovereignty": {
+        "category": "Souveränität",
+        "title": "Digitale Souveränität",
+        "description": "Keine Abhängigkeit von proprietären Plattformen. Kommunen behalten die Kontrolle über ihre Daten und Infrastruktur. Kein Vendor-Lock-in."
+      },
+      "modularity": {
+        "category": "Modularität",
+        "title": "Plugin-System",
+        "description": "Modulare Erweiterungen für kommunenspezifische Anpassungen ohne Änderung der Kernsoftware. Import-Plugins für Baumkataster, CSV, Datenbanken."
+      },
+      "integration": {
+        "category": "Integration",
+        "title": "API-first",
+        "description": "Offene Schnittstellen für Integration in kommunale IT-Landschaften. Anbindung an IoT-Hubs und Open-Data-Portale."
+      },
+      "community": {
+        "category": "Community",
+        "title": "Nachnutzung & Community",
+        "description": "Quellcode und Dokumentation öffentlich auf GitHub. Andere Kommunen können die Lösung nachnutzen und anpassen."
+      },
+      "costEfficiency": {
+        "category": "Wirtschaftlichkeit",
+        "title": "Kosteneffizienz",
+        "description": "Keine Lizenzkosten. Geschäftsmodell basiert auf Dienstleistungen: Hosting, Anpassung, Sensorvertrieb. Regionale Wertschöpfung in Schleswig-Holstein."
+      }
+    }
+  },
+  "advantages": {
+    "sectionLabel": "Vorteile",
+    "title": "Alle weiteren Funktionen und Vorteile",
+    "description": "Das Projekt ist öffentlich einsehbar und hat als Ziel, den Wasserverbrauch für die Bewässerung zu verringern sowie eine variable Einsatzplanung zu ermöglichen.",
+    "items": {
+      "openSource": {
+        "title": "Offene Lösung für alle",
+        "description": "Skalierbare Open-Source-Lösung für Kommunen zur Förderung von Weiterentwicklungen und Transparenz"
+      },
+      "optimizedRoutes": {
+        "title": "Optimierte Routen",
+        "description": "Individuelle Einsatzplanung zur effizienteren Bewässerung"
+      },
+      "water": {
+        "title": "Weniger ist mehr",
+        "description": "Gezielte Bewässerung, weniger Wasserverbrauch"
+      }
+    }
+  },
+  "vision": {
+    "sectionLabel": "Vision",
+    "title": "Für jede Kommune gemacht",
+    "descriptionPart1": "Die Plattform ist bewusst so gestaltet, dass sie in jeder Kommune eingesetzt werden kann. Kartenbereiche, Organisationsstrukturen und Bewässerungsregionen sind frei konfigurierbar.",
+    "descriptionPart2": "Es werden ausschließlich offene Standards und Open-Source-Komponenten verwendet. Cloud-native Architektur mit Kubernetes ermöglicht einen mandantenfähigen, hochverfügbaren Betrieb. Weitere Kommunen können leicht hinzugefügt werden."
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "status": {
+      "completed": "Abgeschlossen",
+      "inProgress": "In Arbeit",
+      "planned": "Geplant"
+    },
+    "items": {
+      "mobileApp": {
+        "title": "Mobile App mit QR-Scan",
+        "description": "Sensor-Setup per QR-Code und GPS direkt vor Ort am Baum"
+      },
+      "firmware": {
+        "title": "Eigene Sensor-Firmware",
+        "description": "Vollständig selbst entwickelte Firmware für maximale Kontrolle und Anpassbarkeit"
+      },
+      "userRoles": {
+        "title": "Benutzer- und Rollenkonzept",
+        "description": "Feingranulare Rechteverwaltung für Mitarbeitende, Dienstleister und Partnerkommunen"
+      },
+      "openData": {
+        "title": "Open-Data-Export",
+        "description": "Anbindung an das Open-Data-Portal des Landes Schleswig-Holstein"
+      },
+      "greenSpaceTypes": {
+        "title": "Weitere Grünflächentypen",
+        "description": "Erweiterung auf Beete, Stauden und Parks über Bäume hinaus"
+      }
+    },
+    "moreInPlanningLabel": "und vieles mehr in Planung",
+    "moreIdeasAriaLabel": "Weitere Ideen in Planung"
+  },
+  "resources": {
+    "sectionLabel": "Ressourcen",
+    "title": "Weiterführende Links & Erwähnungen",
+    "items": {
+      "flensburgSoftware": {
+        "label": "Software für die Stadt Flensburg",
+        "description": "Dies ist die Software, die für die Stadt Flensburg entwickelt und aufgesetzt wurde. Diese Software wird primär vom Technischen Betriebszentrum Flensburg genutzt."
+      },
+      "github": {
+        "label": "Organisation auf GitHub",
+        "description": "Dort findest du alle Code-Repositories, die mit dem Projekt in Verbindung stehen, etwa Backend und Frontend der Software"
+      },
+      "hsflBlog": {
+        "label": "Blog-Beitrag der HS Flensburg",
+        "description": "Auch auf der Website der HS Flensburg wurde ein Beitrag zum Forschungsprojekt veröffentlicht."
+      },
+      "hsflInstagram": {
+        "label": "Instagram-Beitrag der HS Flensburg",
+        "description": "Nicht nur auf der Website, sondern auch auf Instagram wurde Green Ecolution erwähnt."
+      },
+      "digitalHub": {
+        "label": "Teil des DigitalHub.SH 2025",
+        "description": "Green Ecolution wurde als eines der Open-Source-Projekte im Rahmen des DigitalHub.SH 2025 vorgestellt und finanziert."
+      },
+      "pressRelease": {
+        "label": "Pressemitteilung der Stadt Flensburg",
+        "description": "Auch die Stadt Flensburg berichtete über Green Ecolution und die Bedeutung des Projekts für ein nachhaltiges Stadtmanagement."
+      },
+      "liveDemo": {
+        "label": "Live Demo",
+        "description": "Die öffentliche Demo-Instanz, direkt im Browser und ohne Installation."
+      }
+    }
+  }
+}

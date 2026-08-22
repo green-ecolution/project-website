@@ -9,38 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ReleasesRouteImport } from './routes/releases'
-import { Route as ProjectRouteImport } from './routes/project'
-import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as DatenschutzRouteImport } from './routes/datenschutz'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReleasesSlugRouteImport } from './routes/releases_.$slug'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as LangRouteRouteImport } from './routes/$lang/route'
+import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangContactRouteImport } from './routes/$lang/contact'
+import { Route as LangDatenschutzRouteImport } from './routes/$lang/datenschutz'
+import { Route as LangImpressumRouteImport } from './routes/$lang/impressum'
+import { Route as LangProjectRouteImport } from './routes/$lang/project'
+import { Route as LangReleasesRouteImport } from './routes/$lang/releases'
+import { Route as LangReleasesSlugRouteImport } from './routes/$lang/releases_.$slug'
 
-const ReleasesRoute = ReleasesRouteImport.update({
-  id: '/releases',
-  path: '/releases',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectRoute = ProjectRouteImport.update({
-  id: '/project',
-  path: '/project',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImpressumRoute = ImpressumRouteImport.update({
-  id: '/impressum',
-  path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DatenschutzRoute = DatenschutzRouteImport.update({
-  id: '/datenschutz',
-  path: '/datenschutz',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SplatRoute = SplatRouteImport.update({
@@ -48,127 +30,134 @@ const SplatRoute = SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const LangRouteRoute = LangRouteRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReleasesSlugRoute = ReleasesSlugRouteImport.update({
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangDatenschutzRoute = LangDatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangImpressumRoute = LangImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangProjectRoute = LangProjectRouteImport.update({
+  id: '/project',
+  path: '/project',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangReleasesRoute = LangReleasesRouteImport.update({
+  id: '/releases',
+  path: '/releases',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangReleasesSlugRoute = LangReleasesSlugRouteImport.update({
   id: '/releases_/$slug',
   path: '/releases/$slug',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LangRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteRouteWithChildren
   '/$': typeof SplatRoute
-  '/contact': typeof ContactRoute
-  '/datenschutz': typeof DatenschutzRoute
-  '/impressum': typeof ImpressumRoute
-  '/project': typeof ProjectRoute
-  '/releases': typeof ReleasesRoute
-  '/releases/$slug': typeof ReleasesSlugRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/datenschutz': typeof LangDatenschutzRoute
+  '/$lang/impressum': typeof LangImpressumRoute
+  '/$lang/project': typeof LangProjectRoute
+  '/$lang/releases': typeof LangReleasesRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/releases/$slug': typeof LangReleasesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/contact': typeof ContactRoute
-  '/datenschutz': typeof DatenschutzRoute
-  '/impressum': typeof ImpressumRoute
-  '/project': typeof ProjectRoute
-  '/releases': typeof ReleasesRoute
-  '/releases/$slug': typeof ReleasesSlugRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/datenschutz': typeof LangDatenschutzRoute
+  '/$lang/impressum': typeof LangImpressumRoute
+  '/$lang/project': typeof LangProjectRoute
+  '/$lang/releases': typeof LangReleasesRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/releases/$slug': typeof LangReleasesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteRouteWithChildren
   '/$': typeof SplatRoute
-  '/contact': typeof ContactRoute
-  '/datenschutz': typeof DatenschutzRoute
-  '/impressum': typeof ImpressumRoute
-  '/project': typeof ProjectRoute
-  '/releases': typeof ReleasesRoute
-  '/releases_/$slug': typeof ReleasesSlugRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/datenschutz': typeof LangDatenschutzRoute
+  '/$lang/impressum': typeof LangImpressumRoute
+  '/$lang/project': typeof LangProjectRoute
+  '/$lang/releases': typeof LangReleasesRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/releases_/$slug': typeof LangReleasesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$lang'
     | '/$'
-    | '/contact'
-    | '/datenschutz'
-    | '/impressum'
-    | '/project'
-    | '/releases'
-    | '/releases/$slug'
+    | '/$lang/contact'
+    | '/$lang/datenschutz'
+    | '/$lang/impressum'
+    | '/$lang/project'
+    | '/$lang/releases'
+    | '/$lang/'
+    | '/$lang/releases/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/$'
-    | '/contact'
-    | '/datenschutz'
-    | '/impressum'
-    | '/project'
-    | '/releases'
-    | '/releases/$slug'
+    | '/$lang/contact'
+    | '/$lang/datenschutz'
+    | '/$lang/impressum'
+    | '/$lang/project'
+    | '/$lang/releases'
+    | '/$lang'
+    | '/$lang/releases/$slug'
   id:
     | '__root__'
     | '/'
+    | '/$lang'
     | '/$'
-    | '/contact'
-    | '/datenschutz'
-    | '/impressum'
-    | '/project'
-    | '/releases'
-    | '/releases_/$slug'
+    | '/$lang/contact'
+    | '/$lang/datenschutz'
+    | '/$lang/impressum'
+    | '/$lang/project'
+    | '/$lang/releases'
+    | '/$lang/'
+    | '/$lang/releases_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LangRouteRoute: typeof LangRouteRouteWithChildren
   SplatRoute: typeof SplatRoute
-  ContactRoute: typeof ContactRoute
-  DatenschutzRoute: typeof DatenschutzRoute
-  ImpressumRoute: typeof ImpressumRoute
-  ProjectRoute: typeof ProjectRoute
-  ReleasesRoute: typeof ReleasesRoute
-  ReleasesSlugRoute: typeof ReleasesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/releases': {
-      id: '/releases'
-      path: '/releases'
-      fullPath: '/releases'
-      preLoaderRoute: typeof ReleasesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/project': {
-      id: '/project'
-      path: '/project'
-      fullPath: '/project'
-      preLoaderRoute: typeof ProjectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/impressum': {
-      id: '/impressum'
-      path: '/impressum'
-      fullPath: '/impressum'
-      preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/datenschutz': {
-      id: '/datenschutz'
-      path: '/datenschutz'
-      fullPath: '/datenschutz'
-      preLoaderRoute: typeof DatenschutzRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$': {
@@ -178,32 +167,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/releases_/$slug': {
-      id: '/releases_/$slug'
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/datenschutz': {
+      id: '/$lang/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/$lang/datenschutz'
+      preLoaderRoute: typeof LangDatenschutzRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/impressum': {
+      id: '/$lang/impressum'
+      path: '/impressum'
+      fullPath: '/$lang/impressum'
+      preLoaderRoute: typeof LangImpressumRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/project': {
+      id: '/$lang/project'
+      path: '/project'
+      fullPath: '/$lang/project'
+      preLoaderRoute: typeof LangProjectRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/releases': {
+      id: '/$lang/releases'
+      path: '/releases'
+      fullPath: '/$lang/releases'
+      preLoaderRoute: typeof LangReleasesRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/releases_/$slug': {
+      id: '/$lang/releases_/$slug'
       path: '/releases/$slug'
-      fullPath: '/releases/$slug'
-      preLoaderRoute: typeof ReleasesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/$lang/releases/$slug'
+      preLoaderRoute: typeof LangReleasesSlugRouteImport
+      parentRoute: typeof LangRouteRoute
     }
   }
 }
 
+interface LangRouteRouteChildren {
+  LangContactRoute: typeof LangContactRoute
+  LangDatenschutzRoute: typeof LangDatenschutzRoute
+  LangImpressumRoute: typeof LangImpressumRoute
+  LangProjectRoute: typeof LangProjectRoute
+  LangReleasesRoute: typeof LangReleasesRoute
+  LangIndexRoute: typeof LangIndexRoute
+  LangReleasesSlugRoute: typeof LangReleasesSlugRoute
+}
+
+const LangRouteRouteChildren: LangRouteRouteChildren = {
+  LangContactRoute: LangContactRoute,
+  LangDatenschutzRoute: LangDatenschutzRoute,
+  LangImpressumRoute: LangImpressumRoute,
+  LangProjectRoute: LangProjectRoute,
+  LangReleasesRoute: LangReleasesRoute,
+  LangIndexRoute: LangIndexRoute,
+  LangReleasesSlugRoute: LangReleasesSlugRoute,
+}
+
+const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
+  LangRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LangRouteRoute: LangRouteRouteWithChildren,
   SplatRoute: SplatRoute,
-  ContactRoute: ContactRoute,
-  DatenschutzRoute: DatenschutzRoute,
-  ImpressumRoute: ImpressumRoute,
-  ProjectRoute: ProjectRoute,
-  ReleasesRoute: ReleasesRoute,
-  ReleasesSlugRoute: ReleasesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

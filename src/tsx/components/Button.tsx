@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
+import { useLanguage } from '../../i18n/useLanguage'
 
 interface ButtonProps {
   href: string
@@ -16,6 +17,8 @@ const Button: React.FC<ButtonProps> = ({
   isExternalLink = false,
   isDark = false,
 }) => {
+  const lang = useLanguage()
+
   const baseClasses =
     'flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer transition-all ease-in-out duration-300 text-white'
 
@@ -42,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <Link to={href} aria-label={ariaLabel} className={className}>
+    <Link to={href} params={{ lang }} aria-label={ariaLabel} className={className}>
       {children}
     </Link>
   )

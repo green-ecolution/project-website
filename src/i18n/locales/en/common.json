@@ -1,0 +1,79 @@
+{
+  "language": {
+    "switchTo": "Change language",
+    "de": "German",
+    "en": "English",
+    "deShort": "DE",
+    "enShort": "EN"
+  },
+  "header": {
+    "skipToContent": "Skip to main content",
+    "logoAriaLabel": "Go to homepage",
+    "openNavigation": "Open main navigation"
+  },
+  "nav": {
+    "ariaLabel": "Main navigation",
+    "heading": "Main navigation",
+    "project": "The Project",
+    "releases": "Releases",
+    "contact": "Contact",
+    "github": "GitHub",
+    "tryNow": "Try it now",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  },
+  "footer": {
+    "logoAriaLabel": "Go to homepage",
+    "logoAlt": "Green Ecolution logo",
+    "description": "Green Ecolution is a digital system for the needs-based and resource-efficient irrigation of urban trees, contributing to sustainable and climate-resilient urban development.",
+    "contact": "Contact",
+    "contactAriaLabel": "Feel free to contact us by email",
+    "github": "GitHub",
+    "githubAriaLabel": "Visit us on GitHub",
+    "metaNavAriaLabel": "Meta navigation",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  },
+  "banner": {
+    "ariaLabel": "Call to action for community voting",
+    "title": "Community Voting",
+    "desktopDescription": "Green Ecolution is up for voting in the Open Source competition, open until September 30.",
+    "mobileDescription": "Support Green Ecolution in the Open Source competition, open until Sep 30.",
+    "cta": "Vote now",
+    "dismissAriaLabel": "Close the community voting notice"
+  },
+  "backToTop": {
+    "ariaLabel": "Back to top"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error has occurred. Please try again or return to the homepage.",
+    "retry": "Try again",
+    "home": "Go to homepage"
+  },
+  "notFound": {
+    "title": "This page could not be found.",
+    "description": "The requested page is unavailable, either because it does not exist or because an error has occurred. Error code: 404",
+    "cta": "Go to homepage",
+    "metaTitle": "Page not found | Green Ecolution"
+  },
+  "slider": {
+    "prev": "Show previous slide",
+    "next": "Show next slide",
+    "first": "Show first slide",
+    "last": "Show last slide",
+    "slideX": "Go to page %s",
+    "pageX": "Go to page %s",
+    "carousel": "Slider",
+    "select": "Pagination of items",
+    "slide": "Slider item",
+    "slideLabel": "%s of %s"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "project": "Project",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  }
+}

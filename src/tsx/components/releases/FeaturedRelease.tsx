@@ -1,19 +1,23 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type { Release } from '../../types/release'
 import { formatReleaseDate } from '../../helper/formatDate'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface FeaturedReleaseProps {
   release: Release
 }
 
 const FeaturedRelease: React.FC<FeaturedReleaseProps> = ({ release }) => {
+  const lang = useLanguage()
+  const { t } = useTranslation('releases')
   const { frontmatter, slug } = release
 
   return (
     <Link
-      to="/releases/$slug"
-      params={{ slug }}
+      to="/$lang/releases/$slug"
+      params={{ lang, slug }}
       className="group block bg-gradient-to-br from-green-dark-900 to-green-middle-900 rounded-2xl lg:rounded-3xl p-6 lg:p-10 shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -21,10 +25,10 @@ const FeaturedRelease: React.FC<FeaturedReleaseProps> = ({ release }) => {
           v{frontmatter.version}
         </span>
         <span className="inline-flex items-center bg-green-light-900 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-          Aktuell
+          {t('badge.current')}
         </span>
         <time dateTime={frontmatter.date} className="text-white/60 text-sm font-medium">
-          {formatReleaseDate(frontmatter.date)}
+          {formatReleaseDate(frontmatter.date, lang)}
         </time>
       </div>
 
@@ -52,7 +56,7 @@ const FeaturedRelease: React.FC<FeaturedReleaseProps> = ({ release }) => {
       )}
 
       <div className="flex items-center gap-3 text-white/80 transition-colors group-hover:text-white">
-        <span className="text-sm font-semibold">Details ansehen</span>
+        <span className="text-sm font-semibold">{t('featured.viewDetails')}</span>
         <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-1">
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </span>

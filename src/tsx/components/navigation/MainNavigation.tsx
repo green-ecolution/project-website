@@ -1,10 +1,13 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import NavItem from './NavItem'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import Button from '../Button'
 import Arrow from '../../icons/Arrow'
+import LanguageSwitcher from '../LanguageSwitcher'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface MainNavigationProps {
   isOpen: boolean
@@ -12,6 +15,8 @@ interface MainNavigationProps {
 }
 
 const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation('common')
+  const lang = useLanguage()
   const [isMobile, setIsMobile] = React.useState(false)
   const previousActiveElement = React.useRef<HTMLElement | null>(null)
   const touchStartX = React.useRef<number | null>(null)
@@ -77,40 +82,49 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ isOpen, onClose }) => {
       <nav
         id="main-navigation"
         ref={ref}
-        aria-label="Hauptnavigation"
+        aria-label={t('nav.ariaLabel')}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         className={`fixed inset-y-2 px-4 w-[70vw] z-[60] bg-grey-900 max-w-100 rounded-tl-2xl rounded-bl-2xl transition-all ease-in-out duration-300 shadow-mainNav md:px-6 lg:visible lg:relative lg:inset-y-auto lg:block lg:right-auto lg:bg-transparent lg:shadow-none lg:transition-none lg:w-auto lg:max-w-none lg:z-auto ${isOpen ? 'visible block right-0' : 'invisible -right-full'}`}
       >
-        <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">Hauptnavigation</p>
+        <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">{t('nav.heading')}</p>
         <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
-          <NavItem label="Das Projekt" url="/project" onClick={onClose} />
-          <NavItem label="Releases" url="/releases" onClick={onClose} />
-          <NavItem label="Kontakt" url="/contact" onClick={onClose} />
-          <NavItem label="GitHub" url="https://github.com/green-ecolution" isExternalLink />
+          <NavItem label={t('nav.project')} url="/$lang/project" onClick={onClose} />
+          <NavItem label={t('nav.releases')} url="/$lang/releases" onClick={onClose} />
+          <NavItem label={t('nav.contact')} url="/$lang/contact" onClick={onClose} />
+          <NavItem
+            label={t('nav.github')}
+            url="https://github.com/green-ecolution"
+            isExternalLink
+          />
           <Button ariaLabel="demo" href="https://demo.green-ecolution.de" isExternalLink isDark>
-            <span className="whitespace-nowrap">Jetzt ausprobieren</span>
+            <span className="whitespace-nowrap">{t('nav.tryNow')}</span>
             <Arrow classes="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
           </Button>
+          <li className="mt-6 lg:mt-0 lg:ml-2">
+            <LanguageSwitcher onNavigate={onClose} />
+          </li>
         </ul>
 
         <ul className="absolute bottom-6 text-white lg:text-grey-900 flex flex-wrap gap-x-5 items-center text-sm md:bottom-10 md:text-base lg:hidden">
           <li>
             <Link
-              to="/impressum"
+              to="/$lang/impressum"
+              params={{ lang }}
               onClick={onClose}
               className="transition-color ease-in-out duration-300 hover:opacity-75"
             >
-              Impressum
+              {t('nav.imprint')}
             </Link>
           </li>
           <li>
             <Link
-              to="/datenschutz"
+              to="/$lang/datenschutz"
+              params={{ lang }}
               onClick={onClose}
               className="transition-color ease-in-out duration-300 hover:opacity-75"
             >
-              Datenschutz
+              {t('nav.privacy')}
             </Link>
           </li>
         </ul>

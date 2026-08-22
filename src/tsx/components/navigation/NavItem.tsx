@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import Arrow from '../../icons/Arrow'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 interface NavItemProps {
   label: string
@@ -9,6 +10,8 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false, onClick }) => {
+  const lang = useLanguage()
+
   const className =
     'text-lg md:text-2xl font-bold flex justify-between items-center group cursor-pointer lg:text-base xl:text-lg lg:leading-none lg:my-1'
 
@@ -28,7 +31,7 @@ const NavItem: React.FC<NavItemProps> = ({ label, url, isExternalLink = false, o
           {content}
         </a>
       ) : (
-        <Link to={url} className={className} onClick={onClick}>
+        <Link to={url} params={{ lang }} className={className} onClick={onClick}>
           {content}
         </Link>
       )}

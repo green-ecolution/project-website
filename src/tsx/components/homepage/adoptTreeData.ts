@@ -1,47 +1,67 @@
 type TreeVariant = 'light' | 'middle' | 'dark'
 
+export type TreeSpeciesId =
+  | 'birch'
+  | 'spruce'
+  | 'oak'
+  | 'beech'
+  | 'chestnut'
+  | 'linden'
+  | 'maple'
+  | 'ash'
+  | 'elm'
+  | 'plane'
+  | 'fir'
+  | 'willow'
+  | 'robinia'
+  | 'alder'
+  | 'poplar'
+
+export type FunFactId =
+  'evaporation' | 'oxygen' | 'dust' | 'roots' | 'co2' | 'network' | 'lifespan' | 'noise' | 'water'
+
 interface TreeIdentity {
   name: string
-  species: string
+  speciesId: TreeSpeciesId
   emoji: string
 }
 
 export interface AdoptionData {
   tree: TreeIdentity
-  fact: string
+  factId: FunFactId
   certNumber: string
   plantedYear: number
   treeVariant: TreeVariant
 }
 
 const treeNames: TreeIdentity[] = [
-  { name: 'Bernd', species: 'Birke', emoji: '🌿' },
-  { name: 'Frieda', species: 'Fichte', emoji: '🌲' },
-  { name: 'Olaf', species: 'Eiche', emoji: '🌳' },
-  { name: 'Gertrude', species: 'Buche', emoji: '🍃' },
-  { name: 'Horst', species: 'Kastanie', emoji: '🌰' },
-  { name: 'Lieselotte', species: 'Linde', emoji: '🌱' },
-  { name: 'Günther', species: 'Ahorn', emoji: '🍁' },
-  { name: 'Bärbel', species: 'Esche', emoji: '🌿' },
-  { name: 'Helmut', species: 'Ulme', emoji: '🌳' },
-  { name: 'Rosemarie', species: 'Platane', emoji: '🍂' },
-  { name: 'Siegfried', species: 'Tanne', emoji: '🌲' },
-  { name: 'Hildegard', species: 'Weide', emoji: '🌾' },
-  { name: 'Klaus-Dieter', species: 'Robinie', emoji: '🌳' },
-  { name: 'Brunhilde', species: 'Erle', emoji: '🌿' },
-  { name: 'Detlef', species: 'Pappel', emoji: '🍃' },
+  { name: 'Bernd', speciesId: 'birch', emoji: '🌿' },
+  { name: 'Frieda', speciesId: 'spruce', emoji: '🌲' },
+  { name: 'Olaf', speciesId: 'oak', emoji: '🌳' },
+  { name: 'Gertrude', speciesId: 'beech', emoji: '🍃' },
+  { name: 'Horst', speciesId: 'chestnut', emoji: '🌰' },
+  { name: 'Lieselotte', speciesId: 'linden', emoji: '🌱' },
+  { name: 'Günther', speciesId: 'maple', emoji: '🍁' },
+  { name: 'Bärbel', speciesId: 'ash', emoji: '🌿' },
+  { name: 'Helmut', speciesId: 'elm', emoji: '🌳' },
+  { name: 'Rosemarie', speciesId: 'plane', emoji: '🍂' },
+  { name: 'Siegfried', speciesId: 'fir', emoji: '🌲' },
+  { name: 'Hildegard', speciesId: 'willow', emoji: '🌾' },
+  { name: 'Klaus-Dieter', speciesId: 'robinia', emoji: '🌳' },
+  { name: 'Brunhilde', speciesId: 'alder', emoji: '🌿' },
+  { name: 'Detlef', speciesId: 'poplar', emoji: '🍃' },
 ]
 
-const funFacts: string[] = [
-  'Ein großer Stadtbaum kann bis zu 400 Liter Wasser am Tag verdunsten und so die Umgebung um bis zu 3°C kühlen.',
-  'Eine einzige Buche produziert genug Sauerstoff für 10 Menschen pro Jahr.',
-  'Stadtbäume filtern einen relevanten Anteil des Feinstaubs aus der Luft in ihrer unmittelbaren Umgebung.',
-  'Die Wurzeln eines Straßenbaums erstrecken sich oft über das Anderthalbfache der Kronenfläche.',
-  'Ein 100-jähriger Baum hat in seinem Leben etwa 5 Tonnen CO₂ gebunden.',
-  'Bäume kommunizieren über unterirdische Pilznetzwerke, das sogenannte „Wood Wide Web".',
-  'Straßenbäume leben im Durchschnitt nur 60 Jahre. Auf dem Land werden sie dreimal so alt.',
-  'Ein dichter Baumbestand kann den Lärmpegel um bis zu 10 Dezibel senken.',
-  'In heißen Sommern braucht ein Stadtbaum bis zu 200 Liter Wasser pro Woche zusätzlich.',
+const funFactIds: FunFactId[] = [
+  'evaporation',
+  'oxygen',
+  'dust',
+  'roots',
+  'co2',
+  'network',
+  'lifespan',
+  'noise',
+  'water',
 ]
 
 function pickRandom<T>(arr: T[]): T {
@@ -55,7 +75,7 @@ export function generateAdoptionData(treeVariant: TreeVariant): AdoptionData {
 
   return {
     tree: pickRandom(treeNames),
-    fact: pickRandom(funFacts),
+    factId: pickRandom(funFactIds),
     certNumber: `GE-${prefix}-${num}`,
     plantedYear: 2010 + Math.floor(Math.random() * 16),
     treeVariant,

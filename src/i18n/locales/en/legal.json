@@ -1,0 +1,184 @@
+{
+  "translationNotice": "This is a convenience translation. The German version of this document is the legally binding one.",
+  "impressum": {
+    "meta": {
+      "title": "Legal Notice | Green Ecolution | Smart Green Space Management"
+    },
+    "hero": {
+      "label": "Legal",
+      "headline": "Legal Notice",
+      "description": "Information pursuant to Sec. 5 TMG (German Telemedia Act)"
+    },
+    "sections": {
+      "contact": {
+        "title": "Contact",
+        "phoneLabel": "Phone:",
+        "emailLabel": "Email:"
+      },
+      "commercialRegister": {
+        "title": "Commercial Register",
+        "registryCourtLabel": "Court of registration:",
+        "registryNumberLabel": "Registration number:",
+        "taxNumberLabel": "Tax number:",
+        "vatIdLabel": "VAT ID:",
+        "managingDirectorsLabel": "Managing Directors:",
+        "managingDirectors": "Boris Dudelsack and Dmitri Hammernik"
+      },
+      "liabilityContent": {
+        "title": "Liability for Content",
+        "paragraph1": "As a service provider, we are responsible for our own content on these pages in accordance with general laws pursuant to Section 7(1) TMG. However, pursuant to Sections 8 to 10 TMG, we as a service provider are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+        "paragraph2": "Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the point in time at which a specific infringement becomes known. If we become aware of any such infringements, we will remove the content in question immediately."
+      },
+      "liabilityLinks": {
+        "title": "Liability for Links",
+        "paragraph1": "Our website contains links to external third-party websites, the content of which we have no influence over. Therefore, we cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content.",
+        "paragraph2": "The linked pages were checked for possible legal violations at the time of linking. No illegal content was identifiable at the time of linking. However, permanent monitoring of the content of linked pages is not reasonable without concrete evidence of a violation. If we become aware of any infringements, we will remove such links immediately."
+      },
+      "copyright": {
+        "title": "Copyright",
+        "paragraph1": "The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any form of exploitation beyond the limits of copyright law require the written consent of the respective author or creator.",
+        "paragraph2": "Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such."
+      }
+    }
+  },
+  "datenschutz": {
+    "meta": {
+      "title": "Privacy Policy | Green Ecolution | Smart Green Space Management"
+    },
+    "hero": {
+      "label": "Legal",
+      "headline": "Privacy Policy",
+      "description": "Information on how we handle your personal data"
+    },
+    "sections": {
+      "overview": {
+        "title": "1. Data Protection at a Glance",
+        "generalNotes": {
+          "title": "General Information",
+          "paragraph": "The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you. For detailed information on the subject of data protection, please refer to our privacy policy listed below this text."
+        },
+        "dataCollection": {
+          "title": "Data Collection on This Website",
+          "responsibleParty": {
+            "question": "Who is responsible for data collection on this website?",
+            "answer": "Data processing on this website is carried out by the website operator. Their contact details can be found in the section \"Notice concerning the responsible party\" in this privacy policy."
+          },
+          "howWeCollect": {
+            "question": "How do we collect your data?",
+            "answer": "Your data is collected, on the one hand, when you provide it to us. This may, for example, be data that you enter into a contact form. Other data is collected automatically or with your consent when you visit the website, by our IT systems. This is primarily technical data (e.g. internet browser, operating system, or time of page access). This data is collected automatically as soon as you enter this website."
+          },
+          "whatWeUseFor": {
+            "question": "What do we use your data for?",
+            "answer": "Some of the data is collected to ensure that the website is provided without errors. Other data may be used to analyze your user behavior."
+          },
+          "yourRights": {
+            "question": "What rights do you have regarding your data?",
+            "answer": "You have the right at any time to receive information free of charge about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction or deletion of this data. If you have given consent to data processing, you can revoke this consent at any time for the future. You also have the right, under certain circumstances, to request the restriction of the processing of your personal data. Furthermore, you have the right to lodge a complaint with the competent supervisory authority."
+          }
+        }
+      },
+      "hosting": {
+        "title": "2. Hosting",
+        "externalHosting": {
+          "title": "External Hosting",
+          "paragraph1": "This website is hosted by an external service provider (host). The personal data collected on this website is stored on the host's servers. This may include, in particular, IP addresses, contact requests, meta and communication data, contract data, contact details, names, website access data, and other data generated through a website.",
+          "paragraph2": "The host is used for the purpose of fulfilling contracts with our potential and existing customers (Art. 6(1)(b) GDPR) and in the interest of a secure, fast, and efficient provision of our online services by a professional provider (Art. 6(1)(f) GDPR). Insofar as corresponding consent has been requested, processing is carried out exclusively on the basis of Art. 6(1)(a) GDPR and Section 25(1) TTDSG (German Telecommunications-Telemedia Data Protection Act), insofar as the consent includes the storage of cookies or access to information in the user's terminal device (e.g. device fingerprinting) within the meaning of the TTDSG. Consent can be revoked at any time.",
+          "paragraph3": "Our host will only process your data to the extent necessary to fulfill its performance obligations and will follow our instructions with regard to this data.",
+          "hostersIntro": "We use the following host:"
+        }
+      },
+      "generalInfo": {
+        "title": "3. General Information and Mandatory Disclosures",
+        "dataProtection": {
+          "title": "Data Protection",
+          "paragraph1": "The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy.",
+          "paragraph2": "When you use this website, various personal data is collected. Personal data is data that can be used to personally identify you. This privacy policy explains what data we collect and what we use it for. It also explains how and for what purpose this happens.",
+          "paragraph3": "We would like to point out that data transmission over the Internet (e.g. when communicating by email) may be subject to security vulnerabilities. Complete protection of data against access by third parties is not possible."
+        },
+        "responsibleParty": {
+          "title": "Notice Concerning the Responsible Party",
+          "paragraph1": "The party responsible for data processing on this website is:",
+          "emailLabel": "Email:",
+          "paragraph2": "The responsible party is the natural or legal person who, alone or jointly with others, decides on the purposes and means of the processing of personal data (e.g. names, email addresses, etc.)."
+        },
+        "storageDuration": {
+          "title": "Storage Period",
+          "paragraph": "Unless a more specific storage period has been specified within this privacy policy, your personal data will remain with us until the purpose for the data processing no longer applies. If you assert a legitimate request for deletion or revoke your consent to data processing, your data will be deleted, unless we have other legally permissible reasons for storing your personal data (e.g. tax or commercial law retention periods); in the latter case, deletion will take place once these reasons no longer apply."
+        },
+        "legalBases": {
+          "title": "General Information on the Legal Bases for Data Processing on This Website",
+          "paragraph": "If you have consented to data processing, we process your personal data on the basis of Art. 6(1)(a) GDPR or Art. 9(2)(a) GDPR, insofar as special categories of data pursuant to Art. 9(1) GDPR are processed. If your data is required for the performance of a contract or for the implementation of pre-contractual measures, we process your data on the basis of Art. 6(1)(b) GDPR. Furthermore, we process your data if this is required to fulfill a legal obligation, on the basis of Art. 6(1)(c) GDPR. Data processing may also be carried out on the basis of our legitimate interest pursuant to Art. 6(1)(f) GDPR."
+        },
+        "consentWithdrawal": {
+          "title": "Withdrawal of Your Consent to Data Processing",
+          "paragraph": "Many data processing operations are only possible with your express consent. You may revoke consent already given at any time. The lawfulness of the data processing carried out until the revocation remains unaffected by the revocation."
+        },
+        "objectionRight": {
+          "title": "Right to Object to Data Collection in Special Cases and to Direct Marketing (Art. 21 GDPR)",
+          "paragraph1": "If data processing is carried out on the basis of Art. 6(1)(e) or (f) GDPR, you have the right at any time, for reasons arising from your particular situation, to object to the processing of your personal data; this also applies to profiling based on these provisions. If you object, we will no longer process your affected personal data, unless we can demonstrate compelling legitimate grounds for the processing that outweigh your interests, rights, and freedoms, or the processing serves the purpose of asserting, exercising, or defending legal claims (objection pursuant to Art. 21(1) GDPR).",
+          "paragraph2": "If your personal data is processed for direct marketing purposes, you have the right to object at any time to the processing of personal data concerning you for the purpose of such marketing; this also applies to profiling, insofar as it is associated with such direct marketing. If you object, your personal data will subsequently no longer be used for the purpose of direct marketing (objection pursuant to Art. 21(2) GDPR)."
+        },
+        "complaintRight": {
+          "title": "Right to Lodge a Complaint with the Competent Supervisory Authority",
+          "paragraph": "In the event of violations of the GDPR, data subjects have the right to lodge a complaint with a supervisory authority, in particular in the member state of their habitual residence, place of work, or the place of the alleged violation. The right to lodge a complaint exists without prejudice to any other administrative or judicial remedy."
+        },
+        "dataPortability": {
+          "title": "Right to Data Portability",
+          "paragraph": "You have the right to have data that we process automatically on the basis of your consent or in fulfillment of a contract handed over to you or to a third party in a common, machine-readable format. If you request the direct transfer of the data to another controller, this will only be done insofar as it is technically feasible."
+        },
+        "sslTls": {
+          "title": "SSL or TLS Encryption",
+          "paragraph": "For security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address bar of the browser changes from \"http://\" to \"https://\" and by the padlock icon in your browser bar. If SSL or TLS encryption is activated, the data you transmit to us cannot be read by third parties."
+        },
+        "accessErasureCorrection": {
+          "title": "Access, Erasure, and Rectification",
+          "paragraph": "Within the framework of the applicable statutory provisions, you have the right at any time to free information about your stored personal data, its origin and recipient, and the purpose of the data processing, and, if applicable, a right to rectification or erasure of this data. If you have further questions on the subject of personal data, you may contact us at any time."
+        },
+        "processingRestriction": {
+          "title": "Right to Restriction of Processing",
+          "intro": "You have the right to request the restriction of the processing of your personal data. To do so, you may contact us at any time. The right to restriction of processing exists in the following cases:",
+          "items": {
+            "disputedAccuracy": "If you dispute the accuracy of your personal data stored by us, we generally need time to verify this. For the duration of the verification, you have the right to request the restriction of the processing of your personal data.",
+            "unlawfulProcessing": "If the processing of your personal data has occurred/is occurring unlawfully, you may request the restriction of data processing instead of erasure.",
+            "noLongerNeeded": "If we no longer need your personal data, but you need it to assert, exercise, or defend legal claims, you have the right to request the restriction of the processing of your personal data instead of erasure.",
+            "pendingObjection": "If you have lodged an objection pursuant to Art. 21(1) GDPR, a balance must be struck between your interests and ours. As long as it has not yet been determined whose interests prevail, you have the right to request the restriction of the processing of your personal data."
+          },
+          "outro": "If you have restricted the processing of your personal data, this data may, with the exception of its storage, only be processed with your consent or for the assertion, exercise, or defense of legal claims, or for the protection of the rights of another natural or legal person, or for reasons of important public interest of the European Union or a member state."
+        }
+      },
+      "dataCollection": {
+        "title": "4. Data Collection on This Website",
+        "cookies": {
+          "title": "Cookies",
+          "paragraph1": "Our websites use so-called \"cookies\". Cookies are small text files and do not cause any damage to your device. They are stored either temporarily for the duration of a session (session cookies) or permanently (permanent cookies) on your device. Session cookies are automatically deleted after your visit ends. Permanent cookies remain stored on your device until you delete them yourself or they are automatically deleted by your web browser.",
+          "paragraph2": "In some cases, cookies from third-party companies may also be stored on your device when you enter our site (third-party cookies). These enable us or you to use certain services of the third-party company (e.g. cookies for processing payment services).",
+          "paragraph3": "Cookies have various functions. Many cookies are technically necessary, as certain website functions would not work without them (e.g. the shopping cart function or the display of videos). Other cookies are used to evaluate user behavior or display advertising.",
+          "paragraph4": "Cookies that are required for the performance of the electronic communication process, for the provision of certain functions that you desire, or for the optimization of the website (necessary cookies) are stored on the basis of Art. 6(1)(f) GDPR, unless another legal basis is specified. The website operator has a legitimate interest in the storage of necessary cookies for the technically error-free and optimized provision of its services.",
+          "paragraph5": "You can set your browser so that you are informed about the setting of cookies and only allow cookies on a case-by-case basis, exclude the acceptance of cookies for certain cases or in general, and activate the automatic deletion of cookies when closing the browser. If you disable cookies, the functionality of this website may be limited."
+        },
+        "serverLogFiles": {
+          "title": "Server Log Files",
+          "intro": "The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:",
+          "items": {
+            "browserType": "Browser type and browser version",
+            "operatingSystem": "Operating system used",
+            "referrerUrl": "Referrer URL",
+            "hostname": "Host name of the accessing computer",
+            "requestTime": "Time of the server request",
+            "ipAddress": "IP address"
+          },
+          "outro": "This data is not merged with other data sources. The collection of this data is based on Art. 6(1)(f) GDPR. The website operator has a legitimate interest in the technically error-free presentation and optimization of its website – the server log files must be recorded for this purpose."
+        },
+        "contactForm": {
+          "title": "Contact Form",
+          "paragraph1": "If you send us inquiries via the contact form, the information you provide in the inquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent.",
+          "paragraph2": "The processing of this data is based on Art. 6(1)(b) GDPR, insofar as your inquiry is related to the performance of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective handling of inquiries addressed to us (Art. 6(1)(f) GDPR) or on your consent (Art. 6(1)(a) GDPR), insofar as this was requested; consent can be revoked at any time.",
+          "paragraph3": "The data you enter in the contact form will remain with us until you ask us to delete it, revoke your consent to its storage, or the purpose for which the data is stored no longer applies. Mandatory statutory provisions – in particular retention periods – remain unaffected."
+        }
+      }
+    },
+    "footer": {
+      "sourceLabel": "Source:"
+    }
+  }
+}

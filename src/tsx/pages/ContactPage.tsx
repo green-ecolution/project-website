@@ -1,17 +1,24 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import ContactHeroContent from '../components/hero/ContactHeroContent'
 import Hero from '../components/sections/Hero'
 import Stakeholder from '../components/sections/Stakeholder'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function ContactPage() {
-  useEffect(() => {
-    document.title = 'Kontakt | Green Ecolution | Smartes Grünflächenmanagement'
-  }, [])
+  const { t } = useTranslation('contact')
+  const language = useLanguage()
 
-  const heroHeadline = 'Lass uns in Kontakt treten'
-  const heroDescription =
-    'Du hast Fragen zum Projekt, möchtest deine Kommune anbinden oder zur Entwicklung beitragen? Wir freuen uns über jede Nachricht und melden uns zeitnah bei dir.'
+  useEffect(() => {
+    applyDocumentMeta({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '/contact',
+    })
+  }, [t, language])
 
   return (
     <main
@@ -20,11 +27,15 @@ function ContactPage() {
     >
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Kontakt', path: '/contact' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.contact', path: '/contact' },
         ]}
       />
-      <Hero headline={heroHeadline} description={heroDescription} label="Kontakt">
+      <Hero
+        headline={t('hero.headline')}
+        description={t('hero.description')}
+        label={t('hero.label')}
+      >
         <ContactHeroContent />
       </Hero>
       <Stakeholder hasDesktopList />

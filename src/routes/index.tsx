@@ -1,6 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import HomePage from '../tsx/pages/HomePage'
+import { createFileRoute, redirect } from '@tanstack/react-router'
+import { detectLanguage } from '../i18n/detectLanguage'
 
 export const Route = createFileRoute('/')({
-  component: HomePage,
+  beforeLoad: () => {
+    throw redirect({ to: '/$lang', params: { lang: detectLanguage() }, replace: true })
+  },
 })

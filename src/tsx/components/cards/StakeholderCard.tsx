@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface StakeholderCardProps {
   label: string
@@ -18,6 +19,8 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
   children,
   hasDesktopList = false,
 }) => {
+  const { t } = useTranslation('home')
+
   return (
     <figure className="group h-full">
       {/* Inner card with hover effects */}
@@ -37,7 +40,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
           <img
             src={image}
             className="object-contain max-w-48 h-24 md:max-w-full md:h-28"
-            alt={`Logo ${label}`}
+            alt={t('stakeholderCard.logoAlt', { label })}
             loading="lazy"
           />
         </div>
@@ -59,7 +62,7 @@ const StakeholderCard: React.FC<StakeholderCardProps> = ({
             className="inline-flex items-center gap-2 text-green-dark-900 font-semibold group/link cursor-pointer transition-all duration-300 hover:gap-3"
           >
             <span className="transition-colors duration-300 group-hover/link:text-green-middle-900">
-              Zur Webseite
+              {t('stakeholderCard.visitWebsite')}
             </span>
             <ExternalLink className="w-4 h-4 transition-all duration-300 group-hover/link:text-green-middle-900 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
           </a>

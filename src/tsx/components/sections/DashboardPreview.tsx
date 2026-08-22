@@ -1,9 +1,11 @@
 import Lottie from 'lottie-react'
+import { useTranslation } from 'react-i18next'
 import dashboardAnimation from '../../../json/dashboardAnimation.json'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 function DashboardPreview() {
   const reducedMotion = useReducedMotion()
+  const { t } = useTranslation('project')
 
   return (
     <section className="my-20 px-4 max-w-208 mx-auto md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl">
@@ -11,22 +13,20 @@ function DashboardPreview() {
       <article className="mb-10 lg:mb-14 lg:text-center">
         <div className="inline-block mb-4 lg:mx-auto">
           <span className="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
-            Software
+            {t('dashboard.sectionLabel')}
           </span>
           <div className="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1" />
         </div>
 
         <h2 className="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900">
-          Fundierte Handlungsempfehlungen
+          {t('dashboard.titleLine1')}
           <br className="hidden sm:block" />
           <span className="sm:hidden"> </span>
-          zur Bewässerung auf einen Blick
+          {t('dashboard.titleLine2')}
         </h2>
 
         <p className="text-grey-600 leading-relaxed max-w-2xl lg:mx-auto">
-          Unser System wertet die Sensordaten wissenschaftlich aus und zeigt, zu welchem Zeitpunkt
-          eine Bewässerung notwendig ist. Die Daten werden so aufbereitet, dass sie einfach zu
-          interpretieren und direkt in die Einsatzplanung einzubinden sind.
+          {t('dashboard.description')}
         </p>
       </article>
 
@@ -57,7 +57,7 @@ function DashboardPreview() {
           <div className="relative overflow-hidden">
             <img
               src="/assets/images/releases/v0.1.0-dashboard.png"
-              alt="Green Ecolution Dashboard - Übersicht der Bewässerungsempfehlungen"
+              alt={t('dashboard.imageAlt')}
               className="w-full h-auto"
             />
             {/* Lottie animation overlay - hidden on mobile */}
