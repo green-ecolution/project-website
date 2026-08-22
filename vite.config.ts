@@ -32,6 +32,13 @@ export default defineConfig(() => {
         'lottie-react': 'lottie-react/build/index.es.js',
       },
     },
+    server: {
+      watch: {
+        // chokidar follows .direnv/flake-inputs into the nix store and burns ~140k
+        // inotify watches on the nixpkgs tree, which kills the dev server with ENOSPC.
+        ignored: ['**/.direnv/**'],
+      },
+    },
     plugins: [tailwindcss(), TanStackRouterVite({ routesDirectory: './src/routes' }), react()],
     build: {
       rollupOptions: {
