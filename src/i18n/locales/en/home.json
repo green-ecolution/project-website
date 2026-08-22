@@ -1,1 +1,189 @@
-{}
+{
+  "meta": {
+    "title": "Home | Green Ecolution | Smart Green Space Management",
+    "description": "Green Ecolution enables smart irrigation of green spaces through sensor-based monitoring and data-driven recommendations."
+  },
+  "hero": {
+    "badge": "Smart Irrigation",
+    "headlinePrefix": "We enable ",
+    "headlineHighlight": "smart irrigation",
+    "headlineSuffix": " of green spaces!",
+    "tagline": "Measure. Understand. Act.",
+    "description": "Sensor-based monitoring of green spaces transmits data over the LoRaWAN network for analysis, so that irrigation recommendations can be provided.",
+    "playAnimation": "Play animation",
+    "adoptTreeAriaLabel": "Adopt a tree"
+  },
+  "overlay": {
+    "popups": {
+      "moisture": {
+        "label": "Measuring irrigation status",
+        "description": "Soil moisture is measured at different soil depths depending on the vegetation type, providing data across different soil layers."
+      },
+      "transmission": {
+        "label": "Data transmission",
+        "description": "The sensor data is transmitted via a public LoRaWAN network to a backend for further processing. LoRaWAN requires little energy and has a long range, resulting in wide area coverage and low maintenance effort."
+      },
+      "recommendation": {
+        "label": "Recommendations",
+        "description": "The transmitted sensor data is analyzed using scientific and mathematical methods. A dashboard graphically shows whether irrigation will be needed soon. <Link>See the benefits</Link>"
+      }
+    },
+    "next": "Next",
+    "discover": "Discover",
+    "closeAriaLabel": "Close popup"
+  },
+  "welcomeCard": {
+    "greeting": "Welcome to",
+    "tagline": "Smart green space management",
+    "description": "Learn how we use smart sensors and data-driven analysis to optimize the irrigation of urban green spaces, for healthier trees, beds and parks with efficient use of resources.",
+    "cta": "Discover now"
+  },
+  "adoptModal": {
+    "ariaLabel": "Adoption certificate for {{fullName}}",
+    "fullName": "{{name}} the {{species}}",
+    "certificateLabel": "Adoption certificate",
+    "certificateNumber": "No. {{number}}",
+    "waitingIn": "is waiting for you in Flensburg",
+    "funFactLabel": "Did you know?",
+    "quote": "“Thank you for thinking of me! With projects like Green Ecolution, city trees like me finally get the attention we deserve.”",
+    "signature": "— {{name}}, in Flensburg since {{year}}",
+    "thanks": "Thank you, {{name}}! 🌳"
+  },
+  "adoptTree": {
+    "species": {
+      "birch": "Birch",
+      "spruce": "Spruce",
+      "oak": "Oak",
+      "beech": "Beech",
+      "chestnut": "Chestnut",
+      "linden": "Linden",
+      "maple": "Maple",
+      "ash": "Ash",
+      "elm": "Elm",
+      "plane": "Plane tree",
+      "fir": "Fir",
+      "willow": "Willow",
+      "robinia": "Robinia",
+      "alder": "Alder",
+      "poplar": "Poplar"
+    },
+    "facts": {
+      "evaporation": "A large city tree can evaporate up to 400 liters of water a day, cooling its surroundings by up to 3°C.",
+      "oxygen": "A single beech tree produces enough oxygen for 10 people per year.",
+      "dust": "City trees filter a significant share of particulate matter from the air in their immediate surroundings.",
+      "roots": "The roots of a street tree often extend over one and a half times the area of its crown.",
+      "co2": "Over its lifetime, a 100-year-old tree has bound around 5 tons of CO₂.",
+      "network": "Trees communicate through underground fungal networks, known as the “Wood Wide Web”.",
+      "lifespan": "Street trees live an average of only 60 years. In rural areas, they live three times as long.",
+      "noise": "A dense stand of trees can reduce noise levels by up to 10 decibels.",
+      "water": "In hot summers, a city tree needs up to 200 additional liters of water per week."
+    }
+  },
+  "introduction": {
+    "sectionLabel": "Overview",
+    "title": "What does smart green space management involve?",
+    "description": "In smart green space management, sensors continuously monitor green spaces and provide the data basis for their irrigation and care. This allows measures to be controlled precisely and adapted to the respective site conditions.",
+    "sliderAriaLabel": "Facts about green space management",
+    "facts": {
+      "sensor": {
+        "label": "Development of a sensor solution",
+        "description": "Soil moisture data is provided by sensors placed at different depths."
+      },
+      "evaluation": {
+        "label": "Analysis of measurement data",
+        "description": "Analysis of the data transmitted by sensors for demand-based irrigation of young trees."
+      },
+      "youngTrees": {
+        "label": "Focus on young trees",
+        "description": "Young trees are particularly vulnerable to heat and therefore need protection. That's why trees are monitored during their first three years at their site."
+      },
+      "monitoring": {
+        "label": "Monitoring multiple locations",
+        "description": "Using the LoRaWAN network, different locations can be monitored, and additional ones can easily be added."
+      }
+    }
+  },
+  "challenge": {
+    "quoteLine1": "Cities water by feel.",
+    "quoteLine2": "Not by need.",
+    "supportingText": "Urban green spaces regulate the microclimate, promote biodiversity and strengthen a location's competitiveness. But persistent drought and a lack of digitalization threaten this asset. Many municipalities base their irrigation planning solely on the judgment of individual staff, with no data basis at all. Instead of demand-based irrigation, watering is done uniformly, wasting water while still not reaching every tree. Unoptimized irrigation trips also cause avoidable CO₂ emissions.",
+    "figures": {
+      "waterUse": {
+        "value": "50,000",
+        "unit": "liters / year",
+        "description": "Water is consumed by a mid-sized municipality for irrigation, often without a data basis and without demand-based control."
+      },
+      "treeCost": {
+        "value": "1,700 €",
+        "unit": "per tree",
+        "description": "is the cost of a single street tree. If it is lost due to insufficient irrigation, this damage alone covers the sensor costs for several years."
+      },
+      "bedCost": {
+        "value": "up to 60,000 €",
+        "unit": "per bed",
+        "description": "can be the cost of a complete street bed, including civil works, substrate and infrastructure."
+      }
+    }
+  },
+  "features": {
+    "sectionLabel": "Features",
+    "title": "Green Ecolution at a glance",
+    "description": "From sensor data collection through intelligent route planning to detailed analysis: all the features for efficient and sustainable green space management",
+    "items": {
+      "dashboard": {
+        "label": "Real-time dashboard",
+        "description": "All key KPIs at a glance: soil moisture values, upcoming tours, team availability and vehicle status in one central dashboard."
+      },
+      "grouping": {
+        "label": "Intelligent grouping",
+        "description": "Group trees into irrigation units. Automatic calculation of water demand per cluster."
+      },
+      "fleet": {
+        "label": "Fleet Management",
+        "description": "Manage vans and trailers with water capacities. Automatic refill stops in route planning."
+      },
+      "tourPlanning": {
+        "label": "Tour planning",
+        "description": "Optimized irrigation schedules with real-time status: from “planned” through “active” to “completed”."
+      },
+      "teamManagement": {
+        "label": "Team management",
+        "description": "Manage drivers by license class and availability. Optimize deployment planning."
+      },
+      "analysis": {
+        "label": "Post-analysis",
+        "description": "Document actual water consumption per cluster and tour. Analyze trends and optimize future planning based on data."
+      }
+    }
+  },
+  "sensorProbe": {
+    "illustrationAriaLabel": "Schematic diagram of a soil probe at three depths",
+    "zones": {
+      "fineRoots": "Fine roots",
+      "mainRoots": "Main roots",
+      "deepRoots": "Deep roots"
+    },
+    "sectionLabel": "Hardware",
+    "title": "The soil probe",
+    "description": "Designed for use in public spaces. Sensors at three depths (30, 60 and 90 cm) capture the full root profile of a tree, from the near-surface fine roots to the deeper main roots. This makes it possible to see whether water actually reaches the root zone or only wets the surface. Installation is flush with the ground using standard soil augers. Maintenance work such as mowing is not affected.",
+    "specs": {
+      "depths": { "label": "Measurement depths" },
+      "network": { "label": "Wireless network" },
+      "batteryLife": { "label": "Years of battery life" }
+    },
+    "features": {
+      "soilMoisture": {
+        "label": "Soil moisture",
+        "description": "Volumetric measurement of soil moisture at multiple depths"
+      },
+      "temperature": {
+        "label": "Temperature",
+        "description": "Measurement of soil temperature for precise irrigation recommendations"
+      },
+      "soilTension": {
+        "label": "Soil water tension",
+        "description": "Measurement of suction tension to determine water availability"
+      }
+    }
+  }
+}

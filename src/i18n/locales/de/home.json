@@ -1,1 +1,189 @@
-{}
+{
+  "meta": {
+    "title": "Startseite | Green Ecolution | Smartes Grünflächenmanagement",
+    "description": "Green Ecolution ermöglicht smarte Bewässerung von Grünflächen mittels sensorgestützter Überwachung und datenbasierten Handlungsempfehlungen."
+  },
+  "hero": {
+    "badge": "Smart Irrigation",
+    "headlinePrefix": "Wir ermöglichen ",
+    "headlineHighlight": "smarte Bewässerung",
+    "headlineSuffix": " von Grünflächen!",
+    "tagline": "Messen. Verstehen. Handeln.",
+    "description": "Mittels sensorgestützter Überwachung von Grünflächen werden Daten über das LoRaWAN-Netz übermittelt und ausgewertet, sodass Handlungsempfehlungen für die Bewässerung abgegeben werden können.",
+    "playAnimation": "Animation abspielen",
+    "adoptTreeAriaLabel": "Baum adoptieren"
+  },
+  "overlay": {
+    "popups": {
+      "moisture": {
+        "label": "Messung des Bewässerungszustandes",
+        "description": "Die Bodenfeuchte wird in Abhängigkeit der Vegetationsform in unterschiedlichen Bodentiefen gemessen, um Daten über verschiedene Bodenschichten zu erhalten."
+      },
+      "transmission": {
+        "label": "Übertragung der Daten",
+        "description": "Die Sensordaten werden über ein öffentliches LoRaWAN-Netzwerk an ein Backend zur weiteren Verarbeitung übermittelt. LoRaWAN benötigt wenig Energie und besitzt eine hohe Reichweite, was zu einer großen Flächenabdeckung und einem geringen Wartungsaufwand führt."
+      },
+      "recommendation": {
+        "label": "Handlungsempfehlungen",
+        "description": "Die übermittelten Sensordaten werden anhand wissenschaftlicher und mathematischer Methoden ausgewertet. Auf einem Dashboard wird grafisch dargestellt, ob eine Bewässerung in nächster Zeit notwendig ist. <Link>Zu den Vorteilen</Link>"
+      }
+    },
+    "next": "Weiter",
+    "discover": "Entdecken",
+    "closeAriaLabel": "Popup schließen"
+  },
+  "welcomeCard": {
+    "greeting": "Willkommen bei",
+    "tagline": "Smartes Grünflächenmanagement",
+    "description": "Erfahre, wie wir mit smarter Sensorik und datengestützten Analysen die Bewässerung städtischer Grünflächen optimieren, für gesündere Bäume, Beete und Parks bei effizientem Ressourceneinsatz.",
+    "cta": "Jetzt entdecken"
+  },
+  "adoptModal": {
+    "ariaLabel": "Adoptionsurkunde für {{fullName}}",
+    "fullName": "{{name}} die {{species}}",
+    "certificateLabel": "Adoptionsurkunde",
+    "certificateNumber": "Nr. {{number}}",
+    "waitingIn": "wartet in Flensburg auf dich",
+    "funFactLabel": "Wusstest du?",
+    "quote": "„Danke, dass du an mich denkst! Mit Projekten wie Green Ecolution bekommen Stadtbäume wie ich endlich die Aufmerksamkeit, die wir verdienen.“",
+    "signature": "— {{name}}, seit {{year}} in Flensburg",
+    "thanks": "Danke, {{name}}! 🌳"
+  },
+  "adoptTree": {
+    "species": {
+      "birch": "Birke",
+      "spruce": "Fichte",
+      "oak": "Eiche",
+      "beech": "Buche",
+      "chestnut": "Kastanie",
+      "linden": "Linde",
+      "maple": "Ahorn",
+      "ash": "Esche",
+      "elm": "Ulme",
+      "plane": "Platane",
+      "fir": "Tanne",
+      "willow": "Weide",
+      "robinia": "Robinie",
+      "alder": "Erle",
+      "poplar": "Pappel"
+    },
+    "facts": {
+      "evaporation": "Ein großer Stadtbaum kann bis zu 400 Liter Wasser am Tag verdunsten und so die Umgebung um bis zu 3°C kühlen.",
+      "oxygen": "Eine einzige Buche produziert genug Sauerstoff für 10 Menschen pro Jahr.",
+      "dust": "Stadtbäume filtern einen relevanten Anteil des Feinstaubs aus der Luft in ihrer unmittelbaren Umgebung.",
+      "roots": "Die Wurzeln eines Straßenbaums erstrecken sich oft über das Anderthalbfache der Kronenfläche.",
+      "co2": "Ein 100-jähriger Baum hat in seinem Leben etwa 5 Tonnen CO₂ gebunden.",
+      "network": "Bäume kommunizieren über unterirdische Pilznetzwerke, das sogenannte „Wood Wide Web“.",
+      "lifespan": "Straßenbäume leben im Durchschnitt nur 60 Jahre. Auf dem Land werden sie dreimal so alt.",
+      "noise": "Ein dichter Baumbestand kann den Lärmpegel um bis zu 10 Dezibel senken.",
+      "water": "In heißen Sommern braucht ein Stadtbaum bis zu 200 Liter Wasser pro Woche zusätzlich."
+    }
+  },
+  "introduction": {
+    "sectionLabel": "Überblick",
+    "title": "Was beinhaltet smartes Grünflächenmanagement?",
+    "description": "Beim smarten Grünflächenmanagement überwachen Sensoren die Grünflächen kontinuierlich und liefern die Datengrundlage für ihre Bewässerung und Pflege. So lassen sich die Maßnahmen präzise steuern und an die jeweiligen Standortbedingungen anpassen.",
+    "sliderAriaLabel": "Fakten zum Grünflächenmanagement",
+    "facts": {
+      "sensor": {
+        "label": "Entwicklung einer Sensorlösung",
+        "description": "Daten zur Bodenfeuchte werden mithilfe von in unterschiedlicher Tiefe platzierten Sensoren geliefert."
+      },
+      "evaluation": {
+        "label": "Auswertung der Messdaten",
+        "description": "Auswertung der durch Sensoren übermittelten Daten für eine bedarfsgerechte Bewässerung von Jungbäumen."
+      },
+      "youngTrees": {
+        "label": "Augenmerk auf Jungbäume",
+        "description": "Jungbäume sind besonders hitzeanfällig und daher schutzbedürftig. Deshalb werden Bäume in ihren ersten drei Standjahren überwacht."
+      },
+      "monitoring": {
+        "label": "Monitoring mehrerer Standorte",
+        "description": "Unter Verwendung des LoRaWAN-Netzes können verschiedene Standorte überwacht und weitere einfach eingebunden werden."
+      }
+    }
+  },
+  "challenge": {
+    "quoteLine1": "Städte gießen nach Gefühl.",
+    "quoteLine2": "Nicht nach Bedarf.",
+    "supportingText": "Städtische Grünflächen regulieren das Mikroklima, fördern Biodiversität und stärken den Standortwettbewerb. Doch anhaltende Trockenheit und fehlende Digitalisierung gefährden dieses Gut. Die Bewässerungsplanung vieler Kommunen stützt sich allein auf die Einschätzung einzelner Mitarbeiter, ganz ohne Datengrundlage. Statt bedarfsgerechter Bewässerung wird pauschal gegossen, was Wasser verschwendet und trotzdem nicht alle Bäume erreicht. Nicht optimierte Bewässerungsfahrten verursachen zusätzlich vermeidbare CO₂-Emissionen.",
+    "figures": {
+      "waterUse": {
+        "value": "50.000",
+        "unit": "Liter / Jahr",
+        "description": "Wasser verbraucht eine mittelgroße Kommune für die Bewässerung, oft ohne Datengrundlage und ohne bedarfsgerechte Steuerung."
+      },
+      "treeCost": {
+        "value": "1.700 €",
+        "unit": "pro Baum",
+        "description": "kostet ein einzelner Straßenbaum. Geht er durch fehlende Bewässerung verloren, deckt allein dieser Schaden die Sensorkosten für mehrere Jahre."
+      },
+      "bedCost": {
+        "value": "bis 60.000 €",
+        "unit": "pro Beet",
+        "description": "kann ein komplettes Straßenbeet kosten, inklusive Tiefbau, Substrat und Infrastruktur."
+      }
+    }
+  },
+  "features": {
+    "sectionLabel": "Features",
+    "title": "Green Ecolution im Überblick",
+    "description": "Von der Sensorerfassung über die intelligente Routenplanung bis zur detaillierten Auswertung: alle Funktionen für ein effizientes und nachhaltiges Grünflächenmanagement",
+    "items": {
+      "dashboard": {
+        "label": "Echtzeit-Dashboard",
+        "description": "Alle wichtigen KPIs auf einen Blick: Bodenfeuchtewerte, anstehende Touren, Teamverfügbarkeit und Fahrzeugstatus in einem zentralen Dashboard."
+      },
+      "grouping": {
+        "label": "Intelligente Gruppierung",
+        "description": "Fasse Bäume zu Bewässerungs­einheiten zusammen. Automatische Berechnung des Wasserbedarfs pro Cluster."
+      },
+      "fleet": {
+        "label": "Fleet Management",
+        "description": "Verwalte Transporter und Anhänger mit Wasserkapazitäten. Automatische Nachfüllstopps in der Routenplanung."
+      },
+      "tourPlanning": {
+        "label": "Tour-Planung",
+        "description": "Optimierte Bewässerungspläne mit Echtzeit-Status: Von „geplant“ über „aktiv“ bis „abgeschlossen“."
+      },
+      "teamManagement": {
+        "label": "Teamverwaltung",
+        "description": "Verwalte Fahrer mit Führerscheinklassen und Verfügbarkeit. Optimiere die Einsatzplanung."
+      },
+      "analysis": {
+        "label": "Nachanalyse",
+        "description": "Dokumentiere den tatsächlichen Wasserverbrauch pro Cluster und Tour. Analysiere Trends und optimiere zukünftige Planungen datenbasiert."
+      }
+    }
+  },
+  "sensorProbe": {
+    "illustrationAriaLabel": "Schematische Darstellung einer Bodensonde in drei Tiefen",
+    "zones": {
+      "fineRoots": "Feinwurzeln",
+      "mainRoots": "Hauptwurzeln",
+      "deepRoots": "Tiefenwurzeln"
+    },
+    "sectionLabel": "Hardware",
+    "title": "Die Bodensonde",
+    "description": "Konzipiert für den Einsatz im öffentlichen Raum. Sensoren in drei Tiefen (30, 60 und 90 cm) bilden das gesamte Wurzelprofil eines Baumes ab, von den oberflächennahen Feinwurzeln bis zu den tieferen Hauptwurzeln. So lässt sich erkennen, ob Wasser tatsächlich im Wurzelbereich ankommt oder nur die Oberfläche benetzt wird. Die Installation erfolgt bodenbündig mit handelsüblichen Erdbohrern. Pflegearbeiten wie Mähen werden nicht beeinträchtigt.",
+    "specs": {
+      "depths": { "label": "Messtiefen" },
+      "network": { "label": "Funknetz" },
+      "batteryLife": { "label": "Jahre Batterie" }
+    },
+    "features": {
+      "soilMoisture": {
+        "label": "Bodenfeuchte",
+        "description": "Volumetrische Messung der Bodenfeuchtigkeit in mehreren Tiefen"
+      },
+      "temperature": {
+        "label": "Temperatur",
+        "description": "Erfassung der Bodentemperatur für präzise Bewässerungsempfehlungen"
+      },
+      "soilTension": {
+        "label": "Bodenwasserspannung",
+        "description": "Messung der Saugspannung zur Bestimmung der Wasserverfügbarkeit"
+      }
+    }
+  }
+}
