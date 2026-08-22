@@ -7,6 +7,7 @@ import { Route } from '../../routes/$lang/releases_.$slug'
 import { formatReleaseDate } from '../helper/formatDate'
 import { applyDocumentMeta } from '../helper/documentMeta'
 import { extractSections } from '../helper/releaseSections'
+import { useLanguage } from '../../i18n/useLanguage'
 import GithubIcon from '../icons/Github'
 import ReleaseMarkdown from '../components/releases/ReleaseMarkdown'
 import ReleaseChangelog from '../components/releases/ReleaseChangelog'
@@ -17,6 +18,7 @@ const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 function ReleaseDetailPage() {
   const { lang, slug } = Route.useParams()
   const { t } = useTranslation('releases')
+  const language = useLanguage()
   const release = getReleaseBySlug(slug, lang)
   const { prev, next } = getAdjacentReleases(slug, lang)
 
@@ -32,9 +34,10 @@ function ReleaseDetailPage() {
         title: release.frontmatter.title,
       }),
       description: release.frontmatter.summary,
-      url: `${window.location.origin}/releases/${release.slug}`,
+      language,
+      path: `/releases/${release.slug}`,
     })
-  }, [release, t])
+  }, [release, t, language])
 
   if (!release) {
     throw redirect({ to: '/$lang/releases', params: { lang } })

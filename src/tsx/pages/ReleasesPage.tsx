@@ -17,9 +17,10 @@ function ReleasesPage() {
     applyDocumentMeta({
       title: t('overview.meta.title'),
       description: t('overview.meta.description'),
-      url: `${window.location.origin}/releases`,
+      language: lang,
+      path: '/releases',
     })
-  }, [t])
+  }, [t, lang])
 
   return (
     <main
