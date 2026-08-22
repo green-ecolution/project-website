@@ -22,7 +22,7 @@ function StreamletStatus() {
 
         <p className="text-grey-900/70 leading-relaxed max-w-2xl">
           Streamlet steht am Anfang und läuft bei Green Ecolution in der Einsatzplanung. Diese
-          Punkte sind offen, damit niemand sie erst beim Einbauen entdeckt.
+          Punkte stehen hier, damit niemand sie erst beim Einbauen entdeckt.
         </p>
       </div>
 

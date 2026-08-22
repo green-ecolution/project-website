@@ -1,4 +1,4 @@
-import { solverBenchmarks, solverStages } from '../../../data/streamlet'
+import { solverBenchmarks, solverMoveEvaluation, solverStages } from '../../../data/streamlet'
 
 function StreamletSolver() {
   return (
@@ -28,11 +28,11 @@ function StreamletSolver() {
 
           <p className="text-white/60 leading-relaxed max-w-2xl">
             Der Solver arbeitet in zwei Phasen und ohne Zufall. Dieselbe Eingabe ergibt dieselbe
-            Ausgabe, was Ergebnisse reproduzierbar und Regressionen überhaupt prüfbar macht.
+            Ausgabe, das macht Ergebnisse reproduzierbar und Regressionen prüfbar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 mb-12 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-2 lg:gap-8">
           {solverStages.map((stage) => {
             const Icon = stage.icon
             return (
@@ -47,14 +47,26 @@ function StreamletSolver() {
           })}
         </div>
 
+        <div className="flex items-start gap-4 mb-12 border-l-2 border-green-light-900/40 pl-5">
+          <solverMoveEvaluation.icon
+            className="w-5 h-5 flex-shrink-0 mt-0.5 text-green-light-900"
+            aria-hidden="true"
+          />
+          <p className="text-sm text-white/60 leading-relaxed max-w-2xl">
+            <span className="font-semibold text-white">{solverMoveEvaluation.label}.</span>{' '}
+            {solverMoveEvaluation.description}
+          </p>
+        </div>
+
         <div className="rounded-2xl border border-white/10 p-6 lg:p-8">
           <h3 className="font-lato font-semibold text-white mb-2">
             Gemessen an den Solomon-Instanzen
           </h3>
           <p className="text-sm text-white/60 leading-relaxed mb-6 max-w-2xl">
-            Die Regressionstests lösen bekannte VRPTW-Instanzen und prüfen zwei Dinge: dass die
-            Lösung zulässig ist, also Kapazität und Zeitfenster einhält, und dass der Abstand zur
-            besten bekannten Lösung unter fünf Prozent bleibt.
+            Die Regressionstests lösen bekannte Instanzen des VRPTW, also Tourenplanung mit
+            Zeitfenstern. Sie prüfen, ob die Lösung Kapazität und Zeitfenster einhält und ob sie nah
+            genug am Optimum liegt. Nachfüllstationen enthalten diese Instanzen nicht, gemessen wird
+            also die Grundqualität des Solvers.
           </p>
 
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -71,7 +83,7 @@ function StreamletSolver() {
           </dl>
 
           <p className="text-xs text-white/50 mt-3">
-            Gemessener Abstand zur besten bekannten Lösung
+            Abstand zur besten bekannten Lösung, Schwelle 5&nbsp;%
           </p>
         </div>
       </div>

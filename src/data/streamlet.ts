@@ -80,22 +80,23 @@ export const solverStages: SolverStage[] = [
   {
     label: 'Konstruktion',
     description:
-      'Cheapest Insertion baut die erste Lösung. Reicht der Tank für den nächsten Halt nicht, wird die günstigste Nachfüllstation davor eingefügt.',
+      'Cheapest Insertion baut die erste Lösung. Reicht der Tank für den nächsten Halt nicht, fügt der Solver davor die günstigste Nachfüllstation ein.',
     icon: Boxes,
   },
   {
     label: 'Lokale Suche',
     description:
-      'Eine VND-artige Suche verbessert die Lösung mit Relocate, Swap, 2-opt, Cross-Exchange, 2-opt* und Relocate-with-Refill.',
+      'Eine VND-artige Suche verbessert die Lösung. Sie verschiebt und tauscht Halte innerhalb und zwischen den Routen, und mit Relocate-with-Refill verlegt sie einen Halt samt der nötigen Nachfüllstation.',
     icon: GitBranch,
   },
-  {
-    label: 'Zulässigkeit in O(1)',
-    description:
-      'Load- und Duration-Segmente nach Vidal et al. (2014) bewerten jeden Zug in konstanter Zeit, statt die Route neu durchzurechnen.',
-    icon: Layers,
-  },
 ]
+
+export const solverMoveEvaluation = {
+  label: 'Zulässigkeit in O(1)',
+  description:
+    'Beide Phasen bewerten jeden Zug in konstanter Zeit, statt die Route neu durchzurechnen. Dafür sorgen vorberechnete Load- und Duration-Segmente nach Vidal et al. (2014).',
+  icon: Layers,
+} as const
 
 interface Benchmark {
   instance: string
@@ -163,6 +164,6 @@ export const operationsFacts: OperationsFact[] = [
 
 export const streamletLimitations: string[] = [
   'Die Geometrie kommt als encoded Polyline zurück. Die Option geojson verhält sich derzeit wie polyline.',
-  'Mehrere Depots werden im Problem angenommen, jede Route kehrt aber zum ersten Depot zurück.',
+  'Die API nimmt mehrere Depots entgegen, jede Route kehrt aber zum ersten zurück.',
   'Kein GPX-Endpoint, keine Persistenz, keine eingebettete Routing-Engine.',
 ]

@@ -25,8 +25,8 @@ function StreamletHero() {
       </p>
 
       <p className="text-grey-900/60 leading-relaxed max-w-3xl mb-8">
-        Entstanden ist Streamlet für Green Ecolution, weil kein verfügbarer Solver dieses Problem
-        abbilden konnte. Das Projekt liegt in seinem eigenen Repository, kennt keinen seiner
+        Entstanden ist Streamlet für Green Ecolution, weil die geprüften Solver dieses Problem nicht
+        abbilden konnten. Das Projekt liegt in seinem eigenen Repository, kennt keinen seiner
         Konsumenten und lässt sich für jedes Vorhaben mit demselben Problem einsetzen.
       </p>
 
