@@ -18,6 +18,7 @@ import { Route as LangDatenschutzRouteImport } from './routes/$lang/datenschutz'
 import { Route as LangImpressumRouteImport } from './routes/$lang/impressum'
 import { Route as LangProjectRouteImport } from './routes/$lang/project'
 import { Route as LangReleasesRouteImport } from './routes/$lang/releases'
+import { Route as LangStreamletRouteImport } from './routes/$lang/streamlet'
 import { Route as LangReleasesSlugRouteImport } from './routes/$lang/releases_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const LangReleasesRoute = LangReleasesRouteImport.update({
   path: '/releases',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangStreamletRoute = LangStreamletRouteImport.update({
+  id: '/streamlet',
+  path: '/streamlet',
+  getParentRoute: () => LangRouteRoute,
+} as any)
 const LangReleasesSlugRoute = LangReleasesSlugRouteImport.update({
   id: '/releases_/$slug',
   path: '/releases/$slug',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/$lang/impressum': typeof LangImpressumRoute
   '/$lang/project': typeof LangProjectRoute
   '/$lang/releases': typeof LangReleasesRoute
+  '/$lang/streamlet': typeof LangStreamletRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/releases/$slug': typeof LangReleasesSlugRoute
 }
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/$lang/impressum': typeof LangImpressumRoute
   '/$lang/project': typeof LangProjectRoute
   '/$lang/releases': typeof LangReleasesRoute
+  '/$lang/streamlet': typeof LangStreamletRoute
   '/$lang': typeof LangIndexRoute
   '/$lang/releases/$slug': typeof LangReleasesSlugRoute
 }
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/$lang/impressum': typeof LangImpressumRoute
   '/$lang/project': typeof LangProjectRoute
   '/$lang/releases': typeof LangReleasesRoute
+  '/$lang/streamlet': typeof LangStreamletRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/releases_/$slug': typeof LangReleasesSlugRoute
 }
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/$lang/impressum'
     | '/$lang/project'
     | '/$lang/releases'
+    | '/$lang/streamlet'
     | '/$lang/'
     | '/$lang/releases/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/$lang/impressum'
     | '/$lang/project'
     | '/$lang/releases'
+    | '/$lang/streamlet'
     | '/$lang'
     | '/$lang/releases/$slug'
   id:
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/$lang/impressum'
     | '/$lang/project'
     | '/$lang/releases'
+    | '/$lang/streamlet'
     | '/$lang/'
     | '/$lang/releases_/$slug'
   fileRoutesById: FileRoutesById
@@ -216,6 +228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangReleasesRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/streamlet': {
+      id: '/$lang/streamlet'
+      path: '/streamlet'
+      fullPath: '/$lang/streamlet'
+      preLoaderRoute: typeof LangStreamletRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
     '/$lang/releases_/$slug': {
       id: '/$lang/releases_/$slug'
       path: '/releases/$slug'
@@ -232,6 +251,7 @@ interface LangRouteRouteChildren {
   LangImpressumRoute: typeof LangImpressumRoute
   LangProjectRoute: typeof LangProjectRoute
   LangReleasesRoute: typeof LangReleasesRoute
+  LangStreamletRoute: typeof LangStreamletRoute
   LangIndexRoute: typeof LangIndexRoute
   LangReleasesSlugRoute: typeof LangReleasesSlugRoute
 }
@@ -242,6 +262,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangImpressumRoute: LangImpressumRoute,
   LangProjectRoute: LangProjectRoute,
   LangReleasesRoute: LangReleasesRoute,
+  LangStreamletRoute: LangStreamletRoute,
   LangIndexRoute: LangIndexRoute,
   LangReleasesSlugRoute: LangReleasesSlugRoute,
 }

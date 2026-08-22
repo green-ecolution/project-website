@@ -1,6 +1,8 @@
-import { useTranslation } from 'react-i18next'
+import { Link } from '@tanstack/react-router'
+import { Trans, useTranslation } from 'react-i18next'
 import { architectureSteps } from '../../../data/architectureSteps'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 const cardConfigs = [
   {
@@ -165,6 +167,7 @@ function ArchitectureCard({
 function Architecture() {
   const reducedMotion = useReducedMotion()
   const { t } = useTranslation('project')
+  const lang = useLanguage()
 
   return (
     <section
@@ -208,6 +211,22 @@ function Architecture() {
           </div>
         ))}
       </div>
+
+      <p className="text-sm text-grey-900/70 leading-relaxed max-w-2xl mx-auto mt-10 lg:text-center">
+        <Trans
+          i18nKey="architecture.streamletRich"
+          ns="project"
+          components={{
+            streamlet: (
+              <Link
+                to="/$lang/streamlet"
+                params={{ lang }}
+                className="font-semibold text-green-dark-900 underline decoration-green-dark-900 decoration-2 underline-offset-2 transition-all hover:decoration-4"
+              />
+            ),
+          }}
+        />
+      </p>
     </section>
   )
 }
