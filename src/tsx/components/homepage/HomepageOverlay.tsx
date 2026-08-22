@@ -1,15 +1,15 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from '@tanstack/react-router'
+import { Trans, useTranslation } from 'react-i18next'
 import Arrow from '../../icons/Arrow'
 import HomepageOverlayIcons from './HomepageOverlayIcons'
 import WelcomeCard from '../cards/WelcomeCard'
 import { useLanguage } from '../../../i18n/useLanguage'
-import type { Language } from '../../../i18n/languages'
+
+type PopupId = 'moisture' | 'transmission' | 'recommendation'
 
 interface Popup {
-  label: string
-  shortName: string
-  description: React.ReactNode
+  id: PopupId
 }
 
 interface HomepageOverlayProps {
@@ -18,56 +18,15 @@ interface HomepageOverlayProps {
   onClose: () => void
 }
 
-const getPopups = (lang: Language): Popup[] => [
-  {
-    label: 'Messung des Bewässerungszustandes',
-    shortName: 'Bewässerungszustand',
-    description: (
-      <>
-        Die Bodenfeuchte wird in Abhängigkeit der Vegetationsform in unterschiedlichen Bodentiefen
-        gemessen, um Daten über verschiedene Bodenschichten zu erhalten.
-      </>
-    ),
-  },
-  {
-    label: 'Übertragung der Daten',
-    shortName: 'Datenübertragung',
-    description: (
-      <>
-        Die Sensordaten werden über ein öffentliches LoRaWAN-Netzwerk an ein Backend zur weiteren
-        Verarbeitung übermittelt. LoRaWAN benötigt wenig Energie und besitzt eine hohe Reichweite,
-        was zu einer großen Flächenabdeckung und einem geringen Wartungsaufwand führt.
-      </>
-    ),
-  },
-  {
-    label: 'Handlungsempfehlungen',
-    shortName: 'Handlungsempfehlungen',
-    description: (
-      <>
-        Die übermittelten Sensordaten werden anhand wissenschaftlicher und mathematischer Methoden
-        ausgewertet. Auf einem Dashboard wird grafisch dargestellt, ob eine Bewässerung in nächster
-        Zeit notwendig ist.&nbsp;
-        <Link
-          to="/$lang/project"
-          params={{ lang }}
-          hash="vorteile"
-          className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
-        >
-          Zu den Vorteilen
-        </Link>
-      </>
-    ),
-  },
-]
+const popups: Popup[] = [{ id: 'moisture' }, { id: 'transmission' }, { id: 'recommendation' }]
 
 const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
   initialLoad,
   isOverlayVisible,
   onClose,
 }) => {
+  const { t } = useTranslation('home')
   const lang = useLanguage()
-  const popups = getPopups(lang)
   const [currentPopupIndex, setCurrentPopupIndex] = useState(0)
   const [isPopupVisible, setIsPopupVisible] = useState(false)
   const currentPopup = popups[currentPopupIndex]
@@ -159,7 +118,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
               <div className="flex items-center gap-2 mb-4">
                 {popups.map((popup, i) => (
                   <div
-                    key={popup.shortName}
+                    key={popup.id}
                     className={`
                       h-1.5 rounded-full transition-all duration-300
                       ${
@@ -179,9 +138,28 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
 
               {/* Content */}
               <h2 className="font-lato font-bold text-xl text-grey-900 mb-3 2xl:text-2xl">
-                {currentPopup.label}
+                {t(`overlay.popups.${currentPopup.id}.label`)}
               </h2>
-              <p className="text-grey-900/80 leading-relaxed mb-6">{currentPopup.description}</p>
+              <p className="text-grey-900/80 leading-relaxed mb-6">
+                {currentPopup.id === 'recommendation' ? (
+                  <Trans
+                    i18nKey="overlay.popups.recommendation.description"
+                    ns="home"
+                    components={{
+                      Link: (
+                        <Link
+                          to="/$lang/project"
+                          params={{ lang }}
+                          hash="vorteile"
+                          className="text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900"
+                        />
+                      ),
+                    }}
+                  />
+                ) : (
+                  t(`overlay.popups.${currentPopup.id}.description`)
+                )}
+              </p>
 
               {/* Enhanced button */}
               <button
@@ -196,7 +174,11 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
                 "
                 onClick={handleNextClick}
               >
-                <span>{currentPopupIndex < popups.length - 1 ? 'Weiter' : 'Entdecken'}</span>
+                <span>
+                  {currentPopupIndex < popups.length - 1
+                    ? t('overlay.next')
+                    : t('overlay.discover')}
+                </span>
                 <Arrow classes="w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
@@ -204,7 +186,7 @@ const HomepageOverlay: React.FC<HomepageOverlayProps> = ({
             {/* Close button */}
             <button
               type="button"
-              aria-label="Popup schließen"
+              aria-label={t('overlay.closeAriaLabel')}
               onClick={onClose}
               className="
                 absolute -right-3 -top-3

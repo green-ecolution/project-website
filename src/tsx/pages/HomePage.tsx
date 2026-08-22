@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Contact from '../components/sections/Contact'
 import HompageHero from '../components/homepage/HomepageHero'
 import HomepageDevider from '../components/homepage/HomepageDevider'
@@ -15,9 +16,11 @@ import DemoInstance from '../components/sections/DemoInstance'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
 
 function HomePage() {
+  const { t } = useTranslation('home')
+
   useEffect(() => {
-    document.title = 'Startseite | Green Ecolution | Smartes Grünflächenmanagement'
-  }, [])
+    document.title = t('meta.title')
+  }, [t])
 
   return (
     <main id="main-content">
