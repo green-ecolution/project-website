@@ -4,13 +4,21 @@ import ContactHeroContent from '../components/hero/ContactHeroContent'
 import Hero from '../components/sections/Hero'
 import Stakeholder from '../components/sections/Stakeholder'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function ContactPage() {
   const { t } = useTranslation('contact')
+  const language = useLanguage()
 
   useEffect(() => {
-    document.title = t('meta.title')
-  }, [t])
+    applyDocumentMeta({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '/contact',
+    })
+  }, [t, language])
 
   return (
     <main
@@ -19,8 +27,8 @@ function ContactPage() {
     >
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Kontakt', path: '/contact' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.contact', path: '/contact' },
         ]}
       />
       <Hero

@@ -11,13 +11,21 @@ import OpenSourceGovernance from '../components/sections/OpenSourceGovernance'
 
 import VisionRoadmap from '../components/sections/VisionRoadmap'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function ProjectPage() {
   const { t } = useTranslation('project')
+  const language = useLanguage()
 
   useEffect(() => {
-    document.title = t('meta.title')
-  }, [t])
+    applyDocumentMeta({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '/project',
+    })
+  }, [t, language])
 
   useEffect(() => {
     const hash = window.location.hash
@@ -36,8 +44,8 @@ function ProjectPage() {
     >
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Projekt', path: '/project' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.project', path: '/project' },
         ]}
       />
       <Hero

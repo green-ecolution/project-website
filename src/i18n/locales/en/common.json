@@ -67,5 +67,12 @@
     "select": "Pagination of items",
     "slide": "Slider item",
     "slideLabel": "%s of %s"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "project": "Project",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
   }
 }

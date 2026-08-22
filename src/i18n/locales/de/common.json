@@ -67,5 +67,12 @@
     "select": "Paginierung der Elemente",
     "slide": "Slider Element",
     "slideLabel": "%s von %s"
+  },
+  "breadcrumb": {
+    "home": "Startseite",
+    "project": "Projekt",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
   }
 }

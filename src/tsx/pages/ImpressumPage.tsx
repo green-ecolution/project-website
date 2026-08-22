@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Hero from '../components/sections/Hero'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
 import { DEFAULT_LANGUAGE } from '../../i18n/languages'
 import { useLanguage } from '../../i18n/useLanguage'
 
@@ -10,8 +11,12 @@ function ImpressumPage() {
   const language = useLanguage()
 
   useEffect(() => {
-    document.title = t('impressum.meta.title')
-  }, [t])
+    applyDocumentMeta({
+      title: t('impressum.meta.title'),
+      language,
+      path: '/impressum',
+    })
+  }, [t, language])
 
   return (
     <main
@@ -20,8 +25,8 @@ function ImpressumPage() {
     >
       <BreadcrumbSchema
         items={[
-          { name: 'Startseite', path: '/' },
-          { name: 'Impressum', path: '/impressum' },
+          { nameKey: 'breadcrumb.home', path: '/' },
+          { nameKey: 'breadcrumb.imprint', path: '/impressum' },
         ]}
       />
       <Hero

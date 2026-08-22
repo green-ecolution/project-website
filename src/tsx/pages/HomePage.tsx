@@ -14,17 +14,25 @@ import Challenge from '../components/sections/Challenge'
 import SensorProbe from '../components/sections/SensorProbe'
 import DemoInstance from '../components/sections/DemoInstance'
 import BreadcrumbSchema from '../components/BreadcrumbSchema'
+import { applyDocumentMeta } from '../helper/documentMeta'
+import { useLanguage } from '../../i18n/useLanguage'
 
 function HomePage() {
   const { t } = useTranslation('home')
+  const language = useLanguage()
 
   useEffect(() => {
-    document.title = t('meta.title')
-  }, [t])
+    applyDocumentMeta({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      language,
+      path: '',
+    })
+  }, [t, language])
 
   return (
     <main id="main-content">
-      <BreadcrumbSchema items={[{ name: 'Startseite', path: '/' }]} />
+      <BreadcrumbSchema items={[{ nameKey: 'breadcrumb.home', path: '/' }]} />
       <HompageHero />
       <HomepageDevider />
       <Introduction />
