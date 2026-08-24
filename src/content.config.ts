@@ -20,10 +20,13 @@ const releases = defineCollection({
       .array(
         z.object({
           // A previously unseen type has to fail the build rather than render blank.
-          type: z.enum(['feat', 'fix', 'perf', 'refactor', 'docs', 'chore']),
+          type: z.enum(['feat', 'fix', 'perf', 'refactor', 'docs', 'chore', 'style', 'test', 'ci']),
           scope: z.string().optional(),
           description: z.string(),
           pr: z.number().optional(),
+          // Unused by every release file so far. The changelog component renders
+          // it, and zod would drop it silently, so it belongs in the schema.
+          commit: z.string().optional(),
         }),
       )
       .default([]),

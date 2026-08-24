@@ -13,6 +13,9 @@ const REQUIRED = [
   // build.format 'file' names the page de/releases.html and serves it at /de/releases.
   'de/releases.html',
   'en/releases.html',
+  // The oldest release never changes, which makes it a stable anchor.
+  'de/releases/v0.1.0.html',
+  'en/releases/v0.1.0.html',
 ]
 
 // Mirrors MISSING_PREFIX in src/i18n/resolve.ts.
