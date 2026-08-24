@@ -27,6 +27,9 @@ const releases = defineCollection({
         }),
       )
       .default([]),
+    // No release file sets this today. It is in the schema because the detail
+    // page reads it, and zod would silently drop it otherwise.
+    repository: z.string().url().optional(),
   }),
 })
 
