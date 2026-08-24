@@ -21,7 +21,7 @@
     "@tanstack/react-router": "^1.170.31",
     "i18next": "^26.4.0",
     "lottie-react": "^2.4.1",
-    "lucide-react": "^1.31.0",
+    "lucide-react": "^1.33.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.12",
