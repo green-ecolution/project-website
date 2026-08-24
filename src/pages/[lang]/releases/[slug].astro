@@ -11,6 +11,8 @@ import { formatReleaseDate, isoDate } from '../../../lib/formatDate'
 import { selectReleases } from '../../../lib/releaseSelectors'
 import { getAdjacentReleases, getReleases, releaseSlug } from '../../../lib/releases'
 import { splitSlot } from '../../../lib/slotText'
+import { pickStrings } from '../../../i18n/pick'
+import ReleaseToc from '../../../components/islands/ReleaseToc'
 
 const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 
@@ -43,6 +45,11 @@ const { prev, next } = await getAdjacentReleases(language, slug)
 
 const repository = data.repository ?? DEFAULT_REPOSITORY
 const feedback = splitSlot(t('detail.feedback.text'), 'issue')
+
+// Exactly the two keys the island needs, never the namespace: releases.json is
+// small today but the rule keeps island props from growing with the catalog.
+const tocStrings = pickStrings(language, 'releases', ['toc.ariaLabel', 'toc.title'])
+const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading.text }))
 ---
 
 <BaseLayout
@@ -164,6 +171,14 @@ const feedback = splitSlot(t('detail.feedback.text'), 'issue')
             )
           }
         </div>
+
+        {
+          showToc && (
+            <aside class="hidden xl:block">
+              <ReleaseToc entries={tocEntries} strings={tocStrings} client:visible />
+            </aside>
+          )
+        }
       </div>
 
       <nav
