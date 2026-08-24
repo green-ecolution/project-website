@@ -1,0 +1,57 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, type Language } from '../i18n/languages'
+import '../css/site.css'
+
+interface Props {
+  title: string
+  description?: string
+  language: Language
+  // Path without the language prefix. Omit it for pages that have no canonical
+  // address, such as the 404 page: a self-referencing canonical there would tell
+  // crawlers the URL is a real page.
+  path?: string
+}
+
+const OG_LOCALES: Record<Language, string> = { de: 'de_DE', en: 'en_GB' }
+
+const { title, description, language, path } = Astro.props
+const base = Astro.site?.origin ?? 'https://green-ecolution.de'
+const canonical = path === undefined ? undefined : `${base}/${language}${path}`
+
+// x-default points at German because that's the site's source language, not a
+// geo-targeted fallback.
+const alternates =
+  path === undefined
+    ? []
+    : [
+        ...SUPPORTED_LANGUAGES.map((lang) => ({ hreflang: lang, href: `${base}/${lang}${path}` })),
+        { hreflang: 'x-default', href: `${base}/${DEFAULT_LANGUAGE}${path}` },
+      ]
+---
+
+<html lang={language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={OG_LOCALES[language]} />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="description" content={description} />}
+    {description && <meta property="og:description" content={description} />}
+    {description && <meta name="twitter:description" content={description} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    {
+      alternates.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))
+    }
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

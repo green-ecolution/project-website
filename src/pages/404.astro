@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getTranslations } from '../i18n/t'
+import { DEFAULT_LANGUAGE } from '../i18n/languages'
+
+// One 404 page, in German, without language variants: nginx would otherwise have
+// to derive a language from a path that by definition belongs to no page.
+const t = getTranslations(DEFAULT_LANGUAGE, 'common')
+---
+
+<BaseLayout title={t('notFound.metaTitle')} language={DEFAULT_LANGUAGE}>
+  <main class="max-w-2xl mx-auto px-4 py-24 text-center">
+    <h1 class="font-nunito-sans text-4xl font-bold text-green-dark-900">{t('notFound.title')}</h1>
+    <p class="mt-4 text-grey-900">{t('notFound.description')}</p>
+    <a
+      href={`/${DEFAULT_LANGUAGE}`}
+      class="mt-8 inline-block font-semibold text-green-middle-900 underline underline-offset-4"
+      >{t('notFound.cta')}</a
+    >
+  </main>
+</BaseLayout>
