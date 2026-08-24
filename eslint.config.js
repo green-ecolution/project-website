@@ -17,7 +17,6 @@ export default tseslint.config(
       'src/routes',
       'src/main.tsx',
       'src/routeTree.gen.ts',
-      'src/content/releases/index.ts',
     ],
   },
   {
