@@ -5,7 +5,15 @@ const DIST = 'dist'
 
 // Grows in plan 2 and 3 as pages are ported. A file listed here that is absent
 // from dist is a routing regression, not a missing feature.
-const REQUIRED = ['index.html', '404.html', 'robots.txt', 'sitemap-index.xml']
+const REQUIRED = [
+  'index.html',
+  '404.html',
+  'robots.txt',
+  'sitemap-index.xml',
+  // build.format 'file' names the page de/releases.html and serves it at /de/releases.
+  'de/releases.html',
+  'en/releases.html',
+]
 
 // Mirrors MISSING_PREFIX in src/i18n/resolve.ts.
 const MISSING_KEY = /\?\?([\w]+(?:\.[\w]+)*)/g

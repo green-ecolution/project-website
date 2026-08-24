@@ -1,0 +1,71 @@
+---
+import { PackageOpen } from 'lucide-react'
+import type { Language } from '../../i18n/languages'
+import { getTranslations } from '../../i18n/t'
+import type { ReleaseEntry } from '../../lib/releases'
+import ReleaseCard from './ReleaseCard.astro'
+
+interface Props {
+  entries: ReleaseEntry[]
+  language: Language
+}
+
+const { entries, language } = Astro.props
+const t = getTranslations(language, 'releases')
+
+// The list arrives sorted, so a run of the same year is contiguous and grouping
+// can stay a single pass.
+function groupByYear(releases: ReleaseEntry[]) {
+  const groups: { year: string; releases: ReleaseEntry[] }[] = []
+
+  for (const release of releases) {
+    const year = String(release.data.date.getFullYear())
+    const current = groups.at(-1)
+
+    if (current?.year === year) {
+      current.releases.push(release)
+    } else {
+      groups.push({ year, releases: [release] })
+    }
+  }
+
+  return groups
+}
+
+const groups = groupByYear(entries)
+---
+
+{
+  entries.length === 0 && (
+    <div class="text-center py-12">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-grey-900/5 mb-4">
+        <PackageOpen className="w-6 h-6 text-grey-900/30" aria-hidden="true" />
+      </div>
+      <p class="text-grey-900/50 text-sm">{t('timeline.empty')}</p>
+    </div>
+  )
+}
+
+{
+  entries.length > 0 && (
+    <div>
+      {groups.map(({ year, releases }) => (
+        <section aria-label={t('timeline.yearAriaLabel', { year })}>
+          <div class="flex items-center gap-4 mb-5 mt-10 first:mt-0">
+            <span class="font-lato font-bold text-sm text-grey-900/45">{year}</span>
+            <div class="flex-1 h-px bg-grey-900/10" />
+          </div>
+
+          {/* The axis is drawn once per group so it runs through without gaps. */}
+          <div class="relative lg:pl-8 lg:before:absolute lg:before:left-[15px] lg:before:top-2 lg:before:bottom-2 lg:before:w-0.5 lg:before:bg-grey-900/10">
+            <div class="space-y-4 lg:space-y-5">
+              {releases.map((entry) => (
+                <ReleaseCard entry={entry} language={language} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  )
+}
