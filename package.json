@@ -18,7 +18,7 @@
   "dependencies": {
     "@react-three/fiber": "^9.7.0",
     "@splidejs/react-splide": "^0.7.12",
-    "@tanstack/react-router": "^1.170.28",
+    "@tanstack/react-router": "^1.170.31",
     "i18next": "^26.4.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.31.0",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@tanstack/router-plugin": "^1.168.31",
+    "@tanstack/router-plugin": "^1.168.34",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
