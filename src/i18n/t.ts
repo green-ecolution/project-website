@@ -17,7 +17,7 @@ type DottedPaths<T> = T extends string
 
 export type TranslationKey<N extends Namespace> = StripPlural<DottedPaths<(typeof de)[N]>>
 
-export function useTranslations<N extends Namespace>(language: Language, namespace: N) {
+export function getTranslations<N extends Namespace>(language: Language, namespace: N) {
   const scoped = {
     de: de[namespace] as unknown as Catalog,
     en: en[namespace] as unknown as Catalog,
