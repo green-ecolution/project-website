@@ -1,5 +1,5 @@
 import { Droplets, Thermometer, Gauge } from 'lucide-react'
-import { ComponentType } from 'react'
+import type { ComponentType } from 'react'
 
 export type SensorSpecId = 'depths' | 'network' | 'batteryLife'
 export type SensorFeatureId = 'soilMoisture' | 'temperature' | 'soilTension'

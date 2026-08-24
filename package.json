@@ -5,20 +5,23 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "pnpm fmt:check && tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0 && node scripts/check-i18n-parity.mjs",
-    "lint:fix": "eslint . --fix",
-    "lint:ci": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0 && node scripts/check-i18n-parity.mjs",
-    "preview": "vite preview",
+    "dev": "astro dev",
+    "build": "astro check && astro build && node scripts/check-build-output.mjs",
+    "preview": "astro preview",
+    "lint": "pnpm fmt:check && astro check && eslint . --report-unused-disable-directives --max-warnings 0 && node scripts/check-i18n-parity.mjs",
+    "lint:ci": "astro check && eslint . --report-unused-disable-directives --max-warnings 0 && node scripts/check-i18n-parity.mjs",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
-    "test": "echo 'test...'"
+    "test": "vitest run"
   },
   "dependencies": {
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/react": "^6.0.4",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@react-three/fiber": "^9.7.0",
     "@splidejs/react-splide": "^0.7.12",
-    "@tanstack/react-router": "^1.170.31",
+    "astro": "^7.2.5",
     "i18next": "^26.4.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.33.0",
@@ -31,17 +34,17 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@tanstack/router-plugin": "^1.168.34",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@types/three": "^0.185.4",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
-    "@vitejs/plugin-react": "^6.1.0",
     "eslint": "^10.0.3",
+    "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-react-dom": "^2.13.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
@@ -49,10 +52,11 @@
     "globals": "^17.11.0",
     "postcss": "^8.5.26",
     "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1",
-    "vite": "^8.2.2"
+    "vitest": "^4.1.11"
   },
   "packageManager": "pnpm@10.20.0"
 }

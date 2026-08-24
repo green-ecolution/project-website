@@ -5,9 +5,21 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
+import astro from 'eslint-plugin-astro'
 
 export default tseslint.config(
-  { ignores: ['dist', 'vite.config.js', 'vite.config.d.ts'] },
+  {
+    ignores: [
+      'dist',
+      '.astro',
+      // Debt: plan 3 removes these directories and this entry with them.
+      'src/tsx',
+      'src/routes',
+      'src/main.tsx',
+      'src/routeTree.gen.ts',
+      'src/content/releases/index.ts',
+    ],
+  },
   {
     extends: [
       js.configs.recommended,
@@ -38,27 +50,11 @@ export default tseslint.config(
       ...reactDom.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      '@typescript-eslint/only-throw-error': [
-        'error',
-        {
-          allow: [
-            {
-              from: 'package',
-              name: 'Redirect',
-              package: '@tanstack/router-core',
-            },
-            {
-              from: 'package',
-              name: 'NotFoundError',
-              package: '@tanstack/router-core',
-            },
-          ],
-        },
-      ],
       '@typescript-eslint/no-empty-object-type': [
         'error',
         { allowInterfaces: 'with-single-extends' },
       ],
     },
   },
+  ...astro.configs.recommended,
 )
