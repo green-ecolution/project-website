@@ -73,9 +73,13 @@ server {
 
     location ~ ^/releases/(.+)$ { return 301 /de/releases/$1; }
 
+    error_page 404 /404.html;
+
     location / {
         root   /usr/share/nginx/html;
-        try_files $uri $uri/ /index.html;
+        # Astro emits one file per route (build.format: 'file'), so $uri.html is
+        # the real page. No SPA fallback: a wrong path has to yield a 404.
+        try_files $uri $uri.html $uri/ =404;
     }
 }
 EOF
