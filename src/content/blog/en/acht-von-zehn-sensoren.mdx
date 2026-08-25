@@ -1,0 +1,30 @@
+---
+title: Eight of ten sensors are in the ground
+date: 2026-06-12
+summary: The second round of trial installations brings five more soil moisture sensors to deliberately difficult sites, and the assignment between sensor and tree sees its first use in the field.
+cover: ../../../assets/blog/acht-von-zehn-sensoren-einbau.jpg
+coverAlt: At a freshly dug hole one person backfills with a spade while two others connect the sensor unit, the earth auger hanging in the background
+author: cedrik-hoffmann
+---
+
+After the [first trial installation](/blog/erste-sensoren-im-boden) in May it was clear that the concept fundamentally works. The second round on 11 June 2026 was meant to show whether it also does so where conditions are harder: for the next five sensors, together with the Technisches Betriebszentrum Flensburg (TBZ), the city's technical operations center, we deliberately picked extreme sites. A sixth site was on the plan as well, but a construction site beat us to it. By the end of the day, eight of the ten planned test sites were in the ground nonetheless.
+
+## Lessons from the first round
+
+The packing list has evolved since the first appointment. The flashlight we had missed back then came along this time, joined by a wider drill head and a measuring device that detects buried cables before the auger does. What we needed most was patience: at some sites, stones and building rubble sat in the ground, and one drill head did not survive the day, though that looked more like old age than overly hard use. This is exactly what the trial installations are for; every appointment sharpens the routine for the next one.
+
+## The app's first field test
+
+At the first installation, assigning sensors to trees was still an item on the to-do list. Since [version 0.2.0](/releases/v0.2.0) the workflow has been part of the application, and on this day it had to prove itself outdoors for the first time. It is built deliberately for use on site: right at the freshly filled hole, the sensor's QR code is scanned, the application uses the device's GPS position to determine the nearest tree and links the two. We tested this with an iPad and a smartphone.
+
+## Completely buried
+
+One thing changed about the installation itself: the transmitter unit now sits entirely below ground, covered by a thin layer of soil. Nothing is visible above ground anymore, the sites stay unobtrusive, and maintenance work such as mowing is not affected. The open question was whether the LoRaWAN signal makes it through the extra soil. The first check is encouraging: data is coming in. Two sites, however, have not reported yet. At one of them a measurement taken beforehand had already shown weak coverage, so that fits the picture; we are following up on both.
+
+## From reading to interpretation
+
+With every site the pool of data grows, and with it the real task moves closer: turning readings into reliable statements about water demand. The same moisture value means something different depending on the soil, so the evaluation has to take the soil type into account. Studies on this exist for us to build on, and a first version of this evaluation will land in the application soon. Because a calculation is only worth as much as its verification, we then want to go back into the field together with the TBZ: dig a second hole next to a sensor, have the soil there judged by experience, and compare that with what our evaluation reads from the sensor data.
+
+## What comes next
+
+Next week brings the last installation appointment. After that, all ten test sites will be standing, and the attention shifts from digging to the data.
