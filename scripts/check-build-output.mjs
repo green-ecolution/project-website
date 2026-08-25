@@ -24,6 +24,9 @@ const REQUIRED = [
   'en/contact.html',
   'de/project.html',
   'en/project.html',
+  // build.format 'file' names the start page de.html, not de/index.html.
+  'de.html',
+  'en.html',
 ]
 
 // Mirrors MISSING_PREFIX in src/i18n/resolve.ts.
