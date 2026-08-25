@@ -52,7 +52,9 @@ const navStrings = pickStrings(language, 'common', [
       class="flex items-center gap-x-4 xl:gap-x-5"
     >
       <figure class="w-24 xl:w-28">
-        <HeaderLogo client:load transition:persist />
+        <!-- The static SVG renders on the server already; the animation and
+             lottie-web can wait until the browser is idle. -->
+        <HeaderLogo client:idle transition:persist />
       </figure>
       <p
         class="hidden whitespace-nowrap text-green-dark-900 font-lato font-semibold text-xl xl:block xl:text-2xl"
@@ -61,8 +63,10 @@ const navStrings = pickStrings(language, 'common', [
       </p>
     </a>
 
+    <!-- Desktop shows the links as plain markup; only the mobile menu needs
+         state, so the island hydrates below the lg breakpoint. -->
     <MainNavigation
-      client:load
+      client:media="(max-width: 1023px)"
       links={links}
       imprintHref={`/${language}/impressum`}
       privacyHref={`/${language}/datenschutz`}
