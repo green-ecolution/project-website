@@ -1,0 +1,238 @@
+---
+import type { Language } from '../../i18n/languages'
+import { getTranslations } from '../../i18n/t'
+import { sensorSpecs, sensorFeatures } from '../../data/sensorSpecs'
+
+interface Props {
+  language: Language
+}
+
+const { language } = Astro.props
+const t = getTranslations(language, 'home')
+
+const depths = [
+  { y: 120, label: '30 cm', color: '#658A58', zone: t('sensorProbe.zones.fineRoots') },
+  { y: 200, label: '60 cm', color: '#4C7741', zone: t('sensorProbe.zones.mainRoots') },
+  { y: 280, label: '90 cm', color: '#3D5F35', zone: t('sensorProbe.zones.deepRoots') },
+]
+
+const FINE_ROOTS = [
+  { d: 'M160,75 Q130,90 100,100 Q80,105 65,95', width: '1.5' },
+  { d: 'M160,75 Q180,85 210,95 Q230,100 250,92', width: '1.5' },
+  { d: 'M160,78 Q140,95 115,108 Q100,115 85,108', width: '1' },
+  { d: 'M160,78 Q175,92 200,105 Q220,112 240,105', width: '1' },
+]
+const MEDIUM_ROOTS = [
+  'M160,100 Q135,140 110,170 Q95,185 80,178',
+  'M160,100 Q185,145 205,175 Q218,188 235,180',
+]
+const DEEP_ROOTS = [
+  'M158,120 Q140,190 125,250 Q118,270 110,260',
+  'M162,120 Q178,195 190,255 Q196,272 205,262',
+]
+---
+
+<section
+  class="px-4 max-w-208 mx-auto my-20 md:px-6 lg:my-28 lg:max-w-screen-lg xl:my-36 xl:max-w-screen-xl"
+>
+  <div class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16 lg:items-center">
+    <div class="mb-10 lg:mb-0">
+      <div
+        class="relative bg-gradient-to-b from-green-light-100/60 to-white rounded-2xl p-4 lg:p-6 border border-green-dark-900/5 shadow-sm"
+      >
+        <svg
+          viewBox="0 0 320 360"
+          class="w-full max-w-sm mx-auto"
+          aria-label={t('sensorProbe.illustrationAriaLabel')}
+          role="img"
+        >
+          <rect x="0" y="0" width="320" height="60" fill="#f0f7ed" rx="8"></rect>
+
+          <rect x="0" y="60" width="320" height="300" fill="#8B7355" opacity="0.15"></rect>
+          <rect x="0" y="60" width="320" height="4" fill="#ACB63B" opacity="0.4"></rect>
+
+          <rect x="0" y="64" width="320" height="100" fill="#8B7355" opacity="0.08"></rect>
+          <rect x="0" y="164" width="320" height="100" fill="#8B7355" opacity="0.14"></rect>
+          <rect x="0" y="264" width="320" height="96" fill="#8B7355" opacity="0.2"></rect>
+
+          <g opacity="0.18">
+            {
+              FINE_ROOTS.map((root) => (
+                <path d={root.d} fill="none" stroke="#6B4423" stroke-width={root.width} />
+              ))
+            }
+          </g>
+          <g opacity="0.13">
+            {
+              MEDIUM_ROOTS.map((d) => (
+                <path d={d} fill="none" stroke="#6B4423" stroke-width="1.8" />
+              ))
+            }
+          </g>
+          <g opacity="0.09">
+            {DEEP_ROOTS.map((d) => <path d={d} fill="none" stroke="#6B4423" stroke-width="2" />)}
+          </g>
+
+          {
+            depths.map((depth) => (
+              <g>
+                <line
+                  x1="40"
+                  y1={depth.y}
+                  x2="280"
+                  y2={depth.y}
+                  stroke="#8B7355"
+                  stroke-width="0.5"
+                  stroke-dasharray="6 4"
+                  opacity="0.3"
+                />
+                <text
+                  x="300"
+                  y={depth.y + 4}
+                  text-anchor="end"
+                  fill="#8B7355"
+                  font-size="11"
+                  font-family="Lato"
+                  font-weight="600"
+                  opacity="0.6"
+                >
+                  {depth.label}
+                </text>
+                <text
+                  x="40"
+                  y={depth.y - 6}
+                  text-anchor="start"
+                  fill={depth.color}
+                  font-size="9"
+                  font-family="Lato"
+                  font-weight="600"
+                  opacity="0.7"
+                >
+                  {depth.zone}
+                </text>
+              </g>
+            ))
+          }
+
+          <rect x="155" y="40" width="10" height="260" fill="#4C7741" rx="3" opacity="0.9"></rect>
+          <rect x="157" y="40" width="6" height="260" fill="#658A58" rx="2" opacity="0.5"></rect>
+
+          <rect x="148" y="32" width="24" height="30" fill="#3D5F35" rx="6"></rect>
+          <rect x="153" y="36" width="14" height="4" fill="#ACB63B" rx="2" opacity="0.7"></rect>
+
+          {
+            depths.map((depth, index) => (
+              <g>
+                <circle cx="160" cy={depth.y} r="12" fill={depth.color} opacity="0.2" />
+                <circle cx="160" cy={depth.y} r="7" fill={depth.color} />
+                <circle cx="160" cy={depth.y} r="3" fill="white" opacity="0.6" />
+
+                {[
+                  { r: '2.5', values: '0;0.8;0.8;0', begin: index * 0.8 },
+                  { r: '2', values: '0;0.6;0.6;0', begin: index * 0.8 + 1.5 },
+                ].map((particle) => (
+                  <circle r={particle.r} fill="#ACB63B" opacity="0" class="motion-only">
+                    <animateMotion
+                      path={`M160,${depth.y} L160,40`}
+                      dur="3s"
+                      begin={`${particle.begin}s`}
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values={particle.values}
+                      dur="3s"
+                      begin={`${particle.begin}s`}
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                ))}
+              </g>
+            ))
+          }
+
+          <rect x="157" y="12" width="6" height="22" fill="#6B4423" rx="2"></rect>
+          <ellipse cx="160" cy="6" rx="18" ry="12" fill="#4C7741" opacity="0.7"></ellipse>
+          <ellipse cx="160" cy="3" rx="12" ry="8" fill="#3D5F35" opacity="0.5"></ellipse>
+
+          <g opacity="0.4" class="motion-only">
+            <path
+              d="M178,28 Q188,20 178,12"
+              fill="none"
+              stroke="#ACB63B"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <animate attributeName="opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"
+              ></animate>
+            </path>
+            <path
+              d="M184,32 Q198,20 184,8"
+              fill="none"
+              stroke="#ACB63B"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <animate
+                attributeName="opacity"
+                values="0;0.4;0"
+                dur="2s"
+                begin="0.4s"
+                repeatCount="indefinite"></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div>
+      <div class="inline-block mb-6">
+        <span class="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+          {t('sensorProbe.sectionLabel')}
+        </span>
+        <div class="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1"></div>
+      </div>
+
+      <h2 class="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl xl:text-4xl">
+        {t('sensorProbe.title')}
+      </h2>
+
+      <p class="text-grey-900/70 leading-relaxed mb-8">{t('sensorProbe.description')}</p>
+
+      <div class="flex flex-wrap gap-3 mb-8">
+        {
+          sensorSpecs.map((spec) => (
+            <div class="flex items-center gap-2 border border-green-light-900/40 rounded-full px-4 py-2 transition-all duration-300 hover:border-green-light-900 hover:bg-green-light-100/50 hover:shadow-sm cursor-default">
+              <span class="font-lato font-bold text-green-dark-900">{spec.value}</span>
+              <span class="text-sm text-grey-600">{t(`sensorProbe.specs.${spec.id}.label`)}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="space-y-4">
+        {
+          sensorFeatures.map((feature) => {
+            const Icon = feature.icon
+
+            return (
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-light-900/15 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-green-dark-900" />
+                </div>
+                <div>
+                  <h3 class="font-lato font-semibold text-grey-900 mb-0.5">
+                    {t(`sensorProbe.features.${feature.id}.label`)}
+                  </h3>
+                  <p class="text-sm text-grey-600 leading-relaxed">
+                    {t(`sensorProbe.features.${feature.id}.description`)}
+                  </p>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>
