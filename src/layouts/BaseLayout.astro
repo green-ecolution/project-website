@@ -5,6 +5,7 @@ import Header from './Header.astro'
 import Footer from './Footer.astro'
 import { getTranslations } from '../i18n/t'
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, type Language } from '../i18n/languages'
+import { siteOrigin } from '../lib/site'
 import '../css/site.css'
 
 interface Props {
@@ -20,7 +21,7 @@ interface Props {
 const OG_LOCALES: Record<Language, string> = { de: 'de_DE', en: 'en_GB' }
 
 const { title, description, language, path } = Astro.props
-const base = Astro.site?.origin ?? 'https://green-ecolution.de'
+const base = siteOrigin(Astro.site)
 const canonical = path === undefined ? undefined : `${base}/${language}${path}`
 const tc = getTranslations(language, 'common')
 

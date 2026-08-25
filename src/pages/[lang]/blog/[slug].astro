@@ -7,7 +7,7 @@ import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro'
 import ArticleByline from '../../../components/blog/ArticleByline.astro'
 import ContentLink from '../../../components/content/ContentLink.astro'
 import ContentTable from '../../../components/content/ContentTable.astro'
-import { SUPPORTED_LANGUAGES, type Language } from '../../../i18n/languages'
+import { SUPPORTED_LANGUAGES, currentLanguage } from '../../../i18n/languages'
 import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
 import { readingTimeInMinutes } from '../../../lib/readingTime'
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
   )
 }
 
-const language = Astro.params.lang as Language
+const language = currentLanguage(Astro.params.lang)
 const { entry } = Astro.props
 const slug = articleSlug(entry)
 const { data } = entry

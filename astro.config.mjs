@@ -38,7 +38,12 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sitemap({ i18n: { defaultLocale: 'de', locales: { de: 'de-DE', en: 'en-GB' } } }),
+    sitemap({
+      // The root page only redirects and is marked noindex; listing it next to
+      // the pages it points to would hand crawlers a duplicate.
+      filter: (page) => new URL(page).pathname !== '/',
+      i18n: { defaultLocale: 'de', locales: { de: 'de-DE', en: 'en-GB' } },
+    }),
   ],
   vite: {
     envPrefix: ['VITE_', 'PUBLIC_'],

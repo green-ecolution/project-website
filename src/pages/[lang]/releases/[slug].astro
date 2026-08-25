@@ -7,7 +7,7 @@ import SectionHeading from '../../../components/releases/SectionHeading.astro'
 import GithubIcon from '../../../components/icons/Github.astro'
 import ContentLink from '../../../components/content/ContentLink.astro'
 import ContentTable from '../../../components/content/ContentTable.astro'
-import { SUPPORTED_LANGUAGES, type Language } from '../../../i18n/languages'
+import { SUPPORTED_LANGUAGES, currentLanguage } from '../../../i18n/languages'
 import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
 import { selectReleases } from '../../../lib/releaseSelectors'
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
   )
 }
 
-const language = Astro.params.lang as Language
+const language = currentLanguage(Astro.params.lang)
 const { entry } = Astro.props
 const slug = releaseSlug(entry)
 const { data } = entry

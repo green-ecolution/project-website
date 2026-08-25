@@ -1,15 +1,15 @@
 ---
 import type { Language } from '../i18n/languages'
+import { siteOrigin } from '../lib/site'
 
 interface Props {
   items: { name: string; path: string }[]
   language: Language
 }
 
-const BASE_URL = 'https://green-ecolution.de'
-
 // Takes finished names, not catalog keys: the page already holds its own t.
 const { items, language } = Astro.props
+const base = siteOrigin(Astro.site)
 
 const schema = {
   '@context': 'https://schema.org',
@@ -18,7 +18,7 @@ const schema = {
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    item: `${BASE_URL}/${language}${item.path}`,
+    item: `${base}/${language}${item.path}`,
   })),
 }
 ---
