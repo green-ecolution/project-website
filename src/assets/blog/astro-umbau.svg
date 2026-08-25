@@ -1,0 +1,47 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d6d40"/>
+      <stop offset="1" stop-color="#599154"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2" fill="#f4f5e5" fill-opacity="0.16"/>
+    </pattern>
+    <clipPath id="frame">
+      <rect width="1600" height="900"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1600" height="900" fill="url(#ground)"/>
+    <rect width="1600" height="900" fill="url(#dots)"/>
+
+    <path
+      d="M299 676C-53 452 -35 87 59 -8 161 -110 255 -151 384 -181 818 -283 1277 -227 1475 154 1672 535 1599 716 1521 821 1288 1133 652 898 299 676Z"
+      transform="translate(120 210) scale(0.78)"
+      fill="#a2b132"
+      fill-opacity="0.14"
+    />
+
+    <g fill="none" stroke="#f4f5e5" stroke-opacity="0.34" stroke-width="3">
+      <path d="M232 604 L470 470 L742 528 L1008 372 L1310 430"/>
+      <path d="M470 470 L512 268" stroke-opacity="0.2"/>
+      <path d="M1008 372 L1064 592" stroke-opacity="0.2"/>
+    </g>
+
+    <g fill="#f4f5e5">
+      <circle cx="232" cy="604" r="11" fill-opacity="0.85"/>
+      <circle cx="470" cy="470" r="15" fill-opacity="0.9"/>
+      <circle cx="742" cy="528" r="11" fill-opacity="0.85"/>
+      <circle cx="1008" cy="372" r="15" fill-opacity="0.9"/>
+      <circle cx="1310" cy="430" r="11" fill-opacity="0.85"/>
+      <circle cx="512" cy="268" r="8" fill-opacity="0.6"/>
+      <circle cx="1064" cy="592" r="8" fill-opacity="0.6"/>
+    </g>
+
+    <g fill="none" stroke="#20c55e" stroke-opacity="0.5" stroke-width="3">
+      <circle cx="470" cy="470" r="34"/>
+      <circle cx="1008" cy="372" r="48"/>
+    </g>
+  </g>
+</svg>

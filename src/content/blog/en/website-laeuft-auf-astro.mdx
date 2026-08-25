@@ -1,0 +1,32 @@
+---
+title: The website now runs on Astro
+date: 2026-08-25
+summary: The landing page used to be a React application that assembled everything in the browser. It now ships finished HTML. What that means for the release notes, the blog and the loading time.
+cover: ../../../assets/blog/astro-umbau.svg
+coverAlt: Abstract graphic in the project's greens showing a route with several stops as connected dots
+author: cedrik-hoffmann
+---
+
+Until recently this website was a React application built with Vite. The browser loaded a JavaScript bundle that then assembled the navigation, the translations and the page content. For an application with a login and a map, that is a sensible setup. For a site that mostly shows text, it carries more machinery than the job requires.
+
+## What prompted it
+
+The immediate trigger were the release notes. They are the part of the site that grows most often, and adding an entry should mean writing a text file rather than changing code. On top of that came the wish to write a project blog without creating a component every time.
+
+## What changed
+
+The site is now built with Astro and consists of finished HTML files, one per page and language. The title, the canonical address, the language alternatives and the preview images for social networks are in there before any script runs. Previously those details were created only after loading, which makes a difference to search engines and link previews.
+
+Release notes and blog posts are MDX files with a short header for title, date and summary. Both are bilingual, with German deciding which entries exist. Where a translation is missing, the German text stands in its place so that no entry is absent under the English address. Since the rebuild, a typo in a file header fails the build instead of quietly producing a blank line.
+
+The interactive parts stayed and still run on React. The tree animation on the homepage, the videos, the carousels and the three-dimensional tour on the Streamlet page are individual islands in an otherwise static page. They load only where they actually appear.
+
+## What it does for loading time
+
+In the old setup the homepage pulled 1217 KB of JavaScript, because the bundle was the same for every route and contained whatever any page might need. It now links 242 KB. The animation library at 308 KB and the 3D library load only when a page actually shows them.
+
+That is measured against the built files and concerns the homepage. How fast a site feels depends on more than the size of its JavaScript, but less code that has to run before the first paint is the better starting point either way.
+
+## What comes next
+
+This post is the first in the new blog and at the same time its test case. The next ones will be less about the website and more about what happens in the platform itself.
