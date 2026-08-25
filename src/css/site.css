@@ -22,9 +22,9 @@
   --color-orange-400: oklch(75.35% 0.182 55.93);
   --color-cyan-400: oklch(78.92% 0.152 211.53);
 
-  /* Fonts */
-  --font-lato: 'Lato', sans-serif;
-  --font-nunito-sans: 'Nunito Sans', sans-serif;
+  /* Fonts: the families themselves are declared in astro.config.mjs (Fonts API). */
+  --font-lato: var(--font-lato-face);
+  --font-nunito-sans: var(--font-nunito-sans-face);
 
   /* Font sizes */
   --text-xxs: 0.625rem;

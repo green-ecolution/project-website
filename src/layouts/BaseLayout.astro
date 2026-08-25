@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+import { Font } from 'astro:assets'
 import { ArrowUp } from 'lucide-react'
 import Header from './Header.astro'
 import Footer from './Footer.astro'
@@ -67,6 +68,9 @@ const feeds = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Kept in sync with the header background by src/scripts/shell.ts -->
     <meta name="theme-color" content="#4C7741" />
+    <!-- Only the two faces every page paints above the fold are preloaded. -->
+    <Font cssVariable="--font-nunito-sans-face" preload={[{ weight: 400 }]} />
+    <Font cssVariable="--font-lato-face" preload={[{ weight: 700 }]} />
     <title>{title}</title>
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />

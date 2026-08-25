@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -23,11 +23,40 @@ process.env.VITE_APP_VERSION =
 process.env.VITE_BUILD_VERSION =
   process.env.VITE_BUILD_VERSION ?? new Date().toISOString().slice(0, 10).replace(/-/g, '')
 
+function localFont(name, cssVariable, files) {
+  return {
+    provider: fontProviders.local(),
+    name,
+    cssVariable,
+    options: {
+      variants: Object.entries(files).map(([weight, file]) => ({
+        weight: Number(weight),
+        style: 'normal',
+        display: 'swap',
+        src: [`./src/assets/fonts/${file}`],
+      })),
+    },
+  }
+}
+
 export default defineConfig({
   site: 'https://green-ecolution.de',
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },
+  fonts: [
+    localFont('Lato', '--font-lato-face', {
+      400: 'lato-400.woff2',
+      600: 'lato-600.woff2',
+      700: 'lato-700.woff2',
+    }),
+    localFont('Nunito Sans', '--font-nunito-sans-face', {
+      400: 'nunito-sans-400.woff2',
+      500: 'nunito-sans-500.woff2',
+      600: 'nunito-sans-600.woff2',
+      700: 'nunito-sans-700.woff2',
+    }),
+  ],
   i18n: {
     defaultLocale: 'de',
     locales: ['de', 'en'],

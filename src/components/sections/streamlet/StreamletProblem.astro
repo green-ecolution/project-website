@@ -85,7 +85,7 @@ function markerFor(stop: (typeof STOPS)[number]): string {
                   text-anchor="middle"
                   fill="#ffffff"
                   font-size="9"
-                  font-family="Lato"
+                  style="font-family: var(--font-lato)"
                   font-weight="700"
                 >
                   {markerFor(stop)}
@@ -94,16 +94,37 @@ function markerFor(stop: (typeof STOPS)[number]): string {
             ))
           }
 
-          <text x="40" y="38" text-anchor="middle" fill="#3D5F35" font-size="9" font-family="Lato">
+          <text
+            x="40"
+            y="38"
+            text-anchor="middle"
+            fill="#3D5F35"
+            font-size="9"
+            style="font-family: var(--font-lato)"
+          >
             {t('problem.diagram.depot')}
           </text>
-          <text x="220" y="38" text-anchor="middle" fill="#4C7741" font-size="9" font-family="Lato">
+          <text
+            x="220"
+            y="38"
+            text-anchor="middle"
+            fill="#4C7741"
+            font-size="9"
+            style="font-family: var(--font-lato)"
+          >
             {t('problem.diagram.refillStation')}
           </text>
 
           <line x1="40" y1="110" x2="340" y2="110" stroke="#8B7355" stroke-width="0.5" opacity="0.3"
           ></line>
-          <text x="40" y="104" fill="#8B7355" font-size="9" font-family="Lato" opacity="0.7">
+          <text
+            x="40"
+            y="104"
+            fill="#8B7355"
+            font-size="9"
+            style="font-family: var(--font-lato)"
+            opacity="0.7"
+          >
             {t('problem.diagram.tankFull')}
           </text>
           <line
@@ -115,7 +136,14 @@ function markerFor(stop: (typeof STOPS)[number]): string {
             stroke-width="0.5"
             stroke-dasharray="4 3"
             opacity="0.4"></line>
-          <text x="40" y="207" fill="#8B7355" font-size="9" font-family="Lato" opacity="0.7">
+          <text
+            x="40"
+            y="207"
+            fill="#8B7355"
+            font-size="9"
+            style="font-family: var(--font-lato)"
+            opacity="0.7"
+          >
             {t('problem.diagram.tankEmpty')}
           </text>
 
@@ -127,7 +155,14 @@ function markerFor(stop: (typeof STOPS)[number]): string {
             stroke-linejoin="round"></polyline>
           <circle cx="220" cy="168" r="3" fill="#ACB63B"></circle>
           <circle cx="220" cy="110" r="3" fill="#ACB63B"></circle>
-          <text x="228" y="106" fill="#4C7741" font-size="9" font-family="Lato" font-weight="600">
+          <text
+            x="228"
+            y="106"
+            fill="#4C7741"
+            font-size="9"
+            style="font-family: var(--font-lato)"
+            font-weight="600"
+          >
             {t('problem.diagram.refilled')}
           </text>
         </svg>
