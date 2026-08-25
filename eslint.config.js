@@ -9,15 +9,7 @@ import astro from 'eslint-plugin-astro'
 
 export default tseslint.config(
   {
-    ignores: [
-      'dist',
-      '.astro',
-      // Debt: plan 3 removes these directories and this entry with them.
-      'src/tsx',
-      'src/routes',
-      'src/main.tsx',
-      'src/routeTree.gen.ts',
-    ],
+    ignores: ['dist', '.astro'],
   },
   {
     extends: [
