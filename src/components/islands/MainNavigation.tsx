@@ -42,7 +42,7 @@ function NavItem({ label, href, onClick }: NavLink & { onClick: () => void }) {
       <a
         href={href}
         onClick={onClick}
-        className="text-lg md:text-2xl font-bold flex justify-between items-center group cursor-pointer lg:text-base xl:text-lg lg:leading-none lg:my-1"
+        className="text-lg md:text-2xl font-bold flex justify-between items-center group cursor-pointer lg:text-base lg:font-medium lg:leading-none lg:my-1"
       >
         <p className="whitespace-nowrap transition-color ease-in-out duration-300 group-hover:text-green-light-900 group-active:text-green-light-900 lg:group-hover:text-green-middle-900 lg:group-active:text-green-middle-900">
           {label}
@@ -150,12 +150,12 @@ function Navigation({
             aria-label="demo"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer transition-all ease-in-out duration-300 text-white bg-green-dark-900 hover:bg-green-light-900 hover:shadow-lg hover:shadow-green-light-900/40 hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-x-4 rounded-2xl w-max font-semibold px-5 py-2 group cursor-pointer transition-all ease-in-out duration-300 text-white bg-green-dark-900 hover:bg-green-light-900 hover:shadow-lg hover:shadow-green-light-900/40 hover:-translate-y-0.5 lg:gap-x-2 lg:px-4 lg:py-1.5 lg:text-sm"
           >
             <span className="whitespace-nowrap">{t('nav.tryNow')}</span>
-            <Arrow className="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2" />
+            <Arrow className="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2 lg:w-4 lg:group-hover:translate-x-0.5" />
           </a>
-          <li className="mt-6 lg:mt-0 lg:ml-2" onClick={close}>
+          <li className="mt-6 lg:mt-0 lg:border-l lg:border-grey-900/15 lg:pl-4" onClick={close}>
             {children}
           </li>
         </ul>
