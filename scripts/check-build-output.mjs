@@ -29,8 +29,8 @@ const REQUIRED = [
   'de/blog.html',
   'en/blog.html',
   // The first article is the oldest, which makes it a stable anchor.
-  'de/blog/website-laeuft-auf-astro.html',
-  'en/blog/website-laeuft-auf-astro.html',
+  'de/blog/erste-sensoren-im-boden.html',
+  'en/blog/erste-sensoren-im-boden.html',
   'de/rss.xml',
   'en/rss.xml',
   'de/releases/rss.xml',
