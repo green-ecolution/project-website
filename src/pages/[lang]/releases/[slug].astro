@@ -169,9 +169,7 @@ const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading
 
       <div class={showToc ? 'xl:grid xl:grid-cols-[1fr_15rem] xl:gap-10' : ''}>
         <div>
-          <div
-            class="content-body bg-green-light-100 rounded-2xl lg:rounded-3xl shadow-md border border-grey-100 p-6 lg:p-8"
-          >
+          <div class="content-body">
             <Content components={{ ...contentComponents, h2: SectionHeading }} />
           </div>
 
