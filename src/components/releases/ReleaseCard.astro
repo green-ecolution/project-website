@@ -2,7 +2,7 @@
 import { ArrowRight } from 'lucide-react'
 import type { Language } from '../../i18n/languages'
 import { getTranslations } from '../../i18n/t'
-import { formatReleaseDate, isoDate } from '../../lib/formatDate'
+import { formatLongDate, isoDate } from '../../lib/formatDate'
 import { formatReleaseStats, getReleaseStats } from '../../lib/releaseStats'
 import { releaseSlug, type ReleaseEntry } from '../../lib/releases'
 
@@ -43,7 +43,7 @@ const href = `/${language}/releases/${releaseSlug(entry)}`
             )
           }
           <time datetime={isoDate(data.date)} class="text-grey-900/50 text-sm">
-            {formatReleaseDate(data.date, language)}
+            {formatLongDate(data.date, language)}
           </time>
         </div>
 

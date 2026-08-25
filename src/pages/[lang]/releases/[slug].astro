@@ -7,7 +7,7 @@ import SectionHeading from '../../../components/releases/SectionHeading.astro'
 import GithubIcon from '../../../components/icons/Github.astro'
 import { SUPPORTED_LANGUAGES, type Language } from '../../../i18n/languages'
 import { getTranslations } from '../../../i18n/t'
-import { formatReleaseDate, isoDate } from '../../../lib/formatDate'
+import { formatLongDate, isoDate } from '../../../lib/formatDate'
 import { selectReleases } from '../../../lib/releaseSelectors'
 import { getAdjacentReleases, getReleases, releaseSlug } from '../../../lib/releases'
 import { splitSlot } from '../../../lib/slotText'
@@ -101,7 +101,7 @@ const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading
               )
             }
             <time datetime={isoDate(data.date)} class="text-grey-900/60 text-sm">
-              {formatReleaseDate(data.date, language)}
+              {formatLongDate(data.date, language)}
             </time>
           </div>
           <span class="text-grey-900/30 hidden sm:inline">|</span>

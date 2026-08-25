@@ -6,7 +6,7 @@ const DATE_LOCALES: Record<Language, string> = {
   en: 'en-GB',
 }
 
-export function formatReleaseDate(date: Date, language: Language): string {
+export function formatLongDate(date: Date, language: Language): string {
   return date.toLocaleDateString(DATE_LOCALES[language], {
     day: 'numeric',
     month: 'long',

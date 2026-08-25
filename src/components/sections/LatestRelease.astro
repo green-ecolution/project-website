@@ -3,7 +3,7 @@ import Arrow from '../icons/Arrow.astro'
 import Button from '../Button.astro'
 import type { Language } from '../../i18n/languages'
 import { getTranslations } from '../../i18n/t'
-import { formatReleaseDate, isoDate } from '../../lib/formatDate'
+import { formatLongDate, isoDate } from '../../lib/formatDate'
 import { getReleases, releaseSlug } from '../../lib/releases'
 
 interface Props {
@@ -59,7 +59,7 @@ const latest = releases[0]
               </span>
             </div>
             <time datetime={isoDate(latest.data.date)} class="text-white/60 text-sm block mb-2">
-              {formatReleaseDate(latest.data.date, language)}
+              {formatLongDate(latest.data.date, language)}
             </time>
             <h3 class="font-lato font-bold text-xl text-white mb-2 group-hover:underline">
               {latest.data.title}
