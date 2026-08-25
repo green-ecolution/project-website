@@ -1,3 +1,4 @@
+import blog from './blog.json'
 import common from './common.json'
 import contact from './contact.json'
 import home from './home.json'
@@ -6,4 +7,4 @@ import project from './project.json'
 import releases from './releases.json'
 import streamlet from './streamlet.json'
 
-export default { common, home, project, streamlet, contact, releases, legal }
+export default { common, home, project, streamlet, contact, releases, legal, blog }

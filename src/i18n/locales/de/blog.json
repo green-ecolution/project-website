@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Blog | Green Ecolution",
+    "description": "Beiträge aus der Entwicklung von Green Ecolution: was wir bauen, warum wir es so bauen und was wir dabei lernen."
+  },
+  "overview": {
+    "eyebrow": "Blog",
+    "title": "Aus der Entwicklung",
+    "description": "Beiträge zu Technik, Entscheidungen und Zwischenständen im Projekt.",
+    "empty": "Hier steht noch kein Beitrag. Der erste kommt bald."
+  },
+  "detail": {
+    "backToOverview": "Zurück zum Blog",
+    "backToOverviewAriaLabel": "Zurück zur Blogübersicht",
+    "publishedOn": "Veröffentlicht am {{date}}",
+    "readingTime_one": "{{count}} Minute Lesezeit",
+    "readingTime_other": "{{count}} Minuten Lesezeit",
+    "navAriaLabel": "Weitere Beiträge",
+    "newerArticle": "Neuerer Beitrag",
+    "olderArticle": "Älterer Beitrag"
+  },
+  "feed": {
+    "title": "Green Ecolution Blog",
+    "description": "Beiträge aus der Entwicklung von Green Ecolution."
+  }
+}
