@@ -1,5 +1,9 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+import { ArrowUp } from 'lucide-react'
+import Header from './Header.astro'
+import Footer from './Footer.astro'
+import { getTranslations } from '../i18n/t'
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, type Language } from '../i18n/languages'
 import '../css/site.css'
 
@@ -18,6 +22,7 @@ const OG_LOCALES: Record<Language, string> = { de: 'de_DE', en: 'en_GB' }
 const { title, description, language, path } = Astro.props
 const base = Astro.site?.origin ?? 'https://green-ecolution.de'
 const canonical = path === undefined ? undefined : `${base}/${language}${path}`
+const tc = getTranslations(language, 'common')
 
 // x-default points at German because that's the site's source language, not a
 // geo-targeted fallback.
@@ -34,6 +39,8 @@ const alternates =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Kept in sync with the header background by src/scripts/shell.ts -->
+    <meta name="theme-color" content="#4C7741" />
     <title>{title}</title>
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
@@ -52,6 +59,34 @@ const alternates =
     <ClientRouter />
   </head>
   <body>
-    <slot />
+    <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent">
+      <div
+        id="scroll-progress"
+        class="h-full w-full origin-left bg-gradient-to-r from-green-dark-900 via-green-middle-900 to-green-light-900"
+        style="transform: scaleX(0); will-change: transform;"
+      >
+      </div>
+    </div>
+
+    <Header language={language} />
+
+    <div class="pt-[var(--voting-banner-height,0px)]">
+      <slot />
+    </div>
+
+    <button
+      id="back-to-top"
+      type="button"
+      aria-label={tc('backToTop.ariaLabel')}
+      class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-green-dark-900 text-white shadow-lg cursor-pointer transition-all duration-300 hover:bg-green-middle-900 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-light-900 focus:ring-offset-2 opacity-0 translate-y-4 pointer-events-none"
+    >
+      <ArrowUp className="w-5 h-5" />
+    </button>
+
+    <Footer language={language} />
+
+    <script>
+      import '../scripts/shell'
+    </script>
   </body>
 </html>
