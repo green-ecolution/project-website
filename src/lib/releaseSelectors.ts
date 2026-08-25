@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content'
-import { DEFAULT_LANGUAGE, type Language } from '../i18n/languages'
+import type { Language } from '../i18n/languages'
+import { entrySlug, selectByLanguage } from './contentLanguage'
 
 export type ReleaseEntry = CollectionEntry<'releases'>
 
@@ -8,27 +9,13 @@ export type ReleaseEntry = CollectionEntry<'releases'>
 // what makes the language and sorting rules unit-testable.
 
 export function releaseSlug(entry: ReleaseEntry): string {
-  return entry.id.split('/').slice(1).join('/')
+  return entrySlug(entry)
 }
 
-function languageOf(entry: ReleaseEntry): string {
-  return entry.id.split('/')[0]
-}
-
-// German is the canonical language, so its files define which releases exist. A
-// release without an English translation still has to appear on /en, with the
-// German text standing in until the translation is written.
 export function selectReleases(all: ReleaseEntry[], language: Language): ReleaseEntry[] {
-  const canonical = all.filter((entry) => languageOf(entry) === DEFAULT_LANGUAGE)
-  const translated = new Map(
-    all
-      .filter((entry) => languageOf(entry) === language)
-      .map((entry) => [releaseSlug(entry), entry]),
+  return selectByLanguage(all, language, (a, b) =>
+    b.data.version.localeCompare(a.data.version, undefined, { numeric: true }),
   )
-
-  return canonical
-    .map((entry) => translated.get(releaseSlug(entry)) ?? entry)
-    .sort((a, b) => b.data.version.localeCompare(a.data.version, undefined, { numeric: true }))
 }
 
 export function selectRelease(
