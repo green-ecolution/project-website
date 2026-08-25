@@ -1,5 +1,5 @@
 import { Shield, Lock, Puzzle, Plug, Users, PiggyBank } from 'lucide-react'
-import { ComponentType } from 'react'
+import type { ComponentType } from 'react'
 
 export type GovernancePillarId =
   'license' | 'sovereignty' | 'modularity' | 'integration' | 'community' | 'costEfficiency'

@@ -13,11 +13,8 @@ WORKDIR /app
 #############################################
 FROM base AS build
 ARG VERSION="develop"
-ARG BUILD_VERSION="unkown"
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN VITE_APP_VERSION="${VERSION}" \
-    VITE_BUILD_VERSION="${BUILD_VERSION}" \
-    pnpm run build
+RUN APP_VERSION="${VERSION}" pnpm run build
 
 #############################################
 # Nginx
@@ -54,6 +51,7 @@ RUN cat > /etc/nginx/conf.d/site.conf <<'EOF'
 server {
     listen       8080;
     listen  [::]:8080;
+    root   /usr/share/nginx/html;
 
     # Keep Location headers relative. nginx would otherwise emit the container's
     # own scheme and port, sending crawlers that follow a legacy 301 to
@@ -68,14 +66,35 @@ server {
     location = /project      { return 301 /de/project; }
     location = /contact      { return 301 /de/contact; }
     location = /releases     { return 301 /de/releases; }
+    location = /streamlet    { return 301 /de/streamlet; }
+    location = /blog         { return 301 /de/blog; }
     location = /impressum    { return 301 /de/impressum; }
     location = /datenschutz  { return 301 /de/datenschutz; }
 
     location ~ ^/releases/(.+)$ { return 301 /de/releases/$1; }
+    location ~ ^/blog/(.+)$     { return 301 /de/blog/$1; }
+
+    error_page 404 /404.html;
+
+    # Everything under /_astro/ carries a content hash in its name.
+    location /_astro/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Unhashed files from public/: favicons, the OG image, decorative SVGs.
+    location /assets/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=86400";
+    }
 
     location / {
-        root   /usr/share/nginx/html;
-        try_files $uri $uri/ /index.html;
+        # Astro emits one file per route (build.format: 'file'), so $uri.html is
+        # the real page. No SPA fallback: a wrong path has to yield a 404.
+        try_files $uri $uri.html $uri/ =404;
+        # HTML must revalidate: a cached page would reference hashed assets
+        # that no longer exist after the next deployment.
+        add_header Cache-Control "no-cache";
     }
 }
 EOF

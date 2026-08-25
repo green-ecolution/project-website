@@ -2,7 +2,16 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
-const NAMESPACES = ['common', 'home', 'project', 'streamlet', 'contact', 'releases', 'legal']
+const NAMESPACES = [
+  'common',
+  'home',
+  'project',
+  'streamlet',
+  'contact',
+  'releases',
+  'legal',
+  'blog',
+]
 const LANGUAGES = ['de', 'en']
 const REFERENCE = 'de'
 

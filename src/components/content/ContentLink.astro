@@ -1,0 +1,35 @@
+---
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, type Language } from '../../i18n/languages'
+
+interface Props {
+  href?: string
+}
+
+const { href = '' } = Astro.props
+
+// Content links are written without a language, as /releases/v0.4.0. Rendered on
+// /en they have to point at the english page: without the prefix nginx sends an
+// english reader into the german version, and the dev server 404s.
+const fromPath = Astro.url.pathname.split('/')[1]
+const language = (Astro.currentLocale ??
+  (SUPPORTED_LANGUAGES.includes(fromPath as Language) ? fromPath : DEFAULT_LANGUAGE)) as Language
+
+const isRootRelative = href.startsWith('/')
+const alreadyPrefixed = SUPPORTED_LANGUAGES.some(
+  (lang) => href === `/${lang}` || href.startsWith(`/${lang}/`),
+)
+const target = isRootRelative && !alreadyPrefixed ? `/${language}${href}` : href
+const isExternal = /^https?:\/\//.test(href)
+---
+
+{
+  isExternal ? (
+    <a href={target} target="_blank" rel="noopener noreferrer">
+      <slot />
+    </a>
+  ) : (
+    <a href={target}>
+      <slot />
+    </a>
+  )
+}

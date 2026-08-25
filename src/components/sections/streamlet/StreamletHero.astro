@@ -1,0 +1,29 @@
+---
+import StreamletHeroIsland from '../../islands/streamlet/StreamletHeroIsland'
+import type { Language } from '../../../i18n/languages'
+import { pickStrings } from '../../../i18n/pick'
+import type { TranslationKey } from '../../../i18n/t'
+
+interface Props {
+  language: Language
+}
+
+const KEYS = [
+  'hero.sectionLabel',
+  'hero.title',
+  'hero.tagline',
+  'hero.tourAriaLabel',
+  'hero.tank',
+  'hero.lead',
+  'hero.origin',
+  'hero.repoAriaLabel',
+  'hero.repo',
+  'hero.docsAriaLabel',
+  'hero.docs',
+] as TranslationKey<'streamlet'>[]
+
+const { language } = Astro.props
+const strings = pickStrings(language, 'streamlet', KEYS)
+---
+
+<StreamletHeroIsland client:load strings={strings} />

@@ -1,0 +1,163 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import { Font } from 'astro:assets'
+import { ArrowUp } from 'lucide-react'
+import Header from './Header.astro'
+import Footer from './Footer.astro'
+import { getTranslations } from '../i18n/t'
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, type Language } from '../i18n/languages'
+import { siteOrigin } from '../lib/site'
+import '../css/site.css'
+
+interface Props {
+  title: string
+  description?: string
+  language: Language
+  // Path without the language prefix. Omit it for pages that have no canonical
+  // address, such as the 404 page: a self-referencing canonical there would tell
+  // crawlers the URL is a real page.
+  path?: string
+}
+
+const OG_LOCALES: Record<Language, string> = { de: 'de_DE', en: 'en_GB' }
+
+const { title, description, language, path } = Astro.props
+const base = siteOrigin(Astro.site)
+const canonical = path === undefined ? undefined : `${base}/${language}${path}`
+const tc = getTranslations(language, 'common')
+
+// Absolute, because social previews do not resolve relative paths.
+const ogImage = `${base}/assets/images/open-graph-image.png`
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Green Ecolution',
+  url: base,
+  logo: `${base}/assets/favicons/favicon.svg`,
+  description: 'Smartes Grünflächenmanagement für nachhaltige Stadtentwicklung',
+}
+
+// x-default points at German because that's the site's source language, not a
+// geo-targeted fallback.
+const alternates =
+  path === undefined
+    ? []
+    : [
+        ...SUPPORTED_LANGUAGES.map((lang) => ({ hreflang: lang, href: `${base}/${lang}${path}` })),
+        { hreflang: 'x-default', href: `${base}/${DEFAULT_LANGUAGE}${path}` },
+      ]
+
+// Both feeds carry a title: a reader offered two nameless alternates of the same
+// type cannot tell the blog from the release notes.
+const feeds = [
+  {
+    title: getTranslations(language, 'blog')('feed.title'),
+    href: `${base}/${language}/rss.xml`,
+  },
+  {
+    title: getTranslations(language, 'releases')('feed.title'),
+    href: `${base}/${language}/releases/rss.xml`,
+  },
+]
+---
+
+<html lang={language} class="scroll-smooth scroll-pt-40">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Kept in sync with the header background by src/scripts/shell.ts -->
+    <meta name="theme-color" content="#4C7741" />
+    <!-- Only the two faces every page paints above the fold are preloaded. -->
+    <Font cssVariable="--font-nunito-sans-face" preload={[{ weight: 400 }]} />
+    <Font cssVariable="--font-lato-face" preload={[{ weight: 700 }]} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={OG_LOCALES[language]} />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="description" content={description} />}
+    {description && <meta property="og:description" content={description} />}
+    {description && <meta name="twitter:description" content={description} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    {
+      alternates.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))
+    }
+    {
+      feeds.map((feed) => (
+        <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
+      ))
+    }
+    <meta name="author" content="Green Ecolution" />
+    <meta property="og:site_name" content="Green Ecolution" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicons/favicon-48x48.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicons/android-chrome-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="/assets/favicons/android-chrome-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicons/android-chrome-192x192.png"
+    />
+    <meta name="msapplication-TileColor" content="#4C7741" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
+    <script src="https://analytics.progeek.de/a.js?id=O04QUGhRUjN3" is:inline defer></script>
+
+    <ClientRouter />
+  </head>
+  <body
+    class="bg-white antialiased font-nunito-sans text-base text-grey-900 w-full overflow-x-hidden lg:text-lg selection:bg-green-light-900/20 selection:text-grey-900"
+  >
+    <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent">
+      <div
+        id="scroll-progress"
+        class="h-full w-full origin-left bg-gradient-to-r from-green-dark-900 via-green-middle-900 to-green-light-900"
+        style="transform: scaleX(0); will-change: transform;"
+      >
+      </div>
+    </div>
+
+    <Header language={language} />
+
+    <div class="pt-[var(--voting-banner-height,0px)]">
+      <slot />
+    </div>
+
+    <button
+      id="back-to-top"
+      type="button"
+      aria-label={tc('backToTop.ariaLabel')}
+      class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-green-dark-900 text-white shadow-lg cursor-pointer transition-all duration-300 hover:bg-green-middle-900 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-light-900 focus:ring-offset-2 opacity-0 translate-y-4 pointer-events-none"
+    >
+      <ArrowUp className="w-5 h-5" />
+    </button>
+
+    <Footer language={language} />
+
+    <script>
+      import '../scripts/shell'
+    </script>
+  </body>
+</html>

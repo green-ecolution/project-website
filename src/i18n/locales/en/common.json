@@ -20,7 +20,8 @@
     "contact": "Contact",
     "tryNow": "Try it now",
     "imprint": "Imprint",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "blog": "Blog"
   },
   "footer": {
     "logoAriaLabel": "Go to homepage",
@@ -75,6 +76,7 @@
     "streamlet": "Streamlet",
     "contact": "Contact",
     "imprint": "Imprint",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "blog": "Blog"
   }
 }

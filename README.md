@@ -10,9 +10,10 @@ The system is currently being developed towards production readiness for real-wo
 
 ## Tech Stack
 
-- [Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Astro](https://astro.build/) with [React](https://react.dev/) islands and [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- Deployed via GitHub Actions + Helm to Kubernetes
+- Release notes and blog as MDX content collections
+- Deployed via GitHub Actions as a static nginx image to Kubernetes
 
 ## Development
 
@@ -21,7 +22,7 @@ pnpm install
 pnpm dev
 ```
 
-The site runs on http://localhost:5173
+The site runs on http://localhost:4321
 
 ## Build
 

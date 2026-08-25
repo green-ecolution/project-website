@@ -1,0 +1,71 @@
+---
+import { APP_VERSION } from 'astro:env/server'
+import Button from '../components/Button.astro'
+import type { Language } from '../i18n/languages'
+import { getTranslations } from '../i18n/t'
+
+interface Props {
+  language: Language
+}
+
+const { language } = Astro.props
+const t = getTranslations(language, 'common')
+const year = new Date().getFullYear()
+const version = APP_VERSION
+
+const metaLinkClasses =
+  'relative font-bold transition-all ease-in-out duration-300 hover:text-green-light-900 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-light-900 after:transition-all after:duration-300 hover:after:w-full'
+---
+
+<footer
+  class="py-10 bg-background-footer-mobile bg-no-repeat bg-cover text-white md:pt-16 lg:bg-background-footer-desktop lg:bg-[35%] xl:bg-[55%] 3xl:bg-contain 3xl:bg-center hyphens-auto"
+>
+  <div
+    class="px-4 max-w-screen-lg mx-auto md:px-6 md:flex md:items-end md:justify-between md:gap-x-6 xl:max-w-screen-xl"
+  >
+    <div class="pb-10 border-b border-b-white/20 md:border-none md:pb-0">
+      <a href={`/${language}`} aria-label={t('footer.logoAriaLabel')} class="group">
+        <img
+          src="/assets/svg/logo/logo-icon-white.svg"
+          class="w-12 h-12 mb-6 transition-all ease-in-out duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(172,182,59,0.5)]"
+          alt={t('footer.logoAlt')}
+          loading="lazy"
+        />
+      </a>
+      <p class="max-w-sm">{t('footer.description')}</p>
+      <div class="flex flex-wrap gap-6 mt-8">
+        <Button href="mailto:info@green-ecolution.de" ariaLabel={t('footer.contactAriaLabel')}>
+          <img src="/assets/svg/socials/mail.svg" class="w-6 h-6" alt="" loading="lazy" />
+          <span>{t('footer.contact')}</span>
+        </Button>
+        <Button
+          href="https://github.com/green-ecolution"
+          ariaLabel={t('footer.githubAriaLabel')}
+          isExternalLink
+        >
+          <img src="/assets/svg/socials/github.svg" class="w-6 h-6" alt="" loading="lazy" />
+          <span>{t('footer.github')}</span>
+        </Button>
+      </div>
+    </div>
+
+    <div class="mt-10 md:justify-self-end md:mt-0">
+      <nav aria-label={t('footer.metaNavAriaLabel')}>
+        <ul class="flex items-center justify-center gap-x-6 sm:justify-start md:justify-end">
+          <li>
+            <a href={`/${language}/impressum`} class={metaLinkClasses}>{t('footer.imprint')}</a>
+          </li>
+          <li>
+            <a href={`/${language}/datenschutz`} class={metaLinkClasses}>{t('footer.privacy')}</a>
+          </li>
+        </ul>
+      </nav>
+      <p class="text-xs text-center mt-3 text-white/60 sm:text-left md:text-right">
+        © {year} Green Ecolution
+        <span class="hidden sm:inline"> · </span>
+        <br class="sm:hidden" />
+        <span class="text-white/40">{version}</span>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets'
+import type { Language } from '../i18n/languages'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  author: CollectionEntry<'authors'>
+  language: Language
+  class?: string
+}
+
+const { author, language, class: className } = Astro.props
+---
+
+<div class:list={['flex items-center gap-3', className]}>
+  {
+    author.data.image && (
+      <Image
+        src={author.data.image}
+        alt=""
+        width={40}
+        height={40}
+        class="w-10 h-10 rounded-full object-cover"
+      />
+    )
+  }
+  <div class="min-w-0">
+    <p class="font-semibold text-grey-900 text-sm leading-tight">{author.data.name}</p>
+    <p class="text-grey-900/55 text-sm leading-tight">{author.data.role[language]}</p>
+  </div>
+</div>

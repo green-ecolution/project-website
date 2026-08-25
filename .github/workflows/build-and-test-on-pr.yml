@@ -22,13 +22,14 @@ jobs:
           filters: |
             src:
               - 'src/**'
+              - 'public/**'
+              - 'scripts/**'
               - 'package.json'
               - 'pnpm-lock.yaml'
               - 'tsconfig.json'
-              - 'vite.config.ts'
-              - 'tailwind.config.js'
-              - 'postcss.config.js'
-              - 'index.html'
+              - 'astro.config.mjs'
+              - 'eslint.config.js'
+              - 'vitest.config.ts'
               - 'Dockerfile'
               - '.github/workflows/build-and-test-on-pr.yml'
 

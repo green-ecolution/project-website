@@ -1,0 +1,30 @@
+---
+title: The first sensors are in the ground
+date: 2026-05-22
+summary: Together with the TBZ Flensburg we installed the first three soil moisture sensors at urban trees. The first readings are already coming in over LoRaWAN.
+cover: ../../../assets/blog/erste-sensoren-einbau.jpg
+coverAlt: Two people place a sensor unit into a freshly dug hole, next to it a spade stuck in the grass
+author: cedrik-hoffmann
+---
+
+Green Ecolution wants to plan the irrigation of urban trees based on measured data instead of gut feeling. That takes sensors in the ground, and the first of them are now in place. On 21 May 2026, together with the Technisches Betriebszentrum Flensburg (TBZ), the city's technical operations center, we installed the first three soil moisture sensors at urban trees in Flensburg. It is the first of several trial installations in which we test the hardware and the workflow under real conditions.
+
+## What the sensors measure
+
+The sensors record soil moisture, temperature and soil water tension at two depths (40 and 80 cm). The reading at 80 cm shows whether the water reaches the layers the roots draw from, or whether only the surface got wet. On this basis, the platform will eventually show when irrigation is necessary, so that watering runs go exactly where they are needed.
+
+## The installation
+
+Drilling and burying went smoothly. Each site took about 10 to 15 minutes: the TBZ drills the hole with an earth auger, we place the sensor, connect it and fill the hole back in. Still, there was one lesson for the next installations. A flashlight now belongs on the packing list.
+
+![With the earth auger on the mini excavator, the hole for a sensor unit is dug in a few minutes](../../../assets/blog/erste-sensoren-erdbohrer.jpg)
+
+## First data over LoRaWAN
+
+The sensors send their readings over LoRaWAN, a radio network that gets by on very little energy and covers long distances. That keeps maintenance low and makes it easy to add further sites. One of the open questions before the installation, however, was whether the connection would also hold up reliably from within the soil.
+
+Even below the soil surface the sensors transmit reliably, provided the site has good LoRaWAN coverage. How they behave under poor coverage is something we do not know yet.
+
+## Learning to read the data
+
+Next, we will take a closer look at the incoming data and learn to interpret it: how do the values react to rain, and what happens in dry spells? In the following trial installations we also want to test the assignment between sensor and tree in the web application, which is still under development. In the end the readings go exactly there, into a platform that makes the irrigation demand visible on a map and derives optimized watering routes from it.

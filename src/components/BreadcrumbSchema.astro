@@ -1,0 +1,26 @@
+---
+import type { Language } from '../i18n/languages'
+import { siteOrigin } from '../lib/site'
+
+interface Props {
+  items: { name: string; path: string }[]
+  language: Language
+}
+
+// Takes finished names, not catalog keys: the page already holds its own t.
+const { items, language } = Astro.props
+const base = siteOrigin(Astro.site)
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: `${base}/${language}${item.path}`,
+  })),
+}
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

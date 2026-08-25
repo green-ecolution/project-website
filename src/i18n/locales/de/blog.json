@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Blog | Green Ecolution",
+    "description": "Berichte aus dem Green-Ecolution-Projekt: Sensoren im Feld, Auftritte in der Region und Zwischenstände der Plattform."
+  },
+  "overview": {
+    "eyebrow": "Blog",
+    "title": "Aus dem Projekt",
+    "description": "Sensoren im Feld, Auftritte in der Region und Zwischenstände der Plattform.",
+    "empty": "Hier steht noch kein Beitrag. Der erste kommt bald."
+  },
+  "detail": {
+    "backToOverview": "Zurück zum Blog",
+    "backToOverviewAriaLabel": "Zurück zur Blogübersicht",
+    "publishedOn": "Veröffentlicht am {{date}}",
+    "readingTime_one": "{{count}} Minute Lesezeit",
+    "readingTime_other": "{{count}} Minuten Lesezeit",
+    "navAriaLabel": "Weitere Beiträge",
+    "newerArticle": "Neuerer Beitrag",
+    "olderArticle": "Älterer Beitrag"
+  },
+  "feed": {
+    "title": "Green Ecolution Blog",
+    "description": "Beiträge aus der Entwicklung von Green Ecolution."
+  }
+}

@@ -1,0 +1,43 @@
+---
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../i18n/languages'
+import { siteOrigin } from '../lib/site'
+
+// Static output cannot read the request, so the detection runs in the browser.
+// The order mirrors the previous detectLanguage.ts: stored choice, then
+// navigator.languages, then German.
+const supported = SUPPORTED_LANGUAGES as readonly string[]
+const storageKey = 'green_ecolution_language'
+const canonical = `${siteOrigin(Astro.site)}/${DEFAULT_LANGUAGE}`
+---
+
+<html lang={DEFAULT_LANGUAGE}>
+  <head>
+    <meta charset="utf-8" />
+    <title>Green Ecolution</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <meta http-equiv="refresh" content={`0; url=/${DEFAULT_LANGUAGE}`} />
+    <script is:inline define:vars={{ supported, storageKey, fallback: DEFAULT_LANGUAGE }}>
+      let target = fallback
+
+      try {
+        const stored = window.localStorage.getItem(storageKey)
+        if (stored && supported.includes(stored)) {
+          target = stored
+        } else {
+          const preferred = (navigator.languages ?? [navigator.language]).find((entry) =>
+            supported.includes(entry.split('-')[0]),
+          )
+          if (preferred) {
+            target = preferred.split('-')[0]
+          }
+        }
+      } catch {
+        // localStorage throws in some private modes; the meta refresh still applies.
+      }
+
+      window.location.replace(`/${target}`)
+    </script>
+  </head>
+  <body></body>
+</html>

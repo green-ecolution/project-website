@@ -1,0 +1,120 @@
+---
+import { getImage } from 'astro:assets'
+import StakeholderSlider from '../islands/StakeholderSlider'
+import type { StakeholderEntry } from '../islands/StakeholderSlider'
+import progeekLogo from '../../assets/logos/progeek.svg'
+import smarteGrenzregionLogo from '../../assets/logos/smarte-grenzregion.png'
+import hochschuleFlensburgLogo from '../../assets/logos/hochschule-flensburg.png'
+import tbzLogo from '../../assets/logos/tbz.png'
+import type { Language } from '../../i18n/languages'
+import { getTranslations } from '../../i18n/t'
+
+interface Props {
+  language: Language
+  hasDesktopList?: boolean
+}
+
+const { language, hasDesktopList = false } = Astro.props
+// The section reads the home namespace, not contact: it is shared with the
+// start page.
+const t = getTranslations(language, 'home')
+const tc = getTranslations(language, 'common')
+
+const COMPANIES = [
+  {
+    id: 'progeek',
+    label: 'PROGEEK GmbH',
+    url: 'https://progeek.de/',
+    image: progeekLogo,
+  },
+  {
+    id: 'smarteGrenzregion',
+    label: 'Smarte Grenzregion',
+    url: 'https://smarte-grenzregion.de/',
+    image: smarteGrenzregionLogo,
+  },
+  {
+    id: 'hsFlensburg',
+    label: 'Hochschule Flensburg',
+    url: 'https://hs-flensburg.de/',
+    image: hochschuleFlensburgLogo,
+  },
+  {
+    id: 'tbz',
+    label: 'TBZ Flensburg',
+    url: 'https://www.tbz-flensburg.de/',
+    image: tbzLogo,
+  },
+] as const
+
+// Resolved here so the island receives finished text instead of a catalog,
+// and finished URLs of optimised files instead of raw assets: an island
+// cannot render <Image>. Logos show at most 112px high, so 384px covers 2x.
+const entries: StakeholderEntry[] = await Promise.all(
+  COMPANIES.map(async (company) => ({
+    id: company.id,
+    label: company.label,
+    url: company.url,
+    image: (await getImage({ src: company.image, width: 384 })).src,
+    role: t(`stakeholder.items.${company.id}.role`),
+    description: t(`stakeholder.items.${company.id}.description`),
+    logoAlt: t('stakeholderCard.logoAlt', { label: company.label }),
+  })),
+)
+
+// %s is splide's own placeholder syntax, not the catalog's, and stays literal.
+const sliderTranslations = {
+  prev: tc('slider.prev'),
+  next: tc('slider.next'),
+  first: tc('slider.first'),
+  last: tc('slider.last'),
+  slideX: tc('slider.slideX'),
+  pageX: tc('slider.pageX'),
+  carousel: tc('slider.carousel'),
+  select: tc('slider.select'),
+  slide: tc('slider.slide'),
+  slideLabel: tc('slider.slideLabel'),
+}
+---
+
+<section
+  class:list={[
+    'max-w-208 mx-auto pt-20 mb-28 lg:pt-28 lg:mb-36 xl:pt-36 xl:mb-52',
+    hasDesktopList && 'lg:max-w-screen-lg xl:max-w-screen-xl',
+  ]}
+>
+  <div class:list={['px-4 md:px-6 mb-6 lg:mb-8', hasDesktopList && 'lg:text-center']}>
+    <div class:list={['inline-block', hasDesktopList && 'lg:mx-auto']}>
+      <span class="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+        {t('stakeholder.sectionLabel')}
+      </span>
+      <div
+        class:list={[
+          'h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1',
+          hasDesktopList && 'lg:mx-auto',
+        ]}
+      >
+      </div>
+    </div>
+  </div>
+
+  <article class:list={['px-4 mb-10 md:px-6 lg:mb-14', hasDesktopList && 'lg:text-center']}>
+    <h2 class="font-lato font-bold text-2xl mb-4 text-grey-900 lg:text-3xl xl:text-4xl">
+      {t('stakeholder.title')}
+    </h2>
+    <p class:list={['text-grey-900/70 leading-relaxed max-w-3xl', hasDesktopList && 'lg:mx-auto']}>
+      {t('stakeholder.description')}
+    </p>
+  </article>
+
+  <div>
+    <StakeholderSlider
+      client:visible
+      entries={entries}
+      ariaLabel={t('stakeholder.sliderAriaLabel')}
+      visitLabel={t('stakeholderCard.visitWebsite')}
+      sliderTranslations={sliderTranslations}
+      hasDesktopList={hasDesktopList}
+    />
+  </div>
+</section>

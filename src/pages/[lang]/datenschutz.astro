@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Hero from '../../components/Hero.astro'
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro'
+import { getTranslations } from '../../i18n/t'
+import { languagePaths } from '../../lib/languagePaths'
+import { DEFAULT_LANGUAGE, currentLanguage } from '../../i18n/languages'
+
+export const getStaticPaths = languagePaths
+
+const language = currentLanguage(Astro.params.lang)
+const t = getTranslations(language, 'legal')
+const tc = getTranslations(language, 'common')
+
+const linkClasses =
+  'text-green-dark-900 font-semibold underline underline-offset-2 transition-all ease-in-out duration-300 hover:text-green-light-900'
+
+const processingRestrictionItemIds = [
+  'disputedAccuracy',
+  'unlawfulProcessing',
+  'noLongerNeeded',
+  'pendingObjection',
+] as const
+
+const serverLogFileItemIds = [
+  'browserType',
+  'operatingSystem',
+  'referrerUrl',
+  'hostname',
+  'requestTime',
+  'ipAddress',
+] as const
+---
+
+<BaseLayout title={t('datenschutz.meta.title')} language={language} path="/datenschutz">
+  <BreadcrumbSchema
+    language={language}
+    items={[
+      { name: tc('breadcrumb.home'), path: '' },
+      { name: tc('breadcrumb.privacy'), path: '/datenschutz' },
+    ]}
+  />
+  <main
+    id="main-content"
+    class="relative overflow-hidden before:bg-cover before:bg-background-dark-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
+  >
+    <Hero
+      headline={t('datenschutz.hero.headline')}
+      description={t('datenschutz.hero.description')}
+      label={t('datenschutz.hero.label')}
+    />
+
+    <section
+      class="px-4 max-w-208 mx-auto md:px-6 lg:max-w-screen-lg xl:max-w-screen-xl mt-16 mb-28 lg:mb-36 xl:mb-52"
+    >
+      <div class="space-y-12">
+        {
+          language !== DEFAULT_LANGUAGE && (
+            <p class="text-sm text-grey-900/70 bg-grey-100/50 border border-grey-200/50 rounded-xl p-4">
+              {t('translationNotice')}
+            </p>
+          )
+        }
+
+        {/* Section 1: Datenschutz auf einen Blick */}
+        <div>
+          <h2
+            class="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900"
+          >
+            {t('datenschutz.sections.overview.title')}
+          </h2>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.overview.generalNotes.title')}
+          </h3>
+          <p class="mb-4">{t('datenschutz.sections.overview.generalNotes.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.overview.dataCollection.title')}
+          </h3>
+
+          <h4 class="font-bold mb-2 text-grey-900">
+            {t('datenschutz.sections.overview.dataCollection.responsibleParty.question')}
+          </h4>
+          <p class="mb-4">
+            {t('datenschutz.sections.overview.dataCollection.responsibleParty.answer')}
+          </p>
+
+          <h4 class="font-bold mb-2 text-grey-900">
+            {t('datenschutz.sections.overview.dataCollection.howWeCollect.question')}
+          </h4>
+          <p class="mb-4">
+            {t('datenschutz.sections.overview.dataCollection.howWeCollect.answer')}
+          </p>
+
+          <h4 class="font-bold mb-2 text-grey-900">
+            {t('datenschutz.sections.overview.dataCollection.whatWeUseFor.question')}
+          </h4>
+          <p class="mb-4">
+            {t('datenschutz.sections.overview.dataCollection.whatWeUseFor.answer')}
+          </p>
+
+          <h4 class="font-bold mb-2 text-grey-900">
+            {t('datenschutz.sections.overview.dataCollection.yourRights.question')}
+          </h4>
+          <p>{t('datenschutz.sections.overview.dataCollection.yourRights.answer')}</p>
+        </div>
+
+        {/* Section 2: Hosting */}
+        <div>
+          <h2
+            class="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900"
+          >
+            {t('datenschutz.sections.hosting.title')}
+          </h2>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.hosting.externalHosting.title')}
+          </h3>
+          <p class="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph1')}</p>
+          <p class="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph2')}</p>
+          <p class="mb-4">{t('datenschutz.sections.hosting.externalHosting.paragraph3')}</p>
+          <p class="font-bold">
+            {t('datenschutz.sections.hosting.externalHosting.hostersIntro')}
+          </p>
+          <address class="not-italic mt-2 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
+            <p>Digitalocean LLC</p>
+            <p>101 Avenue of the Americas</p>
+            <p>10th Floor New York, NY 10013</p>
+            <p>United States</p>
+          </address>
+        </div>
+
+        {/* Section 3: Allgemeine Hinweise und Pflichtinformationen */}
+        <div>
+          <h2
+            class="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900"
+          >
+            {t('datenschutz.sections.generalInfo.title')}
+          </h2>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.dataProtection.title')}
+          </h3>
+          <p class="mb-4">
+            {t('datenschutz.sections.generalInfo.dataProtection.paragraph1')}
+          </p>
+          <p class="mb-4">
+            {t('datenschutz.sections.generalInfo.dataProtection.paragraph2')}
+          </p>
+          <p>{t('datenschutz.sections.generalInfo.dataProtection.paragraph3')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.responsibleParty.title')}
+          </h3>
+          <p class="mb-4">
+            {t('datenschutz.sections.generalInfo.responsibleParty.paragraph1')}
+          </p>
+          <address class="not-italic mb-4 bg-grey-100/50 rounded-xl p-6 border border-grey-200/50">
+            <p class="font-bold">PROGEEK GmbH</p>
+            <p>Lise-Meitner-Str. 2</p>
+            <p>24941 Flensburg</p>
+            <p class="mt-2">
+              {t('datenschutz.sections.generalInfo.responsibleParty.emailLabel')}{' '}
+              <a href="mailto:info@progeek.de" class={linkClasses}> info@progeek.de </a>
+            </p>
+          </address>
+          <p>{t('datenschutz.sections.generalInfo.responsibleParty.paragraph2')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.storageDuration.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.storageDuration.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.legalBases.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.legalBases.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.consentWithdrawal.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.consentWithdrawal.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.objectionRight.title')}
+          </h3>
+          <p class="mb-4 p-4 bg-green-light-100 rounded-lg">
+            {t('datenschutz.sections.generalInfo.objectionRight.paragraph1')}
+          </p>
+          <p class="p-4 bg-green-light-100 rounded-lg">
+            {t('datenschutz.sections.generalInfo.objectionRight.paragraph2')}
+          </p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.complaintRight.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.complaintRight.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.dataPortability.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.dataPortability.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.sslTls.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.sslTls.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.accessErasureCorrection.title')}
+          </h3>
+          <p>{t('datenschutz.sections.generalInfo.accessErasureCorrection.paragraph')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.generalInfo.processingRestriction.title')}
+          </h3>
+          <p class="mb-4">
+            {t('datenschutz.sections.generalInfo.processingRestriction.intro')}
+          </p>
+          <ul class="list-disc list-inside space-y-2 mb-4">
+            {
+              processingRestrictionItemIds.map((id) => (
+                <li>{t(`datenschutz.sections.generalInfo.processingRestriction.items.${id}`)}</li>
+              ))
+            }
+          </ul>
+          <p>{t('datenschutz.sections.generalInfo.processingRestriction.outro')}</p>
+        </div>
+
+        {/* Section 4: Datenerfassung auf dieser Website */}
+        <div>
+          <h2
+            class="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900"
+          >
+            {t('datenschutz.sections.dataCollection.title')}
+          </h2>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.dataCollection.cookies.title')}
+          </h3>
+          <p class="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph1')}</p>
+          <p class="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph2')}</p>
+          <p class="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph3')}</p>
+          <p class="mb-4">{t('datenschutz.sections.dataCollection.cookies.paragraph4')}</p>
+          <p>{t('datenschutz.sections.dataCollection.cookies.paragraph5')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.dataCollection.serverLogFiles.title')}
+          </h3>
+          <p class="mb-4">{t('datenschutz.sections.dataCollection.serverLogFiles.intro')}</p>
+          <ul class="list-disc list-inside space-y-1 mb-4">
+            {
+              serverLogFileItemIds.map((id) => (
+                <li>{t(`datenschutz.sections.dataCollection.serverLogFiles.items.${id}`)}</li>
+              ))
+            }
+          </ul>
+          <p>{t('datenschutz.sections.dataCollection.serverLogFiles.outro')}</p>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.dataCollection.contactForm.title')}
+          </h3>
+          <p class="mb-4">
+            {t('datenschutz.sections.dataCollection.contactForm.paragraph1')}
+          </p>
+          <p class="mb-4">
+            {t('datenschutz.sections.dataCollection.contactForm.paragraph2')}
+          </p>
+          <p>{t('datenschutz.sections.dataCollection.contactForm.paragraph3')}</p>
+        </div>
+
+        <p class="text-sm text-grey-900/60 mt-8">
+          {t('datenschutz.footer.sourceLabel')}{' '}
+          <a
+            href="https://www.e-recht24.de/"
+            target="_blank"
+            rel="noreferrer noopener"
+            class={linkClasses}
+          >
+            eRecht24
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

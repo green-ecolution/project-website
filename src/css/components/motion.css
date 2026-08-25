@@ -1,0 +1,22 @@
+/* The react components asked a hook and toggled classes. A media query does the
+   same without shipping javascript, and it also covers animations that no
+   component knows about. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* SVG SMIL animations (<animate>, <animateMotion>) ignore the rule above, so
+   anything decorative driven by them is hidden outright. That matches the react
+   version, which rendered those elements only when motion was allowed. */
+@media (prefers-reduced-motion: reduce) {
+  .motion-only {
+    display: none;
+  }
+}

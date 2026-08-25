@@ -1,0 +1,134 @@
+---
+version: '0.3.0'
+date: '2026-07-01'
+author: 'cedrik-hoffmann'
+title: 'New interactive map and revised irrigation groups'
+summary: 'With version 0.3.0, the interactive map rests on a new technical foundation, and the overview of irrigation groups has been redesigned as a card grid with search, filters, and a detail panel. The irrigation status now takes soil type and tree age into account, and sensors can also be activated without a QR code.'
+highlights:
+  - 'Interactive Map'
+  - 'Group Overview'
+  - 'Irrigation Status'
+  - 'Sensors Without QR Code'
+changelog:
+  - type: 'feat'
+    scope: 'map'
+    description: 'Interactive map rebuilt on top of MapLibre GL (replacing Leaflet)'
+    pr: 851
+  - type: 'feat'
+    scope: 'map'
+    description: 'Detail panel for irrigation groups as a quick preview on the map'
+    pr: 827
+  - type: 'feat'
+    scope: 'map'
+    description: 'Outline around the trees of an irrigation group when zooming in'
+    pr: 820
+  - type: 'feat'
+    scope: 'treecluster'
+    description: 'Irrigation group overview as a card grid with search, filters, sorting and a status overview'
+    pr: 837
+  - type: 'feat'
+    scope: 'sensor'
+    description: 'Activate sensors without a QR code and manage tree assignment on the detail page'
+    pr: 853
+  - type: 'feat'
+    scope: 'sensor'
+    description: 'Capture signal strength of sensors and show connection quality'
+    pr: 861
+  - type: 'feat'
+    scope: 'watering'
+    description: 'Derive irrigation status from soil type, probe depth and tree age'
+    pr: 828
+  - type: 'feat'
+    scope: 'nav'
+    description: 'Sidebar redesigned as a permanently expanded bar'
+    pr: 826
+  - type: 'feat'
+    scope: 'import'
+    description: 'Command-line tool for importing the Flensburg registry trees'
+    pr: 829
+  - type: 'feat'
+    scope: 'health'
+    description: 'Readiness endpoint with checks for critical dependencies'
+    pr: 849
+  - type: 'feat'
+    scope: 'logging'
+    description: 'Structured log output for operations unified (flat JSON, request ID, consistent field names)'
+    pr: 847
+  - type: 'fix'
+    scope: 'logging'
+    description: 'No more personal data or credentials in the logs'
+    pr: 839
+  - type: 'fix'
+    scope: 'cluster'
+    description: 'Spatial position of an irrigation group is now stored correctly when saving'
+    pr: 850
+  - type: 'fix'
+    scope: 'treecluster'
+    description: 'Overview updates the irrigation status without reloading the page'
+    pr: 860
+  - type: 'fix'
+    scope: 'map'
+    description: 'Creation panels for trees and groups made usable on mobile devices'
+    pr: 852
+  - type: 'fix'
+    scope: 'layout'
+    description: 'Sidebar collapses into an icon bar at tablet width'
+    pr: 854
+---
+
+After release [0.2.1](/releases/v0.2.1), which mainly fixed bugs around login, lists, and sensors, version 0.3.0 again puts a larger expansion in the foreground. The focus is on how irrigation groups are displayed and edited on the map and in the overview. Added to this are a technically more accurate irrigation status and several improvements for working with sensors.
+
+## Release Highlight
+
+### New interactive map
+
+The interactive map was completely rebuilt. It is now based on MapLibre GL with a vector-based base map, which makes zooming and panning smoother and addresses the stability problems that had occurred before. Creating trees directly on the map also works reliably again.
+
+Irrigation groups initially appear as markers. When zooming in closer, a marker splits into the individual trees of the group. To keep it recognizable which trees belong together, the map now draws an outline around the trees of a group.
+
+![The new map with irrigation groups as markers in the zoomed-out view](../../../assets/releases/v0.3.0-karte-uebersicht.png)
+![Zoomed-in map view with individual trees and the outline of their irrigation group](../../../assets/releases/v0.3.0-karte-umrandung.png)
+
+Creating, editing, and selecting now happen in panels directly on the map, without switching to another page. A click on an irrigation group no longer immediately opens the dashboard, but a detail panel as a quick preview. It shows the most important metrics of the group, including soil moisture, soil temperature, the last measurement, and the last irrigation, as well as the trees of the group. On desktop, the panel appears on the right side, on smartphones at the bottom edge of the screen. The way to the full dashboard remains available through its own button.
+
+![Detail panel of an irrigation group with metrics and tree list at the right edge of the screen](../../../assets/releases/v0.3.0-detailpanel.png)
+
+## New Overview of Irrigation Groups
+
+The overview of all irrigation groups used to be a long list. It is now a card grid in which each group is shown as its own card. A card shows the name, the irrigation status, district and address, the number of trees and sensor trees, and the time of the last irrigation.
+
+Above the grid are a search, filters by district and vegetation type, a sort option, and a status overview that shows at a glance how many groups are critically, moderately, or optimally supplied. Anyone who prefers the familiar table can switch between card and table view at any time. The status in this overview now updates itself, without the page having to be reloaded.
+
+![Overview of irrigation groups as a card grid with search, filters, and status overview](../../../assets/releases/v0.3.0-gruppen-uebersicht.png)
+
+## Sensor Improvements
+
+From this version on, a prepared sensor can also be put into operation without a QR code. It can be activated directly on the sensor detail page and assigned to a tree, which is especially helpful when no camera is at hand or the code is not readable. An active sensor can be reassigned to a different tree, and the assignment can be undone again, which returns the sensor to the “Prepared” state. Tree selection happens through a dialog with search and a small map.
+
+Besides the assignment, the application now also captures the signal strength of each sensor. From the radio metadata of the network, the technical connection metrics (RSSI and SNR) are stored for each measurement, and a connection quality is derived from them, shown per sensor as a level from good to poor. The history over time is also viewable, so a weakening radio connection can be detected early.
+
+![Sensor detail page with the connection quality and the history of signal strength](../../../assets/releases/v0.3.0-sensor-signal.png)
+
+## Optimized Irrigation Status
+
+The irrigation status for the soil moisture sensors was reworked on a technical level. Until now, the traffic-light indicator was based on a fixed threshold that applied everywhere in the same way. That was imprecise, because how much water a soil can store depends heavily on the soil type, and young trees with shallow roots should not be assessed based on the deep probe.
+
+The status is now derived from soil type, probe depth, and tree age. Trees under three years old are assessed only via the shallow probe at 40 cm depth, older trees via both probes, with the worse value counting. This makes the traffic-light indicator reflect the actual water demand much more precisely.
+
+## Further Improvements and Operations
+
+The sidebar was redesigned and is now permanently expanded, so navigation is reachable without additional unfolding. At tablet width, it collapses into a space-saving icon bar.
+
+In the background, logging for operations was unified. Log output is now in flat JSON, the request ID is available as its own field, and field names are consistent across all components, which eases analysis and troubleshooting. An audit ensured that no personal data or credentials such as tokens, passwords, or email addresses end up in the logs. For more reliable operation, a new readiness endpoint checks whether the required services, such as the database, are reachable before the application accepts requests.
+
+For use in Flensburg, the trees from the municipal tree registry can be imported and updated via a dedicated command-line tool.
+
+## Fixed Bugs
+
+When saving an irrigation group, its spatial position is now stored correctly in the database, so the group is reliably located on the map. The panels for creating trees and groups are now also usable on mobile devices, and the detail panel of a group is displayed over the map and uses the same dialog styling as the other panels.
+
+## Outlook
+
+The optimized route guidance in irrigation schedules will become visible again as a line on the map once the routing service is reactivated. Sensor features and the analysis of ongoing operations will also be expanded further.
+
+Feedback and bug reports are always welcome on [GitHub](https://github.com/green-ecolution/green-ecolution/issues).

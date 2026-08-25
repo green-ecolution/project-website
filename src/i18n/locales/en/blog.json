@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "title": "Blog | Green Ecolution",
+    "description": "Reports from the Green Ecolution project: sensors in the field, appearances around the region and progress on the platform."
+  },
+  "overview": {
+    "eyebrow": "Blog",
+    "title": "From the project",
+    "description": "Sensors in the field, appearances around the region and progress on the platform.",
+    "empty": "No post here yet. The first one is coming."
+  },
+  "detail": {
+    "backToOverview": "Back to the blog",
+    "backToOverviewAriaLabel": "Back to the blog overview",
+    "publishedOn": "Published on {{date}}",
+    "readingTime_one": "{{count}} minute read",
+    "readingTime_other": "{{count}} minutes read",
+    "navAriaLabel": "More posts",
+    "newerArticle": "Newer post",
+    "olderArticle": "Older post"
+  },
+  "feed": {
+    "title": "Green Ecolution Blog",
+    "description": "Notes from building Green Ecolution."
+  }
+}

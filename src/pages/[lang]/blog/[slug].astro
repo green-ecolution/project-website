@@ -1,0 +1,165 @@
+---
+import { getCollection, render } from 'astro:content'
+import { Image } from 'astro:assets'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro'
+import AuthorByline from '../../../components/AuthorByline.astro'
+import ContentImage from '../../../components/content/ContentImage.astro'
+import ContentLink from '../../../components/content/ContentLink.astro'
+import ContentTable from '../../../components/content/ContentTable.astro'
+import { SUPPORTED_LANGUAGES, currentLanguage } from '../../../i18n/languages'
+import { getTranslations } from '../../../i18n/t'
+import { formatLongDate, isoDate } from '../../../lib/formatDate'
+import { readingTimeInMinutes } from '../../../lib/readingTime'
+import { selectArticles } from '../../../lib/blogSelectors'
+import { articleSlug, getAdjacentArticles } from '../../../lib/blog'
+import { getAuthor } from '../../../lib/authors'
+
+// See the release page: the link carries the language, the table gains a scroll
+// box, the rest is .content-body in css.
+const contentComponents = { a: ContentLink, img: ContentImage, table: ContentTable }
+
+export async function getStaticPaths() {
+  const all = await getCollection('blog')
+
+  // The entry travels as a prop: getStaticPaths already resolved it, so the page
+  // does not have to look it up again.
+  return SUPPORTED_LANGUAGES.flatMap((lang) =>
+    selectArticles(all, lang).map((entry) => ({
+      params: { lang, slug: articleSlug(entry) },
+      props: { entry },
+    })),
+  )
+}
+
+const language = currentLanguage(Astro.params.lang)
+const { entry } = Astro.props
+const slug = articleSlug(entry)
+const { data } = entry
+const t = getTranslations(language, 'blog')
+const tc = getTranslations(language, 'common')
+
+const { Content } = await render(entry)
+const author = await getAuthor(entry)
+const minutes = readingTimeInMinutes(entry.body ?? '')
+const { newer, older } = await getAdjacentArticles(language, slug)
+---
+
+<BaseLayout
+  title={`${data.title} | Green Ecolution`}
+  description={data.summary}
+  language={language}
+  path={`/blog/${slug}`}
+>
+  <BreadcrumbSchema
+    language={language}
+    items={[
+      { name: tc('breadcrumb.home'), path: '' },
+      { name: tc('breadcrumb.blog'), path: '/blog' },
+      { name: data.title, path: `/blog/${slug}` },
+    ]}
+  />
+  <main
+    id="main-content"
+    class="relative overflow-x-clip flex-grow before:bg-cover before:bg-background-light-dot before:w-4/5 before:h-[100vh] before:max-h-[45rem] before:absolute before:-right-4 before:-top-16 before:-z-10 before:bg-no-repeat sm:before:-right-10 lg:before:max-h-[55rem] xl:before:w-[70rem] xl:before:-right-40 2xl:before:right-[10%] 2xl:before:bg-contain"
+  >
+    <article class="px-4 max-w-208 mx-auto mt-20 pb-16 md:px-6 lg:mt-24 lg:pb-24 xl:mt-32">
+      <a
+        href={`/${language}/blog`}
+        aria-label={t('detail.backToOverviewAriaLabel')}
+        class="group inline-flex items-center gap-2 text-green-dark-900 font-semibold hover:gap-3 transition-all mb-8"
+      >
+        <span
+          aria-hidden="true"
+          class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-dark-900/10 group-hover:bg-green-dark-900 group-hover:text-white transition-all"
+        >
+          <ArrowLeft className="w-4 h-4" />
+        </span>
+        <span class="group-hover:underline">{t('detail.backToOverview')}</span>
+      </a>
+
+      <header class="mb-8">
+        <h1 class="font-lato font-bold text-3xl mb-4 text-grey-900 leading-tight lg:text-5xl">
+          {data.title}
+        </h1>
+
+        <p class="text-lg text-grey-900/80 leading-relaxed lg:text-xl">{data.summary}</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <AuthorByline author={author} language={language} />
+          <span class="text-grey-900/25" aria-hidden="true">|</span>
+          <p class="text-sm text-grey-900/55">
+            <time datetime={isoDate(data.date)}>
+              {t('detail.publishedOn', { date: formatLongDate(data.date, language) })}
+            </time>
+            <span class="mx-2 text-grey-900/25" aria-hidden="true">·</span>
+            {t('detail.readingTime', { count: minutes })}
+          </p>
+        </div>
+      </header>
+
+      <Image
+        src={data.cover}
+        alt={data.coverAlt}
+        width={1600}
+        height={900}
+        class="w-full aspect-video object-cover rounded-2xl lg:rounded-3xl mb-10"
+      />
+
+      <div class="content-body content-body-article">
+        <Content components={contentComponents} />
+      </div>
+
+      <nav
+        aria-label={t('detail.navAriaLabel')}
+        class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      >
+        {
+          newer ? (
+            <a
+              href={`/${language}/blog/${articleSlug(newer)}`}
+              class="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all"
+            >
+              <span class="text-xs text-grey-500 uppercase tracking-wide font-semibold">
+                {t('detail.newerArticle')}
+              </span>
+              <div class="flex items-center gap-3 mt-2">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-100 text-grey-400 group-hover:bg-green-dark-900 group-hover:text-white transition-all flex-shrink-0">
+                  <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+                </span>
+                <p class="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors line-clamp-2">
+                  {newer.data.title}
+                </p>
+              </div>
+            </a>
+          ) : (
+            <div />
+          )
+        }
+        {
+          older ? (
+            <a
+              href={`/${language}/blog/${articleSlug(older)}`}
+              class="group p-5 rounded-2xl border border-grey-200 bg-white hover:border-green-dark-900/30 hover:shadow-lg transition-all sm:text-right"
+            >
+              <span class="text-xs text-grey-500 uppercase tracking-wide font-semibold">
+                {t('detail.olderArticle')}
+              </span>
+              <div class="flex items-center gap-3 mt-2 sm:justify-end">
+                <p class="font-lato font-bold text-grey-900 group-hover:text-green-dark-900 transition-colors line-clamp-2">
+                  {older.data.title}
+                </p>
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-100 text-grey-400 group-hover:bg-green-dark-900 group-hover:text-white transition-all flex-shrink-0">
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </span>
+              </div>
+            </a>
+          ) : (
+            <div />
+          )
+        }
+      </nav>
+    </article>
+  </main>
+</BaseLayout>

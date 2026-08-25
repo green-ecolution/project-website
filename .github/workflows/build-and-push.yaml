@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ env.RELEASE_VERSION }}
-      build_version: ${{ env.BUILD_VERSION }}
       branch: ${{ env.BRANCH }}
     steps:
       - name: Checkout
@@ -28,7 +27,6 @@ jobs:
 
           echo "RELEASE_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
-          echo "BUILD_VERSION=$(date +'%Y%m%d')" >> "$GITHUB_ENV"
 
           echo "Detected version=$VERSION, branch=$BRANCH"
 
@@ -40,7 +38,6 @@ jobs:
       contents: read
     env:
       version: ${{ needs.metadata.outputs.version }}
-      build_version: ${{ needs.metadata.outputs.build_version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -66,7 +63,6 @@ jobs:
           context: .
           build-args: |
             VERSION=${{ env.version }}
-            BUILD_VERSION=${{ env.build_version }}
           platforms: linux/amd64
           push: true
           tags: ${{ env.IMAGE_TAGS }}

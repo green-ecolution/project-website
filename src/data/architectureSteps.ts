@@ -1,5 +1,5 @@
 import { Radio, Wifi, Server, LayoutDashboard } from 'lucide-react'
-import { ComponentType } from 'react'
+import type { ComponentType } from 'react'
 
 export type ArchitectureStepId = 'sensor' | 'gateway' | 'backend' | 'dashboard'
 

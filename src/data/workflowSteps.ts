@@ -1,5 +1,5 @@
 import { Droplets, Eye, Route } from 'lucide-react'
-import { ComponentType } from 'react'
+import type { ComponentType } from 'react'
 
 export type WorkflowStepId = 'measure' | 'understand' | 'act'
 

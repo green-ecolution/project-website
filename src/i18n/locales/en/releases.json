@@ -16,6 +16,7 @@
     "backToOverview": "All releases",
     "backToOverviewAriaLabel": "Back to all releases",
     "eyebrow": "Release Notes",
+    "publishedOn": "Published on {{date}}",
     "githubReleaseLabel": "Release",
     "sourceLabel": "Source",
     "navAriaLabel": "Release navigation",
@@ -78,5 +79,9 @@
     "features_other": "{{count}} new features",
     "fixes_one": "{{count}} fix",
     "fixes_other": "{{count}} fixes"
+  },
+  "feed": {
+    "title": "Green Ecolution Release Notes",
+    "description": "New versions of Green Ecolution with changes and notes."
   }
 }
