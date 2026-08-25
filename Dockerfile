@@ -13,11 +13,8 @@ WORKDIR /app
 #############################################
 FROM base AS build
 ARG VERSION="develop"
-ARG BUILD_VERSION="unkown"
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN VITE_APP_VERSION="${VERSION}" \
-    VITE_BUILD_VERSION="${BUILD_VERSION}" \
-    pnpm run build
+RUN APP_VERSION="${VERSION}" pnpm run build
 
 #############################################
 # Nginx

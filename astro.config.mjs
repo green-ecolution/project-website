@@ -1,4 +1,4 @@
-import { defineConfig, fontProviders } from 'astro/config'
+import { defineConfig, envField, fontProviders } from 'astro/config'
 import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -14,14 +14,9 @@ function safeCommand(cmd) {
   }
 }
 
-process.env.VITE_APP_VERSION =
-  process.env.VITE_APP_VERSION ??
-  safeCommand('git describe --tags --always') ??
-  pkg.version ??
-  'develop'
-
-process.env.VITE_BUILD_VERSION =
-  process.env.VITE_BUILD_VERSION ?? new Date().toISOString().slice(0, 10).replace(/-/g, '')
+// astro:env only sees variables that exist when the config is loaded, so the
+// git-derived default has to be computed here.
+process.env.APP_VERSION ??= safeCommand('git describe --tags --always') ?? pkg.version ?? 'develop'
 
 function localFont(name, cssVariable, files) {
   return {
@@ -44,6 +39,14 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },
+  env: {
+    schema: {
+      APP_VERSION: envField.string({ context: 'server', access: 'public' }),
+      // Build-time fallback only. nginx overrides it at serve time through
+      // window._env_, see src/lib/runtimeEnv.ts.
+      VIDEO_BASE_URL: envField.string({ context: 'client', access: 'public', optional: true }),
+    },
+  },
   fonts: [
     localFont('Lato', '--font-lato-face', {
       400: 'lato-400.woff2',
@@ -75,7 +78,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    envPrefix: ['VITE_', 'PUBLIC_'],
     plugins: [tailwindcss()],
     resolve: {
       alias: {
