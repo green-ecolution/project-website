@@ -51,6 +51,7 @@ RUN cat > /etc/nginx/conf.d/site.conf <<'EOF'
 server {
     listen       8080;
     listen  [::]:8080;
+    root   /usr/share/nginx/html;
 
     # Keep Location headers relative. nginx would otherwise emit the container's
     # own scheme and port, sending crawlers that follow a legacy 301 to
@@ -75,11 +76,25 @@ server {
 
     error_page 404 /404.html;
 
+    # Everything under /_astro/ carries a content hash in its name.
+    location /_astro/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Unhashed files from public/: favicons, the OG image, decorative SVGs.
+    location /assets/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=86400";
+    }
+
     location / {
-        root   /usr/share/nginx/html;
         # Astro emits one file per route (build.format: 'file'), so $uri.html is
         # the real page. No SPA fallback: a wrong path has to yield a 404.
         try_files $uri $uri.html $uri/ =404;
+        # HTML must revalidate: a cached page would reference hashed assets
+        # that no longer exist after the next deployment.
+        add_header Cache-Control "no-cache";
     }
 }
 EOF
