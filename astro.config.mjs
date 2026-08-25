@@ -92,6 +92,14 @@ export default defineConfig({
         // inotify watches on the nixpkgs tree, which kills the dev server with ENOSPC.
         ignored: ['**/.direnv/**'],
       },
+      proxy: {
+        // The bucket answers CORS only for the production origin, so hls.js
+        // cannot fetch from localhost; dev serves the videos same-origin instead.
+        '/project-video': {
+          target: 'https://green-ecolution-public-videos.s3.de.io.cloud.ovh.net',
+          changeOrigin: true,
+        },
+      },
     },
   },
 })

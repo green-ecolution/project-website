@@ -15,5 +15,10 @@ function runtimeEnv(): { VITE_VIDEO_BASE_URL?: string } {
 }
 
 export function videoBaseUrl(): string {
+  // Same-origin in dev: the vite proxy forwards /project-video to the bucket,
+  // which answers CORS only for the production origin.
+  if (import.meta.env.DEV) {
+    return ''
+  }
   return runtimeEnv().VITE_VIDEO_BASE_URL ?? VIDEO_BASE_URL ?? DEFAULT_VIDEO_BASE_URL
 }

@@ -11,12 +11,21 @@ interface Props {
 function Thumbnail({ src }: { src: string }) {
   const [isLoaded, setIsLoaded] = useState(false)
 
+  // The img is already in the ssr markup, so the browser usually finishes
+  // loading it before hydration attaches onLoad; the ref catches that case.
+  const markLoadedIfComplete = (img: HTMLImageElement | null) => {
+    if (img?.complete) {
+      setIsLoaded(true)
+    }
+  }
+
   return (
     <div className="relative w-full h-full">
       {!isLoaded && (
         <div className="absolute inset-0 bg-gradient-to-r from-grey-100 via-white to-grey-100 bg-[length:200%_100%] animate-shimmer rounded-lg" />
       )}
       <img
+        ref={markLoadedIfComplete}
         src={src}
         alt=""
         className={`w-full h-full object-cover transition-opacity duration-300 ${
