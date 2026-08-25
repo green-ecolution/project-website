@@ -1,0 +1,88 @@
+---
+import type { Language } from '../../i18n/languages'
+import { getTranslations } from '../../i18n/t'
+import { governancePillars } from '../../data/governancePillars'
+
+interface Props {
+  language: Language
+}
+
+const { language } = Astro.props
+const t = getTranslations(language, 'project')
+---
+
+<section class="relative overflow-hidden bg-[#1a2a16]">
+  <div
+    class="absolute inset-0 opacity-[0.03]"
+    style="background-image: radial-gradient(circle at 1px 1px, white 0.5px, transparent 0); background-size: 20px 20px;"
+  >
+  </div>
+
+  <div
+    class="absolute top-0 right-1/4 w-[40rem] h-[20rem] bg-green-dark-900/20 rounded-full blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-[25rem] h-[15rem] bg-green-middle-900/10 rounded-full blur-3xl translate-y-1/3"
+  >
+  </div>
+
+  <div
+    class="relative z-10 max-w-208 mx-auto px-4 py-20 md:px-6 lg:py-28 lg:max-w-screen-lg xl:py-36 xl:max-w-screen-xl"
+  >
+    <div class="mb-10 lg:mb-14">
+      <div class="inline-block mb-6">
+        <span class="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+          {t('governance.sectionLabel')}
+        </span>
+        <div class="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1"></div>
+      </div>
+
+      <h2 class="font-lato font-bold text-2xl mb-4 text-white lg:text-3xl xl:text-4xl">
+        {t('governance.title')}
+      </h2>
+
+      <p class="text-white/60 leading-relaxed max-w-2xl">{t('governance.description')}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {
+        governancePillars.map((pillar, index) => {
+          const Icon = pillar.icon
+
+          // Mobile (1 col): top border on every item except the first.
+          // md (2 cols): left border on the right column.
+          // lg (3 cols): no top border on the first row, left border on columns 2 and 3.
+          return (
+            <article
+              class:list={[
+                'group p-6 lg:p-8 hover:bg-white/[0.03] transition-colors duration-300',
+                index > 0 && 'border-t border-white/10',
+                index % 2 !== 0 && 'md:border-l md:border-white/10',
+                index < 3 && 'lg:border-t-0',
+                index % 3 !== 0 && 'lg:border-l lg:border-white/10',
+                index % 3 === 0 && index >= 3 && 'lg:border-l-0',
+              ]}
+            >
+              <div class="mb-4 w-10 h-10 rounded-lg bg-green-dark-900/60 flex items-center justify-center transition-colors group-hover:bg-green-dark-900">
+                <Icon className="w-5 h-5 text-green-light-900" />
+              </div>
+
+              <span class="text-xs font-semibold tracking-widest uppercase text-green-light-900/70 mb-2 block">
+                {t(`governance.pillars.${pillar.id}.category`)}
+              </span>
+
+              <h3 class="font-lato font-bold text-white mb-2 tracking-wide">
+                {t(`governance.pillars.${pillar.id}.title`)}
+              </h3>
+
+              <p class="text-white/50 text-sm leading-relaxed">
+                {t(`governance.pillars.${pillar.id}.description`)}
+              </p>
+            </article>
+          )
+        })
+      }
+    </div>
+  </div>
+</section>
