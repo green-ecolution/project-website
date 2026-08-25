@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content'
+import { defineCollection, reference } from 'astro:content'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 
@@ -36,4 +36,38 @@ const releases = defineCollection({
   }),
 })
 
-export const collections = { releases }
+const authors = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/authors' }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      // The role is per language even though an article may fall back to German:
+      // the byline should still read english on /en.
+      role: z.object({ de: z.string(), en: z.string() }),
+      image: image().optional(),
+    }),
+})
+
+const blog = defineCollection({
+  loader: glob({
+    pattern: '**/*.mdx',
+    base: './src/content/blog',
+    // Same reason as the releases: the default id slugifies and would eat the
+    // language prefix the language fallback reads.
+    generateId: ({ entry }) => entry.replace(/\.mdx$/, ''),
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.coerce.date(),
+      summary: z.string(),
+      cover: image(),
+      // Not optional. A cover without alt text is a hole in the page for anyone
+      // on a screen reader, and the build is the only place that reliably asks.
+      coverAlt: z.string(),
+      // A wrong key has to fail the build instead of rendering a blank byline.
+      author: reference('authors'),
+    }),
+})
+
+export const collections = { releases, authors, blog }
