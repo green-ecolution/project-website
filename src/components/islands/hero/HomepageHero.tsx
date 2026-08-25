@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useSyncExternalStore } from 'react'
 import { useT } from '../../../i18n/useT'
 import Arrow from '../Arrow'
 import HomepageOverlay from './HomepageOverlay'
@@ -9,12 +9,21 @@ import {
 } from '../../../lib/storage'
 import { useReducedMotion } from '../../../hooks/useReducedMotion'
 
+function subscribeToStorage(onChange: () => void) {
+  window.addEventListener('storage', onChange)
+  return () => window.removeEventListener('storage', onChange)
+}
+
 function HomepageHero({ language }: { language: string }) {
   const t = useT()
   const [isOverlayVisible, setIsOverlayVisible] = useState(false)
   const [isInitialLoad, setIsInitialLoad] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const reducedMotion = useReducedMotion()
+  // Reading the flag straight from localStorage during render leaves the replay
+  // button hidden forever: the server renders without xl:flex, hydration keeps
+  // the stale class, and later renders never produce a differing virtual dom.
+  const initialLoad = useSyncExternalStore(subscribeToStorage, isInitialLoadHelper, () => true)
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- trigger animation on mount
@@ -190,7 +199,7 @@ function HomepageHero({ language }: { language: string }) {
                   transition-all duration-300
                   hover:shadow-xl hover:shadow-green-dark-900/30 hover:-translate-y-0.5
                   hover:gap-x-4
-                  ${!isInitialLoadHelper() && !reducedMotion ? 'xl:flex' : ''}
+                  ${!initialLoad && !reducedMotion ? 'xl:flex' : ''}
                 `}
                 onClick={handleOpenOverlay}
               >
