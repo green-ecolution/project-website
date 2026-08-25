@@ -24,6 +24,18 @@ const base = Astro.site?.origin ?? 'https://green-ecolution.de'
 const canonical = path === undefined ? undefined : `${base}/${language}${path}`
 const tc = getTranslations(language, 'common')
 
+// Absolute, because social previews do not resolve relative paths.
+const ogImage = `${base}/assets/images/open-graph-image.png`
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Green Ecolution',
+  url: base,
+  logo: `${base}/assets/favicons/favicon.svg`,
+  description: 'Smartes Grünflächenmanagement für nachhaltige Stadtentwicklung',
+}
+
 // x-default points at German because that's the site's source language, not a
 // geo-targeted fallback.
 const alternates =
@@ -35,7 +47,7 @@ const alternates =
       ]
 ---
 
-<html lang={language}>
+<html lang={language} class="scroll-smooth scroll-pt-40">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,9 +68,45 @@ const alternates =
         <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
       ))
     }
+    <meta name="author" content="Green Ecolution" />
+    <meta property="og:site_name" content="Green Ecolution" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicons/favicon-48x48.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/assets/favicons/android-chrome-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="/assets/favicons/android-chrome-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/favicons/android-chrome-192x192.png"
+    />
+    <meta name="msapplication-TileColor" content="#4C7741" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
+    <script src="https://analytics.progeek.de/a.js?id=O04QUGhRUjN3" is:inline defer></script>
+
     <ClientRouter />
   </head>
-  <body>
+  <body
+    class="bg-white antialiased font-nunito-sans text-base text-grey-900 w-full overflow-x-hidden lg:text-lg selection:bg-green-light-900/20 selection:text-grey-900"
+  >
     <div class="fixed top-0 left-0 right-0 h-1 z-[60] bg-transparent">
       <div
         id="scroll-progress"
