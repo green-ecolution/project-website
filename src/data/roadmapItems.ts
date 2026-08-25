@@ -8,15 +8,15 @@ interface RoadmapItem {
 export const roadmapItems: RoadmapItem[] = [
   {
     id: 'mobileApp',
-    status: 'in-progress',
-  },
-  {
-    id: 'firmware',
-    status: 'planned',
+    status: 'completed',
   },
   {
     id: 'userRoles',
-    status: 'planned',
+    status: 'completed',
+  },
+  {
+    id: 'firmware',
+    status: 'in-progress',
   },
   {
     id: 'openData',
