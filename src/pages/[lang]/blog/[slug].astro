@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro'
 import ArticleByline from '../../../components/blog/ArticleByline.astro'
+import ContentImage from '../../../components/content/ContentImage.astro'
 import ContentLink from '../../../components/content/ContentLink.astro'
 import ContentTable from '../../../components/content/ContentTable.astro'
 import { SUPPORTED_LANGUAGES, currentLanguage } from '../../../i18n/languages'
@@ -16,7 +17,7 @@ import { articleSlug, getAdjacentArticles, getAuthor } from '../../../lib/blog'
 
 // See the release page: the link carries the language, the table gains a scroll
 // box, the rest is .content-body in css.
-const contentComponents = { a: ContentLink, table: ContentTable }
+const contentComponents = { a: ContentLink, img: ContentImage, table: ContentTable }
 
 export async function getStaticPaths() {
   const all = await getCollection('blog')

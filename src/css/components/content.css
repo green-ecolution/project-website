@@ -44,18 +44,20 @@
   @apply w-1.5 h-1.5 rounded-full bg-green-dark-900 flex-shrink-0;
 }
 
+/* Fallback for raw <img> tags in mdx; markdown images render through
+   ContentImage, which carries these classes itself. */
 .content-body img {
-  @apply w-full rounded-xl;
+  @apply mx-auto h-auto max-w-full rounded-xl;
 }
 
 /* A paragraph holding nothing but images used to become a flex container, so two
    screenshots sit side by side instead of stacking. :has() replaces the ast
    inspection the react component needed for it. */
-.content-body p:has(> img) {
-  @apply my-6 flex flex-col gap-4 sm:flex-row sm:items-start;
+.content-body p:has(> .content-figure) {
+  @apply my-6 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-4;
 }
 
-.content-body p:has(> img) > img {
+.content-body p:has(> .content-figure) > .content-figure {
   @apply sm:flex-1 sm:min-w-0;
 }
 

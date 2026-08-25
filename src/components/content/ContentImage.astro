@@ -1,0 +1,26 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+interface Props {
+  src: ImageMetadata | string
+  alt?: string
+}
+
+const { src, alt = '' } = Astro.props
+
+// Markdown wraps images in a paragraph, so everything here has to be phrasing
+// content: a <figure> inside <p> makes browsers close the paragraph early.
+const imageClass = 'mx-auto h-auto max-w-full rounded-xl shadow-lg border border-grey-100'
+---
+
+<span class="content-figure block">
+  {
+    typeof src === 'string' ? (
+      <img src={src} alt={alt} class={imageClass} loading="lazy" decoding="async" />
+    ) : (
+      <Image src={src} alt={alt} class={imageClass} />
+    )
+  }
+  {alt && <span class="mt-2 block text-center text-sm text-grey-900/60">{alt}</span>}
+</span>
