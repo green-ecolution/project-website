@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content'
 import { ArrowLeft, ArrowRight, CodeXml } from 'lucide-react'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
+import AuthorByline from '../../../components/AuthorByline.astro'
 import ReleaseChangelog from '../../../components/releases/ReleaseChangelog.astro'
 import SectionHeading from '../../../components/releases/SectionHeading.astro'
 import GithubIcon from '../../../components/icons/Github.astro'
@@ -13,6 +14,7 @@ import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
 import { selectReleases } from '../../../lib/releaseSelectors'
 import { getAdjacentReleases, getReleases, releaseSlug } from '../../../lib/releases'
+import { getAuthor } from '../../../lib/authors'
 import { splitSlot } from '../../../lib/slotText'
 import { pickStrings } from '../../../i18n/pick'
 import ReleaseToc from '../../../components/islands/ReleaseToc'
@@ -43,6 +45,7 @@ const { data } = entry
 const t = getTranslations(language, 'releases')
 
 const { Content, headings } = await render(entry)
+const author = await getAuthor(entry)
 const sections = headings.filter((heading) => heading.depth === 2)
 const showToc = sections.length >= 3
 
@@ -107,9 +110,6 @@ const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading
                 </span>
               )
             }
-            <time datetime={isoDate(data.date)} class="text-grey-900/60 text-sm">
-              {formatLongDate(data.date, language)}
-            </time>
           </div>
           <span class="text-grey-900/30 hidden sm:inline">|</span>
           <div class="flex items-center gap-3">
@@ -155,6 +155,16 @@ const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading
             <p class="mt-4 text-lg text-grey-900/80 leading-relaxed lg:text-xl">{data.summary}</p>
           )
         }
+
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <AuthorByline author={author} language={language} />
+          <span class="text-grey-900/25" aria-hidden="true">|</span>
+          <p class="text-sm text-grey-900/55">
+            <time datetime={isoDate(data.date)}>
+              {t('detail.publishedOn', { date: formatLongDate(data.date, language) })}
+            </time>
+          </p>
+        </div>
       </header>
 
       <div class={showToc ? 'xl:grid xl:grid-cols-[1fr_15rem] xl:gap-10' : ''}>

@@ -16,6 +16,7 @@
     "backToOverview": "All releases",
     "backToOverviewAriaLabel": "Back to all releases",
     "eyebrow": "Release Notes",
+    "publishedOn": "Published on {{date}}",
     "githubReleaseLabel": "Release",
     "sourceLabel": "Source",
     "navAriaLabel": "Release navigation",

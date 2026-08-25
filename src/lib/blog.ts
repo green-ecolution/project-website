@@ -1,4 +1,4 @@
-import { getCollection, getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 import type { Language } from '../i18n/languages'
 import {
   selectAdjacentArticles,
@@ -25,16 +25,4 @@ export async function getAdjacentArticles(
   slug: string,
 ): Promise<{ newer?: ArticleEntry; older?: ArticleEntry }> {
   return selectAdjacentArticles(await getCollection('blog'), language, slug)
-}
-
-export async function getAuthor(entry: ArticleEntry) {
-  const author = await getEntry(entry.data.author)
-
-  // getEntry is typed as possibly undefined, but reference() already failed the
-  // build if the key were wrong. Throwing here beats rendering a blank byline.
-  if (!author) {
-    throw new Error(`Unbekannter Autor ${entry.data.author.id} in ${entry.id}`)
-  }
-
-  return author
 }

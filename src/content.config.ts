@@ -33,6 +33,7 @@ const releases = defineCollection({
     // No release file sets this today. It is in the schema because the detail
     // page reads it, and zod would silently drop it otherwise.
     repository: z.url().optional(),
+    author: reference('authors'),
   }),
 })
 

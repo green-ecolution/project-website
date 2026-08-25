@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets'
 import { ArrowRight } from 'lucide-react'
-import ArticleByline from './ArticleByline.astro'
+import AuthorByline from '../AuthorByline.astro'
 import type { Language } from '../../i18n/languages'
 import { formatLongDate, isoDate } from '../../lib/formatDate'
-import { articleSlug, getAuthor, type ArticleEntry } from '../../lib/blog'
+import { articleSlug, type ArticleEntry } from '../../lib/blog'
+import { getAuthor } from '../../lib/authors'
 
 interface Props {
   entry: ArticleEntry
@@ -44,7 +45,7 @@ const href = `/${language}/blog/${articleSlug(entry)}`
         <p class="mt-3 text-grey-900/70 leading-relaxed line-clamp-3">{data.summary}</p>
 
         <div class="mt-5 pt-4 border-t border-grey-900/10 flex items-center justify-between gap-3">
-          <ArticleByline author={author} language={language} />
+          <AuthorByline author={author} language={language} />
           <span
             class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-grey-900/5 text-grey-900/40 transition-all duration-300 group-hover:bg-green-dark-900 group-hover:text-white flex-shrink-0"
             aria-hidden="true"

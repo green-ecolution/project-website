@@ -4,7 +4,7 @@ import { Image } from 'astro:assets'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro'
-import ArticleByline from '../../../components/blog/ArticleByline.astro'
+import AuthorByline from '../../../components/AuthorByline.astro'
 import ContentImage from '../../../components/content/ContentImage.astro'
 import ContentLink from '../../../components/content/ContentLink.astro'
 import ContentTable from '../../../components/content/ContentTable.astro'
@@ -13,7 +13,8 @@ import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
 import { readingTimeInMinutes } from '../../../lib/readingTime'
 import { selectArticles } from '../../../lib/blogSelectors'
-import { articleSlug, getAdjacentArticles, getAuthor } from '../../../lib/blog'
+import { articleSlug, getAdjacentArticles } from '../../../lib/blog'
+import { getAuthor } from '../../../lib/authors'
 
 // See the release page: the link carries the language, the table gains a scroll
 // box, the rest is .content-body in css.
@@ -86,7 +87,7 @@ const { newer, older } = await getAdjacentArticles(language, slug)
         <p class="text-lg text-grey-900/80 leading-relaxed lg:text-xl">{data.summary}</p>
 
         <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-          <ArticleByline author={author} language={language} />
+          <AuthorByline author={author} language={language} />
           <span class="text-grey-900/25" aria-hidden="true">|</span>
           <p class="text-sm text-grey-900/55">
             <time datetime={isoDate(data.date)}>
