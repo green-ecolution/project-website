@@ -1,0 +1,85 @@
+/* ReleaseMarkdown.tsx used to override every markdown element with classes.
+   Sätteri emits plain html and the preflight zeroes every margin, so without
+   these rules a rendered body is one unbroken block of text. The values are the
+   ones the react component carried, so the release pages look as they did. */
+.content-body p {
+  @apply my-2 text-grey-900/80 leading-relaxed;
+}
+
+.content-body ul,
+.content-body ol {
+  @apply my-3 space-y-2 text-grey-900/80;
+}
+
+.content-body li {
+  @apply flex items-start gap-3 text-grey-900/80 leading-relaxed;
+}
+
+/* The arrow was its own span in the react version. As a marker it stays out of
+   the accessibility tree, which is what it always should have been. */
+.content-body li::before {
+  content: '→';
+  @apply text-green-dark-900 flex-shrink-0 flex items-center;
+  height: 1.625em;
+}
+
+.content-body strong {
+  @apply font-semibold text-grey-900;
+}
+
+.content-body a {
+  @apply text-green-dark-900 font-medium;
+}
+
+.content-body a:hover {
+  @apply underline;
+}
+
+.content-body h3 {
+  @apply text-base font-lato font-semibold mt-5 mb-2 text-grey-900 flex items-center gap-2;
+}
+
+.content-body h3::before {
+  content: '';
+  @apply w-1.5 h-1.5 rounded-full bg-green-dark-900 flex-shrink-0;
+}
+
+.content-body img {
+  @apply w-full rounded-xl;
+}
+
+/* A paragraph holding nothing but images used to become a flex container, so two
+   screenshots sit side by side instead of stacking. :has() replaces the ast
+   inspection the react component needed for it. */
+.content-body p:has(> img) {
+  @apply my-6 flex flex-col gap-4 sm:flex-row sm:items-start;
+}
+
+.content-body p:has(> img) > img {
+  @apply sm:flex-1 sm:min-w-0;
+}
+
+/* The table keeps table layout; the scroll container is a component override,
+   because css cannot add the wrapper element it needs. */
+.content-body table {
+  @apply w-full text-sm text-left border-collapse;
+}
+
+.content-body th {
+  @apply border-b border-grey-900/15 px-3 py-2 font-lato font-bold text-grey-900;
+}
+
+.content-body td {
+  @apply border-b border-grey-900/10 px-3 py-2 text-grey-900/80 align-top;
+}
+
+/* Only the blog styles its own h2: the release body replaces h2 with
+   SectionHeading, and a descendant rule here would outrank that component's
+   utility classes. */
+.content-body-article h2 {
+  @apply font-lato font-bold text-2xl mt-10 mb-3 text-grey-900 first:mt-0 lg:text-3xl;
+}
+
+.content-body-article p {
+  @apply my-4 lg:text-lg;
+}

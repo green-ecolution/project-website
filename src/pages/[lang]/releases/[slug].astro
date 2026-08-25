@@ -5,6 +5,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
 import ReleaseChangelog from '../../../components/releases/ReleaseChangelog.astro'
 import SectionHeading from '../../../components/releases/SectionHeading.astro'
 import GithubIcon from '../../../components/icons/Github.astro'
+import { contentComponents } from '../../../components/content/contentComponents'
 import { SUPPORTED_LANGUAGES, type Language } from '../../../i18n/languages'
 import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
@@ -153,9 +154,9 @@ const tocEntries = sections.map((heading) => ({ id: heading.slug, label: heading
       <div class={showToc ? 'xl:grid xl:grid-cols-[1fr_15rem] xl:gap-10' : ''}>
         <div>
           <div
-            class="bg-green-light-100 rounded-2xl lg:rounded-3xl shadow-md border border-grey-100 p-6 lg:p-8"
+            class="content-body bg-green-light-100 rounded-2xl lg:rounded-3xl shadow-md border border-grey-100 p-6 lg:p-8"
           >
-            <Content components={{ h2: SectionHeading }} />
+            <Content components={{ ...contentComponents, h2: SectionHeading }} />
           </div>
 
           {

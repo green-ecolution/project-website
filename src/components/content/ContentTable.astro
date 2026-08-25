@@ -1,0 +1,10 @@
+---
+// Wraps the table so a wide one scrolls inside its own box instead of pushing
+// the page sideways. Only the wrapper is here; the table styling is css.
+---
+
+<div class="my-6 overflow-x-auto">
+  <table>
+    <slot />
+  </table>
+</div>
