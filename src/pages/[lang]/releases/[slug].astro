@@ -5,7 +5,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
 import ReleaseChangelog from '../../../components/releases/ReleaseChangelog.astro'
 import SectionHeading from '../../../components/releases/SectionHeading.astro'
 import GithubIcon from '../../../components/icons/Github.astro'
-import { contentComponents } from '../../../components/content/contentComponents'
+import ContentLink from '../../../components/content/ContentLink.astro'
+import ContentTable from '../../../components/content/ContentTable.astro'
 import { SUPPORTED_LANGUAGES, type Language } from '../../../i18n/languages'
 import { getTranslations } from '../../../i18n/t'
 import { formatLongDate, isoDate } from '../../../lib/formatDate'
@@ -14,6 +15,10 @@ import { getAdjacentReleases, getReleases, releaseSlug } from '../../../lib/rele
 import { splitSlot } from '../../../lib/slotText'
 import { pickStrings } from '../../../i18n/pick'
 import ReleaseToc from '../../../components/islands/ReleaseToc'
+
+// Only these two need to change the markup: the link to carry the language, the
+// table to gain a scroll box. Everything else is styled by .content-body in css.
+const contentComponents = { a: ContentLink, table: ContentTable }
 
 const DEFAULT_REPOSITORY = 'https://github.com/green-ecolution/green-ecolution'
 

@@ -69,10 +69,12 @@ server {
     location = /contact      { return 301 /de/contact; }
     location = /releases     { return 301 /de/releases; }
     location = /streamlet    { return 301 /de/streamlet; }
+    location = /blog         { return 301 /de/blog; }
     location = /impressum    { return 301 /de/impressum; }
     location = /datenschutz  { return 301 /de/datenschutz; }
 
     location ~ ^/releases/(.+)$ { return 301 /de/releases/$1; }
+    location ~ ^/blog/(.+)$     { return 301 /de/blog/$1; }
 
     error_page 404 /404.html;
 

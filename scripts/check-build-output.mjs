@@ -26,6 +26,15 @@ const REQUIRED = [
   'en/project.html',
   'de/streamlet.html',
   'en/streamlet.html',
+  'de/blog.html',
+  'en/blog.html',
+  // The first article is the oldest, which makes it a stable anchor.
+  'de/blog/website-laeuft-auf-astro.html',
+  'en/blog/website-laeuft-auf-astro.html',
+  'de/rss.xml',
+  'en/rss.xml',
+  'de/releases/rss.xml',
+  'en/releases/rss.xml',
   // build.format 'file' names the start page de.html, not de/index.html.
   'de.html',
   'en.html',
