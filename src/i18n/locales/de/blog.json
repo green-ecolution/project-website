@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Blog | Green Ecolution",
-    "description": "Beiträge aus der Entwicklung von Green Ecolution: was wir bauen, warum wir es so bauen und was wir dabei lernen."
+    "description": "Berichte aus dem Green-Ecolution-Projekt: Sensoren im Feld, Auftritte in der Region und Zwischenstände der Plattform."
   },
   "overview": {
     "eyebrow": "Blog",
-    "title": "Aus der Entwicklung",
-    "description": "Beiträge zu Technik, Entscheidungen und Zwischenständen im Projekt.",
+    "title": "Aus dem Projekt",
+    "description": "Sensoren im Feld, Auftritte in der Region und Zwischenstände der Plattform.",
     "empty": "Hier steht noch kein Beitrag. Der erste kommt bald."
   },
   "detail": {
