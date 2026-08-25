@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useT } from '../../../i18n/useT'
 import { splitSlot } from '../../../lib/slotText'
-import Arrow from './Arrow'
+import Arrow from '../Arrow'
 import HomepageOverlayIcons from './HomepageOverlayIcons'
 import WelcomeCard from './WelcomeCard'
 

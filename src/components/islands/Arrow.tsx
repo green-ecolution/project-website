@@ -1,4 +1,4 @@
-import { ARROW_PATH } from '../../../lib/iconPaths'
+import { ARROW_PATH } from '../../lib/iconPaths'
 
 // React twin of Arrow.astro, sharing the path so the two cannot drift apart.
 export default function Arrow({ classes }: { classes: string }) {

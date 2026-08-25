@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useT } from '../../../i18n/useT'
-import Arrow from './Arrow'
+import Arrow from '../Arrow'
 import HomepageOverlay from './HomepageOverlay'
 import HomepageHeroTrees from './HomepageHeroTrees'
 import {
