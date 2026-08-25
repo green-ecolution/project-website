@@ -11,3 +11,12 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* SVG SMIL animations (<animate>, <animateMotion>) ignore the rule above, so the
+   flow particles are hidden outright. That matches the react version, which
+   rendered them only when motion was allowed. */
+@media (prefers-reduced-motion: reduce) {
+  .data-particle {
+    display: none;
+  }
+}
