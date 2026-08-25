@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.10.1...v1.11.0) (2026-08-25)
+
+
+### Features
+
+* **project:** update roadmap status for app, user roles and firmware ([82e4d07](https://github.com/green-ecolution/green-ecolution.de/commit/82e4d072bb4abfffb67dd18bcafa7a22b8d2a910))
+* rebuild the site with astro and add a blog ([#454](https://github.com/green-ecolution/green-ecolution.de/issues/454)) ([2c11f5e](https://github.com/green-ecolution/green-ecolution.de/commit/2c11f5ee1e3b8de0e9f3c3e7343597dd7596f2df))
+
 ## [1.10.1](https://github.com/green-ecolution/green-ecolution.de/compare/v1.10.0...v1.10.1) (2026-08-24)
 
 
