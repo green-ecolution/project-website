@@ -16,6 +16,10 @@ const REQUIRED = [
   // The oldest release never changes, which makes it a stable anchor.
   'de/releases/v0.1.0.html',
   'en/releases/v0.1.0.html',
+  'de/impressum.html',
+  'en/impressum.html',
+  'de/datenschutz.html',
+  'en/datenschutz.html',
 ]
 
 // Mirrors MISSING_PREFIX in src/i18n/resolve.ts.
