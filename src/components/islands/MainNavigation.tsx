@@ -8,6 +8,7 @@ import { ARROW_PATH } from '../../lib/iconPaths'
 interface NavLink {
   label: string
   href: string
+  active?: boolean
 }
 
 interface Props {
@@ -36,15 +37,18 @@ function Arrow({ className }: { className: string }) {
   )
 }
 
-function NavItem({ label, href, onClick }: NavLink & { onClick: () => void }) {
+function NavItem({ label, href, active, onClick }: NavLink & { onClick: () => void }) {
   return (
     <li className="mb-4 lg:mb-0">
       <a
         href={href}
         onClick={onClick}
+        aria-current={active ? 'page' : undefined}
         className="text-lg md:text-2xl font-bold flex justify-between items-center group cursor-pointer lg:text-base lg:font-medium lg:leading-none lg:my-1"
       >
-        <p className="whitespace-nowrap transition-color ease-in-out duration-300 group-hover:text-green-light-900 group-active:text-green-light-900 lg:group-hover:text-green-middle-900 lg:group-active:text-green-middle-900">
+        <p
+          className={`whitespace-nowrap transition-color ease-in-out duration-300 group-hover:text-green-light-900 group-active:text-green-light-900 lg:group-hover:text-green-middle-900 lg:group-active:text-green-middle-900 ${active ? 'underline underline-offset-4 decoration-2 decoration-green-light-900 lg:decoration-green-middle-900' : ''}`}
+        >
           {label}
         </p>
         <Arrow className="w-6 transition-all ease-in-out duration-300 group-hover:translate-x-2 group-hover:text-green-light-900 group-active:translate-x-2 group-active:text-green-light-900 lg:hidden" />
@@ -143,7 +147,13 @@ function Navigation({
         <p className="pt-[20vh] text-white/80 mb-6 md:text-lg lg:hidden">{t('nav.heading')}</p>
         <ul className="text-white lg:text-grey-900 lg:flex lg:gap-x-6 xl:gap-x-10 lg:justify-center lg:items-center">
           {links.map((link) => (
-            <NavItem key={link.href} label={link.label} href={link.href} onClick={close} />
+            <NavItem
+              key={link.href}
+              label={link.label}
+              href={link.href}
+              active={link.active}
+              onClick={close}
+            />
           ))}
           <a
             href={demoHref}
