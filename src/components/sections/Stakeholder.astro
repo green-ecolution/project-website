@@ -1,6 +1,11 @@
 ---
+import { getImage } from 'astro:assets'
 import StakeholderSlider from '../islands/StakeholderSlider'
 import type { StakeholderEntry } from '../islands/StakeholderSlider'
+import progeekLogo from '../../assets/logos/progeek.svg'
+import smarteGrenzregionLogo from '../../assets/logos/smarte-grenzregion.png'
+import hochschuleFlensburgLogo from '../../assets/logos/hochschule-flensburg.png'
+import tbzLogo from '../../assets/logos/tbz.png'
 import type { Language } from '../../i18n/languages'
 import { getTranslations } from '../../i18n/t'
 
@@ -20,38 +25,42 @@ const COMPANIES = [
     id: 'progeek',
     label: 'PROGEEK GmbH',
     url: 'https://progeek.de/',
-    image: '/assets/images/logo/progeek.svg',
+    image: progeekLogo,
   },
   {
     id: 'smarteGrenzregion',
     label: 'Smarte Grenzregion',
     url: 'https://smarte-grenzregion.de/',
-    image: '/assets/images/logo/smarte-grenzregion.png',
+    image: smarteGrenzregionLogo,
   },
   {
     id: 'hsFlensburg',
     label: 'Hochschule Flensburg',
     url: 'https://hs-flensburg.de/',
-    image: '/assets/images/logo/hochschule-flensburg.png',
+    image: hochschuleFlensburgLogo,
   },
   {
     id: 'tbz',
     label: 'TBZ Flensburg',
     url: 'https://www.tbz-flensburg.de/',
-    image: '/assets/images/logo/tbz.png',
+    image: tbzLogo,
   },
 ] as const
 
-// Resolved here so the island receives finished text instead of a catalog.
-const entries: StakeholderEntry[] = COMPANIES.map((company) => ({
-  id: company.id,
-  label: company.label,
-  url: company.url,
-  image: company.image,
-  role: t(`stakeholder.items.${company.id}.role`),
-  description: t(`stakeholder.items.${company.id}.description`),
-  logoAlt: t('stakeholderCard.logoAlt', { label: company.label }),
-}))
+// Resolved here so the island receives finished text instead of a catalog,
+// and finished URLs of optimised files instead of raw assets: an island
+// cannot render <Image>. Logos show at most 112px high, so 384px covers 2x.
+const entries: StakeholderEntry[] = await Promise.all(
+  COMPANIES.map(async (company) => ({
+    id: company.id,
+    label: company.label,
+    url: company.url,
+    image: (await getImage({ src: company.image, width: 384 })).src,
+    role: t(`stakeholder.items.${company.id}.role`),
+    description: t(`stakeholder.items.${company.id}.description`),
+    logoAlt: t('stakeholderCard.logoAlt', { label: company.label }),
+  })),
+)
 
 // %s is splide's own placeholder syntax, not the catalog's, and stays literal.
 const sliderTranslations = {

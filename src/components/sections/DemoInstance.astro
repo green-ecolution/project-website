@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import { ExternalLink } from 'lucide-react'
+import dashboard from '../../assets/releases/v0.1.0-dashboard.png'
 import type { Language } from '../../i18n/languages'
 import { getTranslations } from '../../i18n/t'
 
@@ -80,11 +82,12 @@ const STRIPES =
           </div>
 
           <div class="relative">
-            <img
-              src="/assets/images/releases/v0.1.0-dashboard.png"
+            <Image
+              src={dashboard}
               alt={t('demo.screenshotAlt')}
+              widths={[640, 960, 1478]}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               class="w-full h-auto"
-              loading="lazy"
             />
           </div>
         </div>

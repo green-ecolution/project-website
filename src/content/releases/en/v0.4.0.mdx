@@ -84,7 +84,7 @@ When creating an irrigation schedule, Streamlet calculates the route across the 
 
 The result is directly visible in the schedule. The detail page shows the route as a line on the map, along with distance, travel time, water demand, and the number of refill stops. The starting point and the refill points visited appear as their own markers on the map. For navigation devices, the route can be downloaded as a GPX file.
 
-![Calculated route of an irrigation schedule as a line on the map, with markers for the starting point and a refill point](/assets/images/releases/v0.4.0-route-nachfuellpunkte.png)
+![Calculated route of an irrigation schedule as a line on the map, with markers for the starting point and a refill point](../../../assets/releases/v0.4.0-route-nachfuellpunkte.png)
 
 The starting points themselves were also reworked. They used to be fixed in the configuration and are now maintained as their own records in the database. In the schedule form, the starting point is a required field; the point stored as default is already preselected.
 
@@ -94,13 +94,13 @@ The overview of irrigation schedules used to be a list. It is now a Kanban board
 
 The Suggestions column shows irrigation groups that should be watered. Several groups can be selected there and bundled directly into a new irrigation schedule that already contains the selection. Staff can also be assigned to a schedule directly on the board; the assignment is saved and shown on the schedule.
 
-![The new Kanban board for operations planning with the columns Suggestions, Planned, In Progress, and Done](/assets/images/releases/v0.4.0-einsatzplanung-board.png)
+![The new Kanban board for operations planning with the columns Suggestions, Planned, In Progress, and Done](../../../assets/releases/v0.4.0-einsatzplanung-board.png)
 
 ## New Map Features
 
 The interactive map has gained extended controls. A compass realigns a rotated map back to north, a 3D view tilts the camera for a spatial view of the city area, and GPS positioning shows the own position along with an accuracy radius. The map follows the position until it is moved by hand. A collapsible legend also explains the colors of the irrigation status.
 
-![Tilted 3D view of the map with the new map controls on the right edge](/assets/images/releases/v0.4.0-kartensteuerung.png)
+![Tilted 3D view of the map with the new map controls on the right edge](../../../assets/releases/v0.4.0-kartensteuerung.png)
 
 The detail panel of an irrigation group now shows the irrigation status with a short assessment instead of the raw soil moisture value. Editing a group now leads from the panel into the same edit mode used everywhere else, including tree selection on the map. Deleting a group has moved into the dashboard and must be confirmed there before it is carried out.
 

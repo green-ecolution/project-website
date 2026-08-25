@@ -86,7 +86,7 @@ A role is a named collection of permissions. The permissions themselves are grou
 
 Five system roles ship by default: Administrator, Tree Care, Sensors, Route Planning, and Observer. They serve as templates, cannot be changed themselves, and cannot be assigned directly. Anyone who wants to use them as a starting point makes a copy: the copy belongs to their own organization and is freely customizable. These copies are created automatically when a new organization is set up. A role can never grant more permissions than the person editing it holds themselves. Permissions missing for that reason cannot be selected in the editor.
 
-![Role management in the settings: the list of system roles on the left, the permissions of the Route Planning role grouped by area on the right, each with the levels None, View, Edit, and Manage](/assets/images/releases/v0.5.0-rollen-rechte.png)
+![Role management in the settings: the list of system roles on the left, the permissions of the Route Planning role grouped by area on the right, each with the levels None, View, Edit, and Manage](../../../assets/releases/v0.5.0-rollen-rechte.png)
 
 In the interface, permissions affect both navigation and the actions available within a page. Navigation shows only entries that are actually reachable, and directly visiting a locked address leads to a notice page instead of an error. Within pages, the buttons for create, edit, delete, and archive disappear when the permission is missing, rather than staying visible but disabled. Moving cards on the operations board is likewise tied to the edit permission.
 
@@ -96,7 +96,7 @@ Organizations are structured hierarchically. Below the top-level organization of
 
 In addition to a name, every organization has a location and a contact person. The location is optional but can only be saved as a complete entry: if street, postal code, or city is missing, saving is blocked and the missing fields are marked. Only members of the same organization can be chosen as contact person. Sub-organizations can be created, renamed, and deleted as long as no sub-organizations or people are still attached to them. The top-level organization remains read-only. Each tenant sees only its own subtree.
 
-![Organization management with the organization structure on the left and cards for basic data, location, contact person, assigned staff, and subordinate organizations on the right](/assets/images/releases/v0.5.0-organisationen.png)
+![Organization management with the organization structure on the left and cards for basic data, location, contact person, assigned staff, and subordinate organizations on the right](../../../assets/releases/v0.5.0-organisationen.png)
 
 ### Managing staff
 
@@ -106,7 +106,7 @@ At the top of the detail area are the username, email address, affiliation, and 
 
 Below that are three cards for organization, roles, and profile. Changes to organization and roles take effect immediately, a change of organization requires confirmation beforehand, and only roles from the own organization can be assigned. The profile card, with availability status, driving license classes, phone number, and personnel number, has its own save action and warns before unsaved input is discarded. On the own account, roles and organization cannot be changed, so that no one accidentally removes their last role and locks themselves out.
 
-![Staff management: the person list with a search field and filters for organization and role on the left, the cards for organization, roles, and profile on the right](/assets/images/releases/v0.5.0-mitarbeitende.png)
+![Staff management: the person list with a search field and filters for organization and role on the left, the cards for organization, roles, and profile on the right](../../../assets/releases/v0.5.0-mitarbeitende.png)
 
 ## New: Resources Belong to an Organization
 
@@ -118,13 +118,13 @@ If an external company is to take care of part of the area, the affected assets 
 
 The irrigation group detail page used to be a basic data view and is now a dashboard. At the top are four metrics: the average irrigation state, soil temperature, the time of the last measurement, and the last irrigation. Below that follow the water supply history and the irrigation history, with tiles for location, sensors, the trees in the group, and basic data alongside them. The location tile shows a small map with the boundary of the group.
 
-![Dashboard of an irrigation group with the four metrics, the water supply history over seven days, the irrigation history, and tiles for location and sensors](/assets/images/releases/v0.5.0-gruppen-dashboard.png)
+![Dashboard of an irrigation group with the four metrics, the water supply history over seven days, the irrigation history, and tiles for location and sensors](../../../assets/releases/v0.5.0-gruppen-dashboard.png)
 
 The history no longer shows the raw soil moisture values, but the share of plant-available water in percent, selectable for the last 24 hours, 7 days, or 30 days. For this, the measurements are related to the stored soil type. Dashed lines mark the thresholds for moderate and critical supply, and further markers show when the group was irrigated. If the soil type is missing, a notice points this out, because the calculation is then not possible. On the detail page of a sensor, the history of measured soil moisture per measurement depth remains available.
 
 A prerequisite for this calculation is the soil type of the group, which can now be determined in the form through a new dialog. From the grain size shares of sand, silt, and clay of a soil sample, it determines the soil type according to the KA5 soil texture diagram and shows the sample as a point in the diagram.
 
-![Dialog for determining soil type with input fields for sand, silt, and clay, the sample as a point in the KA5 soil texture diagram, and the result Lt2, slightly clayey loam](/assets/images/releases/v0.5.0-bodenart-ka5.png)
+![Dialog for determining soil type with input fields for sand, silt, and clay, the sample as a point in the KA5 soil texture diagram, and the result Lt2, slightly clayey loam](../../../assets/releases/v0.5.0-bodenart-ka5.png)
 
 ## Further Improvements
 

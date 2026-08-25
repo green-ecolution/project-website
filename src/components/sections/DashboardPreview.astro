@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import DashboardAnimation from '../islands/DashboardAnimation'
+import dashboard from '../../assets/releases/v0.1.0-dashboard.png'
 import type { Language } from '../../i18n/languages'
 import { getTranslations } from '../../i18n/t'
 
@@ -59,9 +61,11 @@ const t = getTranslations(language, 'project')
       </div>
 
       <div class="relative overflow-hidden">
-        <img
-          src="/assets/images/releases/v0.1.0-dashboard.png"
+        <Image
+          src={dashboard}
           alt={t('dashboard.imageAlt')}
+          widths={[640, 960, 1478]}
+          sizes="(min-width: 1280px) 1280px, 100vw"
           class="w-full h-auto"
         />
         <div

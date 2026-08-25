@@ -86,7 +86,7 @@ Eine Rolle ist eine benannte Sammlung von Rechten. Die Rechte selbst sind nach B
 
 Mitgeliefert werden fünf Systemrollen: Administrator, Baumpflege, Sensorik, Routenplanung und Beobachter. Sie dienen als Vorlage, sind selbst nicht änderbar und lassen sich nicht zuweisen. Wer sie als Ausgangspunkt nutzen möchte, kopiert sie: die Kopie gehört der eigenen Organisation und ist frei anpassbar. Beim Anlegen einer neuen Organisation entstehen diese Kopien automatisch. Eine Rolle kann dabei nie mehr Rechte vergeben, als die bearbeitende Person selbst besitzt. Rechte, die dafür fehlen, sind im Editor nicht auswählbar.
 
-![Rollenverwaltung in den Einstellungen: links die Liste der Systemrollen, rechts die Rechte der Rolle Routenplanung nach Bereichen gegliedert, jeweils mit den Stufen Kein, Ansehen, Bearbeiten und Verwalten](/assets/images/releases/v0.5.0-rollen-rechte.png)
+![Rollenverwaltung in den Einstellungen: links die Liste der Systemrollen, rechts die Rechte der Rolle Routenplanung nach Bereichen gegliedert, jeweils mit den Stufen Kein, Ansehen, Bearbeiten und Verwalten](../../../assets/releases/v0.5.0-rollen-rechte.png)
 
 In der Oberfläche wirken die Rechte auf die Navigation und auf die Aktionen innerhalb einer Seite. Die Navigation zeigt nur Einträge, die auch erreichbar sind, und der direkte Aufruf einer gesperrten Adresse führt auf eine Hinweisseite statt in einen Fehler. Innerhalb der Seiten verschwinden die Schaltflächen zum Anlegen, Bearbeiten, Löschen und Archivieren, wenn das Recht fehlt, anstatt deaktiviert stehen zu bleiben. Auch das Verschieben von Karten auf dem Einsatzplan-Board ist an das Bearbeitungsrecht gebunden.
 
@@ -96,7 +96,7 @@ Organisationen sind hierarchisch aufgebaut. Unter der obersten Organisation eine
 
 Zu jeder Organisation gehören neben dem Namen ein Standort und eine Kontaktperson. Der Standort ist optional, lässt sich aber nur vollständig speichern: fehlt Straße, Postleitzahl oder Ort, blockiert das Speichern und markiert die fehlenden Felder. Als Kontaktperson sind nur Mitglieder derselben Organisation wählbar. Unterorganisationen lassen sich anlegen, umbenennen und löschen, solange keine Unterorganisationen und keine Personen mehr an ihnen hängen. Die oberste Organisation bleibt schreibgeschützt. Jeder Mandant sieht ausschließlich seinen eigenen Teilbaum.
 
-![Organisationsverwaltung mit der Organisationsstruktur links und den Karten für Stammdaten, Standort, Kontaktperson, zugewiesene Mitarbeitende und untergeordnete Organisationen rechts](/assets/images/releases/v0.5.0-organisationen.png)
+![Organisationsverwaltung mit der Organisationsstruktur links und den Karten für Stammdaten, Standort, Kontaktperson, zugewiesene Mitarbeitende und untergeordnete Organisationen rechts](../../../assets/releases/v0.5.0-organisationen.png)
 
 ### Mitarbeitende verwalten
 
@@ -106,7 +106,7 @@ Im Detailbereich stehen oben Benutzername, E-Mail-Adresse, Zugehörigkeit und Ve
 
 Darunter liegen drei Karten für Organisation, Rollen und Profil. Änderungen an Organisation und Rollen wirken sofort, ein Organisationswechsel wird vorher bestätigt, und zuweisbar sind nur Rollen der eigenen Organisation. Die Profilkarte mit Verfügbarkeitsstatus, Führerscheinklassen, Telefonnummer und Personalnummer hat ein eigenes Speichern und warnt, bevor ungespeicherte Eingaben verworfen werden. Am eigenen Konto sind Rollen und Organisation nicht änderbar, damit sich niemand versehentlich die letzte Rolle entzieht und aussperrt.
 
-![Verwaltung der Mitarbeitenden: links die Personenliste mit Suchfeld und Filtern für Organisation und Rolle, rechts die Karten für Organisation, Rollen und Profil](/assets/images/releases/v0.5.0-mitarbeitende.png)
+![Verwaltung der Mitarbeitenden: links die Personenliste mit Suchfeld und Filtern für Organisation und Rolle, rechts die Karten für Organisation, Rollen und Profil](../../../assets/releases/v0.5.0-mitarbeitende.png)
 
 ## Neu: Ressourcen gehören zu einer Organisation
 
@@ -118,13 +118,13 @@ Soll eine Fremdfirma einen Teil der Fläche betreuen, wird der betroffene Bestan
 
 Die Detailseite einer Bewässerungsgruppe war eine Stammdatenansicht und ist jetzt ein Dashboard. Oben stehen vier Kennzahlen: der durchschnittliche Bewässerungszustand, die Bodentemperatur, der Zeitpunkt der letzten Messung und die letzte Bewässerung. Darunter folgen der Verlauf der Wasserversorgung und die Bewässerungshistorie, rechts daneben Kacheln zu Standort, Sensorik, den Bäumen der Gruppe und den Stammdaten. Die Standort-Kachel zeigt eine kleine Karte mit der Grenze der Gruppe.
 
-![Dashboard einer Bewässerungsgruppe mit den vier Kennzahlen, dem Verlauf der Wasserversorgung über sieben Tage, der Bewässerungshistorie sowie Kacheln für Standort und Sensorik](/assets/images/releases/v0.5.0-gruppen-dashboard.png)
+![Dashboard einer Bewässerungsgruppe mit den vier Kennzahlen, dem Verlauf der Wasserversorgung über sieben Tage, der Bewässerungshistorie sowie Kacheln für Standort und Sensorik](../../../assets/releases/v0.5.0-gruppen-dashboard.png)
 
 Der Verlauf zeigt nicht mehr die Rohwerte der Bodenfeuchte, sondern den Anteil des pflanzenverfügbaren Wassers in Prozent, wählbar für die letzten 24 Stunden, 7 Tage oder 30 Tage. Dafür werden die Messwerte mit der hinterlegten Bodenart in Beziehung gesetzt. Gestrichelte Linien markieren die Schwellen für mäßige und kritische Versorgung, weitere Markierungen zeigen, wann die Gruppe bewässert wurde. Fehlt die Bodenart, weist ein Hinweis darauf hin, weil die Berechnung dann nicht möglich ist. Auf der Detailseite eines Sensors bleibt der Verlauf der gemessenen Bodenfeuchte je Messtiefe erhalten.
 
 Voraussetzung für diese Berechnung ist die Bodenart der Gruppe, die sich jetzt im Formular über einen neuen Dialog ermitteln lässt. Aus den Korngrößenanteilen von Sand, Schluff und Ton einer Bodenprobe bestimmt er die Bodenart nach dem KA5-Bodenartendiagramm und zeigt die Probe als Punkt im Diagramm.
 
-![Dialog zur Bestimmung der Bodenart mit den Eingabefeldern für Sand, Schluff und Ton, der Probe als Punkt im KA5-Bodenartendiagramm und dem Ergebnis Lt2, schwach toniger Lehm](/assets/images/releases/v0.5.0-bodenart-ka5.png)
+![Dialog zur Bestimmung der Bodenart mit den Eingabefeldern für Sand, Schluff und Ton, der Probe als Punkt im KA5-Bodenartendiagramm und dem Ergebnis Lt2, schwach toniger Lehm](../../../assets/releases/v0.5.0-bodenart-ka5.png)
 
 ## Weitere Verbesserungen
 
