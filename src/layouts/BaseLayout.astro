@@ -45,6 +45,19 @@ const alternates =
         ...SUPPORTED_LANGUAGES.map((lang) => ({ hreflang: lang, href: `${base}/${lang}${path}` })),
         { hreflang: 'x-default', href: `${base}/${DEFAULT_LANGUAGE}${path}` },
       ]
+
+// Both feeds carry a title: a reader offered two nameless alternates of the same
+// type cannot tell the blog from the release notes.
+const feeds = [
+  {
+    title: getTranslations(language, 'blog')('feed.title'),
+    href: `${base}/${language}/rss.xml`,
+  },
+  {
+    title: getTranslations(language, 'releases')('feed.title'),
+    href: `${base}/${language}/releases/rss.xml`,
+  },
+]
 ---
 
 <html lang={language} class="scroll-smooth scroll-pt-40">
@@ -66,6 +79,11 @@ const alternates =
     {
       alternates.map((alternate) => (
         <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))
+    }
+    {
+      feeds.map((feed) => (
+        <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
       ))
     }
     <meta name="author" content="Green Ecolution" />
