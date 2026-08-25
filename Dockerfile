@@ -68,6 +68,7 @@ server {
     location = /project      { return 301 /de/project; }
     location = /contact      { return 301 /de/contact; }
     location = /releases     { return 301 /de/releases; }
+    location = /streamlet    { return 301 /de/streamlet; }
     location = /impressum    { return 301 /de/impressum; }
     location = /datenschutz  { return 301 /de/datenschutz; }
 
