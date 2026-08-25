@@ -1,41 +1,21 @@
-import { useEffect, useState, type ComponentType } from 'react'
 import logoAnimation from '../../json/logoAnimation.json'
+import LottiePlayer from './LottiePlayer'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
-interface LottieProps {
-  animationData: unknown
-  autoplay?: boolean
-}
-
-// lottie-web touches document while its module body runs, which crashes the
-// server render. Importing it inside the effect keeps the island renderable on
-// the server, and the static logo covers visitors without javascript as well as
-// those who asked for reduced motion.
+// The static logo shows until the animation is loaded, which also covers
+// visitors without javascript and those who asked for reduced motion.
 export default function HeaderLogo() {
   const reducedMotion = useReducedMotion()
-  const [Lottie, setLottie] = useState<ComponentType<LottieProps> | null>(null)
 
-  useEffect(() => {
-    if (reducedMotion) {
-      return
-    }
-
-    let cancelled = false
-
-    void import('lottie-react').then((module) => {
-      if (!cancelled) {
-        setLottie(() => module.default as ComponentType<LottieProps>)
-      }
-    })
-
-    return () => {
-      cancelled = true
-    }
-  }, [reducedMotion])
-
-  if (!Lottie) {
+  if (reducedMotion) {
     return <img src="/assets/svg/logo/logo-large-color.svg" alt="" />
   }
 
-  return <Lottie animationData={logoAnimation} autoplay />
+  return (
+    <LottiePlayer
+      animationData={logoAnimation}
+      autoplay
+      fallback={<img src="/assets/svg/logo/logo-large-color.svg" alt="" />}
+    />
+  )
 }

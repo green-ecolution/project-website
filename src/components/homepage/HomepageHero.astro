@@ -1,0 +1,75 @@
+---
+import HeroCluster from '../islands/hero/HeroCluster'
+import type { Language } from '../../i18n/languages'
+import { pickStrings } from '../../i18n/pick'
+import type { TranslationKey } from '../../i18n/t'
+
+interface Props {
+  language: Language
+}
+
+const FACT_IDS = [
+  'evaporation',
+  'oxygen',
+  'dust',
+  'roots',
+  'co2',
+  'network',
+  'lifespan',
+  'noise',
+  'water',
+] as const
+
+const SPECIES_IDS = [
+  'birch',
+  'spruce',
+  'oak',
+  'beech',
+  'chestnut',
+  'linden',
+  'maple',
+  'ash',
+  'elm',
+  'plane',
+  'fir',
+  'willow',
+  'robinia',
+  'alder',
+  'poplar',
+] as const
+
+const POPUP_IDS = ['moisture', 'transmission', 'recommendation'] as const
+
+// Spelled out rather than passing the namespace: the island renders every one of
+// these, and an explicit list is what keeps the payload from growing with the
+// catalog.
+const KEYS = [
+  'hero.badge',
+  'hero.headlinePrefix',
+  'hero.headlineHighlight',
+  'hero.headlineSuffix',
+  'hero.tagline',
+  'hero.description',
+  'hero.playAnimation',
+  'hero.adoptTreeAriaLabel',
+  'overlay.closeAriaLabel',
+  'overlay.discover',
+  'overlay.next',
+  'welcomeCard.greeting',
+  'welcomeCard.tagline',
+  'welcomeCard.description',
+  'welcomeCard.cta',
+  'adoptModal.certificateLabel',
+  'adoptModal.funFactLabel',
+  'adoptModal.quote',
+  'adoptModal.waitingIn',
+  ...FACT_IDS.map((id) => `adoptTree.facts.${id}`),
+  ...SPECIES_IDS.map((id) => `adoptTree.species.${id}`),
+  ...POPUP_IDS.flatMap((id) => [`overlay.popups.${id}.label`, `overlay.popups.${id}.description`]),
+] as TranslationKey<'home'>[]
+
+const { language } = Astro.props
+const strings = pickStrings(language, 'home', KEYS)
+---
+
+<HeroCluster client:load language={language} strings={strings} />
