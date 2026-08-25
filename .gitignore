@@ -9,15 +9,11 @@ lerna-debug.log*
 
 node_modules
 dist
-dist-ssr
 .astro
 *.local
 
 # Build artifacts
-vite.config.js
-vite.config.d.ts
 tsconfig.tsbuildinfo
-tsconfig.node.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
