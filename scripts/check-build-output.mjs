@@ -24,6 +24,8 @@ const REQUIRED = [
   'en/contact.html',
   'de/project.html',
   'en/project.html',
+  'de/streamlet.html',
+  'en/streamlet.html',
   // build.format 'file' names the start page de.html, not de/index.html.
   'de.html',
   'en.html',
