@@ -20,6 +20,8 @@ const REQUIRED = [
   'en/impressum.html',
   'de/datenschutz.html',
   'en/datenschutz.html',
+  'de/contact.html',
+  'en/contact.html',
 ]
 
 // Mirrors MISSING_PREFIX in src/i18n/resolve.ts.
