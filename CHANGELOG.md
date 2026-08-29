@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.1](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.0...v1.11.1) (2026-08-29)
+
+
+### Bug Fixes
+
+* report page views to analytics ([cc13dee](https://github.com/green-ecolution/green-ecolution.de/commit/cc13dee9259a4503e174bb037d88d18c60b14d72))
+
 ## [1.11.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.10.1...v1.11.0) (2026-08-25)
 
 
