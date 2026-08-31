@@ -99,6 +99,10 @@ export default defineConfig({
           target: 'https://green-ecolution-public-videos.s3.de.io.cloud.ovh.net',
           changeOrigin: true,
         },
+        '/blog-video': {
+          target: 'https://green-ecolution-public-videos.s3.de.io.cloud.ovh.net',
+          changeOrigin: true,
+        },
       },
     },
   },

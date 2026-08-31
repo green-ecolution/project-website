@@ -1,0 +1,25 @@
+---
+import ContentVideoPlayer from '../islands/ContentVideoPlayer'
+
+interface Props {
+  path: string
+  posterPath: string
+  caption: string
+  /** Portrait clips need a narrow column, landscape ones may fill the body. */
+  portrait?: boolean
+}
+
+const { path, posterPath, caption, portrait = false } = Astro.props
+---
+
+<figure class="my-8">
+  <div
+    class:list={[
+      'mx-auto overflow-hidden rounded-xl border border-grey-100 shadow-lg',
+      portrait ? 'max-w-xs' : 'max-w-full',
+    ]}
+  >
+    <ContentVideoPlayer client:visible path={path} posterPath={posterPath} label={caption} />
+  </div>
+  <figcaption class="mt-2 text-center text-sm text-grey-900/60">{caption}</figcaption>
+</figure>
