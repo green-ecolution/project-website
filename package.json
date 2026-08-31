@@ -21,7 +21,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@react-three/fiber": "^9.7.0",
     "@splidejs/react-splide": "^0.7.12",
-    "astro": "^7.2.5",
+    "astro": "^7.2.9",
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.35.0",
     "react": "^19.2.8",
