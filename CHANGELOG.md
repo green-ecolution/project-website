@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.3](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.2...v1.11.3) (2026-08-31)
+
+
+### Features
+
+* **project:** link the NDR TV feature in further links ([775a493](https://github.com/green-ecolution/green-ecolution.de/commit/775a49315538a7d8134363592401c4e44be42cbf))
+
 ## [1.11.2](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.1...v1.11.2) (2026-08-31)
 
 
