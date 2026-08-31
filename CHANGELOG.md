@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.2](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.1...v1.11.2) (2026-08-31)
+
+
+### Features
+
+* **blog:** add event photos to the Gelehrte Gläser 2026 post ([872ea86](https://github.com/green-ecolution/green-ecolution.de/commit/872ea86ef39bc86c1177c84401bb421fa3a5dea8))
+* **blog:** add post on the NDR Schleswig-Holstein Magazin feature ([ed5cc37](https://github.com/green-ecolution/green-ecolution.de/commit/ed5cc373cbae627170f14b4cace8a6f4451cd69e))
+* **blog:** add video component for embedded content videos ([ed5cc37](https://github.com/green-ecolution/green-ecolution.de/commit/ed5cc373cbae627170f14b4cace8a6f4451cd69e))
+
 ## [1.11.1](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.0...v1.11.1) (2026-08-29)
 
 
