@@ -70,6 +70,11 @@
     "slide": "Slider Element",
     "slideLabel": "%s von %s"
   },
+  "embed": {
+    "playLabel": "Beitrag laden und abspielen",
+    "privacyHint": "Beim Abspielen werden Daten an {{provider}} übertragen.",
+    "privacyLinkLabel": "Mehr dazu im Datenschutz"
+  },
   "breadcrumb": {
     "home": "Startseite",
     "project": "Projekt",

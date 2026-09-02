@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
+import ConsentEmbed from '../islands/ConsentEmbed'
+import type { Language } from '../../i18n/languages'
+import { consentEmbedStrings } from '../../lib/embedStrings'
+
+interface Props {
+  /** Url of the provider's player page, mounted in an iframe after the click. */
+  src: string
+  title: string
+  poster: ImageMetadata
+  posterAlt: string
+  /** Attribution line below the player, required by most broadcasters. */
+  caption: string
+  /** Host name shown in the privacy hint, e.g. ndr.de */
+  provider: string
+  language: Language
+}
+
+const { src, title, poster, posterAlt, caption, provider, language } = Astro.props
+
+// The island cannot use <Image>, so the optimised url is resolved here.
+const posterImage = await getImage({ src: poster, width: 1280, format: 'webp' })
+---
+
+<figure class="my-8">
+  <div class="overflow-hidden rounded-xl border border-grey-100 shadow-lg">
+    <ConsentEmbed
+      client:visible
+      src={src}
+      title={title}
+      posterSrc={posterImage.src}
+      posterAlt={posterAlt}
+      {...consentEmbedStrings(language, provider)}
+    />
+  </div>
+  <figcaption class="mt-2 text-center text-sm text-grey-900/60">{caption}</figcaption>
+</figure>

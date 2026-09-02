@@ -70,6 +70,11 @@
     "slide": "Slider item",
     "slideLabel": "%s of %s"
   },
+  "embed": {
+    "playLabel": "Load and play the piece",
+    "privacyHint": "Playing it transfers data to {{provider}}.",
+    "privacyLinkLabel": "More in our privacy policy"
+  },
   "breadcrumb": {
     "home": "Home",
     "project": "Project",
