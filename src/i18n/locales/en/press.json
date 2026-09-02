@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Press | Green Ecolution",
+    "description": "Press material on Green Ecolution: high-resolution logos, the pitch deck, ready-to-quote project descriptions and the press contact."
+  },
+  "hero": {
+    "label": "Press",
+    "headline": "Material for your coverage",
+    "description": "Everything you need for a piece about Green Ecolution: logos in high resolution, the project pitch deck, and short descriptions you can quote as they are."
+  },
+  "contact": {
+    "sectionLabel": "Contact",
+    "title": "Contact for press enquiries",
+    "description": "For interviews, filming dates, further image material or questions about technical details, send us an email. We will get back to you shortly.",
+    "emailLabel": "Email",
+    "buttonLabel": "Send a press enquiry",
+    "buttonAriaLabel": "Send a press enquiry by email"
+  },
+  "boilerplate": {
+    "sectionLabel": "Ready to quote",
+    "title": "The project in brief",
+    "description": "Three lengths for news items, intros and background pieces. All wording is approved by the project and can be used unchanged.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyAriaLabel": "Copy {{variant}} to the clipboard",
+    "items": {
+      "short": {
+        "label": "One sentence",
+        "text": "Green Ecolution is an open source project coordinated by Smarte Grenzregion that controls the irrigation of urban trees according to demand, using soil moisture sensors and the LoRaWAN network."
+      },
+      "medium": {
+        "label": "Short version, around 50 words",
+        "text": "Green Ecolution is an open source project for the demand-driven irrigation of urban trees, coordinated by Smarte Grenzregion. Sensors placed at different depths measure soil moisture and transmit their readings over the LoRaWAN network. From that data the software derives irrigation recommendations, particularly for young trees in their first three years. It began at Flensburg University of Applied Sciences."
+      },
+      "long": {
+        "label": "Long version, around 120 words",
+        "text": "Green Ecolution is a digital system for the demand-driven and resource-efficient irrigation of urban trees. It began as a research project at Flensburg University of Applied Sciences. The work is coordinated by Smarte Grenzregion and continued together with PROGEEK GmbH, the City of Flensburg and its Technisches Betriebszentrum.\n\nSensors placed at different depths measure soil moisture at the tree sites and transmit their readings over the LoRaWAN network. The software evaluates the measurement series and issues irrigation recommendations, so that crews water where watering is actually needed. The focus is on young trees, which are particularly vulnerable to heat in their first three years.\n\nThe project is open source and the entire code is publicly available on GitHub. In 2025 Green Ecolution was presented and funded as one of the open source projects of DigitalHub.SH."
+      }
+    }
+  },
+  "logos": {
+    "sectionLabel": "Downloads",
+    "title": "Logos",
+    "description": "Every variant comes as a vector file and as a PNG in two resolutions. The PNGs have a transparent background.",
+    "downloadAriaLabel": "Download {{variant}} as {{format}}",
+    "zip": {
+      "label": "All logos as a ZIP",
+      "description": "Contains all four variants as SVG and PNG.",
+      "ariaLabel": "Download all logos as a ZIP archive"
+    },
+    "variants": {
+      "logoColor": {
+        "label": "Logo in colour",
+        "description": "Symbol with wordmark. The standard version for light backgrounds."
+      },
+      "logoWhite": {
+        "label": "Logo in white",
+        "description": "Symbol with wordmark, solid white. For dark backgrounds and photographs."
+      },
+      "iconColor": {
+        "label": "Symbol in colour",
+        "description": "The symbol on its own, without the wordmark. For small formats and square areas."
+      },
+      "iconWhite": {
+        "label": "Symbol in white",
+        "description": "The symbol on its own, solid white. For dark backgrounds and photographs."
+      }
+    },
+    "usage": {
+      "title": "How to use the logo",
+      "intro": "The files are available for coverage of Green Ecolution. To keep the logo recognisable, please observe the following:",
+      "proportions": "Keep the proportions, so do not stretch or crop the logo.",
+      "colors": "Do not change the colours. Use the white variant on dark backgrounds and the coloured one on light backgrounds.",
+      "spacing": "Leave enough space around the logo so that it stands on its own.",
+      "combination": "Do not build the logo into other logos, wordmarks or graphics.",
+      "outro": "For any use beyond editorial coverage, please talk to us first."
+    }
+  },
+  "pitchDeck": {
+    "sectionLabel": "Presentation",
+    "title": "Pitch deck",
+    "description": "The project presentation: the starting point, the approach, the technology and the current state, laid out as a slide deck.",
+    "fileLabel": "PDF",
+    "download": "Download the pitch deck",
+    "downloadAriaLabel": "Download the pitch deck as a PDF"
+  },
+  "mentions": {
+    "sectionLabel": "Press coverage",
+    "title": "Published so far",
+    "description": "Reports and announcements that feature Green Ecolution.",
+    "items": {
+      "ndrShMagazin": {
+        "title": "Extreme summers: urban trees in trouble",
+        "description": "NDR reported on urban trees that no longer withstand the dry summers and showed Green Ecolution in Flensburg as one approach to the problem."
+      },
+      "landesregierungSh": {
+        "title": "The state funds open source projects",
+        "description": "Green Ecolution was presented and funded as one of the open source projects of DigitalHub.SH 2025."
+      },
+      "stadtFlensburg": {
+        "title": "Press release by the city of Flensburg",
+        "description": "The city of Flensburg reported on Green Ecolution and what the project means for sustainable urban management."
+      },
+      "hsFlensburg": {
+        "title": "Article by Flensburg University of Applied Sciences",
+        "description": "Flensburg University of Applied Sciences introduced the research project on its website."
+      }
+    }
+  }
+}

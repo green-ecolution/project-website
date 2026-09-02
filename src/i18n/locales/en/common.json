@@ -33,7 +33,8 @@
     "githubAriaLabel": "Visit us on GitHub",
     "metaNavAriaLabel": "Meta navigation",
     "imprint": "Imprint",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "press": "Press"
   },
   "banner": {
     "ariaLabel": "Call to action for community voting",
@@ -82,6 +83,7 @@
     "contact": "Contact",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
-    "blog": "Blog"
+    "blog": "Blog",
+    "press": "Press"
   }
 }
