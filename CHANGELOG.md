@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.3...v1.12.0) (2026-09-02)
+
+
+### Features
+
+* **embed:** add consent-gated player for external videos ([49baa05](https://github.com/green-ecolution/green-ecolution.de/commit/49baa0533543cede8f7de99d1bd16c0d5b688df8))
+* **ndr:** embed the Schleswig-Holstein Magazin piece ([3d125f6](https://github.com/green-ecolution/green-ecolution.de/commit/3d125f6b5e5200f4657f42a2db166740f6402e11))
+
 ## [1.11.3](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.2...v1.11.3) (2026-08-31)
 
 
