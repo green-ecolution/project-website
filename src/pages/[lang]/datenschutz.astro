@@ -270,6 +270,34 @@ const serverLogFileItemIds = [
           <p>{t('datenschutz.sections.dataCollection.contactForm.paragraph3')}</p>
         </div>
 
+        {/* Section 5: Plugins und Tools */}
+        <div>
+          <h2
+            class="font-lato font-bold text-2xl mb-4 lg:text-3xl text-grey-900 pl-4 border-l-4 border-green-light-900"
+          >
+            {t('datenschutz.sections.pluginsAndTools.title')}
+          </h2>
+
+          <h3 class="font-lato font-bold text-xl mb-3 mt-6 text-grey-900">
+            {t('datenschutz.sections.pluginsAndTools.ndrMediathek.title')}
+          </h3>
+          <p class="mb-4">{t('datenschutz.sections.pluginsAndTools.ndrMediathek.paragraph1')}</p>
+          <p class="mb-4">{t('datenschutz.sections.pluginsAndTools.ndrMediathek.paragraph2')}</p>
+          <p class="mb-4">{t('datenschutz.sections.pluginsAndTools.ndrMediathek.paragraph3')}</p>
+          <p class="mb-4">{t('datenschutz.sections.pluginsAndTools.ndrMediathek.paragraph4')}</p>
+          <p>
+            {t('datenschutz.sections.pluginsAndTools.ndrMediathek.paragraph5')}{' '}
+            <a
+              href="https://www.ndr.de/service/datenschutz"
+              target="_blank"
+              rel="noreferrer noopener"
+              class={linkClasses}
+            >
+              {t('datenschutz.sections.pluginsAndTools.ndrMediathek.privacyPolicyLinkLabel')}
+            </a>.
+          </p>
+        </div>
+
         <p class="text-sm text-grey-900/60 mt-8">
           {t('datenschutz.footer.sourceLabel')}{' '}
           <a

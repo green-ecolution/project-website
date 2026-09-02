@@ -175,6 +175,18 @@
           "paragraph2": "The processing of this data is based on Art. 6(1)(b) GDPR, insofar as your inquiry is related to the performance of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective handling of inquiries addressed to us (Art. 6(1)(f) GDPR) or on your consent (Art. 6(1)(a) GDPR), insofar as this was requested; consent can be revoked at any time.",
           "paragraph3": "The data you enter in the contact form will remain with us until you ask us to delete it, revoke your consent to its storage, or the purpose for which the data is stored no longer applies. Mandatory statutory provisions – in particular retention periods – remain unaffected."
         }
+      },
+      "pluginsAndTools": {
+        "title": "5. Plugins and Tools",
+        "ndrMediathek": {
+          "title": "NDR Media Library",
+          "paragraph1": "This website embeds a television piece from the media library of Norddeutscher Rundfunk. The provider is Norddeutscher Rundfunk, Anstalt des öffentlichen Rechts, Rothenbaumchaussee 132, 20149 Hamburg, Germany.",
+          "paragraph2": "The player does not load automatically. As long as you do not start it yourself, no connection to NDR's servers is established and no data is transferred to them. The preview image is served from our own server.",
+          "paragraph3": "Only when you start the piece via the play button is NDR's player loaded. NDR then learns your IP address, among other things, and may use cookies or comparable technologies to measure use of the piece. We have no influence on the nature or extent of this processing.",
+          "paragraph4": "The legal basis for loading the player is your consent under Art. 6(1)(a) GDPR, which you give by clicking the play button. You can revoke it at any time by reloading the page and not starting the player again.",
+          "paragraph5": "Further information on how user data is handled can be found in the",
+          "privacyPolicyLinkLabel": "NDR privacy policy"
+        }
       }
     },
     "footer": {

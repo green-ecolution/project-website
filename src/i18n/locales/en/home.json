@@ -195,7 +195,7 @@
   "videos": {
     "sectionLabel": "Videos",
     "title": "Get to know the project through video",
-    "description": "As part of the research project, two videos were produced alongside the sensor solution and the software. They introduce the project: its objective, the problem, and the solution developed.",
+    "description": "As part of the research project, two videos were produced alongside the sensor solution and the software. They introduce the project: its objective, the problem, and the solution developed. On top of that comes the television piece public broadcaster NDR filmed about the project.",
     "short": {
       "title": "Short video",
       "description": "A brief introduction to the project. In about half a minute, you'll learn what Green Ecolution is about.",
@@ -205,6 +205,12 @@
       "title": "Long video",
       "description": "The detailed video goes deeper and explains the key background, details, and next steps of the project.",
       "duration": "approx. 4 minutes"
+    },
+    "ndr": {
+      "title": "NDR feature",
+      "description": "In August 2026 the Schleswig-Holstein Magazin reported on urban trees that no longer survive the dry summers and spent a morning filming in Flensburg. The piece shows a soil moisture sensor going into the ground and how the city's technical operations centre plans the next watering run from its readings. It is in German.",
+      "duration": "approx. 2 minutes",
+      "posterAlt": "View up into an oak canopy with the sun flaring through the leaves, the Schleswig-Holstein Magazin logo in the bottom left corner"
     }
   },
   "workflow": {

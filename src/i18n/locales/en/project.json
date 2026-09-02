@@ -173,6 +173,12 @@
     "moreInPlanningLabel": "and much more in the pipeline",
     "moreIdeasAriaLabel": "More ideas in the pipeline"
   },
+  "mediaFeature": {
+    "sectionLabel": "Press",
+    "title": "Green Ecolution on the Schleswig-Holstein Magazin",
+    "description": "In August 2026 public broadcaster NDR reported on urban trees that no longer survive the dry summers and spent a morning filming in Flensburg. The piece shows a soil moisture sensor going into the ground and how the city's technical operations centre plans the next watering run from its readings.",
+    "posterAlt": "View up into an oak canopy with the sun flaring through the leaves, the Schleswig-Holstein Magazin logo in the bottom left corner"
+  },
   "resources": {
     "sectionLabel": "Resources",
     "title": "Further links & mentions",

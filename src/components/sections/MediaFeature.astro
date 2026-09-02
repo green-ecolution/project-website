@@ -1,0 +1,39 @@
+---
+import ContentEmbed from '../content/ContentEmbed.astro'
+import ndrPlayerPoster from '../../assets/blog/ndr-shmag-stadtbaeume-poster.webp'
+import { ndrFeature } from '../../data/ndrFeature'
+import type { Language } from '../../i18n/languages'
+import { getTranslations } from '../../i18n/t'
+
+interface Props {
+  language: Language
+}
+
+const { language } = Astro.props
+const t = getTranslations(language, 'project')
+---
+
+<section class="px-4 max-w-208 mx-auto my-20 md:px-6 lg:my-28 lg:max-w-screen-md xl:my-36">
+  <article class="mb-8 lg:mb-12 lg:text-center">
+    <div class="inline-block mb-4 lg:mx-auto">
+      <span class="text-xs font-semibold tracking-widest text-green-light-900 uppercase">
+        {t('mediaFeature.sectionLabel')}
+      </span>
+      <div class="h-0.5 w-12 bg-gradient-to-r from-green-light-900 to-transparent mt-1"></div>
+    </div>
+    <h2 class="font-lato font-bold text-2xl mb-6 text-grey-900 lg:text-3xl">
+      {t('mediaFeature.title')}
+    </h2>
+    <p class="text-grey-900/80 leading-relaxed">{t('mediaFeature.description')}</p>
+  </article>
+
+  <ContentEmbed
+    language={language}
+    src={ndrFeature.playerUrl}
+    title={ndrFeature.title}
+    poster={ndrPlayerPoster}
+    posterAlt={t('mediaFeature.posterAlt')}
+    caption={ndrFeature.attribution}
+    provider={ndrFeature.provider}
+  />
+</section>

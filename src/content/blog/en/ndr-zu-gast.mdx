@@ -8,6 +8,8 @@ author: cedrik-hoffmann
 ---
 
 import ContentVideo from '../../../components/content/ContentVideo.astro'
+import ContentEmbed from '../../../components/content/ContentEmbed.astro'
+import ndrPlayerPoster from '../../../assets/blog/ndr-shmag-stadtbaeume-poster.webp'
 
 On 29 August 2026 at 19:30 the Schleswig-Holstein Magazin, the regional evening news programme of public broadcaster NDR, aired a piece about urban trees that no longer survive the dry summers. "Extreme Sommer: Stadtbäume in Not" runs a little over two minutes and much of it was filmed in Flensburg. An article by Aaron Schlichting went up on ndr.de the same day, and the Schleswig-Holstein news on NDR 1 Welle Nord radio picked the topic up as well.
 
@@ -40,4 +42,16 @@ Both sides went on camera. We explained how the system works and why we develop 
 
 ## Piece and article
 
-The television piece stays in the media library until 29 August 2028: [Extreme Sommer: Stadtbäume in Not](https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/sommer-extrem-stadtbaeume-in-not,shmag-12772.html). The article is at [Trockenheit und Hitze in SH: Tausende Bäume in Städten sterben ab](https://www.ndr.de/nachrichten/schleswig-holstein/schleswig-holsteins-stadtbaeume-sterben,stadtbaum-100.html). Both are in German.
+The television piece stays in the media library until 29 August 2028, and NDR gave us permission to embed it here.
+
+<ContentEmbed
+  language="en"
+  src="https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/shmag-12772~player.html"
+  title="Extreme Sommer: Stadtbäume in Not"
+  poster={ndrPlayerPoster}
+  posterAlt="View up into an oak canopy with the sun flaring through the leaves, the Schleswig-Holstein Magazin logo in the bottom left corner"
+  caption="NDR SH | Schleswig-Holstein Magazin | 29.08.2026"
+  provider="ndr.de"
+/>
+
+On ndr.de the piece sits at [Extreme Sommer: Stadtbäume in Not](https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/sommer-extrem-stadtbaeume-in-not,shmag-12772.html). The article is at [Trockenheit und Hitze in SH: Tausende Bäume in Städten sterben ab](https://www.ndr.de/nachrichten/schleswig-holstein/schleswig-holsteins-stadtbaeume-sterben,stadtbaum-100.html). Both are in German, as is the piece itself.

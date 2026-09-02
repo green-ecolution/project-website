@@ -195,7 +195,7 @@
   "videos": {
     "sectionLabel": "Videos",
     "title": "Lerne das Projekt per Video kennen",
-    "description": "Im Rahmen des Forschungsprojekts sind neben der Sensorlösung und der Software auch zwei Videos entstanden. Sie stellen das Projekt vor: die Zielsetzung, die Problemstellung und die entwickelte Lösung.",
+    "description": "Im Rahmen des Forschungsprojekts sind neben der Sensorlösung und der Software auch zwei Videos entstanden. Sie stellen das Projekt vor: die Zielsetzung, die Problemstellung und die entwickelte Lösung. Dazu kommt der Fernsehbeitrag, den der NDR über das Projekt gedreht hat.",
     "short": {
       "title": "Kurzvideo",
       "description": "Ein kurzer Einstieg in das Projekt. In rund einer halben Minute erfährst du, worum es bei Green Ecolution geht.",
@@ -205,6 +205,12 @@
       "title": "Langvideo",
       "description": "Das ausführliche Video geht tiefer und erklärt die wichtigsten Hintergründe, Details und die nächsten Schritte des Projekts.",
       "duration": "ca. 4 Minuten"
+    },
+    "ndr": {
+      "title": "NDR-Beitrag",
+      "description": "Das Schleswig-Holstein Magazin hat im August 2026 über Stadtbäume berichtet, die den trockenen Sommern nicht mehr standhalten, und dafür einen Vormittag in Flensburg gedreht. Der Beitrag zeigt den Einbau eines Bodenfeuchtesensors und wie das Technische Betriebszentrum daraus die nächste Gießfahrt plant.",
+      "duration": "ca. 2 Minuten",
+      "posterAlt": "Blick von unten in eine Eichenkrone, die Sonne blitzt zwischen den Blättern durch, unten links das Logo des Schleswig-Holstein Magazins"
     }
   },
   "workflow": {

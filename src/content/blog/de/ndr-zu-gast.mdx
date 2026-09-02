@@ -8,6 +8,8 @@ author: cedrik-hoffmann
 ---
 
 import ContentVideo from '../../../components/content/ContentVideo.astro'
+import ContentEmbed from '../../../components/content/ContentEmbed.astro'
+import ndrPlayerPoster from '../../../assets/blog/ndr-shmag-stadtbaeume-poster.webp'
 
 Am 29. August 2026 lief um 19:30 Uhr im Schleswig-Holstein Magazin ein Beitrag über Stadtbäume, die den trockenen Sommern nicht mehr standhalten. „Extreme Sommer: Stadtbäume in Not“ dauert gut zwei Minuten, gedreht wurde ein großer Teil davon in Flensburg. Am selben Tag ist auf ndr.de ein Artikel von Aaron Schlichting zum Thema erschienen, und die Nachrichten für Schleswig-Holstein auf NDR 1 Welle Nord haben es ebenfalls aufgegriffen.
 
@@ -40,4 +42,16 @@ Vor der Kamera standen beide Seiten. Wir haben erklärt, wie das System funktion
 
 ## Beitrag und Artikel
 
-Der Fernsehbeitrag steht bis zum 29. August 2028 in der Mediathek: [Extreme Sommer: Stadtbäume in Not](https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/sommer-extrem-stadtbaeume-in-not,shmag-12772.html). Den Artikel gibt es unter [Trockenheit und Hitze in SH: Tausende Bäume in Städten sterben ab](https://www.ndr.de/nachrichten/schleswig-holstein/schleswig-holsteins-stadtbaeume-sterben,stadtbaum-100.html).
+Der Fernsehbeitrag steht bis zum 29. August 2028 in der Mediathek. Der NDR hat uns erlaubt, ihn hier einzubinden.
+
+<ContentEmbed
+  language="de"
+  src="https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/shmag-12772~player.html"
+  title="Extreme Sommer: Stadtbäume in Not"
+  poster={ndrPlayerPoster}
+  posterAlt="Blick von unten in eine Eichenkrone, die Sonne blitzt zwischen den Blättern durch, unten links das Logo des Schleswig-Holstein Magazins"
+  caption="NDR SH | Schleswig-Holstein Magazin | 29.08.2026"
+  provider="ndr.de"
+/>
+
+Beim NDR selbst liegt der Beitrag unter [Extreme Sommer: Stadtbäume in Not](https://www.ndr.de/fernsehen/sendungen/schleswig-holstein_magazin/sommer-extrem-stadtbaeume-in-not,shmag-12772.html). Den Artikel gibt es unter [Trockenheit und Hitze in SH: Tausende Bäume in Städten sterben ab](https://www.ndr.de/nachrichten/schleswig-holstein/schleswig-holsteins-stadtbaeume-sterben,stadtbaum-100.html).

@@ -173,6 +173,12 @@
     "moreInPlanningLabel": "und vieles mehr in Planung",
     "moreIdeasAriaLabel": "Weitere Ideen in Planung"
   },
+  "mediaFeature": {
+    "sectionLabel": "Presse",
+    "title": "Green Ecolution im Schleswig-Holstein Magazin",
+    "description": "Der NDR hat im August 2026 über Stadtbäume berichtet, die den trockenen Sommern nicht mehr standhalten, und dafür einen Vormittag in Flensburg gedreht. Der Beitrag zeigt, wie ein Bodenfeuchtesensor eingebaut wird und wie das Technische Betriebszentrum daraus die nächste Gießfahrt plant.",
+    "posterAlt": "Blick von unten in eine Eichenkrone, die Sonne blitzt zwischen den Blättern durch, unten links das Logo des Schleswig-Holstein Magazins"
+  },
   "resources": {
     "sectionLabel": "Ressourcen",
     "title": "Weiterführende Links & Erwähnungen",

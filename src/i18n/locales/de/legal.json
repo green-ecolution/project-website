@@ -175,6 +175,18 @@
           "paragraph2": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.",
           "paragraph3": "Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt. Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt."
         }
+      },
+      "pluginsAndTools": {
+        "title": "5. Plugins und Tools",
+        "ndrMediathek": {
+          "title": "NDR Mediathek",
+          "paragraph1": "Auf dieser Website binden wir einen Fernsehbeitrag aus der Mediathek des Norddeutschen Rundfunks ein. Anbieter ist der Norddeutsche Rundfunk, Anstalt des öffentlichen Rechts, Rothenbaumchaussee 132, 20149 Hamburg.",
+          "paragraph2": "Der Player wird nicht automatisch geladen. Solange Sie ihn nicht selbst starten, wird keine Verbindung zu den Servern des NDR aufgebaut und es werden keine Daten dorthin übertragen. Das Vorschaubild wird von unserem eigenen Server ausgeliefert.",
+          "paragraph3": "Erst wenn Sie den Beitrag über den Play-Button starten, wird der Player des NDR nachgeladen. Dabei erfährt der NDR unter anderem Ihre IP-Adresse und kann Cookies oder vergleichbare Technologien einsetzen, um die Nutzung des Beitrags zu messen. Auf Art und Umfang dieser Verarbeitung haben wir keinen Einfluss.",
+          "paragraph4": "Rechtsgrundlage für das Nachladen des Players ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie mit dem Klick auf den Play-Button erteilen. Sie können sie jederzeit widerrufen, indem Sie die Seite neu laden und den Player nicht erneut starten.",
+          "paragraph5": "Nähere Informationen zum Umgang mit Nutzerdaten finden Sie in der",
+          "privacyPolicyLinkLabel": "Datenschutzerklärung des NDR"
+        }
       }
     },
     "footer": {
