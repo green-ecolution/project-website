@@ -11,6 +11,7 @@ const NAMESPACES = [
   'releases',
   'legal',
   'blog',
+  'press',
 ]
 const LANGUAGES = ['de', 'en']
 const REFERENCE = 'de'

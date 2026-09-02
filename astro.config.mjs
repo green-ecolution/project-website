@@ -45,6 +45,13 @@ export default defineConfig({
       // Build-time fallback only. nginx overrides it at serve time through
       // window._env_, see src/lib/runtimeEnv.ts.
       VIDEO_BASE_URL: envField.string({ context: 'client', access: 'public', optional: true }),
+      // Press downloads are plain links, so unlike the videos they need no
+      // runtime override: swapping a file in the bucket is enough.
+      ASSET_BASE_URL: envField.string({
+        context: 'server',
+        access: 'public',
+        default: 'https://green-ecolution-public-videos.s3.de.io.cloud.ovh.net',
+      }),
     },
   },
   fonts: [

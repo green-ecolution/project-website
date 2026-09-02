@@ -30,6 +30,18 @@ The site runs on http://localhost:4321
 pnpm build
 ```
 
+## Press downloads
+
+The press page links its files straight from the S3 bucket, so a new logo or a
+new pitch deck is a bucket upload, not a deploy.
+
+`ASSET_BASE_URL` in `astro.config.mjs` points at the bucket and is the only
+place to change when the files move.
+
+The SVG sources carry 8% clear space around the artwork, and the icon sits on a
+square canvas. Replacing a source means keeping that framing, otherwise the
+downloads and the preview on the press page stop matching.
+
 ## Contact
 
 [info@green-ecolution.de](mailto:info@green-ecolution.de) · [GitHub Organization](https://github.com/green-ecolution)
