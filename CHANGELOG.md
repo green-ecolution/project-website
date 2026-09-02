@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.12.0...v1.13.0) (2026-09-02)
+
+
+### Features
+
+* **press:** add a press page with logo and pitch deck downloads ([#465](https://github.com/green-ecolution/green-ecolution.de/issues/465)) ([77fcf0f](https://github.com/green-ecolution/green-ecolution.de/commit/77fcf0fabc83c215e99758938cd82da9394de9db))
+
 ## [1.12.0](https://github.com/green-ecolution/green-ecolution.de/compare/v1.11.3...v1.12.0) (2026-09-02)
 
 
