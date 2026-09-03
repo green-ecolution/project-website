@@ -1,0 +1,166 @@
+---
+version: '0.6.0'
+date: '2026-09-03'
+author: 'cedrik-hoffmann'
+title: 'Kommentare an Gruppen und Einsatzplänen, englische Oberfläche und geprüfte Sensordaten'
+summary: 'Version 0.6.0 bringt drei größere Neuerungen. An Bewässerungsgruppen und Einsatzplänen lassen sich Kommentare hinterlegen, die Oberfläche ist auf Englisch umstellbar, und eingehende Sensordaten werden vor der Auswertung auf Plausibilität geprüft. Dazu kommen eine neu gestaltete Anmeldeseite, mehrere Absicherungen an der Schnittstelle und eine Reihe von Korrekturen.'
+highlights:
+  - 'Kommentare'
+  - 'Mehrsprachigkeit'
+  - 'Datenqualität'
+  - 'Anmeldeseite'
+  - 'Sicherheit'
+changelog:
+  - type: 'feat'
+    description: 'Kommentare an Bewässerungsgruppen und Einsatzplänen, bearbeitbar und löschbar durch die verfassende Person'
+    pr: 1013
+  - type: 'feat'
+    scope: 'frontend'
+    description: 'Oberfläche vollständig übersetzt, Englisch als zweite Sprache, Umschaltung in den Profileinstellungen'
+    pr: 1012
+  - type: 'feat'
+    scope: 'api'
+    description: 'Fehlerantworten tragen stabile Codes und Feldschlüssel, damit Meldungen in der eingestellten Sprache erscheinen'
+    pr: 999
+  - type: 'feat'
+    scope: 'sensor'
+    description: 'Unplausible Messwerte werden markiert, von der Auswertung ausgeschlossen und als Datenqualität je Sensor ausgewiesen'
+    pr: 998
+  - type: 'feat'
+    description: 'Anmeldeseite im Erscheinungsbild der Anwendung'
+    pr: 996
+  - type: 'feat'
+    scope: 'backend'
+    description: 'Betriebsinformationen und Rollen nur noch mit Berechtigung lesbar, unsichere Konfigurationen verhindern den Start'
+    pr: 1011
+  - type: 'refactor'
+    scope: 'frontend'
+    description: 'Baum-Detailseite als Stammdatenblatt ohne doppelte Sensordiagramme'
+    pr: 997
+  - type: 'fix'
+    description: 'Ohne passende Kalibrierung steht der Bewässerungszustand auf unbekannt statt auf einem eingefrorenen Wert'
+    pr: 995
+  - type: 'fix'
+    scope: 'frontend'
+    description: 'Der Statusdialog eines Einsatzplans bietet nur noch mögliche Übergänge an, mit Begründungsfeld für „Nicht angetreten"'
+    pr: 986
+  - type: 'fix'
+    scope: 'frontend'
+    description: 'Vor ungespeicherten Änderungen wird nur nach einer tatsächlichen Eingabe gewarnt'
+    pr: 989
+  - type: 'fix'
+    scope: 'frontend'
+    description: 'Die Anmeldung startet erst beim Klick, nicht schon beim Überfahren eines Links'
+    pr: 992
+  - type: 'fix'
+    scope: 'frontend'
+    description: 'Nach einer abgebrochenen Anmeldung führt die Rückkehr zur Startseite statt auf eine leere Seite'
+    pr: 1001
+  - type: 'fix'
+    scope: 'frontend'
+    description: 'Die Seiten für Organisationen und Rollen erscheinen auch beim Direktaufruf in der breiten Darstellung'
+    pr: 1000
+  - type: 'fix'
+    scope: 'backend'
+    description: 'Das Bearbeiten oder Löschen einer Rolle kann die eigenen Verwaltungsrechte nicht mehr entziehen'
+    pr: 991
+  - type: 'fix'
+    scope: 'backend'
+    description: 'Beim Organisationswechsel wird die Person als Ansprechperson der alten Organisation gelöst'
+    pr: 990
+  - type: 'fix'
+    description: 'Der Seitenpfad im Kopfbereich erzeugt keine Konsolenmeldung mehr'
+    pr: 988
+  - type: 'fix'
+    scope: 'backend'
+    description: 'In der Demo-Instanz gehört der anmeldefreie Zugang einer Organisation an'
+    pr: 1014
+---
+
+Bisher ließ sich in der Anwendung festhalten, was gemessen und was gefahren wurde, aber nicht, was jemand dabei beobachtet hat. Version 0.6.0 ergänzt Kommentare an Bewässerungsgruppen und Einsatzplänen. Daneben steht eine Änderung, die die Anwendung über den bisherigen Nutzerkreis hinausträgt: Die Oberfläche lässt sich auf Englisch umstellen. Und eingehende Sensordaten werden vor der Auswertung auf Plausibilität geprüft.
+
+## Highlight des Releases
+
+### Kommentare an Bewässerungsgruppen und Einsatzplänen
+
+Beobachtungen aus dem Feld hatten bislang keinen Ort in der Anwendung. Ob eine Gruppe wegen einer Baustelle nicht angefahren werden konnte oder warum ein Einsatz anders verlief als geplant, stand bestenfalls in einer Notiz außerhalb des Systems.
+
+Die Detailseite einer Bewässerungsgruppe und die eines Einsatzplans tragen jetzt einen Kommentarbereich. Wer die Gruppe oder den Plan sehen darf, darf dort auch schreiben. Bearbeiten und Löschen bleibt der Person vorbehalten, die den Kommentar verfasst hat; ein bearbeiteter Kommentar ist als solcher gekennzeichnet. Längere Verläufe werden nachgeladen, statt die Seite mit Hunderten von Einträgen zu füllen. Wird eine Gruppe oder ein Einsatzplan gelöscht, verschwinden die zugehörigen Kommentare mit.
+
+![Kommentarbereich einer Bewässerungsgruppe mit Eingabefeld und drei Einträgen von zwei Personen, die jüngste Antwort ist als bearbeitet gekennzeichnet](../../../assets/releases/v0.6.0-kommentare.png)
+
+## Neue Funktionen
+
+### Englisch als zweite Sprache
+
+Die Oberfläche lag bisher ausschließlich auf Deutsch vor. Sämtliche Texte sind jetzt in Katalogen hinterlegt und in Deutsch und Englisch übersetzt. Umgestellt wird in den Profileinstellungen. Die Auswahl gilt für den jeweiligen Browser und wirkt sofort, ohne Neuladen. Mit der Sprache wechseln auch die Datums- und Zahlenformate.
+
+Das betrifft nicht nur die Texte, die in der Oberfläche stehen. Meldungen zu abgelehnten Eingaben kamen bisher teilweise als fertige englische Sätze aus der Schnittstelle. Stattdessen liefert sie für jede Ursache einen stabilen Code und für jedes beanstandete Feld einen Schlüssel. Die Meldung selbst setzt die Oberfläche daraus in der eingestellten Sprache zusammen. Damit ist auch die Grundlage dafür gelegt, weitere Sprachen zu ergänzen, ohne die Schnittstelle anzufassen.
+
+### Plausibilitätsprüfung für Sensordaten
+
+Ein Messwert außerhalb des physikalisch möglichen Bereichs oder ein unplausibler Sprung gegenüber dem Vorwert konnte den Bewässerungszustand einer ganzen Gruppe verfälschen. Eingehende Messwerte werden deshalb beim Empfang geprüft. Auffällige Werte werden gespeichert und markiert, aber von der Auswertung ausgeschlossen. Bewässerungszustand und Diagramme beruhen damit auf den übrigen Werten. Die Markierung sitzt am einzelnen Messwert und nicht an der gesamten Übertragung, weil im Regelfall eine einzelne Sonde ausfällt und Batterie- und Temperaturwerte weiter stimmen.
+
+In der Sensorübersicht und auf den Sensorkarten der Baum- und Gruppenseiten trägt ein Sensor damit einen von drei Zuständen: „Daten plausibel", „Einzelne Werte verworfen" oder „Datenqualität prüfen". Der dritte steht für mehrere Übertragungen in Folge ohne verwertbaren Messwert und damit für den Verdacht auf einen Defekt. Die Detailseite nennt die betroffenen Messwerte mit Tiefe und Grund, im Verlaufsdiagramm sind verworfene Werte gekennzeichnet.
+
+Wer die Ursache kennt, etwa eine bei der Vorbereitung noch nicht angeschlossene Sonde, kann den Stand mit einer Notiz zur Kenntnis nehmen. Das ist keine Erledigt-Markierung, sondern eine Wasserstandsmarke: Treten danach wieder unplausible Werte auf, meldet sich der Sensor von selbst erneut. Sensoren, die noch nicht in Betrieb genommen wurden, melden gar nichts, weil eine nicht angeschlossene Sonde dort der Normalfall ist.
+
+![Abschnitt Datenqualität auf der Sensor-Detailseite mit der Warnung Datenqualität prüfen, dem Vermerk der letzten Prüfung und sechs verworfenen Messwerten aus drei Übertragungen](../../../assets/releases/v0.6.0-datenqualitaet.png)
+
+### Anmeldeseite im Erscheinungsbild der Anwendung
+
+Die Anmeldung lief über die Standardoberfläche von Keycloak und wirkte entsprechend wie ein fremdes System. Sie ist jetzt als eigenes Theme umgesetzt und verwendet die Farben, Schriften und Formularelemente der Anwendung. Das Layout ist zweigeteilt, mit dem Anmeldeformular auf der einen und einem Markenbereich auf der anderen Seite.
+
+![Anmeldeseite mit grünem Markenbereich links und dem Anmeldeformular für Benutzername und Passwort rechts](../../../assets/releases/v0.6.0-anmeldeseite.png)
+
+## Sicherheit
+
+Die Schnittstelle wurde an mehreren Stellen nachgezogen. Die Endpunkte mit Betriebsinformationen gaben ohne Anmeldung Auskunft über Hostname, Laufzeit, die Erreichbarkeit von Datenbank, Identitätsanbieter und Broker sowie über die Zahl der gespeicherten Datensätze. Sie stehen jetzt hinter der Anmeldung. Öffentlich bleiben die Version, die im Fußbereich vor jeder Anmeldung erscheint, und die Kartenkonfiguration, ohne die sich die Karte nicht zeichnen lässt.
+
+Rollen ließen sich außerdem organisationsübergreifend lesen: Jedes angemeldete Konto konnte Namen und Rechteumfang der Rollen fremder Organisationen abfragen. Beide Endpunkte prüfen jetzt das Leserecht in der adressierten Organisation.
+
+Zwei weitere Punkte betreffen den Betrieb. Eine Konfiguration ohne Authentifizierung war in Staging und Produktion nur einen vertippten Wert entfernt und hätte dort jede Anfrage zu einer unbeschränkten anonymen Anfrage gemacht. Der Start bricht in diesem Fall jetzt ab, ebenso wenn eine aus dem Internet erreichbare Umgebung beliebige Herkünfte für Cross-Origin-Anfragen zulässt. Die öffentliche Demo-Instanz, die bewusst ohne Anmeldung läuft, ist dafür eine eigene Umgebung mit eigener Konfiguration. Ein Fehler in der Verarbeitung einer Anfrage endet außerdem nicht mehr in einer abgebrochenen Verbindung, sondern in einer regulären Fehlerantwort; eine Anfrage, die nach 60 Sekunden nicht beantwortet ist, wird beendet.
+
+## Weitere Verbesserungen
+
+### Baum-Detailseite
+
+Die Detailseite eines Baums enthielt einen eigenen Reiter mit Sensordaten und Rohdiagrammen. Beides gibt es auf der Sensor- und der Gruppenseite bereits, dort mit aufbereiteten Verläufen, sodass die Baumseite entweder dieselbe Kurve ein zweites Mal oder eine leere Karte zeigte. Sie ist jetzt ein Stammdatenblatt: Kopf mit dem Bewässerungszustand, zwei Kennzahlen und vier Karten für Standort, Gruppe, Sensor und Stammdaten. Verläufe bleiben der Sensor- und der Gruppenseite vorbehalten.
+
+![Detailseite eines Baums mit Bewässerungszustand, Datum der letzten Bewässerung und den Karten für Standort, Bewässerungsgruppe, Sensor und Stammdaten](../../../assets/releases/v0.6.0-baum-detailseite.png)
+
+## Behobene Fehler
+
+### Bewässerungszustand ohne Kalibrierung
+
+Wurde die Bodenart einer Gruppe auf unbekannt gesetzt, blieben ihre Bäume auf dem zuletzt errechneten Zustand stehen. Ohne passende Kalibrierung lässt sich der Wert nicht neu bestimmen, und die Anwendung übersprang die Berechnung, statt den Zustand zu verwerfen. Der veraltete Wert wurde weiter als aktueller Stand dargestellt. Fehlt die Kalibrierung, steht der Zustand jetzt auf unbekannt. Dasselbe gilt für Bäume jenseits des überwachten Wachstumszeitraums. Fehlerhafte Übertragungen werden weiterhin übersprungen, damit ein einzelner defekter Uplink keinen gültigen Wert verwirft.
+
+### Anmeldung
+
+Auf der Startseite genügte es, mit dem Mauszeiger über einen Link zu fahren, um die Anmeldung auszulösen. Der Router bereitet die Zielroute schon beim Überfahren vor, und die Prüfung startete dabei die Weiterleitung. Sie beginnt jetzt erst beim Klick.
+
+Kehrte jemand zur Anwendung zurück, ohne die Anmeldung abgeschlossen zu haben, blieb die Seite leer und ließ sich nur durch Neuladen wiederherstellen. Betroffen waren die installierte App, die die Anmeldung in einem eigenen Tab öffnet, und die Rückkehr über den Zurück-Schalter des Browsers. Beide Fälle führen jetzt auf die Startseite mit der Anmeldeschaltfläche. Ein länger hängender Ladevorgang zeigt außerdem einen Ladeindikator statt einer leeren Fläche.
+
+### Formulare und Einsatzplanung
+
+Das bloße Öffnen eines Formulars reichte aus, damit der Browser beim Neuladen oder Schließen vor ungespeicherten Änderungen warnte, auch ohne jede Eingabe. Die Warnung erscheint jetzt nur nach einer tatsächlichen Bearbeitung. Zwei weitere Auslöser fielen ebenfalls weg: Der vorbelegte Startpunkt im Einsatzplan-Formular und eine unverändert übernommene Baumauswahl hatten das Formular als bearbeitet markiert.
+
+Im Dialog zum Statuswechsel eines Einsatzplans standen alle sechs Zustände zur Auswahl, darunter solche, die die Anwendung anschließend ablehnte. Der Fehler zeigte sich erst nach dem Absenden. Angeboten werden jetzt nur die vom aktuellen Zustand aus möglichen Übergänge, und bei einem Endzustand erscheint ein erklärender Hinweis statt eines Formulars, das nicht zum Ziel führen kann. Für „Nicht angetreten" fehlte zudem das Begründungsfeld, ohne das sich der Wechsel gar nicht speichern ließ.
+
+### Organisationen und Rollen
+
+Beim Bearbeiten oder Löschen einer Rolle, die man selbst innehat, ließen sich die eigenen Rechte zur Rollen- und Benutzerverwaltung entziehen und damit das eigene Konto aussperren. Der Weg über die eigene Rollenzuweisung war bereits gesperrt, der über die Rollendefinition nicht. Beide Änderungen werden jetzt vorab durchgerechnet und abgelehnt, wenn die eigenen Verwaltungsrechte danach fehlen würden. Eine Rolle, die man selbst hat, lässt sich weiterhin bearbeiten, solange diese Rechte erhalten bleiben.
+
+Wechselte eine Person die Organisation, blieb sie als Ansprechperson der alten Organisation eingetragen, obwohl sie ihr nicht mehr angehörte. Die Zuordnung wird jetzt vor dem Wechsel gelöst.
+
+Die Seiten für Organisationen und Rollen erschienen beim direkten Aufruf oder nach einem Neuladen in der schmalen Darstellung für kleine Bildschirme, auch in einem breiten Fenster. Der Grund war eine Messung der Fensterbreite, die stattfand, während die Seite noch lud. Gemessen wird jetzt, sobald die Ansicht tatsächlich da ist.
+
+In der öffentlichen Demo-Instanz gehörte der anmeldefreie Zugang keiner Organisation an. Formulare belegten deshalb die falsche Organisation vor, auf der Karte waren fast alle Bäume abgedunkelt und nicht auswählbar, und die Seiten für Rollen und Organisationen blieben leer. Der Zugang ist jetzt einer Organisation zugeordnet.
+
+## Ausblick
+
+Die Kommentare sind ein erster Schritt. An einer Bewässerungsgruppe sollen sich langfristig auch Fotos und Dokumente hinterlegen lassen; das ist als Idee erfasst, aber noch nicht eingeplant.
+
+Die Freigabe einzelner Ressourcen an Unterorganisationen, im Ausblick von [0.5.1](/releases/v0.5.1) genannt, steht weiterhin aus. Sie bleibt der nächste größere Schritt beim Rechtemodell, damit eine beauftragte Firma einen Bestand betreuen kann, ohne dass er ihr übertragen wird.
+
+Rückmeldungen und Fehlerberichte sind jederzeit willkommen auf [GitHub](https://github.com/green-ecolution/green-ecolution/issues).
