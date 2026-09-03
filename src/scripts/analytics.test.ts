@@ -22,3 +22,31 @@ describe('analytics', () => {
     expect(() => document.dispatchEvent(new Event('astro:page-load'))).not.toThrow()
   })
 })
+
+describe('isTrackedHost', () => {
+  test('accepts the public site and its subdomains', async () => {
+    const { isTrackedHost } = await import('./analytics')
+
+    expect(isTrackedHost('green-ecolution.de')).toBe(true)
+    expect(isTrackedHost('www.green-ecolution.com')).toBe(true)
+    expect(isTrackedHost('green-ecolution.io')).toBe(true)
+  })
+
+  test('rejects local and look-alike hosts', async () => {
+    const { isTrackedHost } = await import('./analytics')
+
+    expect(isTrackedHost('localhost')).toBe(false)
+    expect(isTrackedHost('127.0.0.1')).toBe(false)
+    expect(isTrackedHost('green-ecolution.attacker.com')).toBe(false)
+    expect(isTrackedHost('notgreen-ecolution.de')).toBe(false)
+  })
+
+  test('does not inject the tracker off the public site', async () => {
+    vi.resetModules()
+    expect(window.location.hostname).not.toMatch(/green-ecolution/)
+
+    await import('./analytics')
+
+    expect(document.querySelector('script[src*="analytics.progeek.de"]')).toBeNull()
+  })
+})

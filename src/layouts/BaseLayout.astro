@@ -123,7 +123,8 @@ const feeds = [
     <meta name="msapplication-TileColor" content="#4C7741" />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
-    <script src="https://analytics.progeek.de/a.js?id=O04QUGhRUjN3" is:inline defer></script>
+    <!-- The analytics client is injected by src/scripts/analytics.ts, and only
+    on the public site. -->
 
     <ClientRouter />
   </head>

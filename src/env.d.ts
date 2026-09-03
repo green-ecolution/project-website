@@ -1,4 +1,4 @@
-// Injected by the analytics.progeek.de client script (a.js), see BaseLayout.astro.
+// Injected by the analytics.progeek.de client script (a.js), see src/scripts/analytics.ts.
 interface Analytics {
   pageView(): void
   trackEvent(eventName: string, data?: Record<string, unknown>): void
