@@ -18,7 +18,7 @@
     "@astrojs/mdx": "^7.0.8",
     "@astrojs/react": "^6.0.5",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@react-three/fiber": "^9.7.0",
     "@splidejs/react-splide": "^0.7.12",
     "astro": "^7.2.9",
