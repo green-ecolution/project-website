@@ -47,7 +47,7 @@
     "eslint-plugin-react-x": "^2.13.0",
     "globals": "^17.11.0",
     "jsdom": "^30.0.1",
-    "postcss": "^8.5.26",
+    "postcss": "^8.5.28",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.35.4",
